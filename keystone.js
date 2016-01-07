@@ -19,7 +19,7 @@ keystone.init({
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
-	'view engine': 'jade',
+	'view engine': 'nunjucks',
 	
 	'emails': 'templates/emails',
 	
