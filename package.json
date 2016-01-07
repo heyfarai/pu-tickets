@@ -9,7 +9,6 @@
     "dotenv": "1.1.0",
     "keystone": "~0.3.11",
     "nunjucks": "^2.3.0",
-    "swig": "^1.4.2",
     "underscore": "~1.8.3"
   },
   "devDependencies": {
