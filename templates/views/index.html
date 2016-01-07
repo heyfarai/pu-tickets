@@ -1,34 +1,62 @@
 {% extends "templates/layouts/default.html" %}
 
+{% macro workshopItem(w) %}
+
+                    <div class="class-picker-item">
+                        <a class="advanced-mobile" href="/workshops/{{ w.slug }}">
+                            <div class="item-inner">
+                                <div class="row">
+                                    <div class="columns small-2">
+                                        <div class="eyebrow">
+                                            <div class="date">
+                                                <span class="day">{{ w._.eventDate.format("Do") }}</span>
+                                                <span class="month">{{ w._.eventDate.format("MMM") }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="columns small-10">
+                                        <h2><span>{{ w.level }}</span> {{ w.title }}</h2>
+                                        <p>{{ w.content.brief.md }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+{% endmacro %}
+
+
+
+<!-- <div class="post" data-ks-editable="editable(user, { list: " Post ", id: post.id })">
+	<h2>
+		<a href="/blog/post/{{ post.slug }}">{{ post.title }}</a>
+	</h2>
+	<p class="lead text-muted">Posted
+		{% if post.publishedDate %}
+			<br>on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
+		{% endif %}
+		{% if post.categories and post.categories.length %}
+			<br>in {% for cat in post.categories %}<a href="/blog/{{ cat.key }}">{{ cat.name }}</a>{% if loop.index < post.categories.length %}, {% endif %}{% endfor %}
+		{% endif %}
+		{% if post.author %}
+			<br>by {{ post.author.name.first }}
+		{% endif %}
+	</p>
+	{% if post.image.exists %}
+		<img src="{{ post._.image.fit(160,160) }}" class="img pull-right">
+	{% endif %}
+	<p>{{ post.content.brief|safe }}</p>
+	{% if post.content.extended %}
+		<p class="read-more">
+			<a href="/blog/post/{{ post.slug }}">Read more...</a>
+		</p>
+	{% endif %}
+</div> -->
+
+
 {% block content %}
 	<div class="container">
-		<div class="jumbotron">
-			<img src="/images/logo.svg" width="160">
-			<h1>Welcome</h1>
-			<p>This is your new <a href="http://keystonejs.com" target="_blank">KeysjbitoneJS</a> website.</p>
-			<p>
-				It includes the latest versions of
-				<a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>
-				and <a href="http://www.jquery.com/" target="_blank">jQuery</a>.
-			</p>
-			<p>Visit the <a href="http://keystonejs.com/guide" target="_blank">Getting Started</a> guide to learn how to customise it.</p>
-			<hr>
-			{% if user and user.canAccessKeystone %}
-				<p>
-					<a href="/keystone" class="btn btn-lg btn-primary">Open the Admin UI</a>
-				</p>
-			{% else %}
-				<p>We have created a default Admin user for you with the email <strong><%= adminLogin %></strong> and the password <strong><%= adminPassword %></strong>.</p>
-				<p>
-					<a href="/keystone/signin" style="margin-right: 10px" class="btn btn-lg btn-primary">Sign in</a>
-					to use the Admin UI.
-				</p>
-			{% endif %}
-			<hr>
-			<p>
-				Remember to <a href="https://github.com/keystonejs/keystone" target="_blank">Star KeystoneJS on GitHub</a> and
-				<a href="https://twitter.com/keystonejs" target="_blank">follow @keystonejs</a> on twitter for updates.
-			</p>
+		<div>
+			{% for w in data.workshops %} {{ workshopItem(w) }} {% endfor %}
 		</div>
 	</div>
 {% endblock %}
