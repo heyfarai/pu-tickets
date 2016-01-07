@@ -1,11 +1,11 @@
-{% extends "templates/layouts/default.html" %}
+{% extends "../layouts/default.swig" %}
 
 {% block content %}
 	<div class="container">
 		<div class="jumbotron">
 			<img src="/images/logo.svg" width="160">
 			<h1>Welcome</h1>
-			<p>This is your new <a href="http://keystonejs.com" target="_blank">KeysjbitoneJS</a> website.</p>
+			<p>This is your new <a href="http://keystonejs.com" target="_blank">KeystoneJS</a> website.</p>
 			<p>
 				It includes the latest versions of
 				<a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>
@@ -18,7 +18,7 @@
 					<a href="/keystone" class="btn btn-lg btn-primary">Open the Admin UI</a>
 				</p>
 			{% else %}
-				<p>We have created a default Admin user for you with the email <strong><%= adminLogin %></strong> and the password <strong><%= adminPassword %></strong>.</p>
+				<p>We have created a default Admin user for you with the email <strong>user@keystonejs.com</strong> and the password <strong>admin</strong>.</p>
 				<p>
 					<a href="/keystone/signin" style="margin-right: 10px" class="btn btn-lg btn-primary">Sign in</a>
 					to use the Admin UI.
