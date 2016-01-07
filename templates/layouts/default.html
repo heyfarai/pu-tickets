@@ -1,4 +1,4 @@
-{% import "../mixins/flash-messages.swig" as FlashMessages %}
+{% import "templates/mixins/flash-messages.html" as FM %}
 
 <!doctype html>
 <html>
@@ -84,14 +84,14 @@
 			   Remember to include it in your templates when you override the intro and content blocks! #}
 
 			{# The Intro block appears above flash messages (used for temporary information display) #}
-			{%- block intro -%}{%- endblock -%}
+			{% block intro %}{% endblock %}
 
 			{# Flash messages allow you to display once-off status messages to users, e.g. form
 			   validation errors, success messages, etc. #}
-			{{ FlashMessages.renderMessages(messages) }}
+			{{ FM.flashMessages(messages) }}
 
 			{# The content block should contain the body of your template"s content #}
-			{%- block content -%}{%- endblock -%}
+			{% block content %}{% endblock %}
 		</div>
 
 		{# FOOTER #}
