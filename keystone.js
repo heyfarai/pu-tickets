@@ -16,8 +16,8 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'KeystoneJS',
-	'brand': 'KeystoneJS',
+	'name': 'Pixel Up!',
+	'brand': 'Pixel Up!',
 
 	'less': 'public',
 	
