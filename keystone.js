@@ -37,8 +37,6 @@ keystone.init({
 	
 });
 
-console.log(keystone)
-
 // Load your project's Models
 
 keystone.import('models');
