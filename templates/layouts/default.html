@@ -7,17 +7,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title>{{ title|default("ipcdscip") }}</title>
+		<title>{{ title |default("Pixel Up!") }}</title>
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-		{# Customise the stylesheet for your site by editing /public/styles/site.less
-		//- All .less files will be automatically compiled and minified in production. #}
-		<link href="/styles/site.min.css" rel="stylesheet">
+	    <link rel="stylesheet" href="/css/foundation.css" />
+	    <link rel="stylesheet" href="/css/foundation-icons.css" />
+		<link href="/css/pixelup.min.css" rel="stylesheet">
 
-		{# This file provides the default styling for the KeystoneJS Content Editor #}
-		{%- if user and user.canAccessKeystone -%}
-			<link href="/keystone/styles/content/editor.min.css" rel="stylesheet">
-		{%- endif -%}
+	    <script src="/js/vendor/modernizr.js"></script>
+
 
 		{# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
 		   Safely remove this block if you are not targeting IE8 #}
@@ -26,43 +24,29 @@
 			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
-		{# Include template-specific stylesheets by extending the css block #}
-		{%- block css %}{% endblock -%}
-
-		{# Add any other template-specific HEAD tags by extending the head block #}
-		{%- block head %}{% endblock %}
 	</head>
-	<body>
+    <body id="{{ class_type }}">
 
 		{# HEADER #}
 		<div id="header" class="container">
 
-			{# Customise your site"s navigation by changing the navLinks Array in ./routes/middleware.js
-			   ... or completely change this header to suit your design. #}
-			<div role="navigation" class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="/">ipip</a>
-					</div>
-					<div class="collapse navbar-collapse">
-						<ul class="nav navbar-nav navbar-left">
-							{%- for link in navLinks -%}
-								{%- set linkClass = '' -%}
-								{%- if link.key == section -%}
-									{%- set linkClass = ' class="active"' -%}
-								{%- endif %}
-								<li{{ linkClass | safe }}>
-									<a href="{{ link.href }}">{{ link.label }}</a>
-								</li>
-							{%- endfor %}
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
+        <div class="fixed">
+            <div class="top-bar fullWidth ">
+                <div class="row">
+                    <div class="small-5 medium-4 columns">
+                        <h1>
+                            <a class="icon hidden-for-medium-up" href="#" aria-expanded="false">
+                                <span><img src="/img/icon_burger.png" /></span>
+                            </a>
+                            <a href="/" class="logo">
+                                <span>{% block classs_name %}Pixel Up!{% endblock %}</span>
+                            </a>
+                        </h1>
+                    </div>
+                    <div class="nav small-7 medium-8 columns">
+                        <ul class="main-nav no-bullet right show-for-medium-up">
+                            <li><a class="nav-venue" href="/venue/">Venue</a></li>
+                            <li><a class="nav-basic" href="/basic/">Contact us</a></li>
 							{% if user -%}
 								{%- if user.canAccessKeystone -%}
 									<li><a href="/keystone">Open Keystone</a></li>
@@ -71,53 +55,125 @@
 							{%- else -%}
 								<li><a href="/keystone/signin">Sign In</a></li>
 							{%- endif %}
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+			
 
 		{# BODY #}
-		<div id="body">
-			{# NOTE:
-			   There is no .container wrapping class around body blocks to allow more flexibility in design.
-			   Remember to include it in your templates when you override the intro and content blocks! #}
+		{# NOTE:
+		   There is no .container wrapping class around body blocks to allow more flexibility in design.
+		   Remember to include it in your templates when you override the intro and content blocks! #}
 
-			{# The Intro block appears above flash messages (used for temporary information display) #}
-			{% block intro %}{% endblock %}
+		{# The Intro block appears above flash messages (used for temporary information display) #}
+		{% block intro %}{% endblock %}
 
-			{# Flash messages allow you to display once-off status messages to users, e.g. form
-			   validation errors, success messages, etc. #}
-			{{ FM.flashMessages(messages) }}
+		{# Flash messages allow you to display once-off status messages to users, e.g. form
+		   validation errors, success messages, etc. #}
+		{{ FM.flashMessages(messages) }}
 
-			{# The content block should contain the body of your template"s content #}
-			{% block content %}{% endblock %}
-		</div>
 
-		{# FOOTER #}
-		<div id="footer" class="container">
-			{# You don"t _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it! #}
-			<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
-		</div>
+		{% block content %}{% endblock %}
+        {% include "templates/views/footer.html" %}
+        {% include "templates/views/partials/bookingModal.html" %}
+        <script src="/js/vendor/jquery.js"></script>
+        <script src="/js/vendor/jquery.form.min.js"></script>
+        <script src="/js/foundation.min.js"></script>
+        <script src="/js/foundation/foundation.abide.js"></script>
+        <script src="/js/foundation/foundation.alert.js"></script>
+        <script>
+            $(document).foundation();
+            $(document).ready(function() { 
+                $('.icon').click(function(){
+                    $('.top-bar').toggleClass('expand')
+                    $('.main-nav').toggle()
+                })
+                var distance  = $(window).scrollTop();
+                var nav = $('.top-bar'); // Change to nav div
+                var nav_class = 'active'; // Change to class name
+                var threshold = 10; // Change to pixels scrolled
 
-		{# JAVASCRIPT #}
+                $(window).scroll(function () {
+                    var distance = $(this).scrollTop();
+                    if (distance > threshold) { // If scrolled past threshold
+                        nav.addClass(nav_class); // Add class to nav
+                    } else { // If user scrolls back to top
+                        if (nav.hasClass(nav_class)) { // And if class has been added
+                            nav.removeClass(nav_class); // Remove it
+                        }
+                    }
+                });
+                $('#myEmail').html(function(){
+                    var e = "farai";
+                    var a = "@";
+                    var d = "me";
+                    var c = ".com";
+                    var h = 'mailto:' + e + a + d + c;
+                    $(this).parent('a').attr('href', h);
+                    return e + a + d + c;
+                });
+                $(document).on('closed.fndtn.reveal', '[data-reveal]', function () {
+                    var modal = $(this);
+                    if(formSubmitted != false) {
+                        // clear the form
+                        $('#bookingConfirmed').hide()
+                        $('#bookingForm').show()
+                        $('#bookingAlert').hide()
+                        $('#bookingAlert').text('')
+                    }
+                });
+                $(document).on('open.fndtn.reveal', '[data-reveal]', function () {
+                    var modal = $(this);
+                    mixpanel.track("Booking Attempt");
+                });
+                var formSubmitted = false;
 
-		{# jQuery 1.11.3 is included by default, and required by both Bootstrap
-			and the KeystoneJS Content Editor. If you are not targeting IE8,
-			you can upgrade to 2.1.4 (also bundled) for better performance. #}
-		<script src="/js/jquery/jquery-1.11.3.min.js"></script>
+                function processJson(data) { 
+                    formSubmitted = true
 
-		{# Customise which Bootstrap javascript files are served by including
-			them specifically here, instead of bootstrap-3.3.5.min.js #}
-		<script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+                    // 'data' is the json object returned from the server 
+                    $('#bookingForm').slideUp()
+                    $('#bookingConfirmed').show()
 
-		{# The KeystoneJS Content Editor provides support for ks-editable data attributes,
-			which generate links to edit content for users who can access Keystone #}
-		{% if user and user.canAccessKeystone -%}
-			<script src="/keystone/js/content/editor.js"></script>
-		{%- endif -%}
+                    // show a success alert
+                    $('#bookingAlert').addClass('success')
+                    $('#bookingAlert span').text('Coolness, done')
+                    $('#bookingAlert').slideDown()
+                    $("#bookingSubmit").removeClass('disabled')  
+                    $('#bookingForm input[type=email], #bookingForm input[type=checkbox]').attr("disabled",false); 
+                }
+                function showError(data) {
+                    // show an error alert
+                    $('#bookingAlert').addClass('alert')
+                    $('#bookingAlert span').html('Something went wrong. Try again.')
+                    $('#bookingAlert').slideDown()
+                    $("#bookingSubmit").removeClass('disabled')
+                    $('#bookingForm input[type=email], #bookingForm input[type=checkbox]').attr("disabled",false);          
+                }
 
-		{# Add scripts that are globally required by your site here. #}
+                $('#bookingForm').ajaxForm({ 
+                    // dataType identifies the expected content type of the server response 
+                    dataType:  'json', 
+             
+                    // success identifies the function to invoke when the server response 
+                    // has been received 
+                    success:   processJson ,
+                    error:     showError,
+                    resetForm: true,
+                    beforeSubmit: function(arr, $form, options) { 
+                        $('#bookingAlert').hide()
+                        $('#bookingAlert').removeClass('success')
+                        $('#bookingAlert').removeClass('alert')
+                        $('#bookingAlert span').text('')
+                        $("#bookingSubmit").addClass('disabled')  
+                        $('#bookingForm input[type=email], #bookingForm input[type=checkbox]').attr("disabled",true);          
+                    }
+                }); 
+            });
+        </script>
+
 
 		{# Include template-specific javascript files by extending the js block #}
 		{%- block js -%}{%- endblock -%}
