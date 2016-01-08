@@ -100,18 +100,18 @@
             </div>
         </div>
 
-		
-		{% if data.moreWorkshops %}
-		<div>
-			<h2>Other workshops</h2>
-			<ul>
-			{% for w in data.moreWorkshops %}
-				<li>
-					<a href="/workshops/{{ w.slug }}">{{ w.title }} on {{ w._.eventDate.format("D MMMM YYYY") }}</a>
-				</li>
-			{% endfor %}
-			</ul>
-		</div>
-		{% endif %}
-	</div>
+        
+        {% if data.moreWorkshops %}
+        <div>
+            <h2>Other workshops</h2>
+            <ul>
+            {% for w in data.moreWorkshops %}
+                <li>
+                    <a href="/workshops/{{ w.slug }}">{{ w.title }} on {{ w._.eventDate.format("D MMMM YYYY") }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
 {% endblock %}

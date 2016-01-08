@@ -1,5 +1,7 @@
 {% extends "templates/layouts/default.html" %}
 
+{% set title = "Pixel Up! – One day design courses" %}
+
 {% macro workshopItem(w) %}
 
                     <div class="class-picker-item">
@@ -24,8 +26,9 @@
                     </div>
 {% endmacro %}
 
+
 {% block content %}
-	 		<header class="fullWidth hero">  
+ 		<header class="fullWidth hero">  
             <div class="row">
                 <div class="large-12 columns">
                     <h1>One day, hands-on design courses.</h1>
@@ -42,4 +45,69 @@
                 </div>
             </div>
         </section>
+        <section class="content-section grey">
+            <div class="row">
+                <div class="content-wrapper home-content medium-10 medium-offset-1 columns">
+                    <h2 class="section-heading">Because you want expert training<br>
+                            <small>Real tips and tricks from the field</small>
+                        </h2>
+
+                    {% include 'templates/views/partials/aboutFarai.html' %}
+                </div>
+            </div>
+        </section>
+        <section class="content-section grey">
+            <div class="row">
+                <div class="content-wrapper home-content medium-10 medium-offset-1 columns">
+                    <div class="benefits row">
+                        <div class="medium-12 columns">
+                            <h2 class="section-heading">Because you want to invest in improving your skill</h2>
+                        </div>
+                        <div class="medium-6 columns">
+                            <h5>Small classes. Practical teaching </h5>
+                            <p>No more than 8 people per class. You'll get plenty of hands-on exercises, practice and discussion. You'll learn things that you can start using immediately to improve your apps and websites.</p>
+                        </div>
+                        <div class="medium-6 columns">
+                            <h5>Learn relevant, critical topics</h5>
+                            <p>Our trainers are doing this stuff on a daily basis. They'll share the latest knowledge from the field along with important basics, like usability testing. You'll return to work energized, empowered, and smarter.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-6 columns">
+                            <h5>100% Satisfaction guaranteed</h5>
+                            <p>If you’re not 100% satisfied with the improvements from your class, ask for a FULL REFUND within 30 days after your course. Easy peasy. If we haven't helped you improve your skills, we don’t want your money.</p>
+                        </div>
+                        <div class="medium-6 columns">
+                            <h5>Great location. Tasty munch.</h5>
+                            <p>Learning happens best when you're in great place for it. We've chosen a light airy room in a secluded boutique hotel in Jo'burg. They serve seriously good food and great coffee. We've got you covered.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        <section class="content-section grey">
+            <div class="row">
+                <div class="content-wrapper home-content medium-10 medium-offset-1 columns">
+                    <h2 class="section-heading">Because you want to do good<br>
+                        <small>We contribute part of your fee to a bursary</small>
+                    </h2>
+                    {%  include 'templates/views/partials/panel-doGood.html' %}
+                </div>
+            </div>
+        </section>
+        <section class="content-section grey">
+            <div class="row">
+                <div class="content-wrapper home-content medium-10 medium-offset-1 columns">
+                    <div class="row">
+                        <div class="medium-12 columns">
+                            {% include 'templates/views/partials/convincePanel.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		</div>
+	</div>
 {% endblock %}
