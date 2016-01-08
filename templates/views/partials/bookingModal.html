@@ -1,0 +1,54 @@
+
+    <div id="bookingModal" class="reveal-modal medium" data-reveal>
+        <h2>Book an Axure Class.</h2>
+        <div style="display: none" id="bookingAlert" data-alert class="alert-box radius">
+		  	<!-- Your content goes here -->
+		  	<span></span>
+		  	<a href="#" class="close">&times;</a>
+		</div>
+        <div id="bookingConfirmed" class="hidden" >
+        	<p>We'll send you a notification email as soon as we've scheduled the next classes.</p>
+        	<p>Stay awesome.</p>
+        </div>
+
+        <form id="bookingForm" action="/book/" method="post" data-abide novalidate="novalidate">
+        	<p>The seats on the next class have <strong>sold out</strong>. <br> Be the first to know when new classes become available.</p>
+        	<div class="row">
+        		<div class="columns large-9">
+        			<h5><strong>My email is:</strong></h5>
+
+				  	<div class="email-field">
+				    	<label>Your email <small>required</small>
+							<input type="email" id="email" name="email" placeholder="you@email.com" required>				    	
+						</label>
+				    	<small class="error">An email address is required.</small>
+				  	</div>
+        		</div>
+        	</div>
+		  	<br>
+        	<div class="row">
+        		<div class="columns large-9">
+				  	<h5><strong>I want to know about these classes:</strong></h5>
+					<ul class="no-bullet">
+						<li>
+						 </li>
+						<li>
+							<input id="essential" name="essential" type="checkbox" checked="checked" value="1"><label for="essential">Basic Axure for beginners</label>
+						</li>
+						 <li>
+						 	<input id="advanced_web" name="advanced_web" type="checkbox" checked="checked" value="1"><label for="advanced_web">Advanced Axure for Web prototypes</label>
+						 </li>
+						 <li>
+						 	<input id="advanced_mobile" name="advanced_mobile" type="checkbox" checked="checked" value="1"><label for="advanced_mobile">Advanced Axure for Mobile apps</label>
+						 </li>
+						 <li>
+						 	<br>
+						 	<button id="bookingSubmit" type="submit" class="radius">Notify me</button>
+						 	<p><small>We promise to never sell or share your email.</small></p>
+						 </li>
+					</ul>
+				</div>
+			</div>
+        </form>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>

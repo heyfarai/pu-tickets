@@ -1,0 +1,117 @@
+{% extends "templates/layouts/default.html" %}
+
+{% set title = data.workshop.title %}
+
+{% block content %}
+        <header class="fullWidth hero">  
+            <div class="row">
+                <div class="large-12 columns">
+                    <h1>{{ data.workshop.title }}</h1>
+                    <div class="grey">
+                        <h4>{% block class_tagline %}{% endblock %}</h4>
+                        <p class="caps">Full Day Course</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="row">
+            <div class="content-wrapper small-12 medium-10 medium-offset-1 columns">
+                <div class="row">
+                    <div class="medium-12 columns">
+                        <div class="course-summary">
+                            <div class="row">
+                                <div class="columns">
+                                    <h3>You'll learn how to</h3>
+                                </div>
+                                {% block class_summary %}{% endblock %}
+                                {{ data.workshop.content.full.md }}
+                            </div>
+                        </div>
+                        <hr>
+                        {% include 'templates/views/partials/panel-booking-widget.html' %}
+                        <hr>
+                        <div class="content">
+                            <section>
+                                <h3>What the course covers</h3>
+                                <div class="row">
+                                    {% block class_morning %}{% endblock %}
+                                </div>
+                            </section>
+                            <section>
+                                <h3>Who should attend?<br>
+                                    <small>This course will really benefit:</small>
+                                </h3>
+                                {% block class_target_audience %}
+                                <ul>
+                                    <li>UX designers looking to quickly iterate and communicate their designs</li>
+                                    <li>UI, Visual and Web designers looking to decide how pages should flow before applying design</li>
+                                    <li>Business Analysts or IT professionals who create screens and specification docs</li>
+                                    <li>Project managers who need to define project scope and requirements</li>
+                                </ul>
+                                {% endblock %}
+
+                            </section>
+                            <section>
+                                <h3>Pre-requisites<br>
+                                    <small>To get the best out of this course you'll need:</small>
+                                </h3>
+
+                                <ul>
+                                    {% block prerequisites %}{% endblock %}
+                                    <li>Your laptop with the latest version of Axure RP Pro (You can download a free trial from the Axure website)</li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h3>Learn from an expert<br>
+                                    <small>This training course is usually run by Farai Madzima:</small>
+                                </h3>
+                                    {% include 'templates/views/partials/aboutFarai.html' %}
+                            </section>
+                            <section>
+                                <h3>100% satisfaction guarantee</h3>
+                                <p>If you’re not 100% satisfied with the improvements from your class, ask for a FULL REFUND within 30 days after your course. Easy peasy. If we haven't helped you improve your skills, we don’t want your money.</p>
+                                <h4>How to claim</h4>
+                                <p>At the end of the training course, we'll ask you if you think the training will help you do your job better. If you don't think it will, just tell our trainer who will then organise a refund for you.</p>
+                            </section>
+                            <section>
+                                <h3>Learn. For good<br>
+                                    <small>We contribute part of your fee to a bursary</small>
+                                </h3>
+                                {%  include 'templates/views/partials/panel-doGood.html' %}
+                            </section>
+                            <section>
+                                <h3>A great learning environment</h3>
+                                {%  include 'templates/views/partials/panel-doGood.html' %}
+                            </section>
+                        </div>
+                                <br>
+                        <hr>
+                        {% include 'templates/views/partials/panel-booking-widget.html' %}
+                        <hr>
+                        <div class="row">
+                            <div class="columns">
+                                <br>
+                                {% include 'templates/views/partials/convincePanel.html' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		
+		{% if data.moreWorkshops %}
+		<div>
+			<h2>Other workshops</h2>
+			<ul>
+			{% for w in data.moreWorkshops %}
+				<li>
+					<a href="/workshops/{{ w.slug }}">{{ w.title }} on {{ w._.eventDate.format("D MMMM YYYY") }}</a>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+		{% endif %}
+	</div>
+{% endblock %}
