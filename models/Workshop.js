@@ -13,12 +13,17 @@ var Workshop = new keystone.List('Workshop', {
 
 Workshop.add({
 	title: { type: String, required: true },
+	speaker: { type: Types.Relationship, ref: 'Speaker', index: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	level: { type: Types.Select, options: 'beginner, advanced', default: 'beginner', index: true },
 	eventDate: { type: Types.Date, index: true },
+	eventStartTime: { type: Types.Date, index: true },
+	eventEndTime: { type: Types.Date, index: true },
 	content: {
 		brief: { type: Types.Markdown, height: 150 },
 		extended: { type: Types.Markdown, height: 400 },
+		agendaMorning: { type: Types.Markdown, height: 180 },
+		agendaAfternoon: { type: Types.Markdown, height: 180 },
 		prerequisites: { type: Types.Markdown, height: 180 },
 		audience: { type: Types.Markdown, height: 180 },
 		takeaways: { type: Types.Markdown, height: 180 },

@@ -19,7 +19,7 @@ exports = module.exports = function(req, res) {
 		var q = keystone.list('Workshop').model.findOne({
 			state: 'published',
 			slug: locals.filters.workshop
-		});
+		}).populate('speaker');
 		
 		q.exec(function(err, result) {
 			locals.data.workshop = result;
@@ -31,7 +31,7 @@ exports = module.exports = function(req, res) {
 	// Load other posts
 	view.on('init', function(next) {
 		
-		var q = keystone.list('Workshop').model.find().where('state', 'published').sort('eventDate').limit('3');
+		var q = keystone.list('Workshop').model.find().where('state', 'published').sort('eventDate').populate('speaker').limit('3');
 		
 		q.exec(function(err, results) {
 			locals.data.moreWorkshops = results;

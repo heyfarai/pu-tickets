@@ -63,10 +63,8 @@
                                 </ul>
                             </section>
                             <section>
-                                <h3>Learn from an expert<br>
-                                    <small>This training course is usually run by Farai Madzima:</small>
-                                </h3>
-                                    {% include 'templates/views/partials/aboutFarai.html' %}
+                                <h3><span>Meet</span> {{ data.workshop.speaker.name }} </h3>
+                                    {% include 'templates/mixins/aboutSpeaker.html' %}
                             </section>
                             <section>
                                 <h3>100% satisfaction guarantee</h3>
