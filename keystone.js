@@ -6,6 +6,8 @@ require('dotenv').load();
 var keystone = require('keystone');
 var cons = require('consolidate');
 var nunjucks = require('nunjucks');
+var markdown = require('nunjucks-markdown'),
+    marked = require('marked');
 
 // Require keystone
 var keystone = require('keystone');
@@ -13,6 +15,7 @@ var keystone = require('keystone');
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
+cons.requires.nunjucks = nunjucks.configure({ autoescape: false });
 
 keystone.init({
 
@@ -62,6 +65,8 @@ keystone.set('locals', {
 	editable: keystone.content.editable
 });
 
+keystone.set('auto update', true);
+
 // Load your project's Routes
 
 keystone.set('routes', require('./routes'));
@@ -98,9 +103,10 @@ keystone.set('email tests', require('./routes/emails'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
+	'events': 'workshop-events',
 	'workshops': 'workshops',
-	'speakers': 'speakers',
-	'posts': ['posts', 'post-categories'],
+	'experts': 'experts',
+	'blog': ['posts', 'post-categories'],
 	//'galleries': 'galleries',
 	//'enquiries': 'enquiries',
 	'users': 'users'

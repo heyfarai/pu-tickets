@@ -26,10 +26,6 @@
 
 	</head>
     <body id="{{ class_type }}">
-
-		{# HEADER #}
-		<div id="header" class="container">
-
         <div class="fixed">
             <div class="top-bar fullWidth ">
                 <div class="row">
@@ -46,15 +42,7 @@
                     <div class="nav small-7 medium-8 columns">
                         <ul class="main-nav no-bullet right show-for-medium-up">
                             <li><a class="nav-venue" href="/venue/">Venue</a></li>
-                            <li><a class="nav-basic" href="/basic/">Contact us</a></li>
-							{% if user -%}
-								{%- if user.canAccessKeystone -%}
-									<li><a href="/keystone">Open Keystone</a></li>
-								{%- endif -%}
-								<li><a href="/keystone/signout">Sign Out</a></li>
-							{%- else -%}
-								<li><a href="/keystone/signin">Sign In</a></li>
-							{%- endif %}
+                            <li><a class="nav-basic" href="/contact/">Contact us</a></li>
                         </ul>
                     </div>
                 </div>

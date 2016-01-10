@@ -1,0 +1,50 @@
+{% extends "templates/layouts/default.html" %}
+
+{% set title = "Workshop Venue : Le Clico, Rosebank, Johannesburg – Pixel Up!" %}
+
+
+{% block content %}
+        <header class="fullWidth hero">  
+            <div class="row">
+                <div class="large-12 columns">
+                    <h1>Great location. Tasty munch. Free wi-fi</h1>
+                    <h4>Le Clico Boutique Hotel in Rosebank</h4>
+                    <p>27 Sturdee avenue, Rosebank, Johannesburg</p>
+                </div>
+            </div>
+        </header>
+        <section class="content-section grey">
+            <div class="row">
+                <div class="content-wrapper medium-10 medium-offset-1 columns">
+                    <div class="row">
+                        <div class="columns">
+                            <div class="info-content">
+                            	<br>
+                                <h2 class="section-heading">A great location in Rosebank</h2 class="section-heading">
+                                <div class="framed-img">
+                                	<img src="/img/clico_space.png">
+                                </div>
+                                <h4>How to get there</h4>
+                                <p>To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going. To get going, this file (index.html) includes some basic styles you can modify, play around with.</p>
+                                
+                                <h2 class="section-heading">Tasty munch</h2>
+                                <p><i>Herb crusted kingklip on a bed of lemon crushed potatoes, green vegetables, onion soubise and saffron sabayon.</i> Depending on the season, that's the kind of thing they'll be serving. Seriously. </p>
+                                <div class="framed-img">
+                                    <img src="/img/clico_munch.jpg">
+                                </div>
+                                <p>We chose the Clico because they take food seriously, no matter the occasion.
+                                On the day, you can expect: "On arrival" refreshments, Mid morning and afternoon tea and snacks and a 2 course lunch “menu of the day” prepared by the resident chef. </p>
+                                <h2 class="section-heading">Free, unlimited wi-fi</h2>
+                                <p>You'll be able to connect you laptops, tablets, phablets and phones to an unlimited dedicated wi-fi network all day. This'll be important for accessing all the awesome Axure resources on the web that we'll be showing you.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-12 columns">
+                    		{% include 'templates/views/partials/convincePanel.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

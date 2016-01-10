@@ -3,27 +3,16 @@
 {% set title = "Pixel Up! – One day design courses" %}
 
 {% macro workshopItem(w) %}
-
-                    <div class="class-picker-item">
-                        <a class="advanced-mobile" href="/workshops/{{ w.slug }}">
-                            <div class="item-inner">
-                                <div class="row">
-                                    <div class="columns small-2">
-                                        <div class="eyebrow">
-                                            <div class="date">
-                                                <span class="day">{{ w._.eventDate.format("Do") }}</span>
-                                                <span class="month">{{ w._.eventDate.format("MMM") }}</span>
-                                            </div>
-                                        </div>
+                            <div class="row workshop-event">
+                                <a href="/workshops/{{ w.workshop.slug }}/">
+                                    <div class="small-6 columns"><strong>{{ w.workshop.title }}</strong></div>
+                                    <div class="small-2 columns">{{ w.workshop.expert.name.full }}</div>
+                                    <div class="small-4 columns">
+                                        (Full day) R {{ w.workshop.price }}.00
                                     </div>
-                                    <div class="columns small-10">
-                                        <h2><span>{{ w.level }}</span> {{ w.title }}</h2>
-                                        <p>{{ w.content.brief.md }}</p>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
+                            
 {% endmacro %}
 
 
@@ -38,10 +27,15 @@
                 </div>
             </div>
         </header>
-        <section class="content-section grey">
+        <section class="content-section">
             <div class="row">
-                <div class="picker-wrapper medium-10 medium-offset-1 columns"> 
-				{% for w in data.workshops %} {{ workshopItem(w) }} {% endfor %}
+                <div class="picker-wrapper medium-10 medium-offset-1 columns">
+                    <br>     
+                    <br>     
+                    <h2 class="section-heading">Upcoming workshops</h2>
+                    {% for w in data.events %} {{ workshopItem(w) }} {% endfor %}
+                    <br>     
+                    <br>     
                 </div>
             </div>
         </section>
@@ -49,10 +43,9 @@
             <div class="row">
                 <div class="content-wrapper home-content medium-10 medium-offset-1 columns">
                     <h2 class="section-heading">Because you want expert training<br>
-                            <small>Real tips and tricks from the field</small>
-                        </h2>
-
-                    {% include 'templates/views/partials/aboutFarai.html' %}
+                        <small>Real tips and tricks from the field</small>
+                    </h2>
+                    <p>No more than 8 people per class. You'll get plenty of hands-on exercises, practice and discussion. You'll learn things that you can start using immediately to improve your apps and websites.</p>
                 </div>
             </div>
         </section>
@@ -96,7 +89,7 @@
                 </div>
             </div>
         </section>
-        <section class="content-section grey">
+        <section class="content-section fullWidth">
             <div class="row">
                 <div class="content-wrapper home-content medium-10 medium-offset-1 columns">
                     <div class="row">

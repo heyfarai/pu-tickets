@@ -11,30 +11,30 @@ var Workshop = new keystone.List('Workshop', {
 	autokey: { path: 'slug', from: 'title', unique: true }
 });
 
+Workshop.relationship({ path: 'events', ref: 'WorkshopEvent', refPath: 'workshop' });
+
 Workshop.add({
-	title: { type: String, required: true },
-	speaker: { type: Types.Relationship, ref: 'Speaker', index: true },
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	level: { type: Types.Select, options: 'beginner, advanced', default: 'beginner', index: true },
-	eventDate: { type: Types.Date, index: true },
-	eventStartTime: { type: Types.Date, index: true },
-	eventEndTime: { type: Types.Date, index: true },
+	title: { type: String, required: true, index: true },
+	expert: { type: Types.Relationship, ref: 'Expert', filters: { isActive: 'true' } },
+	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft' },
+	level: { type: Types.Select, options: 'beginner, advanced', default: 'beginner' },
+	price: { type: Types.Money, format: 'R 0,0.00' },
 	content: {
-		brief: { type: Types.Markdown, height: 150 },
-		extended: { type: Types.Markdown, height: 400 },
+		shortDescription: { type: Types.Markdown, height: 50 },
+		longDescription: { type: Types.Markdown, height: 100 },
+		summary: { type: Types.Markdown, height: 150 },
 		agendaMorning: { type: Types.Markdown, height: 180 },
 		agendaAfternoon: { type: Types.Markdown, height: 180 },
 		prerequisites: { type: Types.Markdown, height: 180 },
 		audience: { type: Types.Markdown, height: 180 },
-		takeaways: { type: Types.Markdown, height: 180 },
-		morning: { type: Types.Markdown, height: 180 },
-		afternoon: { type: Types.Markdown, height: 180 }
-	}
+		takeaways: { type: Types.Markdown, height: 180 }
+	},
 });
+
 
 Workshop.schema.virtual('content.full').get(function() {
-	return this.content.extended || this.content.brief;
+	return this.content.longDescription || this.content.shortDescription;
 });
 
-Workshop.defaultColumns = 'title, eventDate|20%';
+Workshop.defaultColumns = 'title, expert, state';
 Workshop.register();

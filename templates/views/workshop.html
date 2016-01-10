@@ -2,99 +2,137 @@
 
 {% set title = data.workshop.title %}
 
+{% macro workshopItem(w) %}
+
+                            <div class="row workshop-event">
+                                <div class="small-3 columns"><strong>{{ w._.startDate.format('Do MMM YYYY') }}</strong></div>
+                                <div class="small-8 columns">Rosebank, Johannesburg</div>
+                                <div class="small-1 columns">
+                                    <a href="#">Book</a>
+                                </div>
+                            </div>
+                            
+{% endmacro %}
+
 {% block content %}
         <header class="fullWidth hero">  
             <div class="row">
                 <div class="large-12 columns">
                     <h1>{{ data.workshop.title }}</h1>
                     <div class="grey">
-                        <h4>{% block class_tagline %}{% endblock %}</h4>
-                        <p class="caps">Full Day Course</p>
+                        {{ data.workshop.content.shortDescription.html }} 
+                        <p class="price">
+                            <span>Full Day Course</span><br/> 
+                            R {{ data.workshop.price }}.00 <br/> 
+                            {# <span><a href="#">Full Day Course</a></span> #}
+                        </p>
                     </div>
                 </div>
             </div>
         </header>
 
         <div class="row">
-            <div class="content-wrapper small-12 medium-10 medium-offset-1 columns">
-                <div class="row">
-                    <div class="medium-12 columns">
-                        <div class="course-summary">
-                            <div class="row">
-                                <div class="columns">
-                                    <h3>You'll learn how to</h3>
-                                </div>
-                                {% block class_summary %}{% endblock %}
-                                {{ data.workshop.content.full.md }}
-                            </div>
-                        </div>
-                        <hr>
-                        {% include 'templates/views/partials/panel-booking-widget.html' %}
-                        <hr>
-                        <div class="content">
-                            <section>
-                                <h3>What the course covers</h3>
-                                <div class="row">
-                                    {% block class_morning %}{% endblock %}
-                                </div>
-                            </section>
-                            <section>
-                                <h3>Who should attend?<br>
-                                    <small>This course will really benefit:</small>
-                                </h3>
-                                {% block class_target_audience %}
-                                <ul>
-                                    <li>UX designers looking to quickly iterate and communicate their designs</li>
-                                    <li>UI, Visual and Web designers looking to decide how pages should flow before applying design</li>
-                                    <li>Business Analysts or IT professionals who create screens and specification docs</li>
-                                    <li>Project managers who need to define project scope and requirements</li>
-                                </ul>
-                                {% endblock %}
-
-                            </section>
-                            <section>
-                                <h3>Pre-requisites<br>
-                                    <small>To get the best out of this course you'll need:</small>
-                                </h3>
-
-                                <ul>
-                                    {% block prerequisites %}{% endblock %}
-                                    <li>Your laptop with the latest version of Axure RP Pro (You can download a free trial from the Axure website)</li>
-                                </ul>
-                            </section>
-                            <section>
-                                <h3><span>Meet</span> {{ data.workshop.speaker.name }} </h3>
-                                    {% include 'templates/mixins/aboutSpeaker.html' %}
-                            </section>
-                            <section>
-                                <h3>100% satisfaction guarantee</h3>
-                                <p>If you’re not 100% satisfied with the improvements from your class, ask for a FULL REFUND within 30 days after your course. Easy peasy. If we haven't helped you improve your skills, we don’t want your money.</p>
-                                <h4>How to claim</h4>
-                                <p>At the end of the training course, we'll ask you if you think the training will help you do your job better. If you don't think it will, just tell our trainer who will then organise a refund for you.</p>
-                            </section>
-                            <section>
-                                <h3>Learn. For good<br>
-                                    <small>We contribute part of your fee to a bursary</small>
-                                </h3>
-                                {%  include 'templates/views/partials/panel-doGood.html' %}
-                            </section>
-                            <section>
-                                <h3>A great learning environment</h3>
-                                {%  include 'templates/views/partials/panel-doGood.html' %}
-                            </section>
-                        </div>
-                                <br>
-                        <hr>
-                        {% include 'templates/views/partials/panel-booking-widget.html' %}
-                        <hr>
-                        <div class="row">
-                            <div class="columns">
-                                <br>
-                                {% include 'templates/views/partials/convincePanel.html' %}
-                            </div>
+            <div class="small-12 medium-10 medium-offset-1 columns">
+                <section>
+                    <h3>Upcoming classes</h3>
+                    {% for w in data.events %} {{ workshopItem(w) }} {% endfor %}
+                </section>
+                <section class="course-summary">
+                    <div class="row">
+                        <div class="columns">
+                            <h3>You'll learn</h3>
+                            {{ data.workshop.content.longDescription.html }}
                         </div>
                     </div>
-                </div>
+                </section>
+            </div>
+        </div>
+        <div class="fullWidth row" style="background: #f5f5f5">
+            <div class="small-12 medium-10 medium-offset-1 columns">
+                <section>
+                    <h3>The day's agenda</h3>
+                    <div class="row">
+                        <div class="columns">
+                            <h4>In the morning</h4>
+                            {{ data.workshop.content.agendaMorning.html }}
+                            <hr>
+                            <h4>In the afternoon</h4>
+                            {{ data.workshop.content.agendaAfternoon.html }}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-12 medium-10 medium-offset-1 columns">
+                <section>
+                    <h3>Who should attend?<br>
+                        <small>This course will really benefit:</small>
+                    </h3>
+                    {{ data.workshop.content.audience.html }}
+
+                </section>
+                <section>
+                    <h3>Pre-requisites<br>
+                        <small>To get the best out of this course you'll need:</small>
+                    </h3>
+                    {{ data.workshop.content.prerequisites.html }}
+                </section>
+            </div>
+        </div>
+        <div class=" row" >
+            <div class="small-12 medium-10 medium-offset-1 columns">
+                <section>
+                    <div class="panel callout radius">
+                    <h3><span>Meet</span> {{ data.workshop.expert.name.full }} </h3>
+                    <p class="lead">{{ data.workshop.expert.content.tagline.md }}</p>
+                    <div class="row">
+                        <div class="medium-9 columns">
+                            {{ data.workshop.expert.content.longDesc.html }}
+                        </div>
+                        <div class="medium-3 columns">
+                            <div><img class="photo" src="/img/farai-madzima.jpg"/></div>
+                        </div>
+                    </div>
+                        
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-12 medium-10 medium-offset-1 columns">
+                <section>
+                    <h3>100% satisfaction guarantee</h3>
+                    <p>If you’re not 100% satisfied with the improvements from your class, ask for a FULL REFUND within 30 days after your course. Easy peasy. If we haven't helped you improve your skills, we don’t want your money.</p>
+                    <h4>How to claim</h4>
+                    <p>At the end of the training course, we'll ask you if you think the training will help you do your job better. If you don't think it will, just tell our trainer who will then organise a refund for you.</p>
+                </section>
+                <section>
+                    <h3>Learn. For good<br>
+                        <small>We contribute part of your fee to a bursary</small>
+                    </h3>
+                    {%  include 'templates/views/partials/panel-doGood.html' %}
+                </section>
+                <section>
+                    <h3>A great learning environment</h3>
+                    {%  include 'templates/views/partials/panel-doGood.html' %}
+                </section>
+            </div>
+        </div>
+        <div class="fullWidth row" style="background: #f5f5f5">
+            <div class="small-12 medium-10 medium-offset-1 columns">
+                <section>
+                    <h3>Upcoming classes</h3>
+                    {% for w in data.events %} {{ workshopItem(w) }} {% endfor %}
+                </section>
+            </div>
+        </div>
+        <div class="fullWidth row" style="background: #f5f5f5">
+            <div class="small-12 medium-10 medium-offset-1 columns">
+                <section>
+                    <br><br>
+                    {% include 'templates/views/partials/convincePanel.html' %}
+                </section>
             </div>
         </div>
 
@@ -105,7 +143,7 @@
             <ul>
             {% for w in data.moreWorkshops %}
                 <li>
-                    <a href="/workshops/{{ w.slug }}">{{ w.title }} on {{ w._.eventDate.format("D MMMM YYYY") }}</a>
+                    <a href="/workshops/{{ w.slug }}">{{ w.title }} }}</a>
                 </li>
             {% endfor %}
             </ul>

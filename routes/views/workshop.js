@@ -11,7 +11,8 @@ exports = module.exports = function(req, res) {
 		workshop: req.params.workshop
 	};
 	locals.data = {
-		workshop: []
+		workshop: false,
+		events: []
 	};
 	
 	// Load the current post
@@ -19,7 +20,7 @@ exports = module.exports = function(req, res) {
 		var q = keystone.list('Workshop').model.findOne({
 			state: 'published',
 			slug: locals.filters.workshop
-		}).populate('speaker');
+		}).populate('expert');
 		
 		q.exec(function(err, result) {
 			locals.data.workshop = result;
@@ -31,10 +32,14 @@ exports = module.exports = function(req, res) {
 	// Load other posts
 	view.on('init', function(next) {
 		
-		var q = keystone.list('Workshop').model.find().where('state', 'published').sort('eventDate').populate('speaker').limit('3');
+		var q = keystone.list('WorkshopEvent').model.find()
+		.where('workshop', locals.data.workshop)
+		.where('state', 'published')
+		.populate('workshop')
+		.sort('startDate');
 		
 		q.exec(function(err, results) {
-			locals.data.moreWorkshops = results;
+			locals.data.events = results;
 			next(err);
 		});
 		

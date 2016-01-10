@@ -1,13 +1,21 @@
 {% extends "templates/layouts/default.html" %}
 
-{% block intro %}
-	<div class="container">
-		<h1>Contact Us</h1>
-	</div>
-{% endblock %}
+{% set title = "Contact us – Pixel Up!" %}
+
 
 {% block content %}
-	<div class="container">
+        <header class="fullWidth hero">  
+            <div class="row">
+                <div class="large-12 columns">
+                    <h1>Say hi!</h1>
+                    <h4>Get in touch</h4>
+                </div>
+            </div>
+        </header>
+        <section class="content-section grey">
+        	<br><br>
+            <div class="row">
+                <div class="content-wrapper medium-10 medium-offset-1 columns">
 		{% if enquirySubmitted %}
 			<h3>Thanks for getting in touch.</h3>
 		{% else %}
@@ -46,6 +54,7 @@
 										<option value="{{type.value}}" {{ selected }}>{{ type.label }}</option>
 									{% endfor %}
 								</select>
+							</label>
 						</div>
 						{% set class = ( "has-error" if validationErrors.message else "" ) %}
 						<div class="form-group {{ class }}">
@@ -60,6 +69,9 @@
 					</form>
 				</div>
 			</div>
+			</div>
+			</div>
+			</section>
 		{% endif %}
 	</div>
 {% endblock %}

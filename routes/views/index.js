@@ -10,21 +10,24 @@ exports = module.exports = function(req, res) {
 	locals.section = 'home';
 
 	locals.data = {
-		workshops: []
+		events: []
 	};
 
 	// Load other posts
 	view.on('init', function(next) {
 		
-		var q = keystone.list('Workshop').model.find().where('state', 'published').sort('eventDate');
+		var q = keystone.list('WorkshopEvent').model.find()
+		.where('state', 'published')
+		.populate('workshop')
+		.sort('startDate');
 		
 		q.exec(function(err, results) {
-			locals.data.workshops = results;
+			locals.data.events = results;
 			next(err);
 		});
 		
 	});
-	
+
 	// Render the view
 	view.render('index');
 	

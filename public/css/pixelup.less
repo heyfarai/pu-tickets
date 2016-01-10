@@ -86,6 +86,15 @@ ul label {
    	max-width: initial;
    	&.hero {
   		background-image: url("/img/polygons.png"),radial-gradient(circle at 0 0,#0F5276,#87D7CD);
+  		.price {
+  			font-weight: bold;
+  			font-size: 1.4rem !important;
+  			line-height: 1.6rem;
+  			span {
+  				font-size: .9rem;
+  				font-weight: normal;
+  			}
+  		}
    	}
 }
 
@@ -112,7 +121,7 @@ ul label {
 		margin-top: 16px;
 		&.logo {
 			font-weight: bold;
-			margin-left: 1em;
+			margin-left: 1rem;
 		}
 		&.icon {
 			width: 20px;
@@ -146,7 +155,7 @@ ul label {
 
 			}
 			&.main-nav {
-				
+				margin-right: 1rem;
 				a {
 					padding-bottom: 3px
 				}
@@ -161,36 +170,7 @@ ul label {
 .active-nav-expanded {
 	background-color: @pink-dark-color;
 }
-#advanced-web {
-	.nav-advanced-web {
-		.active-nav 
-	}
-	.expand {
-		.nav-advanced-web {
-			.active-nav-expanded
-		}
-	}
-}
-#basic{
-	.nav-basic {
-		.active-nav 
-	}
-	.expand {
-		.nav-basic {
-			.active-nav-expanded
-		}
-	}
-}
-#advanced-mobile {
-	.nav-advanced-mobile {
-		.active-nav 
-	}
-	.expand {
-		.nav-advanced-mobile {
-			.active-nav-expanded
-		}
-	}
-}
+
 #venue{
 	.nav-venue {
 		.active-nav 
@@ -206,8 +186,8 @@ ul label {
 }
 header {
 	text-align: center;
-	padding-top: 5em;
-	padding-bottom: 8.33333%;
+	padding-top: 4rem;
+	padding-bottom: 4rem;
 	background: @pink-light-color;
 	color: #fff;
 	h1, h2, h3, h4 {
@@ -216,9 +196,11 @@ header {
 	h1 {
 		font-weight: bold
 	}
-	.grey, .grey h4 {
+	.grey {
 		color: #fff !important;
 		font-weight: bold;
+		display: block;
+		margin-top: -.5rem;
 	}
 	p.caps {
 		text-transform: uppercase
@@ -353,7 +335,29 @@ header {
 		}
 	}
 }
-
+.workshop-event {
+	box-shadow: 0 0px 0 #e5e5e5, 0 0 0 rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+	background: #fff;
+	padding: 1em 24px;
+    -webkit-transition: all 100ms ease-in-out;
+    transition: all 100ms ease-in-out;
+	&:hover {
+		background: #f5f5f5;
+	    -webkit-transition: all 200ms ease-in-out;
+	    transition: all 200ms ease-in-out;
+	    cursor: pointer;
+			color: #039BE5;
+	}
+	a {
+		display: block;
+		height: 100%;
+		width: 100%;
+		color: #000000;
+		&:hover {
+			color: #039BE5;
+		};
+	}
+}
 #info {
 	header {
 		margin-bottom: 2em
@@ -434,47 +438,7 @@ header {
 		}
 	}
 }
-.content-wrapper {
-	background: #fff;
-	padding: 0 56px 8.3333%;
-	.booking-widget {
-		margin-top: 2em;
-		.columns {
-			text-align: center;
-			h3 {
-				font-weight: bold;
-				margin-bottom: 0;
-				margin-top: 0;
-				line-height: 1em;
-				small {
-					font-weight: normal;
-				}
-			}
-			p {
-				font-size: .8em;
-				text-transform: uppercase;
-				color: #999;
-			}
-			.button {
-				margin-top: 0px;
-				font-weight: bold
-			}
-		}
-	}
-	.course-summary {
-		ul {
-			font-weight: bold;
-			margin-bottom: 0;
-			li {
-				margin-bottom: 1em;
-				line-height: 1.3em
-			}
-		}
-	}
-}
-.content {
-	margin-top: 2em
-}
+
 .framed-img {
 	text-align: center;
 	margin-bottom: 1.5em
@@ -492,44 +456,44 @@ h3 {
 		text-align: center;
 	}
 }
-		.top-bar {
-			height: 5rem;
-			h1 a {
-				font-size: 24px;
+.top-bar {
+	height: 5rem;
+	h1 a {
+		font-size: 24px;
+	}
+	.nav {
+		ul {
+			li {
+				height: 5rem;
+				line-height: 4.7rem;
 			}
-			.nav {
-				ul {
-					li {
-						height: 5rem;
-						line-height: 4.7rem;
-					}
 
-				}
-			}
-			&.expand {
-				.main-nav {
-					display: block !important;
-					position: fixed;
-					top: 55px;
-					left: 0px;
-					width: 100%;
-			        box-shadow: 0 2px 2px rgba(0,0,0,.1);
-			        background: rgba(216, 27, 96,0.95);
-        			z-index: 9998;
-					li {
-						display: block;
-						float: none;
-						text-align: center;
-						padding: 0px;
-						a {
-							display: block;
-							border-bottom: none !important;
-						}
-					}
-
-				}
-			}
 		}
+	}
+	&.expand {
+		.main-nav {
+			display: block !important;
+			position: fixed;
+			top: 55px;
+			left: 0px;
+			width: 100%;
+	        box-shadow: 0 2px 2px rgba(0,0,0,.1);
+	        background: rgba(216, 27, 96,0.95);
+			z-index: 9998;
+			li {
+				display: block;
+				float: none;
+				text-align: center;
+				padding: 0px;
+				a {
+					display: block;
+					border-bottom: none !important;
+				}
+			}
+
+		}
+	}
+}
 		#home {
 			.home-content {
 				.columns {
@@ -538,7 +502,7 @@ h3 {
 			}
 		}
 		header {
-			padding-top: 10em;
+			padding-top: 8rem;
 		}
 		.btn-pick-class {
 			margin-top: -4.8rem
