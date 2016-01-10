@@ -6,8 +6,6 @@ require('dotenv').load();
 var keystone = require('keystone');
 var cons = require('consolidate');
 var nunjucks = require('nunjucks');
-var markdown = require('nunjucks-markdown'),
-    marked = require('marked');
 
 // Require keystone
 var keystone = require('keystone');
