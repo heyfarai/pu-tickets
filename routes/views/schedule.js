@@ -6,10 +6,10 @@ exports = module.exports = function(req, res) {
 	var locals = res.locals;
 	
 	// Set locals
-	locals.section = 'venue';
+	locals.section = 'schedule';
 
 	
 	// Render the view
-	view.render('venue');
+	view.render('schedule');
 	
 };

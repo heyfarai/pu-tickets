@@ -6,8 +6,8 @@
 
                             <div class="row workshop-event">
                                 <div class="small-3 columns"><strong>{{ w._.startDate.format('Do MMM YYYY') }}</strong></div>
-                                <div class="small-8 columns">Rosebank, Johannesburg</div>
-                                <div class="small-1 columns">
+                                <div class="small-7 columns">Rosebank, Johannesburg</div>
+                                <div class="small-2 columns">
                                     <a href="#">Book</a>
                                 </div>
                             </div>
@@ -17,15 +17,10 @@
 {% block content %}
         <header class="fullWidth hero">  
             <div class="row">
-                <div class="large-12 columns">
-                    <h1>{{ data.workshop.title }}</h1>
+                <div class="medium-8 columns medium-offset-2">
+                    <h1>Workshops</h1>
                     <div class="grey">
-                        {{ data.workshop.content.shortDescription.html }} 
-                        <p class="price">
-                            <span>Full Day Course</span><br/> 
-                            R {{ data.workshop.price }}.00 <br/> 
-                            {# <span><a href="#">Full Day Course</a></span> #}
-                        </p>
+                        Practical skills. Also fun 
                     </div>
                 </div>
             </div>
