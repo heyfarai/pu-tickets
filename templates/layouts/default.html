@@ -55,21 +55,25 @@
             </div>
         </div>
 			
+        {# BODY #}
+        {# NOTE:
+           There is no .container wrapping class around body blocks to allow more flexibility in design.
+           Remember to include it in your templates when you override the intro and content blocks! #}
 
-		{# BODY #}
-		{# NOTE:
-		   There is no .container wrapping class around body blocks to allow more flexibility in design.
-		   Remember to include it in your templates when you override the intro and content blocks! #}
+        {# The Intro block appears above flash messages (used for temporary information display) #}
+        {% block intro %}{% endblock %}
 
-		{# The Intro block appears above flash messages (used for temporary information display) #}
-		{% block intro %}{% endblock %}
-
-		{# Flash messages allow you to display once-off status messages to users, e.g. form
-		   validation errors, success messages, etc. #}
-		{{ FM.flashMessages(messages) }}
+        {# Flash messages allow you to display once-off status messages to users, e.g. form
+           validation errors, success messages, etc. #}
+        {{ FM.flashMessages(messages) }}
 
 
-		{% block content %}{% endblock %}
+        <div class="row">
+            <div class="content-container medium-10 columns medium-offset-1">
+            {% block content %}{% endblock %}
+            </div>
+        </div>
+
         {% include "templates/views/footer.html" %}
         {% include "templates/views/partials/bookingModal.html" %}
         <script src="/js/vendor/jquery.js"></script>
@@ -99,75 +103,8 @@
                         }
                     }
                 });
-                $('#myEmail').html(function(){
-                    var e = "farai";
-                    var a = "@";
-                    var d = "me";
-                    var c = ".com";
-                    var h = 'mailto:' + e + a + d + c;
-                    $(this).parent('a').attr('href', h);
-                    return e + a + d + c;
-                });
-                $(document).on('closed.fndtn.reveal', '[data-reveal]', function () {
-                    var modal = $(this);
-                    if(formSubmitted != false) {
-                        // clear the form
-                        $('#bookingConfirmed').hide()
-                        $('#bookingForm').show()
-                        $('#bookingAlert').hide()
-                        $('#bookingAlert').text('')
-                    }
-                });
-                $(document).on('open.fndtn.reveal', '[data-reveal]', function () {
-                    var modal = $(this);
-                    mixpanel.track("Booking Attempt");
-                });
-                var formSubmitted = false;
-
-                function processJson(data) { 
-                    formSubmitted = true
-
-                    // 'data' is the json object returned from the server 
-                    $('#bookingForm').slideUp()
-                    $('#bookingConfirmed').show()
-
-                    // show a success alert
-                    $('#bookingAlert').addClass('success')
-                    $('#bookingAlert span').text('Coolness, done')
-                    $('#bookingAlert').slideDown()
-                    $("#bookingSubmit").removeClass('disabled')  
-                    $('#bookingForm input[type=email], #bookingForm input[type=checkbox]').attr("disabled",false); 
-                }
-                function showError(data) {
-                    // show an error alert
-                    $('#bookingAlert').addClass('alert')
-                    $('#bookingAlert span').html('Something went wrong. Try again.')
-                    $('#bookingAlert').slideDown()
-                    $("#bookingSubmit").removeClass('disabled')
-                    $('#bookingForm input[type=email], #bookingForm input[type=checkbox]').attr("disabled",false);          
-                }
-
-                $('#bookingForm').ajaxForm({ 
-                    // dataType identifies the expected content type of the server response 
-                    dataType:  'json', 
-             
-                    // success identifies the function to invoke when the server response 
-                    // has been received 
-                    success:   processJson ,
-                    error:     showError,
-                    resetForm: true,
-                    beforeSubmit: function(arr, $form, options) { 
-                        $('#bookingAlert').hide()
-                        $('#bookingAlert').removeClass('success')
-                        $('#bookingAlert').removeClass('alert')
-                        $('#bookingAlert span').text('')
-                        $("#bookingSubmit").addClass('disabled')  
-                        $('#bookingForm input[type=email], #bookingForm input[type=checkbox]').attr("disabled",true);          
-                    }
-                }); 
             });
         </script>
-
 
 		{# Include template-specific javascript files by extending the js block #}
 		{%- block js -%}{%- endblock -%}

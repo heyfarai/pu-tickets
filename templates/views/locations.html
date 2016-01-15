@@ -1,42 +1,19 @@
-{% extends "templates/layouts/default.html" %}
+{% extends "templates/layouts/default-with-header.html" %}
 
-{% set title = "Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
+{% set title = "Locations  ·  Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
+
+{% set page_heading = "Locations" %}
+{% set page_lead = "Where its at" %}
 
 
-{% block content %}
- 		<header class="fullWidth hero">  
-            <div class="row">
-                <div class="medium-10 columns medium-offset-1">
-                    <h1>Locations</h1>
-                    <div class="grey">
-                        <span>Where it's at</span>
-                    </div>
-                </div>
-            </div>
-        </header>
+{% block page_content %}
         
-        <section class="content-section grey">
-            <div class="row">
-                <div class="content-wrapper home-content medium-10 medium-offset-1 columns">
-                    <h2 class="section-heading">Because you want to do good<br>
-                        <small>We contribute part of your fee to a bursary</small>
-                    </h2>
-                    {%  include 'templates/views/partials/panel-doGood.html' %}
-                </div>
-            </div>
-        </section>
-        <section class="content-section fullWidth">
-            <div class="row">
-                <div class="content-wrapper home-content medium-10 medium-offset-1 columns">
-                    <div class="row">
-                        <div class="medium-12 columns">
-                            {% include 'templates/views/partials/convincePanel.html' %}
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="content-section">
+            <h2 class="section-heading">Because you want to do good<br>
+                <small>We contribute part of your fee to a bursary</small>
+            </h2>
+            {%  include 'templates/views/partials/panel-doGood.html' %}
         </section>
 
-		</div>
-	</div>
 {% endblock %}
+

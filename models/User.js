@@ -37,15 +37,15 @@ User.relationship({ ref: 'Post', path: 'author' });
 User.defaultColumns = 'name, email, isAdmin';
 User.register();
 
+/**
+ * EXPERTS
+ */
+
 var Expert = new keystone.List('Expert', {
 	inherits: User,
 	map: { name: 'name' },
 	autokey: { path: 'slug', from: 'name' }
 });
-
-/**
- * EXPERTS
- */
 
 Expert.relationship({ path: 'workshops', ref: 'Workshop', refPath: 'speaker' });
 

@@ -1,42 +1,130 @@
 {% extends "templates/layouts/default.html" %}
 
-{% set title = "Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
+{% set title = "Schedule  ·  Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
 
 
 {% block content %}
- 		<header class="fullWidth hero">  
-            <div class="row">
-                <div class="medium-8 columns medium-offset-2">
-                    <h1>Schedule</h1>
-                    <div class="grey">
-                        <span>Time to take time for improvement</span>
-                    </div>
-                </div>
-            </div>
+
+        <header class="fullWidth hero">  
+            <h2>Schedule</h2>
+            <h4>
+                <span>Time to take time for improvement</span>
+            </h4>
         </header>
-        
-        <section class="content-section grey">
-            <div class="row">
-                <div class="content-wrapper home-content medium-10 medium-offset-1 columns">
-                    <h2 class="section-heading">Because you want to do good<br>
-                        <small>We contribute part of your fee to a bursary</small>
-                    </h2>
-                    {%  include 'templates/views/partials/panel-doGood.html' %}
+        <hr>
+        <section class="content-section">
+            <ul class="tabs" data-tab>
+                <li class="tab-title active"><a href="#panel1">Sunday, 11th</a></li>
+                <li class="tab-title"><a href="#panel2">Monday, 12th</a></li>
+                <li class="tab-title"><a href="#panel3">Tuesday, 13th</a></li>
+                <li class="tab-title"><a href="#panel4">Wednesday, 14th</a></li>
+            </ul>
+            <div class="tabs-content">
+                <div class="content active" id="panel1">
+                    <ul class="no-bullet">
+                        <li class="row schedule-item">
+                            <span class="schedule-item-time medium-2 columns">09:00</span> 
+                            <div class="medium-10 columns">
+                                <article>
+                                    <div class="row">
+                                        <div class="small-2 columns">
+                                            <figure>
+                                                <img class="photo" src="/img/farai-madzima.jpg"/>
+                                            </figure>
+                                        </div>
+                                        <div class="small-10 columns">
+                                            <h5>
+                                                Designing with Sketch and winning <br>
+                                                <span>with <a href="/">Farai Madzima</a></span>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <p class="schedule-item-desc">For the last 14 years, Heather Armstrong shared her life online with honesty and wit—work and marriage, raising two daughters, struggles with depression and parenthood—earning her a massive audience. But it took a uniquely modern emotional and physical toll, contributing to her decision to walk away from full-time blogging earlier this year</p>  
+                              
+                                </article>
+                            </div>
+                        </li>
+                        <li class="row schedule-item">
+                            <span class="schedule-item-time medium-2 columns">09:00</span> 
+                            <div class="medium-10 columns">
+                                <article>
+                                    <div class="row">
+                                        <div class="small-2 columns">
+                                            <figure>
+                                                <img class="photo" src="/img/farai-madzima.jpg"/>
+                                            </figure>
+                                        </div>
+                                        <div class="small-10 columns">
+                                            <h5>
+                                                Designing with Sketch and winning <br>
+                                                <span>with <a href="/">Farai Madzima</a></span>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <p class="schedule-item-desc">For the last 14 years, Heather Armstrong shared her life online with honesty and wit—work and marriage, raising two daughters, struggles with depression and parenthood—earning her a massive audience. But it took a uniquely modern emotional and physical toll, contributing to her decision to walk away from full-time blogging earlier this year</p>  
+                              
+                                </article>
+                            </div>
+                        </li>
+                        <li class="row schedule-item">
+                            <span class="schedule-item-time medium-2 columns">09:00</span> 
+                            <div class="medium-10 columns">
+                                <article>
+                                    <div class="row">
+                                        <div class="small-2 columns">
+                                            <figure>
+                                                <img class="photo" src="/img/farai-madzima.jpg"/>
+                                            </figure>
+                                        </div>
+                                        <div class="small-10 columns">
+                                            <h5>
+                                                Designing with Sketch and winning <br>
+                                                <span>with <a href="/">Farai Madzima</a></span>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <p class="schedule-item-desc">For the last 14 years, Heather Armstrong shared her life online with honesty and wit—work and marriage, raising two daughters, struggles with depression and parenthood—earning her a massive audience. But it took a uniquely modern emotional and physical toll, contributing to her decision to walk away from full-time blogging earlier this year</p>  
+                              
+                                </article>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content" id="panel2">
+                    <ul class="no-bullet">
+                        <li><span>09:00</span> Doors open // Registration</li>
+                        <li><span>09:00</span> Doors open // Registration</li>
+                        <li><span>09:00</span> Doors open // Registration</li>
+                        <li><span>09:00</span> Doors open // Registration</li>
+                        <li><span>09:00</span> Doors open // Registration</li>
+                    </ul>
+                </div>
+                <div class="content" id="panel3">
+                    <ul class="no-bullet">
+                        <li><span>09:00</span> Doors open // Registration</li>
+                        <li><span>09:00</span> Doors open // Registration</li>
+                        <li><span>09:00</span> Doors open // Registration</li>
+                        <li><span>09:00</span> Doors open // Registration</li>
+                        <li><span>09:00</span> Doors open // Registration</li>
+                    </ul>
+                </div>
+                <div class="content" id="panel4">
+                    <ul class="no-bullet">
+                        <li><span>09:00</span> Doors open // Registration</li>
+                        <li><span>09:00</span> Doors open // Registration</li>
+                        <li><span>09:00</span> Doors open // Registration</li>
+                        <li><span>09:00</span> Doors open // Registration</li>
+                        <li><span>09:00</span> Doors open // Registration</li>
+                    </ul>
                 </div>
             </div>
+            <hr>
         </section>
-        <section class="content-section fullWidth">
-            <div class="row">
-                <div class="content-wrapper home-content medium-10 medium-offset-1 columns">
-                    <div class="row">
-                        <div class="medium-12 columns">
-                            {% include 'templates/views/partials/convincePanel.html' %}
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="content-section">
+            <h2 class="section-heading">Because you want to do good<br>
+                <small>We contribute part of your fee to a bursary</small>
+            </h2>
+            {%  include 'templates/views/partials/panel-doGood.html' %}
         </section>
 
-		</div>
-	</div>
 {% endblock %}

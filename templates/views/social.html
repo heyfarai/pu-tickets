@@ -1,42 +1,20 @@
 {% extends "templates/layouts/default.html" %}
 
-{% set title = "Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
-
+{% set title = "Social  ·  Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
 
 {% block content %}
- 		<header class="fullWidth hero">  
-            <div class="row">
-                <div class="medium-10 columns medium-offset-1">
-                    <h1>Social</h1>
-                    <div class="grey">
-                        <span>Hang out and about</span>
-                    </div>
-                </div>
-            </div>
+        <header class="fullWidth hero">  
+            <h2>Social</h2>
+            <h4>
+                <span>Hang out and about</span>
+            </h4>
         </header>
-        
-        <section class="content-section grey">
-            <div class="row">
-                <div class="content-wrapper home-content medium-10 medium-offset-1 columns">
-                    <h2 class="section-heading">Because you want to do good<br>
-                        <small>We contribute part of your fee to a bursary</small>
-                    </h2>
-                    {%  include 'templates/views/partials/panel-doGood.html' %}
-                </div>
-            </div>
+        <hr>
+        <section class="content-section">
+            <h2 class="section-heading">Because you want to do good<br>
+                <small>We contribute part of your fee to a bursary</small>
+            </h2>
+            {%  include 'templates/views/partials/panel-doGood.html' %}
         </section>
-        <section class="content-section fullWidth">
-            <div class="row">
-                <div class="content-wrapper home-content medium-10 medium-offset-1 columns">
-                    <div class="row">
-                        <div class="medium-12 columns">
-                            {% include 'templates/views/partials/convincePanel.html' %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-		</div>
-	</div>
 {% endblock %}
+
