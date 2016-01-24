@@ -11,30 +11,16 @@
 				{{ flashMessage(message, "warning") }}
 			{% endfor %}
 			{% for message in messages.error %}
-				{{ flashMessage(message, "danger") }}
+				{{ flashMessage(message, "alert") }}
 			{% endfor %}
 		</div>
 	{% endif %}
 {% endmacro %}
 
 {% macro flashMessage(message, type) %}
-	<div class="alert alert-{{ type }}">
-		{% if message %}
-			{% if message.title %}
-				<h5>{{ message.title }}</h5>
-			{% endif %}
-			{% if message.detail %}
-				<p>{{ message.detail }}</p>
-			{% endif %}
-			{% if message.list %}
-				<ul>
-					{% for item in message.list %}
-						<li>{{ item }}</li>
-					{% endfor %}
-				</ul>
-			{% endif %}
-		{% else %}
-			{{ message }}
-		{% endif %}
+	{% if message %}
+	<div  class="{{ type }} callout radius" data-closable >
+	  {{ message }}
 	</div>
+	{% endif %}
 {% endmacro %}

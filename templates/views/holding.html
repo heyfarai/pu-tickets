@@ -1,0 +1,38 @@
+{% extends "templates/layouts/default.html" %}
+
+{% set title = "Pixel Up!  ·  Workshops and conferences about making great products with pixels." %}
+
+
+{% block content %}
+         		<header class="fullWidth hero">
+              <h2>
+                <span class="punchy">Pixel Up!</span>
+              </h2>
+              <h2 class="home">Workshops and conferences about making <span class="punchy">great products</span> with <span class="punchy">pixels.</span></h2>
+
+                </header>
+                <section class="content-section">
+                    <h5>Get useful updates in your inbox</h5>
+                    <p>We send updates about workshops, meetups, tickets, speakers, and important event details. You can also follow us on Twitter <a href="https://twitter.com/letspixelup">@letspixelup</a>, or email us at <a href='&#109;ailto&#58;%&#54;8e&#108;lo&#64;pixe&#108;u&#112;&#46;co&#46;za'>h&#101;&#108;lo&#64;p&#105;xe&#108;up&#46;co&#46;za</a>.</p>
+                      <form data-abide novalidate action="/e" method="post" id="sub_form" class="sub_form">
+                        <div class="row collapse">
+                          <div class="small-8 medium-6 columns">
+                            <input id="fieldEmail" name="email" type="email" required pattern="email" placeholder="me@example.com">
+                            <span class="form-error">
+                              Please check this is a valid email.
+                            </span>
+                          </div>
+                          <div class="small-4 medium-6 columns">
+                            <input type="submit" href="#" class="postfix button" value="Sign Up">
+                          </div>
+                        </div>
+                      </form>
+                    <p><small>No spam dude, We'll make sure our mails and tweets are worth your time.</small></p>
+
+                </section>
+                <footer>
+                  <p class="clearfix"><small>&copy; 2016 Pixel Up! <span class="right">Made with love in Johannesburg</span></small></p>
+                  <footer>
+    		</div>
+    	</div>
+{% endblock %}

@@ -8,123 +8,339 @@
         <header class="fullWidth hero">  
             <h2>Schedule</h2>
             <h4>
-                <span>Time to take time for improvement</span>
+                <span>We're finalising the details, but here's an overview</span>
             </h4>
         </header>
         <hr>
-        <section class="content-section">
-            <ul class="tabs" data-tab>
-                <li class="tab-title active"><a href="#panel1">Sunday, 11th</a></li>
-                <li class="tab-title"><a href="#panel2">Monday, 12th</a></li>
-                <li class="tab-title"><a href="#panel3">Tuesday, 13th</a></li>
-                <li class="tab-title"><a href="#panel4">Wednesday, 14th</a></li>
-            </ul>
-            <div class="tabs-content">
-                <div class="content active" id="panel1">
-                    <ul class="no-bullet">
-                        <li class="row schedule-item">
-                            <span class="schedule-item-time medium-2 columns">09:00</span> 
-                            <div class="medium-10 columns">
-                                <article>
-                                    <div class="row">
-                                        <div class="small-2 columns">
-                                            <figure>
-                                                <img class="photo" src="/img/farai-madzima.jpg"/>
-                                            </figure>
-                                        </div>
-                                        <div class="small-10 columns">
-                                            <h5>
-                                                Designing with Sketch and winning <br>
-                                                <span>with <a href="/">Farai Madzima</a></span>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <p class="schedule-item-desc">For the last 14 years, Heather Armstrong shared her life online with honesty and wit—work and marriage, raising two daughters, struggles with depression and parenthood—earning her a massive audience. But it took a uniquely modern emotional and physical toll, contributing to her decision to walk away from full-time blogging earlier this year</p>  
-                              
-                                </article>
-                            </div>
-                        </li>
-                        <li class="row schedule-item">
-                            <span class="schedule-item-time medium-2 columns">09:00</span> 
-                            <div class="medium-10 columns">
-                                <article>
-                                    <div class="row">
-                                        <div class="small-2 columns">
-                                            <figure>
-                                                <img class="photo" src="/img/farai-madzima.jpg"/>
-                                            </figure>
-                                        </div>
-                                        <div class="small-10 columns">
-                                            <h5>
-                                                Designing with Sketch and winning <br>
-                                                <span>with <a href="/">Farai Madzima</a></span>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <p class="schedule-item-desc">For the last 14 years, Heather Armstrong shared her life online with honesty and wit—work and marriage, raising two daughters, struggles with depression and parenthood—earning her a massive audience. But it took a uniquely modern emotional and physical toll, contributing to her decision to walk away from full-time blogging earlier this year</p>  
-                              
-                                </article>
-                            </div>
-                        </li>
-                        <li class="row schedule-item">
-                            <span class="schedule-item-time medium-2 columns">09:00</span> 
-                            <div class="medium-10 columns">
-                                <article>
-                                    <div class="row">
-                                        <div class="small-2 columns">
-                                            <figure>
-                                                <img class="photo" src="/img/farai-madzima.jpg"/>
-                                            </figure>
-                                        </div>
-                                        <div class="small-10 columns">
-                                            <h5>
-                                                Designing with Sketch and winning <br>
-                                                <span>with <a href="/">Farai Madzima</a></span>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <p class="schedule-item-desc">For the last 14 years, Heather Armstrong shared her life online with honesty and wit—work and marriage, raising two daughters, struggles with depression and parenthood—earning her a massive audience. But it took a uniquely modern emotional and physical toll, contributing to her decision to walk away from full-time blogging earlier this year</p>  
-                              
-                                </article>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="content" id="panel2">
-                    <ul class="no-bullet">
-                        <li><span>09:00</span> Doors open // Registration</li>
-                        <li><span>09:00</span> Doors open // Registration</li>
-                        <li><span>09:00</span> Doors open // Registration</li>
-                        <li><span>09:00</span> Doors open // Registration</li>
-                        <li><span>09:00</span> Doors open // Registration</li>
-                    </ul>
-                </div>
-                <div class="content" id="panel3">
-                    <ul class="no-bullet">
-                        <li><span>09:00</span> Doors open // Registration</li>
-                        <li><span>09:00</span> Doors open // Registration</li>
-                        <li><span>09:00</span> Doors open // Registration</li>
-                        <li><span>09:00</span> Doors open // Registration</li>
-                        <li><span>09:00</span> Doors open // Registration</li>
-                    </ul>
-                </div>
-                <div class="content" id="panel4">
-                    <ul class="no-bullet">
-                        <li><span>09:00</span> Doors open // Registration</li>
-                        <li><span>09:00</span> Doors open // Registration</li>
-                        <li><span>09:00</span> Doors open // Registration</li>
-                        <li><span>09:00</span> Doors open // Registration</li>
-                        <li><span>09:00</span> Doors open // Registration</li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-        </section>
-        <section class="content-section">
-            <h2 class="section-heading">Because you want to do good<br>
-                <small>We contribute part of your fee to a bursary</small>
-            </h2>
-            {%  include 'templates/views/partials/panel-doGood.html' %}
-        </section>
+        <article>
+            <section class="event-day" id="arrival" data-daynumber="0">
+                <h3>Arrival Day &mdash; Sunday, Sept. 11</h3>
+                <ol class="sessions">
+                    <li id="registration" class="single-session non-speaker row">
+                        <time class="columns medium-4">4:00pm-6:00pm</time>
+                        <div class="event-description columns medium-8">
+                            <h5>Registration &amp; Pre-party</h5>
 
+                            <div class="session-extended">
+                                <!--span class="speaker-img-link">
+                                    <img src="http://assets.aneventapart.com/_/svg/laurel_gold.svg" alt="" width="66" height="66">
+                                </span-->
+                                <p>Avoid the check-in line Monday morning by checking in Sunday afternoon. Then join us for some early networking over drinks at the pre-party. No worries if you can’t make it, registration opens at 7:30am on Monday.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+            <hr>
+            <section class="event-day" id="day-1" data-daynumber="1">
+                <h4>Day 1 &mdash; Monday, Sept. 12</h4>
+                <p>Along with the continental breakfast, you’ll get an amazing lunch, beverage breaks and nibbles throughout the day.</p>
+                <ol class="sessions">
+                    <li id="registration" class="single-session non-speaker">
+                        <div class="row">
+                            <time class="columns medium-4">7:30am - 8:55am</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Breakfast</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker">
+                        <div class="row">
+                            <time class="columns medium-4">8:55am - 9:00am</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Morning Welcome</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session">
+                        <div class="row">
+                            <time class="columns medium-4">9:00am - 9:45am</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Speaker : TBC</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker">
+                        <div class="row">
+                            <time class="columns medium-4">9:45am - 10:00am</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Coffee &amp; Chill</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session">
+                        <div class="row">
+                            <time class="columns medium-4">10:00am - 10:45am</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Speaker : TBC</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker">
+                        <div class="row">
+                            <time class="columns medium-4">10:45am - 11:00am</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Coffee &amp; Chill</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session">
+                        <div class="row">
+                            <time class="columns medium-4">11:00am - 11:45pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Speaker : TBC</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker ">
+                        <div class="row">
+                            <time class="columns medium-4">11:45pm - 1:15pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Lunch</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session ">
+                        <div class="row">
+                            <time class="columns medium-4">1:15pm - 2:00pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Speaker : TBC</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker ">
+                        <div class="row">
+                            <time class="columns medium-4">2:00pm - 2:15pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Coffee &amp; Chill</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session ">
+                        <div class="row">
+                            <time class="columns medium-4">2:15pm - 3:00pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Speaker : TBC</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker ">
+                        <div class="row">
+                            <time class="columns medium-4">3:00pm - 3:15pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Coffee &amp; Chill</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session ">
+                        <div class="row">
+                            <time class="columns medium-4">3:15pm - 4:00pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Speaker : TBC</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker">
+                        <div class="row">
+                            <time class="columns medium-4">4:00pm - 5:00pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>A break</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session ">
+                        <div class="row">
+                            <time class="columns medium-4">5:00pm - Later</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Party Up!</h5>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+            <hr>
+            <section class="event-day" id="day-2" data-daynumber="2">
+                <h4>Day 2 &mdash; Tuesday, Sept. 13</h4>
+                <p>Along with the continental breakfast, you’ll get an amazing lunch, beverage breaks and nibbles throughout the day.</p>
+                <ol class="sessions">
+                    <li id="registration" class="single-session non-speaker">
+                        <div class="row">
+                            <time class="columns medium-4">7:30am - 8:55am</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Breakfast</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker">
+                        <div class="row">
+                            <time class="columns medium-4">8:55am - 9:00am</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Morning Welcome</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session">
+                        <div class="row">
+                            <time class="columns medium-4">9:00am - 9:45am</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Speaker : TBC</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker">
+                        <div class="row">
+                            <time class="columns medium-4">9:45am - 10:00am</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Coffee &amp; Chill</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session">
+                        <div class="row">
+                            <time class="columns medium-4">10:00am - 10:45am</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Speaker : TBC</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker">
+                        <div class="row">
+                            <time class="columns medium-4">10:45am - 11:00am</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Coffee &amp; Chill</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session">
+                        <div class="row">
+                            <time class="columns medium-4">11:00am - 11:45pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Speaker : TBC</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker ">
+                        <div class="row">
+                            <time class="columns medium-4">11:45pm - 1:15pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Lunch</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session ">
+                        <div class="row">
+                            <time class="columns medium-4">1:15pm - 2:00pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Speaker : TBC</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker ">
+                        <div class="row">
+                            <time class="columns medium-4">2:00pm - 2:15pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Coffee &amp; Chill</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session ">
+                        <div class="row">
+                            <time class="columns medium-4">2:15pm - 3:00pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Speaker : TBC</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session non-speaker ">
+                        <div class="row">
+                            <time class="columns medium-3">3:00pm - 3:15pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Coffee &amp; Chill</h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="registration" class="single-session ">
+                        <div class="row">
+                            <time class="columns medium-3">3:15pm - 4:00pm</time>
+                            <div class="event-description columns medium-8">
+                                <h5>Speaker : TBC</h5>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+            <hr>
+            <section class="event-day" id="day-3" data-daynumber="3">
+                <h4>Day 3 &mdash; Wednesday, Sept. 14</h4>
+                <p>Day 3 is workshop day. Go beyond inspiration and immerse yourself in groundbreaking design &amp; development skills you won’t find anywhere else. Get your team on the same page with proven methods, tools and clear-cut direction on specific actions and skills. </p>
+                <p>Once the schedule is complete we'll update this page. <a href="#">Stay in touch</a> to make sure you get one of our limited workshop seats.</p>
+                <p></p>
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <h5>Full day workshops include:</h5>
+                        <ul>
+                            <li>Snacks and drinks all day</li>
+                            <li>Lunch</li>
+                        </ul>
+                        <h5>You should bring:</h5>
+                        <ul>
+                            <li>Your laptop</li>
+                            <li>Your laptop charger</li>
+                        </ul>
+                    </div>
+                    <div class="medium-6 columns">
+                        <h5>Workshop tickets</h5>
+                        <p>Tickets for the one day workshops are <strong>R2,500.00</strong> (including VAT). Workshop tickets are valid for the workshop only. To attend the conference days an extra ticket is needed.<br> All workshops start at 9:00am and end at 4:00pm.</p>
+                    </div>
+                </div>
+                {#
+                <ol class="sessions">
+                    <li class="single-session non-speaker">
+                        <div class="row">
+                            <time class="columns medium-3">9:00am - 12:30pm</time>
+                            <div class="event-description columns medium-9">
+                                <div class="row">
+                                    <div class="columns medium-6">
+                                        <h5>What Video Games Teach Us About UX</h5>
+                                        <p>Video games teach us the value of writing content before an interface exists, how to apply content-first UX design, and why voice and tone is vital to engagement. Explore the broad-to-narrow flow for introducing new content or interactions.
+</p>
+                                    </div>
+                                    <div class="columns medium-6">
+                                        <h5>Beyond Measure: Making Meaning From Data</h5>
+                                        <p>There’s lots of data we can track, measure, and store, but it doesn’t mean it creates more meaning. Hear the the danger of making decisions based on emotion and superstition. Learn strategies for decision-making that bridge the divide between left- and right-brain thinking.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="single-session non-speaker">
+                        <div class="row">
+                            <time class="columns medium-3">13:00pm - 16:30pm</time>
+                            <div class="event-description columns medium-9">
+                                <div class="row">
+                                    <div class="columns medium-6">
+                                        <h5>What Video Games Teach Us About UX</h5>
+                                        <p>Video games teach us the value of writing content before an interface exists, how to apply content-first UX design, and why voice and tone is vital to engagement. Explore the broad-to-narrow flow for introducing new content or interactions.
+</p>
+                                    </div>
+                                    <div class="columns medium-6">
+                                        <h5>Beyond Measure: Making Meaning From Data</h5>
+                                        <p>There’s lots of data we can track, measure, and store, but it doesn’t mean it creates more meaning. Hear the the danger of making decisions based on emotion and superstition. Learn strategies for decision-making that bridge the divide between left- and right-brain thinking.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol> #}
+            </section>
+            <hr>
+            <section class="content-section">
+                <h2 class="section-heading">Because you want to do good<br>
+                    <small>We contribute part of your fee to a bursary</small>
+                </h2>
+                {%  include 'templates/views/partials/panel-doGood.html' %}
+            </section>
+        </article>
+        <hr>
+        {% include 'templates/mixins/become-a-sponsor.html' %}
 {% endblock %}

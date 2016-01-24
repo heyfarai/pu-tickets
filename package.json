@@ -6,10 +6,15 @@
     "async": "~1.2.1",
     "connect-mongo": "~0.8.1",
     "consolidate": "^0.13.1",
+    "cors": "^2.7.1",
+    "create-hash": "^1.1.2",
+    "create-hmac": "^1.1.4",
     "dotenv": "1.1.0",
     "keystone": "~0.3.11",
+    "mailchimp-api": "^2.0.7",
+    "node-sass-middleware": "^0.9.7",
     "nunjucks": "^2.3.0",
-    "swig": "^1.4.2",
+    "typeforce": "^1.6.1",
     "underscore": "~1.8.3"
   },
   "devDependencies": {

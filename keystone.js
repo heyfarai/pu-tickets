@@ -6,10 +6,13 @@ require('dotenv').load();
 var keystone = require('keystone');
 var cons = require('consolidate');
 var nunjucks = require('nunjucks');
-
+var mcapi = require('mailchimp-api');
 // Require keystone
 var keystone = require('keystone');
 
+
+// set MailChimp API key here
+mc = new mcapi.Mailchimp('ca1cacc38baa6dc43c6045085ca1e7d4-us12');
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
@@ -21,7 +24,7 @@ keystone.init({
 	'brand': 'Pixel Up!',
 
 	'less': 'public',
-	
+
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
@@ -29,13 +32,13 @@ keystone.init({
 	'custom engine': cons.nunjucks,
 
 	'emails': 'templates/emails',
-	
+
 	'auto update': true,
 	'session': true,
 	'session store': 'mongo',
 	'auth': true,
 	'user model': 'User'
-	
+
 });
 
 // Load your project's Models
@@ -60,7 +63,9 @@ keystone.set('locals', {
 	_: require('underscore'),
 	env: keystone.get('env'),
 	utils: keystone.utils,
-	editable: keystone.content.editable
+	editable: keystone.content.editable,
+	is_prelaunch: process.env.is_prelaunch,
+	newsletter_id: process.env.NEWSLETTER_ID
 });
 
 keystone.set('auto update', true);
@@ -73,7 +78,7 @@ keystone.set('routes', require('./routes'));
 // default email templates, you may remove them if you're using your own.
 
 // You should ensure you have the EMAIL_HOSTNAME environment variable set on
-// your production / staging servers, or images and links in your emails will 
+// your production / staging servers, or images and links in your emails will
 // default to http://localhost:3000.
 
 var email_hostname = process.env.EMAIL_HOSTNAME || 'localhost:3000';

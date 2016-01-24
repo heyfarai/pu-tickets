@@ -7,73 +7,49 @@
 
 {% block page_content %}
         <section class="content-section">
-            <article class="row speaker-list-item">
-                <div class="medium-3 columns">
+            {% for s in data.speakers %}
+            <article id="{{ s.slug }}" class="row speaker-list-item">
+                <div class="medium-2 columns">
                     <figure>
-                        <img class="photo" src="/img/farai-madzima.jpg"/>
+                        <div class="avatar-frame"><span>{{ s.initials }}</span></div>
+                        <!--<img class="photo" src="{{ s.mugshot.url }}"/>-->
                     </figure>
                 </div>
-                <div class="medium-9 columns">
-                    <h5>Martin Pedrick</h5>
+                <div class="medium-10 columns">
+                    <h3>{{ s.name }}</h3>
                     <p>
-                        UX Designer, Design Manager and Prototyping Expert <br> 
-                        <span><a href="/">Dropbox</a> &mdash; New York, USA</span>
+                        {{ s.jobTitle }} at <span class="company">{{ s.company }}</span> &mdash; {{ s.city }}</span> <br>
+                        <a href="https://twitter.com/{{ s.twitter }}">{{ s.twitter }}</a>
+                        {% if s.website %} • <a href="http://{{ s.website }}">{{ s.website }}</a> {% endif %}
                     </p>
-                    <p>Farai Madzima is the Design Lead for the Standard Bank app and has 10 years of experience researching and designing for humane on-screen interactions.</p>
-                    <p>
-                        <a href="/">@nimprojects</a> • 
-                        <a href="/">nimprojects.com</a> 
-                    </p>
-
+                    <p>{{ s.content.shortDesc.html }}</p>
+                    <hr>
                 </div>
             </article>
+            {% endfor %}
             <article class="row speaker-list-item">
-                <div class="medium-3 columns">
+                <div class="medium-2 columns">
                     <figure>
-                        <img class="photo" src="/img/farai-madzima.jpg"/>
+                        <div class="avatar-frame"><span>...</span></div>
+                        <!--<img class="photo" src="{{ s.mugshot.url }}"/>-->
                     </figure>
                 </div>
-                <div class="medium-9 columns">
-                    <h5>Martin Pedrick</h5>
-                    <p>
-                        UX Designer, Design Manager and Prototyping Expert <br> 
-                        <span><a href="/">Dropbox</a> &mdash; New York, USA</span>
-                    </p>
-                    <p>Farai Madzima is the Design Lead for the Standard Bank app and has 10 years of experience researching and designing for humane on-screen interactions.</p>
-                    <p>
-                        <a href="/">@nimprojects</a> • 
-                        <a href="/">nimprojects.com</a> 
-                    </p>
-
+                <div class="medium-10  columns">
+                    <h5>More speakers will be announced soon.</h5>
+                    <p>Stay up to date by signing up to our newsletter. No spam, just important updates about new speakers, workshops and events.</p>
+                    {%  include 'templates/mixins/newsletter-signup.html' %}
                 </div>
             </article>
-            <article class="row speaker-list-item">
-                <div class="medium-3 columns">
-                    <figure>
-                        <img class="photo" src="/img/farai-madzima.jpg"/>
-                    </figure>
-                </div>
-                <div class="medium-9 columns">
-                    <h5>Martin Pedrick</h5>
-                    <p>
-                        UX Designer, Design Manager and Prototyping Expert <br> 
-                        <span><a href="/">Dropbox</a> &mdash; New York, USA</span>
-                    </p>
-                    <p>Farai Madzima is the Design Lead for the Standard Bank app and has 10 years of experience researching and designing for humane on-screen interactions.</p>
-                    <p>
-                        <a href="/">@nimprojects</a> • 
-                        <a href="/">nimprojects.com</a> 
-                    </p>
 
-                </div>
-            </article>
         </section>
         <hr>
         <section class="content-section">
             <h2 class="section-heading">Because you want to do good<br>
-                <small>We contribute part of your fee to a bursary</small>
+                <small>We contribute part of your attendance fee to a bursary</small>
             </h2>
             {%  include 'templates/views/partials/panel-doGood.html' %}
         </section>
+        <hr>
+        {% include 'templates/mixins/become-a-sponsor.html' %}
 
 {% endblock %}

@@ -1,13 +1,13 @@
 var keystone = require('keystone');
 
 exports = module.exports = function(req, res) {
-	
+
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
-	
+
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
-	locals.section = 'home';
+	locals.section = (keystone.app.locals.is_prelaunch) ? 'holding' : 'home';
 
 	locals.data = {
 		events: []
@@ -15,20 +15,24 @@ exports = module.exports = function(req, res) {
 
 	// Load other posts
 	view.on('init', function(next) {
-		
-		var q = keystone.list('WorkshopEvent').model.find()
-		.where('state', 'published')
-		.populate('workshop')
-		.sort('startDate');
-		
+
+		var q = keystone.list('Person').model.find()
+		.where('isSpeaker', 'true')
+		.limit('4')
+
 		q.exec(function(err, results) {
-			locals.data.events = results;
+			locals.data.speakers = results;
 			next(err);
 		});
-		
+
 	});
 
-	// Render the view
-	view.render('index');
-	
+	if(keystone.app.locals.is_prelaunch){
+		// Render the view
+		  view.render('holding');
+	} else {
+		// Render the view
+		view.render('index');
+	}
+
 };

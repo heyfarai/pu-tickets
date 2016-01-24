@@ -1,8 +1,18 @@
-{% extends "templates/layouts/default.html" %}
+{% extends "templates/layouts/default-with-header.html" %}
 
-{% block content %}
-	<div class="container">
-		<h1>Error (500)</h1>
-		<p class="lead">Sorry, the site has encountered an error.</p>
-	</div>
+{% set title = "Oops  ·  Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
+
+{% set page_heading = "Error (500)" %}
+{% set page_lead = "Something has gone terribly wrong" %}
+
+
+{% block page_content %}
+
+        <section class="content-section">
+            <h2 class="section-heading">Because you want to do good<br>
+                <small>We contribute part of your fee to a bursary</small>
+            </h2>
+            {%  include 'templates/views/partials/panel-doGood.html' %}
+        </section>
+
 {% endblock %}

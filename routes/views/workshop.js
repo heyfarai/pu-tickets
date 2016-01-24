@@ -6,7 +6,7 @@ exports = module.exports = function(req, res) {
 	var locals = res.locals;
 	
 	// Set locals
-	locals.section = 'workshop';
+	locals.section = 'workshops';
 	locals.filters = {
 		workshop: req.params.workshop
 	};
