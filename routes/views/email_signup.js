@@ -16,7 +16,7 @@ exports = module.exports = function(req, res) {
 			id: keystone.app.locals.newsletter_id,
 			email:{email:req.body.email}},
 			function(data) {
-				req.flash('success', 'Sharp! We;ve sent you a confirmation email.');
+				req.flash('success', 'Sharp! We\'ve sent you an email to confirm.');
 	      res.redirect(backURL);
 	    },
 	    function(error) {
