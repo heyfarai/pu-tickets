@@ -3,53 +3,40 @@
 {% set title = "Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
 
 
+{% block left_section_content %}
+            <h1 class="page-title"><a href="/" class="button radius small">TICKET SALES OPEN FEB 22, 2016</a></h1>
+                <div class="page-lead-content">
+                    <ul class="no-bullet">
+                        <li>Get updates</li>
+                        <li><a href="#"><i class="fi-social-twitter"></i> @letspixelup</a></li>
+                        <li><a href="#"><i class="fi-social-instagram"></i> @letspixelup</a></li>
+                        <li><a href="#"><i class="fi-social-facebook"></i> /letspixelup</a></li>
+                    </ul>
+                </div>
+{% endblock %}
+
+
 {% block content %}
-         		<header class="fullWidth hero">
-                    <h2 class="home">A Conference on Making <span class="punchy">Great Products</span> with <span class="punchy">Pixels</span></h2>
-                    <p class="conf-description">3 days. 12 expert speakers. 8 workshops. Its the first event of it's kind in Africa. Its an event for digital product designers and developers to meet, learn and get inspired about making products customers will love.</p>
-                    <h4>September 12-14, 2016 <br>
-                        in Maboneng Precinct, Johannesburg, South Africa.
-                    </h4>
-                    <!-- <div class="row">
-                    <div class="large-6 columns">
-                      <div class="row collapse">
-                        <div class="small-10 columns">
-                          <input type="text" placeholder="Hex Value">
-                        </div>
-                        <div class="small-2 columns">
-                          <a href="#" class="button postfix radius ">NOTIFY ME</a>
-                        </div>
-                      </div>
-                    </div>
-                    </div> -->
-                    <a href="/" class="button radius small">TICKET SALES OPEN FEB 1, 2016</a>
-                </header>
-                <hr>
+            <h4 class="section-lead">
+                We bring engaging industry leaders from around the world to present a combination of inspirational talks and lively, hands-on workshops.</h4>
+                <small class="heading-lead">A digital product design conference</small>
+                <p class="conf-description">Its the first event of it's kind in Africa. Its an event for digital product designers and developers to meet, learn and get inspired about making products customers will love.</p>
+
+
+
                 <section class="content-section">
-                    <div class="row">
-                        <div class="medium-6 columns">
+                        <div>
                             <h4>3 days. 12 experts. 8 workshops.</h4>
                             <p>Pixel Up! happens over 3 days. <a href="#">Day 1</a> and <a href="#">Day 2</a> are full conference days, with one track, <a href="">12 experts from the industry</a> and 200 fantastic attendees. Day 3 is packed with 8 half-day workshops delivered by local and international experts.</p>
                         </div>
-                        <div class="medium-6 columns">
-                            <h4>Who should attend?</h4>
-                            <ul>
-                                <li>Designers working on apps and websites</li>
-                                <li>Web front end developers</li>
-                                <li>Native app developers</li>
-                                <li>Savvy product and project managers</li>
-                            </ul>
-                        </div>
-                    </div>
                 </section>
-                <hr>
                 <section class="featured-speakers content-section">
-                    <h2 class="section-heading">First confirmed speakers</h2>
+                    <h2 class="section-heading">Speakers</h2>
                     <div class="row">
                         {% for d in data.speakers %}
-                        <div class="featured-speaker medium-3 small-3 columns">
+                        <div class="featured-speaker medium-6 small-6 columns">
                             <figure>
-                                <img class="photo" src="{{ d.mugshot.url }}"/>
+                                <img class="photo" src="/img/melissa.jpg"/>
                             </figure>
                             <dl>
                                 <dt>{{ d.name }}</dt>
@@ -61,36 +48,22 @@
                     </div>
                     <p class="more-speakers">More speakers will be announced soon!</p>
                 </section>
-                <hr>
+
                 <section class="content-section">
-                    <h2>Stay up to date on Pixel Up! 2016</h2>
-                    <p>We send out updates on tickets, speakers, and other important event details to our mailing list. You can also follow us on Twitter or search for the hashtag #pixelup to stay updated. We won't spam you, and we'll make sure our mails and tweets are worth your time.</p>
-                    <div class="row">
-                        <div class="large-6 columns">
-                          <div class="row collapse">
-                            <div class="small-8 columns">
-                              <input type="text" placeholder="Your email">
-                            </div>
-                            <div class="small-4 columns">
-                              <a href="#" class="button postfix radius ">Keep me posted</a>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
+                <div>
+                    <h2>Who should attend?</h2>
+                    <ul>
+                        <li>Designers working on apps and websites</li>
+                        <li>Web front end developers</li>
+                        <li>Native app developers</li>
+                        <li>Savvy product and project managers</li>
+                    </ul>
+                </div>
                 </section>
-                <hr>
+
                     {% include 'templates/mixins/become-a-sponsor.html' %}
-                <hr>
-                <section class="content-section grey">
-                    <h2 class="section-heading">Because you want to do good<br>
-                        <small>We contribute part of your fee to a bursary</small>
-                    </h2>
-                    {%  include 'templates/views/partials/panel-doGood.html' %}
-                </section>
-                <hr>
-                <section class="content-section">
-                    {% include 'templates/views/partials/convincePanel.html' %}
-                </section>
+
+
     		</div>
     	</div>
 {% endblock %}

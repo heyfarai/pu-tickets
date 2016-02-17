@@ -2,24 +2,32 @@
 
 {% set title = "Partners  ·  Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
 
-{% set page_heading = "Partners" %}
-{% set page_lead = "All those who made this possible" %}
 
+{% block left_section_content %}
+            <h1 class="page-title">Partners</h1>
+            <div class="page-lead-content">
+                <ul class="no-bullet">
+                    <li><a href="#">Sponsorship pack</a></li>
+                </ul>
+            </div>
+{% endblock %}
 
 {% block page_content %}
-        
-        <section class="content-section">
-            <p>We want to have an awesome event with awesome speakers, while keeping ticket prices affordable. Sponsors and partners can help us to achieve this.</p>
-            <p>As a sponsor, you'll get, with this one of a kind event, exposure of your brand / products to thousands of designers, developers and product managers through venue and online advertising.</p>
-            <p>If you'd like to know more about our sponsorship packages, <a href="mailto:sponsors@pixelup.co.za">email us</a>.</p>
-        </section>
-        <hr>
-        <section class="content-section">
-            <h2 class="section-heading">Because you want to do good<br>
-                <small>We contribute part of your fee to a bursary</small>
-            </h2>
-            {%  include 'templates/views/partials/panel-doGood.html' %}
+        <h4 class="section-lead">If you’re interested in sponsoring Pixel Up!, <a href="#">please get in touch</a>, we’d love for you to be involved.</h4>
+        <section>
+            <p>We’ve plenty of exciting opportunities, whatever your company size or budget, whether you’d like to have a stand, sponsor one of the delicious food carts, or run a workshop.</p>
+            <p>Of course, sponsoring Pixel Up! will connect your brand with some of the most
+                influential UX practitioners, organisations and thought leaders in the industry.
+            </p>
+            <p>
+                So this is the perfect opportunity for any company involved in creating apps, websites, usability,
+                information architecture or user experience.
+            </p>
+            <p>
+                And with such a high concentration of senior practitioners, Pixel Up! is also the ideal place to recruit new staff.
+                <br>
+                Join us at Pixel Up! and let your brand be a great part of an industry-leading experience.</p>
+            <p>For more details on sponsorship packages, <a href="#">download our sponsorship pack</a> (PDF 1.1Mb).</p>
         </section>
 
 {% endblock %}
-
