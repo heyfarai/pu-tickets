@@ -28,15 +28,16 @@
                 <div class="small-8 medium-6 large-8 columns">
                     <h3>{{ s.name }}</h3>
                     <p class="spkr-title">
-                        {{ s.jobTitle }} <br> <span class="company">{{ s.company }}</span> <br> <span class="city">{{ s.city }}</span>
-
+                        {{ s.jobTitle }} <br> <span class="company">{{ s.company }}</span> • <span class="city">{{ s.city }}</span>
+                        <br><a href="https://twitter.com/{{ s.twitter }}">{{ s.twitter }}</a>
+                        <!-- <br><a href="http://{{ s.website }}">{{ s.website }}</a> -->
                     </p>
                 </div>
                 <div class="small-12 columns">
-                    <div class="spkr-links">
+                    <!-- <div class="spkr-links">
                         <a href="https://twitter.com/{{ s.twitter }}">{{ s.twitter }}</a>
                         {% if s.website %} • <a href="http://{{ s.website }}">{{ s.website }}</a> {% endif %}
-                    </div>
+                    </div> -->
                     {{ s.content.shortDesc.html }}
                 </div>
             </article>
