@@ -27,12 +27,7 @@ exports = module.exports = function(req, res) {
 
 	});
 
-	if(keystone.app.locals.is_prelaunch){
-		// Render the view
-		  view.render('holding');
-	} else {
-		// Render the view
-		view.render('index');
-	}
+	// Render the view
+	view.render('index');
 
 };
