@@ -36,7 +36,7 @@
                         {% for d in data.speakers %}
                         <div class="featured-speaker medium-6 small-6 columns">
                             <figure>
-                                <img class="photo" src="/img/melissa.jpg"/>
+                                <img class="photo" src="{{ d.mugshot.url }}"/>
                             </figure>
                             <dl>
                                 <dt>{{ d.name }}</dt>
