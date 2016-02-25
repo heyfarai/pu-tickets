@@ -1,0 +1,26 @@
+/* Tables */
+table {
+  font-size: @font-size__small;
+  margin: 0 0 @line-height__base 0;
+  width: 100%;
+  @media @mobile-small {
+    line-height: @line-height__small--stoneage;
+  }
+  tr {
+    th {
+      font-weight: bold;
+      background-color: @grey--soft;
+      /* hides borders and backgrounds of empty table headers */
+      empty-cells: hide;
+      /* hides content of empty table headers */
+      > *:empty {
+        display: none;
+      }
+    }
+    th, td {
+      font-size: @font-size__small;
+      line-height: @line-height__small;
+      padding:6px;
+    }
+  }
+}
