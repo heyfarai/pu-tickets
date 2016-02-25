@@ -15,8 +15,7 @@
 
 		<title>{{ title |default("Pixel Up!") }}</title>
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" href="/css/foundation.min.css" />
-		<link rel="stylesheet" href="/css/foundation-icons.css" />
+		<link href="/css/normalise.css" rel="stylesheet">
 		<link href="/css/pixelup.min.css" rel="stylesheet">
 
 		<script src="https://use.typekit.net/oqz7ipt.js"></script>
@@ -31,44 +30,21 @@
 
 	</head>
     <body id="{{ section }}">
-		<h1 class="brand"><a href="/">Pixel Up!</a></h1>
-		<div class="top-bar">
-            <h5 class="conf-tagline">A Conference About Making Great Products with Pixels.
-                </h5>
-            <h6 class="conf-when-where">September 14-16, 2016<br> in Johannesburg, South Africa</h6>
-		</div>
-		<div id="nav-bar">
-			<!-- <h1 class="brand"><a href="/">Pixel Up!</a></h1> -->
-			<ul class="main-nav no-bullet show-for-medium-up">
-				<li><a class="nav-speakers" href="/speakers/">
-					  <span>
-						  <img src="/img/ic_speakers.svg" width="100%"/>
-					  </span>
-					  Speakers</a>
-				</li>
-				<li><a class="nav-schedule" href="/schedule/">
-					  <span>
-						  <img src="/img/ic_schedule.svg" width="100%"/>
-					  </span>
-					  Schedule</a></li>
-				<li><a class="nav-partners" href="/partners/">
-					  <span>
-						  <img src="/img/ic_partners.svg" width="100%"/>
-					  </span>
-					  Sponsors</a></li>
-				<li><a class="nav-tickets" href="/tickets/">
-					  <span>
-						  <img src="/img/ic_tickets.svg" width="100%"/>
-					  </span>Tickets</a></li>
-			</ul>
-		</div>
 		<div class="left-section">
             <div class="section-inner">
-                <h5 class="conf-tagline">
-					A Conference on Making Great Products with Pixels</span>
-                </h5>
-                <h6 class="conf-when-where">September 14-16, 2016<br> in Johannesburg, South Africa</h6>
-				{% block left_section_content %}{% endblock %}
+				<p class="brand"><a href="/">Pixel Up!</a></p>
+		            <h3 class="conf-tagline">A Conference About Making Great Products with Pixels.</h5>
+		            <p class="conf-when-where">September 14-16, 2016<br> in Johannesburg, South Africa</h6>
+
+
+				<ul class="nav no-bullet">
+					<!--<li><a class="nav-about" href="/">#PixelUp</a></li>-->
+					<li><a class="nav-speakers" href="/speakers/">Speakers</a></li>
+					<li><a class="nav-schedule" href="/schedule/">Schedule</a></li>
+					<li><a class="nav-partners" href="/partners/">Sponsors</a></li>
+					<li><a class="nav-tickets" href="/tickets/">Tickets</a></li>
+				</ul>
+
             </div>
 
 		</div>

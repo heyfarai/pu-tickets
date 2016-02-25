@@ -51,12 +51,12 @@ exports = module.exports = function(app) {
 
 	app.get('/accessibility', routes.views.long_form);
 
-	app.get('/terms', routes.views.long_form);
+	app.get('/terms', routes.views.terms);
 
 	app.get('/credits', routes.views.long_form);
 
-	app.get('/code-of-conduct', routes.views.long_form);
-	app.get('/has/a/code-of-conduct', routes.views.long_form);
+	app.get('/code-of-conduct', routes.views.code_of_conduct);
+	app.get('/has/a/code-of-conduct', routes.views.code_of_conduct);
 
 	app.all('/e', routes.views.email_signup);
 

@@ -4,7 +4,6 @@
 
 
 {% block left_section_content %}
-            <h1 class="page-title">Speakers</h1>
             <div class="page-lead-content">
                 <ul class="no-bullet">
                     {% for s in data.speakers %}
@@ -15,31 +14,28 @@
 {% endblock %}
 
 {% block page_content %}
-        <h4 class="section-lead">Learn from the authors, directors and designers - working at companies like Dropbox, Twitter and Lego - who are helping push the industry forward.</h4>
+        <h2 class="page-title">Speakers</h2>
+        <p class="lead">Learn from the authors, directors and designers - working at companies like Dropbox, Twitter and Lego - who are helping push the industry forward.</p>
         <section class="content-section">
             {% for s in data.speakers %}
             <article id="{{ s.slug }}" class="row speaker-list-item">
-                <div class="small-4 medium-6 large-4 columns">
-                    <figure>
-                        <!-- <div class="avatar-frame"><span>{{ s.initials }}</span></div> -->
-                        <img class="photo" src="{{ s.mugshot.url }}"/>
-                    </figure>
-                </div>
-                <div class="small-8 medium-6 large-8 columns">
+                    <!-- <div class="avatar-frame"><span>{{ s.initials }}</span></div> -->
+                    <img class="photo" src="{{ s.mugshot.url }}"/>
+                <div class="spkr-details">
                     <h3>{{ s.name }}</h3>
                     <p class="spkr-title">
-                        {{ s.jobTitle }} <br> <span class="company">{{ s.company }}</span> • <span class="city">{{ s.city }}</span>
+                        <span class="job-title">{{ s.jobTitle }}</span> <br> <span class="company">{{ s.company }}</span> • <span class="city">{{ s.city }}</span>
                         <br><a href="https://twitter.com/{{ s.twitter }}">{{ s.twitter }}</a>
                         <!-- <br><a href="http://{{ s.website }}">{{ s.website }}</a> -->
                     </p>
                 </div>
-                <div class="spkr-desc small-12 columns">
-                    <!-- <div class="spkr-links">
-                        <a href="https://twitter.com/{{ s.twitter }}">{{ s.twitter }}</a>
-                        {% if s.website %} • <a href="http://{{ s.website }}">{{ s.website }}</a> {% endif %}
-                    </div> -->
-                    {{ s.content.shortDesc.html }}
-                </div>
+                    <div class="spkr-desc">
+                        <!-- <div class="spkr-links">
+                            <a href="https://twitter.com/{{ s.twitter }}">{{ s.twitter }}</a>
+                            {% if s.website %} • <a href="http://{{ s.website }}">{{ s.website }}</a> {% endif %}
+                        </div> -->
+                        {{ s.content.shortDesc.html }}
+                    </div>
             </article>
             {% endfor %}
 
