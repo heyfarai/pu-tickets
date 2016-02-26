@@ -1,4 +1,4 @@
-@font__serif:                              "source-sans-pro", sans-serif;
+@font__serif:                              "fira-sans", sans-serif;
 @font__monospace:                          "Courier", monospace;
 
 @font-size__base:                          19px;
@@ -8,7 +8,7 @@
 
 @font-weight__light:                       300;
 @font-weight__regular:                     400;
-@font-weight__bold:                        700;
+@font-weight__bold:                        900;
 
 @line-height__base:                        round(@font-size__base * 1.7);
 @line-height__base__fake-small-caps:       round(@font-size__base * 1.7);
@@ -52,7 +52,7 @@
   }
 }
 body {
-  background:@color__background;
+  background: #fff;
 }
 
 h1,
@@ -75,8 +75,7 @@ h1 {
   text-align:center;
   letter-spacing:  1.5px;
   margin:0 0 @line-height__base 0;
-  text-transform: uppercase;
-
+  xtext-transform: uppercase;
   @media @mobile-large {
     letter-spacing:  1px;
     margin:0 0 @line-height__small 0;

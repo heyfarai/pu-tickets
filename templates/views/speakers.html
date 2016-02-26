@@ -15,10 +15,17 @@
 
 {% block page_content %}
         <h1 class="page-title">Speakers</h1>
-        <p class="lead">Learn from the authors, directors and designers - working at companies like Dropbox, Twitter and Lego - who are helping push the industry forward.</p>
-        <section class="content-section">
+
+        <div class="row">
+            <div class="offset-by-one-third two-thirds column">
+                <p class="lead"><strong>Learn from the authors, directors and designers - working at companies like Dropbox, Twitter and Lego - who are helping push the industry forward.</strong></p>
+            </div>
+        </div>
+        <section class="row">
+
+            {% set cls = cycler("offset-by-one-third two-thirds column", "eight columns") %}
             {% for s in data.speakers %}
-            <article id="{{ s.slug }}" class="row speaker-list-item">
+            <article id="{{ s.slug }}" class="{{ cls.next() }}  speaker-list-item">
                     <!-- <div class="avatar-frame"><span>{{ s.initials }}</span></div> -->
                     <img class="photo" src="{{ s.mugshot.url }}"/>
                 <div class="spkr-details">
@@ -40,6 +47,7 @@
             {% endfor %}
 
         </section>
-        {% include 'templates/mixins/become-a-sponsor.html' %}
-
+                {% include 'templates/mixins/become-a-sponsor.html' %}
+            </div>
+        </div>
 {% endblock %}

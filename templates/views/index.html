@@ -4,7 +4,7 @@
 
 
 {% block left_section_content %}
-            <h2 class="page-title"><small>#PixelUp</small></h2>
+            <h3 class="page-title"><small>#PixelUp</small></h3>
                 <div class="page-lead-content">
                     <ul class="no-bullet">
                         <li><a href="#"><i class="fi-social-twitter"></i> @letspixelup</a></li>
@@ -17,50 +17,61 @@
 
 {% block content %}
                 <h1 class="page-title">#PixelUp</h1>
-                <pre><em>A 3 Day Digital Product Design Conference in Johannesburg, South Africa</em></pre>
+                <div class="row">
+                    <div class="offset-by-one-third two-thirds column">
+                        <pre><em>A 3 Day Digital Product Design Conference in Johannesburg, South Africa</em></pre>
 
-                <p><strong>We bring engaging industry leaders from around the world to present a combination of inspirational talks and lively, hands-on workshops.</strong></p>
-                <p>Its the first event of it's kind in Africa. Its an event for digital product designers and developers to meet, learn and get inspired about making products customers will love.</p>
-                <section>
-                    <h2>3 days. 12 experts. 3 workshops.</h2>
-                    <p>Pixel Up! happens over 3 days. <a href="/schedule/#day-1">Day 1</a> and <a href="/schedule/#day-2">Day 2</a> are full conference days, with one track, <a href="">12 experts from the industry</a> and 200 fantastic attendees. <a href="/schedule/#day-3">Day 3</a> is packed with 3 full-day workshops delivered by local and international experts.</p>
-                </section>
-                <section>
-                    <h2>First confirmed speakers</h2>
-                    <div class="featured-speaker-list">
-                       {% for d in data.speakers %}
-                        <div class="featured-speaker">
-                            <div class="">
-                                <img class="photo" src="{{ d.mugshot.url }}"/>
-                            </div>
-                            <div class="spkr-details">
-                                <span class="spkr-name">{{ d.name }}</span><br>
-                                <span class="spkr-title">{{ d.jobTitle }}</span><br>
-                                <span class="spkr-company">{{ d.company }}, {{ d.city }}</span><br>
-                            </div>
-                         </div>
-                        {% endfor %}
+                        <p><strong>We bring engaging industry leaders from around the world to present a combination of inspirational talks and lively, hands-on workshops.</strong></p>
+                        <p>Its the first event of it's kind in Africa. Its an event for digital product designers and developers to meet, learn and get inspired about making products customers will love.</p>
                     </div>
-                    <p class="u-cf more-speakers">More speakers will be announced soon!</p>
-                </section>
+                </div>
+                <div class="row">
+                    <div class="nine columns">
+                        <section>
+                            <h3>3 days. 12 experts. 3 workshops.</h3>
+                            <p>Pixel Up! happens over 3 days. <a href="/schedule/#day-1">Day 1</a> and <a href="/schedule/#day-2">Day 2</a> are full conference days, with one track, <a href="">12 experts from the industry</a> and 200 fantastic attendees. <a href="/schedule/#day-3">Day 3</a> is packed with 3 full-day workshops delivered by local and international experts.</p>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-by-one-third two-thirds column">
+                        <section>
+                            <h3>First confirmed speakers</h3>
+                            <div class="featured-speaker-list">
+                                {% for d in data.speakers %}
+                                <div class="featured-speaker">
+                                    <div class="">
+                                        <img class="photo" src="{{ d.mugshot.url }}"/>
+                                    </div>
+                                    <div class="spkr-details">
+                                        <span class="spkr-name">{{ d.name }}</span>
+                                        <span class="spkr-title">{{ d.jobTitle }}</span>
+                                        <span class="spkr-company">{{ d.company }}, {{ d.city }}</span>
+                                    </div>
+                                 </div>
+                                {% endfor %}
+                            </div>
+                        </section>
 
-                <section>
-                    <h2>Where is it happening?</h2>
-                    <p>We're in the process of finalising a fantastic venue that showcases the uniqueness of Johannesburg while giving us enough space to work and play.</p>
-                </section>
-                <section>
-                    <h2>Who should attend?</h2>
-                    <ul>
-                        <li>Designers working on apps and websites</li>
-                        <li>Web front end developers</li>
-                        <li>Native app developers</li>
-                        <li>Savvy product and project managers</li>
-                    </ul>
-                </section>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="column">
+                        <section>
+                            <h3>Where is it happening?</h3>
+                            <p>We're in the process of finalising a fantastic venue that showcases the uniqueness of Johannesburg while giving us enough space to work and play.</p>
+                        </section>
+                        <section>
+                            <h3>Who should attend?</h3>
+                            <ul>
+                                <li>Designers working on apps and websites</li>
+                                <li>Web front end developers</li>
+                                <li>Native app developers</li>
+                                <li>Savvy product and project managers</li>
+                            </ul>
+                        </section>
 
-                    {% include 'templates/mixins/become-a-sponsor.html' %}
-
-
-    		</div>
-    	</div>
+                            {% include 'templates/mixins/become-a-sponsor.html' %}
+                    </div>
+                </div>
 {% endblock %}

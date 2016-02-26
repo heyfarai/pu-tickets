@@ -30,31 +30,29 @@
 
 	</head>
     <body id="{{ section }}">
-		<div class="left-section">
-            <div class="section-inner">
-				<h1 class="brand"><a href="/">Pixel Up!</a></h1>
-		            <h3 class="conf-tagline">A Conference About Making Products with Pixels.</h5>
-		            <p class="conf-when-where"><small>September 12-14, 2016 in Johannesburg, South Africa</small></p>
-
-
-				<ul class="nav no-bullet">
-					<li><a class="nav-about" href="/">#PixelUp</a></li>
-					<li><a class="nav-speakers" href="/speakers/">Speakers</a></li>
-					<li><a class="nav-schedule" href="/schedule/">Schedule</a></li>
-					<li><a class="nav-partners" href="/partners/">Sponsors</a></li>
-					<li><a class="nav-tickets" href="/tickets/">Tickets</a></li>
-				</ul>
-
-            </div>
-
-		</div>
-		<div class="right-section">
-			<div class="section-inner">
-						{{ FM.flashMessages(messages) }}
-            {% block content %}{% endblock %}
+		<!-- .container is main centered wrapper -->
+		<div class="container">
+		  	<div class="row">
+		    	<div class="offset-by-one-third two-thirds column">
+					<h1 class="brand"><a href="/">Pixel Up!</a></h1>
+					<ul class="nav no-bullet">
+						<!-- <li><a class="nav-about" href="/">#PixelUp</a></li> -->
+						<li><a class="nav-speakers" href="/speakers/">Speakers</a></li>
+						<li><a class="nav-schedule" href="/schedule/">Schedule</a></li>
+						<li><a class="nav-partners" href="/partners/">Sponsors</a></li>
+						<li><a class="nav-tickets" href="/tickets/">Tickets</a></li>
+					</ul>
+		            <h3 class="u-cf conf-tagline">A Conference on Making Great Products with Pixels</h5>
+		            <p class="conf-when-where">September 12-14, 2016 in Johannesburg, South Africa</p>
+				</div>
+		  	</div>
+			<div class="content-wrapper">
+				{{ FM.flashMessages(messages) }}
+	            {% block content %}{% endblock %}
 			</div>
 		</div>
-        {% include "templates/views/partials/footer.html" %}
+		{% include "templates/views/partials/footer.html" %}
+
 	<script src="/js/vendor/jquery.min.js"></script>
 	<script src="/js/vendor/what-input.min.js"></script>
 	<script src="/js/foundation.min.js"></script>
