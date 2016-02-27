@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="two-thirds column">
+            <div class="offset-by-one-third two-thirds column">
                 <section class="event-day" id="day-1" data-daynumber="1">
                     <h3><span class="">Day One</span> <span>Monday, Sept. 12</span></h3>
                     <p>Along with the continental breakfast, you’ll get an amazing lunch, beverage breaks and nibbles throughout the day.</p>
@@ -165,7 +165,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="two-thirds column">
+            <div class="offset-by-one-third two-thirds column">
                 <section class="event-day" id="day-3" data-daynumber="3">
                     <h3><span class="">Day Three</span> <span>Wednesday, Sept. 14</span></h3>
                     <p>Day 3 is workshop day. Go beyond inspiration and immerse yourself in groundbreaking design &amp; development skills you won’t find anywhere else. Get your team on the same page with proven methods, tools and clear-cut direction on specific actions and skills. </p>
@@ -194,7 +194,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="column">
+            <div class="offset-by-one-third two-thirds column">
                     {#
                         <section>
                         <h3>Because you want to do good<br>
@@ -203,7 +203,7 @@
                         {%  include 'templates/views/partials/panel-doGood.html' %}
                     </section>
                     #}
-                {% include 'templates/mixins/become-a-sponsor.html' %}
             </div>
         </div>
+    {% include 'templates/mixins/become-a-sponsor.html' %}
 {% endblock %}

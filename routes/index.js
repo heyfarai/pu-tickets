@@ -45,7 +45,7 @@ exports = module.exports = function(app) {
 	app.get('/south-africa/johannesburg', routes.views.location);
 	app.get('/south-africa/johannesburg/maboneng', routes.views.location);
 	app.get('/exhibition', routes.views.exhibition);
-	app.get('/partners', routes.views.partners);
+	app.get('/sponsors', routes.views.sponsors);
 	app.get('/tickets', routes.views.tickets);
 	app.get('/about', routes.views.long_form);
 

@@ -23,9 +23,8 @@
         </div>
         <section class="row">
 
-            {% set cls = cycler("offset-by-one-third two-thirds column", "eight columns") %}
             {% for s in data.speakers %}
-            <article id="{{ s.slug }}" class="{{ cls.next() }}  speaker-list-item">
+            <article id="{{ s.slug }}" class="offset-by-one-third two-thirds column speaker-list-item">
                     <!-- <div class="avatar-frame"><span>{{ s.initials }}</span></div> -->
                     <img class="photo" src="{{ s.mugshot.url }}"/>
                 <div class="spkr-details">

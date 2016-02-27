@@ -3,10 +3,12 @@ table {
   font-size: @font-size__small;
   margin: 0 0 @line-height__base 0;
   width: 100%;
+  border-collapse: collapse;
   @media @mobile-small {
     line-height: @line-height__small--stoneage;
   }
   tr {
+      border-bottom: 1px solid @grey--soft;
     th {
       font-weight: bold;
       background-color: @grey--soft;

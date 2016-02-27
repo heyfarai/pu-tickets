@@ -14,9 +14,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<title>{{ title |default("Pixel Up!") }}</title>
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<link href="/css/normalise.css" rel="stylesheet">
 		<link href="/css/pixelup.min.css" rel="stylesheet">
+
+		<link rel="shortcut icon" href="/img/favicon.png">
+		<link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon.png">
 
 		<script src="https://use.typekit.net/oqz7ipt.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -34,16 +36,18 @@
 		<div class="container">
 		  	<div class="row">
 		    	<div class="offset-by-one-third two-thirds column">
-					<h1 class="brand"><a href="/">Pixel Up!</a></h1>
+					<h1 class="brand"><a href="/"><img src="/img/pixelup-logo-color.png"/>Pixel Up!</a></h1>
+					<div class="conf-about">
+			            <h3 class="conf-tagline">A Conference on Making Great Products with Pixels</h5>
+			            <p class="conf-when-where">September 12-14, 2016 in Johannesburg, South Africa</p>
+					</div>
 					<ul class="nav no-bullet">
-						<!-- <li><a class="nav-about" href="/">#PixelUp</a></li> -->
+						<li><a class="nav-about" href="/">#PixelUp</a></li>
 						<li><a class="nav-speakers" href="/speakers/">Speakers</a></li>
 						<li><a class="nav-schedule" href="/schedule/">Schedule</a></li>
-						<li><a class="nav-partners" href="/partners/">Sponsors</a></li>
+						<li><a class="nav-partners" href="/sponsors/">Sponsors</a></li>
 						<li><a class="nav-tickets" href="/tickets/">Tickets</a></li>
 					</ul>
-		            <h3 class="u-cf conf-tagline">A Conference on Making Great Products with Pixels</h5>
-		            <p class="conf-when-where">September 12-14, 2016 in Johannesburg, South Africa</p>
 				</div>
 		  	</div>
 			<div class="content-wrapper">
@@ -63,7 +67,7 @@
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 		ga('create', 'UA-72813434-1', 'auto');
 		ga('send', 'pageview');
-	</script> 
+	</script>
 	</body>
 <!--
  ___ _         _   _   _      _
