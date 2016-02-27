@@ -227,10 +227,6 @@ img {
 	display: none;
 }
 
-.punchy {
-  color: @bright-blue;
-}
-
 .button {
 	background: @highlight-color;
 	&:hover {
@@ -250,9 +246,9 @@ img {
     }
     a {
         text-decoration: none;
-        color: darken(@bright-blue, 5%);
+        color: @bright-blue;
         border-bottom: none;
-        background: darken(@dark-color, 5%) ;
+        background: @dark-color ;
         padding: 1.2rem 1em .5em;
         display: inline-block;
         @media @smartphones {
@@ -316,7 +312,8 @@ img {
             font-weight: bold;
             text-decoration: none;
             @media @tablet-and-up {
-                padding: 0 1.3rem 0 0;
+                padding: 0 1.15rem 0 0;
+                font-size: .875rem;
             }
         }
     }
@@ -471,8 +468,10 @@ img {
     .u-full-width;
     margin: 3rem 0 0;
     padding: 3rem 0 3rem 0 !important;
-    background: @bright-blue;
-    color: @grey-color;
+    background: @dark-color;
+    p, h3, a {
+        color: darken(@grey-color, 25%);
+    }
     .footer-inner {
         hr {
             margin-bottom: @font-size__base*3;
@@ -480,7 +479,6 @@ img {
     }
 	.copyright {
 		margin: 0px 0 0em 0 ;
-		color: @grey-color;
 	}
     hr {
         background-color: @grey-color;
