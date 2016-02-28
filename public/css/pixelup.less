@@ -340,10 +340,21 @@ img {
         width: 26.66667%;
         margin:  2% 2% 2rem 2%;
         text-align: center;
-    	img {
-            width: 128px;
-            border-radius: 50%;
-    	}
+        a {
+            text-decoration: none;
+            &:hover {
+            	img {
+                    border: 2px solid @grey--dark;
+                    -webkit-transition: all 0.2s ease; /* Safari */
+                    transition: all 0.2s ease;
+            	}
+            }
+        	img {
+                width: 128px;
+                border-radius: 50%;
+                border: 2px solid #fff;
+        	}
+        }
         .spkr-details {
             padding-top: .5rem;
             .spkr-name {
@@ -354,7 +365,7 @@ img {
             }
             .spkr-title, .spkr-company {
                 font-size: .8em;
-                line-height: 1rem ;
+                line-height: 1.1rem ;
                 display: block;
             }
         }

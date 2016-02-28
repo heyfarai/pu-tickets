@@ -17,14 +17,16 @@
                             <div class="featured-speaker-list">
                                 {% for d in data.speakers %}
                                 <div class="featured-speaker">
-                                    <div class="">
-                                        <img class="photo" src="{{ d.mugshot.url }}"/>
-                                    </div>
-                                    <div class="spkr-details">
-                                        <span class="spkr-name">{{ d.name }}</span>
-                                        <span class="spkr-title">{{ d.jobTitle }}</span>
-                                        <span class="spkr-company">{{ d.company }}, {{ d.city }}</span>
-                                    </div>
+                                    <a href="/speakers/#{{ d.slug }}">
+                                        <div class="">
+                                            <img class="photo" src="{{ d.mugshot.url }}"/>
+                                        </div>
+                                        <div class="spkr-details">
+                                            <span class="spkr-name">{{ d.name }}</span>
+                                            <span class="spkr-title">{{ d.jobTitle }}</span>
+                                            <span class="spkr-company">{{ d.company }}, {{ d.city }}</span>
+                                        </div>
+                                    </a>
                                  </div>
                                 {% endfor %}
                             </div>
