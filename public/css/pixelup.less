@@ -435,13 +435,38 @@ img {
 }
 
 /* SPONSORS */
-    .sponsorship-detail {
+.sponsorship-detail {
     color: #fff;
     padding: 2rem 2.5rem;
     background: #151242;
     margin-bottom: 1rem;
 }
-
+#more-ways-to-sponsor {
+    margin-top: 3rem;
+    td {
+        line-height: .9em;
+        padding: 1em 0;
+        span {
+            line-height: 1.5em !important
+        }
+    }
+    .sponsorship-title, .sponsorship-desc, .sponsorship-places {
+        display: block;
+    }
+    .sponsorship-title {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .sponsorship-places {
+        color: @grey--dark;
+    }
+    .sponsorship-desc {
+        padding-right: 1.5rem;
+    }
+    .sponsorship-price {
+        font-weight: bold
+    }
+}
 /*  TICKETS	*/
 #tickets {
 
@@ -477,9 +502,13 @@ img {
     .u-full-width;
     margin: 3rem 0 0;
     padding: 3rem 0 3rem 0 !important;
-    background: @dark-color;
-    p, h2, h3, a {
-        color: darken(@grey-color, 25%);
+    background: @grey--soft;
+    color: @dark-color;
+    .jhb-silhouette {
+        background: #fff;
+        img {
+            width : 100%;
+        }
     }
     .footer-inner {
         hr {
@@ -495,11 +524,14 @@ img {
 }
 
 .footer-ampli5yd {
+    background: @dark-color;
+    padding-top: 3rem;
+    color: @grey-color;
     @media @smartphones, @phablet, @phablet-plus {
         margin-left: 0px;
     }
-    h3 {
-        display: none;
+    a {
+        color: @grey-color;
     }
     .footer-inner {
         padding: 0 3rem 3rem;

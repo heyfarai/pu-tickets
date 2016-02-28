@@ -44,10 +44,13 @@ exports = module.exports = function(app) {
 	app.get('/south-africa', routes.views.location);
 	app.get('/south-africa/johannesburg', routes.views.location);
 	app.get('/south-africa/johannesburg/maboneng', routes.views.location);
-	app.get('/exhibition', routes.views.exhibition);
-	app.get('/sponsors', routes.views.sponsors);
 	app.get('/tickets', routes.views.tickets);
 	app.get('/about', routes.views.long_form);
+
+	app.get('/exhibition', routes.views.exhibition);
+	app.get('/sponsors', routes.views.sponsors);
+	app.get('/volunteer', routes.views.volunteer);
+	app.get('/wanna-volunteer', routes.views.volunteer);
 
 	app.get('/accessibility', routes.views.long_form);
 
