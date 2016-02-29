@@ -9,7 +9,7 @@
  */
 
 var _ = require('underscore');
-
+var keystone = require('keystone');
 
 /**
 	Initialises the standard view locals
@@ -22,7 +22,7 @@ var _ = require('underscore');
 exports.initLocals = function(req, res, next) {
 
 	var locals = res.locals;
-
+	locals.is_dev = (keystone.get('env')=="development") ? true : false;
 	locals.user = req.user;
 
 	next();

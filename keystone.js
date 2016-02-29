@@ -68,6 +68,8 @@ keystone.set('locals', {
 	newsletter_id: process.env.NEWSLETTER_ID
 });
 
+console.log(keystone.get('env'));
+
 keystone.set('auto update', true);
 
 // Load your project's Routes
