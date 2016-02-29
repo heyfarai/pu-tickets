@@ -18,7 +18,7 @@ exports = module.exports = function(req, res) {
 
 		var q = keystone.list('Person').model.find()
 		.where('isSpeaker', 'true')
-		.limit('3')
+		.limit('6')
 
 		q.exec(function(err, results) {
 			locals.data.speakers = results;

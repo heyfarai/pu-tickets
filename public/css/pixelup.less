@@ -341,11 +341,17 @@ img {
         width: 26.66667%;
         margin:  2% 2% 2rem 2%;
         text-align: center;
+        height: 12rem;
+        @media @smartphones {
+            // display: none;
+            width: 40%;
+            margin:  2% 4% 50px 4%;
+        }
         a {
             text-decoration: none;
             &:hover {
             	img {
-                    border: 2px solid lighten(@grey--dark, 20%);
+                    border: 2px solid lighten(@grey--dark, 40%);
                     -webkit-transition: all 0.2s ease; /* Safari */
                     transition: all 0.2s ease;
             	}
@@ -501,16 +507,6 @@ img {
         }
         a, span {
         }
-    }
-}
-
-
-
-@media screen and (max-width: 960px) {
-    .featured-speaker {
-        // display: none;
-        width: 40%;
-        margin:  2% 4% 50px 4%;
     }
 }
 
