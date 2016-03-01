@@ -2,18 +2,8 @@
 
 {% set title = "Schedule  ·  Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
 
-{% block left_section_content %}
-            <div class="page-lead-content">
-                <ul class="no-bullet">
-                    <li><a href="#day-1">Day One - Talks</a></li>
-                    <li><a href="#day-2">Day Two - Talks</a></li>
-                    <li><a href="#day-3">Day Three - Workshops</a></li>
-                </ul>
-            </div>
-{% endblock %}
-
 {% block content %}
-        <h1 class="page-title">Schedule</h1>
+        <h1 class="page-title">12 talks. 3 hands-on workshops. And a party.</h1>
         <div class="row">
             <div class="offset-by-one-third two-thirds column">
                 <p><strong>Monday and Tuesday are conference days, filled with inspirational talks. On Wednesday
@@ -33,7 +23,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="offset-by-one-third two-thirds column">
+            <div class="one-third column pull-out">
+                {%  include 'templates/mixins/panel-convince.html' %}
+            </div>
+            <div class="two-thirds column">
                 <section class="event-day" id="day-1" data-daynumber="1">
                     <h3><span class="">Day One</span> <span>Monday, Sept. 12</span></h3>
                     <p>Along with the continental breakfast, you’ll get an amazing lunch, beverage breaks and nibbles throughout the day.</p>
@@ -96,7 +89,7 @@
                         </li>
                         <li class="single-session ">
                             <time>5:00pm - Later</time>
-                            <span>Party for all attendees</span>
+                            <span>Party over here</span>
                         </li>
                     </ol>
                 </section>

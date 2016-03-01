@@ -39,16 +39,19 @@ exports = module.exports = function(app) {
 	app.all('/speakers', routes.views.speakers);
 	app.all('/speakers/:speaker', routes.views.speaker_detail);
 	app.all('/schedule', routes.views.schedule);
-	app.get('/workshops', routes.views.workshop);
-	app.get('/workshops/:workshop', routes.views.workshop);
 	app.get('/south-africa', routes.views.location);
 	app.get('/south-africa/johannesburg', routes.views.location);
 	app.get('/south-africa/johannesburg/maboneng', routes.views.location);
 	app.get('/tickets', routes.views.tickets);
+	app.get('/sponsors', routes.views.sponsors);
+
+
+	app.get('/convince-your-boss', routes.views.convince);
+	app.get('/workshops', routes.views.workshop);
+	app.get('/workshops/:workshop', routes.views.workshop);
 	app.get('/about', routes.views.long_form);
 
 	app.get('/exhibition', routes.views.exhibition);
-	app.get('/sponsors', routes.views.sponsors);
 	app.get('/volunteer', routes.views.volunteer);
 	app.get('/wanna-volunteer', routes.views.volunteer);
 
