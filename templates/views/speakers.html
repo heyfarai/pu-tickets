@@ -14,23 +14,17 @@
 
             {% for s in data.speakers %}
             <article id="{{ s.slug }}" class="offset-by-one-third two-thirds column speaker-list-item">
-                    <!-- <div class="avatar-frame"><span>{{ s.initials }}</span></div> -->
-                    <img class="photo" src="{{ s.mugshot.url }}"/>
+                <img class="photo" src="{{ s.mugshot.url }}"/>
                 <div class="spkr-details">
                     <h3>{{ s.name }}</h3>
                     <p class="spkr-title">
                         <span class="job-title">{{ s.jobTitle }}</span> <br> <span class="company">{{ s.company }}</span> • <span class="city">{{ s.city }}</span>
                         <br><a href="https://twitter.com/{{ s.twitter }}">{{ s.twitter }}</a>
-                        <!-- <br><a href="http://{{ s.website }}">{{ s.website }}</a> -->
                     </p>
                 </div>
-                    <div class="spkr-desc">
-                        <!-- <div class="spkr-links">
-                            <a href="https://twitter.com/{{ s.twitter }}">{{ s.twitter }}</a>
-                            {% if s.website %} • <a href="http://{{ s.website }}">{{ s.website }}</a> {% endif %}
-                        </div> -->
-                        {{ s.content.shortDesc.html }}
-                    </div>
+                <div class="spkr-desc">
+                    {{ s.content.shortDesc.html }}
+                </div>
             </article>
             {% endfor %}
 
@@ -40,4 +34,8 @@
                 {%  include 'templates/mixins/panel-convince.html' %}
             </div>
         </section>
+{% endblock %}
+
+{% block performer_microdata %}
+{%  include 'templates/mixins/json-ld-performer.html' %}
 {% endblock %}

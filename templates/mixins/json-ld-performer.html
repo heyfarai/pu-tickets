@@ -1,0 +1,11 @@
+        ,"performer": [
+        {% for s in data.speakers %}
+            {
+                "@type": "Person",
+                "image": "{{ s.mugshot.url }}",
+                "name": "{{ s.name }}",
+                "jobTitle": "{{ s.jobTitle }}",
+                "sameAs": "https://twitter.com/{{ s.twitter }}"
+            }{% if not loop.last %},{% endif %}
+        {% endfor %}
+        ]

@@ -31,16 +31,16 @@
                         <section>
                             <h2>First confirmed speakers</h2>
                             <div class="featured-speaker-list">
-                                {% for d in data.speakers %}
+                                {% for s in data.speakers %}
                                 <div class="featured-speaker">
-                                    <a href="/speakers/#{{ d.slug }}">
+                                    <a href="/speakers/#{{ s.slug }}">
                                         <div class="">
-                                            <img class="photo" src="{{ d.mugshot.url }}"/>
+                                            <img class="photo" src="{{ s.mugshot.url }}"/>
                                         </div>
                                         <div class="spkr-details">
-                                            <span class="spkr-name">{{ d.name }}</span>
-                                            <span class="spkr-title">{{ d.jobTitle }}</span>
-                                            <span class="spkr-company">{{ d.company }}, {{ d.city }}</span>
+                                            <span class="spkr-name">{{ s.name }}</span>
+                                            <span class="spkr-title">{{ s.jobTitle }}</span>
+                                            <span class="spkr-company">{{ s.company }}, {{ s.city }}</span>
                                         </div>
                                     </a>
                                  </div>
@@ -99,4 +99,8 @@
                     </div>
                     {% include 'templates/mixins/become-a-sponsor.html' %}
                 </div>
+{% endblock %}
+
+{% block performer_microdata %}
+{%  include 'templates/mixins/json-ld-performer.html' %}
 {% endblock %}
