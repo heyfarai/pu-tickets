@@ -2,23 +2,30 @@
 
 {% set title = "Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
 
-{% block content %}
-                <h1 class="page-title">{{
+{% block header_content %}
+                <h1 class="page-title light">12 international speakers. 3 days. Talks &amp; workshops.{#{
                     [
                         'For product designers, thinkers and makers.',
                         'For pixel pushers and software engineers.',
                         'For inspiration and practical skills too.'
                     ]|random
-                }}</h1>
+                }#}</h1>
                 <div class="row">
                     <div class="offset-by-one-third two-thirds column">
-                        <p>
-                            <strong><em>UX design. UI design. Front-end dev. Product management. Responsive web design. Native &amp; Wearable app design.</em>
+                        <p class="light">
+                            <strong><em>UX design. UI design. Interaction design. Front-end dev. Product management. Responsive web design. Native &amp; Wearable app design.</em>
                                 Whether you're a Ninja or a n00bie at any of these things,
-                                Pixel Up! gives you an unmatched opportunity to learn from international industry leaders.</strong></p>
-                        <p>For <a href="schedule">3 days in September</a> you can learn from talks and workshops by
-                            professionals who’ve worked on some of the worlds most successful
-                            digital products at companies like <em>Dropbox</em> and <em>Twitter</em> and <em>Apple</em>. (We're so excited about this, we had to namedrop). Because it's never been done in Africa.</p>
+                                Pixel Up! gives you an unmatched opportunity to learn from international industry leaders.</strong>
+                        </p>
+                    </div>
+                </div>
+{% endblock %}
+
+{% block content %}
+                <div class="row">
+                    <div class="offset-by-one-third two-thirds column">
+                        <h2>It's never been done in Africa</h2>
+                        <p>Speakers who've worked at companies like <em>Dropbox</em> and <em>Twitter</em> and <em>Apple</em> will be in Joburg for <a href="schedule">3 days in September</a>. Join us for their talks and workshops and you'll hear what they've learned from working on some of the worlds most successful digital products. </p>
                         <p>
                             Maybe you've only heard the buzzwords and don't know much about this stuff.
                             Pixel Up! is your chance to get practical real-world insights by

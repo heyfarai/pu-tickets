@@ -98,24 +98,31 @@
 
 	</head>
     <body id="{{ section }}">
+		<header>
+			<div class="header-inner">
+				<div class="container">
+					<div class="row">
+						<div class="offset-by-one-third two-thirds column">
+							<h1 class="brand"><a href="/"><img src="/img/pixelup-logo-color.png"/>Pixel Up!</a></h1>
+							<div class="conf-about">
+								<h3 class="conf-tagline">A Conference on Making Great Products with Pixels</h5>
+								<p class="conf-when-where">September 12-14, 2016 in Johannesburg, South Africa</p>
+							</div>
+							<ul class="nav no-bullet">
+								<li><a class="nav-about" href="/">#PixelUp</a></li>
+								<li><a class="nav-speakers" href="/speakers/">Speakers</a></li>
+								<li><a class="nav-schedule" href="/schedule/">Schedule</a></li>
+								<li><a class="nav-sponsors" href="/sponsors/">Sponsors</a></li>
+								<li><a class="nav-tickets" href="/tickets/">Tickets</a></li>
+							</ul>
+						</div>
+					</div>
+					{% block header_content %}{% endblock %}
+				</div>
+			</div>
+		</header>
 		<!-- .container is main centered wrapper -->
 		<div class="container">
-		  	<div class="row">
-		    	<div class="offset-by-one-third two-thirds column">
-					<h1 class="brand"><a href="/"><img src="/img/pixelup-logo-color.png"/>Pixel Up!</a></h1>
-					<div class="conf-about">
-			            <h3 class="conf-tagline">A Conference on Making Great Products with Pixels</h5>
-			            <p class="conf-when-where">September 12-14, 2016 in Johannesburg, South Africa</p>
-					</div>
-					<ul class="nav no-bullet">
-						<li><a class="nav-about" href="/">#PixelUp</a></li>
-						<li><a class="nav-speakers" href="/speakers/">Speakers</a></li>
-						<li><a class="nav-schedule" href="/schedule/">Schedule</a></li>
-						<li><a class="nav-sponsors" href="/sponsors/">Sponsors</a></li>
-						<li><a class="nav-tickets" href="/tickets/">Tickets</a></li>
-					</ul>
-				</div>
-		  	</div>
 			<div class="content-wrapper">{{ FM.flashMessages(messages) }}
 	            {% block content %}{% endblock %}
 			</div>
