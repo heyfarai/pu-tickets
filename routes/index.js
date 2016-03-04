@@ -21,6 +21,8 @@
 var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
+var sitemap = require('keystone-express-sitemap');
+
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -33,42 +35,49 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function(app) {
+	app.get('/sitemap.xml', function(req, res) {
+		sitemap.create(keystone, req, res, {
+			ignore: [
+				'/e'
+			]
+		});
+	});
 
 	// Views
 	app.get('/', routes.views.index);
 	app.all('/speakers', routes.views.speakers);
 	app.all('/speakers/:speaker', routes.views.speaker_detail);
 	app.all('/schedule', routes.views.schedule);
-	app.get('/south-africa', routes.views.location);
-	app.get('/south-africa/johannesburg', routes.views.location);
-	app.get('/south-africa/johannesburg/maboneng', routes.views.location);
+	// app.get('/south-africa', routes.views.location);
+	// app.get('/south-africa/johannesburg', routes.views.location);
+	// app.get('/south-africa/johannesburg/maboneng', routes.views.location);
 	app.get('/tickets', routes.views.tickets);
 	app.get('/sponsors', routes.views.sponsors);
 
 
 	app.get('/convince-your-boss', routes.views.convince);
-	app.get('/workshops', routes.views.workshop);
-	app.get('/workshops/:workshop', routes.views.workshop);
-	app.get('/about', routes.views.long_form);
+	// app.get('/workshops', routes.views.workshop);
+	// app.get('/workshops/:workshop', routes.views.workshop);
+	// app.get('/about', routes.views.long_form);
 
-	app.get('/exhibition', routes.views.exhibition);
-	app.get('/volunteer', routes.views.volunteer);
-	app.get('/wanna-volunteer', routes.views.volunteer);
+	// app.get('/exhibition', routes.views.exhibition);
+	// app.get('/volunteer', routes.views.volunteer);
+	// app.get('/wanna-volunteer', routes.views.volunteer);
 
-	app.get('/accessibility', routes.views.long_form);
+	// app.get('/accessibility', routes.views.long_form);
 
 	app.get('/terms', routes.views.terms);
 
-	app.get('/credits', routes.views.long_form);
+	// app.get('/credits', routes.views.long_form);
 
 	app.get('/code-of-conduct', routes.views.code_of_conduct);
 	app.get('/has/a/code-of-conduct', routes.views.code_of_conduct);
 
 	app.all('/e', routes.views.email_signup);
 
-	app.all('/contact', routes.views.contact);
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
+	// app.all('/contact', routes.views.contact);
+	// app.get('/blog/:category?', routes.views.blog);
+	// app.get('/blog/post/:post', routes.views.post);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
