@@ -217,9 +217,8 @@ img {
   }
 }
 header {
-    padding-bottom: 2rem;
     background-repeat: no-repeat;
-    background: darken(@dark-color, 5%);
+    background: @dark-color;
     margin-bottom: 3rem;
     .conf-about {
         .conf-tagline {
@@ -230,7 +229,10 @@ header {
         }
     }
     .header-inner {
-        background: radial-gradient(circle at 0 0, rgba(66, 57, 208, 0.11), rgba(21, 18, 66, .1)), url(/img/ixda.jpg);
+        padding-bottom: 2rem;
+        background: radial-gradient(circle at 0 0, rgba(66, 57, 208, 0.11), rgba(21, 18, 66, .1)), url(/img/turbine.jpg);
+        background-size: cover;
+        background-position: 25%;
     }
 }
 .no-bullet {
