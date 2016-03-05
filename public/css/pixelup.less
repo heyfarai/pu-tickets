@@ -233,6 +233,9 @@ header {
         background: radial-gradient(circle at 0 0, rgba(66, 57, 208, 0.11), rgba(21, 18, 66, .1)), url(/img/turbine.jpg);
         background-size: cover;
         background-position: 25%;
+        .button {
+            color: @grey--soft;
+        }
     }
 }
 .no-bullet {
@@ -263,8 +266,7 @@ header {
         text-decoration: none;
         color: @bright-blue;
         border-bottom: none;
-        background: @dark-color ;
-        padding: 1.2rem 1em .5em;
+        padding: 1.2rem 0em .5em;
         display: inline-block;
         border-radius: 0 0 3px 3px;
         @media @smartphones {
@@ -350,13 +352,13 @@ header {
 }
 
 .page-title {
-    font-size: 4em;
+    font-size: 3.875em;
     text-align: left;
     margin-top: 3rem;
     margin-bottom: 4rem;
     letter-spacing: 0px;
     @media @smartphones, @phablet, @phablet-plus {
-        font-size: 4em * 16/19;
+        font-size: 3.875em * 16/19;
         margin-top: 3rem * 16/19;
     }
 }
@@ -434,18 +436,6 @@ header {
     }
 }
 
-/* HOME */
-body#home {
-    .nav {
-        li {
-            a {
-                color: @grey--soft;
-            }
-        }
-    }
-    .page-title {
-    }
-}
 
 /*   SCHEDULE	*/
 #schedule {
