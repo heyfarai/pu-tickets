@@ -251,6 +251,12 @@ header {
 	&:hover {
 		background: lighten(@dark-color, 2%);;
 	};
+    &.buy-button {
+        display: block;
+        background: @highlight-color;
+        color: @grey--soft;
+        font-size: .8em;
+    }
 }
 
 .brand {
@@ -318,7 +324,7 @@ header {
     overflow: hidden;
     text-transform: uppercase;
     letter-spacing: .5px;
-    margin: 1.5rem -3rem 1rem 0rem;
+    margin: 1.5rem 0rem 1rem 0rem;
     padding-top: 2rem;
     li {
         display: inline-block;
@@ -328,7 +334,6 @@ header {
         a {
             border-bottom: none;
             padding: 0 .5rem 0 0;
-            font-size: 1em;
             font-weight: bold;
             text-decoration: none;
             color: @grey--soft;
@@ -525,13 +530,27 @@ header {
             color: #fff
         }
     }
-	.ticket-name {
-        padding-left: 0px;
-        span {
-            color: darken(@grey--soft, 25%);
-            text-transform: uppercase;
-        }
-        a, span {
+    .ticket-section {
+        ul {
+            list-style-type: none;
+        	.ticket-name {
+                padding-left: 0px;
+                font-size: .9em;
+                span {
+                    color: darken(@grey--soft, 25%);
+                    text-transform: uppercase;
+                }
+            }
+            .ticket-price {
+                .u-pull-right;
+                strong {
+                    font-size: .9em;
+                }
+            }
+            li {
+                border-bottom: 1px solid @grey--soft;
+                padding: .6em 0;
+            }
         }
     }
 }
