@@ -84,6 +84,7 @@
 		</script>
 		<script src="https://use.typekit.net/oqz7ipt.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		<script src="/js/vendor/jquery.min.js"></script>
 
 		<link rel="author" href="/humans.txt">
 		<link href="/css/pixelup.min.css" rel="stylesheet">
@@ -102,18 +103,20 @@
 				<div class="container">
 					<div class="row">
 						<div class="offset-by-one-third two-thirds column">
-							<h1 class="brand"><a href="/"><img src="/img/pixelup-logo-color.png"/>Pixel Up!</a></h1>
+							<h1 class="brand"><a href="/"><img src="/img/pixelup-logo-color.png"/><span>Pixel Up!</span></a></h1>
 							<div class="conf-about">
 								<h3 class="conf-tagline">A Conference on Making Great Products with Pixels</h5>
-								<p class="conf-when-where">September 12-14, 2016 in Johannesburg, South Africa</p>
+								<p class="conf-when-where">September 12-14, 2016 <span>Johannesburg, South Africa</span></p>
 							</div>
-							<ul class="nav no-bullet">
-								<li><a class="nav-about" href="/">#PixelUp</a></li>
-								<li><a class="nav-speakers" href="/speakers/">Speakers</a></li>
-								<li><a class="nav-schedule" href="/schedule/">Schedule</a></li>
-								<li><a class="nav-sponsors" href="/sponsors/">Sponsors</a></li>
-								<li><a class="nav-tickets" href="/tickets/">Tickets</a></li>
-							</ul>
+							<div class="nav-wrapper">
+								<ul class="nav no-bullet">
+									<li><a class="nav-about" href="/">#PixelUp</a></li>
+									<li><a class="nav-speakers" href="/speakers/">Speakers</a></li>
+									<li><a class="nav-schedule" href="/schedule/">Schedule</a></li>
+									<li><a class="nav-sponsors" href="/sponsors/">Sponsors</a></li>
+									<li><a class="nav-tickets" href="/tickets/">Tickets</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					{% block header_content %}{% endblock %}

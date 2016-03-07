@@ -276,14 +276,18 @@ header {
         padding: 1.2rem 0em .5em;
         display: inline-block;
         border-radius: 0 0 3px 3px;
-        @media @smartphones {
-            font-size: .9em;
-        }
         img {
             width: 50px;
-            height: 76px;
             display: block;
             margin: 0 auto .5rem;
+            @media @smartphones {
+                width: 2rem;
+            }
+        }
+        span {
+            @media @smartphones {
+                display: none
+            }
         }
     }
 }
@@ -291,7 +295,8 @@ header {
 .conf-about {
 
     @media @smartphones {
-        margin: 2.2rem 0 0 1rem;
+        .u-cf;
+        margin: 1.7rem 0 0 0rem;
     }
     @media @tablet-and-up {
         content: "";
@@ -302,17 +307,20 @@ header {
     }
     .conf-tagline {
         @media @smartphones {
-            line-height: @line-height__small*.875;
+            line-height: @line-height__small*.675;
             font-size: .8em;
+            text-align: center;
         }
     }
     .conf-when-where {
+        .u-cf;
         line-height: @line-height__small;
         @media @smartphones {
-            margin-top: .8rem;
+            xmargin-top: .8rem;
             margin-bottom: .625em;
             font-size: .8em;
             line-height: 18px;
+            text-align: center;
         }
         small {
             line-height: @line-height__small*.625;
@@ -325,7 +333,6 @@ header {
     text-transform: uppercase;
     letter-spacing: .5px;
     margin: 1.5rem 0rem 1rem 0rem;
-    padding-top: 2rem;
     li {
         display: inline-block;
         text-align: center;
@@ -337,6 +344,10 @@ header {
             font-weight: bold;
             text-decoration: none;
             color: @grey--soft;
+            @media @smartphones {
+                font-size: .75rem;
+                padding-right: .5rem;
+            }
             @media @tablet-and-up {
                 padding: 0 1.15rem 0 0;
                 font-size: .875rem;
