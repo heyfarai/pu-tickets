@@ -6,7 +6,7 @@
 
 @import "breakpoints.less";
 @import "grid.less";
-// @import "fonts.less";
+@import "forms.less";
 @import "normalise.less";  // statement left in place, as-is
 
 @blue-grey-color    : #cfd8dc;
@@ -219,6 +219,51 @@ img {
 .transition-4 {
     -webkit-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1); /* Safari */
     transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+}
+#mc_embed_signup {
+    text-transform: uppercase;
+    font-size: .8em;
+    &.light {
+        color: @grey--soft;
+    }
+    .mc-field-group {
+        padding-top: .5em;
+    }
+    #mce-EMAIL {
+        color: @grey--soft;
+        font-size: .9em;
+        border-radius: 4px 0px 0px 4px;
+        border: 1px solid #10c8ff;
+        width: 60%;
+        float: left;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    #mc-embedded-subscribe {
+        float: left;
+        width: 30%;
+        border-radius: 0px 4px 4px 0px;
+        border: 1px solid #10c8ff;
+    }
+    div.mce_inline_error {
+        clear: both;
+        background: none !important;
+        padding: 0 0 !important;
+        font-weight: normal !important;
+        color: red  !important;
+        font-size: .8em;
+    }
+    #mce-success-response
+    {
+        clear: both;
+        background: none !important;
+        padding: .5em 0 !important;
+        font-weight: normal !important;
+        color: @grey--dark !important;
+        text-transform: uppercase;
+        font-size: .8em;
+        line-height: 1.4em;
+    }
 }
 header {
     background-repeat: no-repeat;
