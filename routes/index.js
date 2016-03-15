@@ -48,7 +48,7 @@ exports = module.exports = function(app) {
 	app.all('/speakers', routes.views.speakers);
 	app.all('/speakers/:speaker', routes.views.speaker_detail);
 	app.all('/schedule', routes.views.schedule);
-	// app.get('/south-africa', routes.views.location);
+	app.get('/venue', routes.views.venue);
 	// app.get('/south-africa/johannesburg', routes.views.location);
 	// app.get('/south-africa/johannesburg/maboneng', routes.views.location);
 	app.get('/tickets', routes.views.tickets);

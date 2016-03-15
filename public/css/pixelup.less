@@ -221,13 +221,12 @@ img {
     transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
 }
 #mc_embed_signup {
-    text-transform: uppercase;
     font-size: .8em;
     &.light {
         color: @grey--soft;
     }
     .mc-field-group {
-        padding-top: .5em;
+        padding-top: .3em;
     }
     #mce-EMAIL {
         color: @grey--soft;
@@ -572,11 +571,6 @@ header {
     }
 }
 
-#home {
-    .page-title {
-        // margin-top: .5rem;
-    }
-}
 
 .featured-speaker-list {
     .featured-speaker {
@@ -692,6 +686,13 @@ header {
 		color: @bright-blue;
 		margin-bottom: 0;
 	}
+}
+
+/*   VENUE	*/
+#venue {
+    .header-inner {
+        background: radial-gradient(circle at 0 0, rgba(66, 57, 208, 0.11), rgba(21, 18, 66, 0.5)), url(/img/turbine-hall-basement.jpg);
+    }
 }
 
 /* SPONSORS */
