@@ -562,6 +562,7 @@ header {
 .page-title {
     font-size: 3.625em;
     text-align: left;
+    text-transform: capitalize;
     margin-top: 4rem;
     margin-bottom: 2.5rem;
     letter-spacing: 0px;
@@ -764,6 +765,19 @@ header {
     }
 }
 
+/*   BLOG	*/
+
+#blog {
+    .post {
+        margin-bottom: @line-height__base;
+        p {
+            margin: 0
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+}
 .footer {
     .u-full-width;
     margin: 3rem 0 0;

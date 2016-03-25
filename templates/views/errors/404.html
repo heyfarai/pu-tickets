@@ -1,18 +1,32 @@
-{% extends "templates/layouts/default-with-header.html" %}
+{% extends "templates/layouts/default.html" %}
 
-{% set title = "Oops  ·  Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
+{% set title = "Oops  ·  Pixel Up!" %}
+{% block header_content %}
+                <h1 class="page-title light">We can't find that page</h1>
+                <div class="row">
+                    <div class="offset-by-one-third two-thirds column">
+                        <p class="light">
+                            <strong>Error 404.</strong> <br>
+                            The page you requested is no longer here.
+                        </p>                    </div>
+                </div>
+{% endblock %}
 
-{% set page_heading = "Error (404)" %}
-{% set page_lead = "We can't find that page" %}
+{% block content %}
 
+                <div class="row">
+                    <div class="offset-by-one-third two-thirds column">
+                        <p>
+                            But we think you will find this link useful: <a href="/">Home Page</a>
+                        </p>
 
-{% block page_content %}
-
-        <section class="content-section">
-            <h2 class="section-heading">Because you want to do good<br>
-                <small>We contribute part of your fee to a bursary</small>
-            </h2>
-            {%  include 'templates/views/partials/panel-doGood.html' %}
-        </section>
+                        <p>You may not be able to find this page because of:</p>
+                        <ul>
+                            <li>An out-of-date bookmark/favourite</li>
+                            <li>A search engine that has an out-of-date listing for us</li>
+                            <li>A mis-typed address</li>
+                        </ul>
+                    </div>
+                </div>
 
 {% endblock %}

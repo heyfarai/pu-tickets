@@ -1,18 +1,30 @@
-{% extends "templates/layouts/default-with-header.html" %}
+{% extends "templates/layouts/default.html" %}
 
-{% set title = "Oops  ·  Pixel Up!  ·  September 12-14, 2016  ·  Johannesburg  ·  A conference about making things with pixels." %}
+{% set title = "Ouch  ·  Pixel Up!" %}
+{% block header_content %}
+                <h1 class="page-title light">Something went wrong</h1>
+                <div class="row">
+                    <div class="offset-by-one-third two-thirds column">
+                        <p class="light">
+                            <strong>Error 500.</strong> <br>Something has gone terribly wrong
+                        </p>
+                    </div>
+                </div>
+{% endblock %}
 
-{% set page_heading = "Error (500)" %}
-{% set page_lead = "Something has gone terribly wrong" %}
+{% block content %}
 
 
-{% block page_content %}
-
-        <section class="content-section">
-            <h2 class="section-heading">Because you want to do good<br>
-                <small>We contribute part of your fee to a bursary</small>
-            </h2>
-            {%  include 'templates/views/partials/panel-doGood.html' %}
-        </section>
+                <div class="row">
+                    <div class="offset-by-one-third two-thirds column">
+                        <p>You may not be able to see this page because:</p>
+                        <ol>
+                            <li>Our machines are broken (most likely).</li>
+                            <li>Our code is sucktastic.</li>
+                            <li>The internet is broken.</li>
+                            <li>All of the above.</li>
+                        </ol>
+                    </div>
+                </div>
 
 {% endblock %}

@@ -28,6 +28,27 @@ var sitemap = require('keystone-express-sitemap');
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
+// Handle 404 errors
+keystone.set('404', function (req, res, next) {
+	res.status(404).render('errors/404', {
+
+	});
+});
+
+// Handle other errors
+keystone.set('500', function (err, req, res, next) {
+	var title, message;
+	if (err instanceof Error) {
+		message = err.message;
+		err = err.stack;
+	}
+	res.status(500).render('errors/500', {
+		err: err,
+		errorTitle: title,
+		errorMsg: message
+	});
+});
+
 // Import Route Controllers
 var routes = {
 	views: importRoutes('./views')
@@ -76,8 +97,8 @@ exports = module.exports = function(app) {
 	app.all('/e', routes.views.email_signup);
 
 	// app.all('/contact', routes.views.contact);
-	// app.get('/blog/:category?', routes.views.blog);
-	// app.get('/blog/post/:post', routes.views.post);
+	app.get('/blog/:category?', routes.views.blog);
+	app.get('/blog/post/:post', routes.views.post);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

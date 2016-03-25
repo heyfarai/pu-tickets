@@ -72,9 +72,9 @@ h6 {
 h1 {
   font-weight: bold;
   font-weight: 900;
-  text-align:center;
   letter-spacing:  1.5px;
   line-height: 1.2em;
+  text-transform: uppercase;
   margin:0 0 @line-height__base 0;
   @media @mobile-large {
     letter-spacing:  1px;
@@ -108,6 +108,13 @@ h2 {
   @media @mobile-small {
     margin:0 0 @line-height__small--stoneage 0;
   }
+    &.blog-title {
+        margin:0;
+        text-align:left;
+        a {
+            text-decoration: none
+        }
+    }
 }
 h3 {
   font-weight: bold;
@@ -137,6 +144,37 @@ p {
     &.lead {
         font-weight: bold;
     }
+
+    &.meta-blog {
+        font-style:italic;
+        margin:0;
+        text-align: left;
+
+        &.detail {
+            margin:0 0 @line-height__base 0;
+
+            @media @mobile-large {
+                margin:0 0 @line-height__small 0;
+            }
+            @media @mobile-small {
+                margin:0 0 @line-height__small--stoneage 0;
+            }
+        }
+    }
+    &.message {
+        margin:0 0 (3 * @line-height__base) 0;
+
+        @media @mobile-large {
+          margin:0 0 (3 * @line-height__small) 0;
+        }
+        @media @mobile-small {
+          margin:0 0 (3 * @line-height__small--stoneage) 0;
+        }
+    }
+}
+
+time {
+    text-align: left !important;
 }
 .light {
     color: @grey--soft;
