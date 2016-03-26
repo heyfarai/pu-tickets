@@ -1,13 +1,12 @@
 {% extends "templates/layouts/default.html" %}
+{% set title_text = data.post.title %}
 
-{% set title = "{{ data.post.title }}  ·  Pixel Up!" %}
+{% set title = "{{ title_text }}  ·  Pixel Up!" %}
 {% block header_content %}
-                <h1 class="page-title light">Blog</h1>
-                <div class="row">
-                    <div class="offset-by-one-third two-thirds column">
-                        <!-- <p class="lead light"><strong>You want to level up your skills. You want to learn from the best. You want to be surrounded by people who can help you do that. You want to be at Pixel Up! Here's how to get your boss to give you the green light.</strong></p> -->
-                    </div>
-                </div>
+                <h2 class="page-title light blog-title">{{ data.post.title }}</h2>
+                <p class="meta-blog detail light">
+                    By {{ data.post.author.name.first }} on {{ data.post._.publishedDate.format("MMMM Do, YYYY") }}
+                </p>
 {% endblock %}
 
 {% block content %}
@@ -36,10 +35,7 @@
 							{% if not data.post %}
 								<h2>Invalid Post.</h2>
 							{% else %}
-								<h1>{{ data.post.title }}</h1>
-								<!-- <p class="meta-blog detail">
-									By {{ data.post.author.name.first }} on {{ data.post._.publishedDate.format("MMMM Do, YYYY") }}
-								</p> -->
+
 
 								<div class="post">
 									{% if data.post.image.exists %}

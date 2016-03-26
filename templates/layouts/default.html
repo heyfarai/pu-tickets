@@ -37,55 +37,9 @@
 
 		<title>{{ title |default("Pixel Up!") }}</title>
 		<script src="/js/vendor/modernizr.js" type="text/javascript"></script>
-		<script type="application/ld+json">
-		{
-			"@context": "http://schema.org",
-			"@type": "BusinessEvent",
-			"name": "Pixel Up! - A 2016 Conference on Making Great Products with Pixels",
-			"sameAs" : [
-			  "http://www.facebook.com/letspixelup",
-			  "http://www.twitter.com/letspixelup",
-			  "http://lanyrd.com/2016/pixelup"
-		  	],
-			"location": {
-				"@type": "Place",
-				"name": "Turbine Hall, Newtown",
-				"address": {
-					"@type": "PostalAddress",
-					"name": "Turbine Hall",
-					"streetAddress": "65 Ntemi Piliso St",
-					"addressLocality": "Johannesburg",
-					"postalCode": "2001",
-					"addressRegion": "Gauteng",
-					"addressCountry": "South Africa"
-				},
-			"url": "http://theforum.co.za/iconic-venues/#tm-block-top-d"
-			},
-			"offers": {
-				"@type": "AggregateOffer",
-				"lowPrice": "3500",
-				"highPrice": "8500",
-				"priceCurrency" : "ZAR",
-				"url" : "http://pixelup.co.za/tickets"
-		  	},
-			"startDate": "2016-09-12T09:00",
-			"endDate": "2016-09-14T17:00",
-			"url": "http://pixelup.co.za",
-			"organizer" : {
-				"@type" : "Organization",
-				"name" : "Ampli5yd",
-				"url" : "http://ampli5yd.com",
-				"sameAs" : [
-			    	"http://www.twitter.com/ampli5yd"
-				]
-		  	},
-		  	"image" : "http://www.pixelup.co.za/img/pixelup-logo-color.png"
-			{% block performer_microdata %}{% endblock %}
-		}
-		</script>
+
 		<script src="https://use.typekit.net/oqz7ipt.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
-		<script src="/js/vendor/jquery.min.js"></script>
 
 		<link rel="author" href="/humans.txt">
 		<link href="/css/pixelup.min.css" rel="stylesheet">
@@ -141,6 +95,7 @@
 			</div>
 		</div>
 		{% include "templates/views/partials/footer.html" %}
+		<script src="/js/vendor/jquery.min.js"></script>
 	<script src="/js/pixelup.js" type="text/javascript"></script>
 	<script src="/js/vendor/readingTime.min.js" type="text/javascript"></script>
 

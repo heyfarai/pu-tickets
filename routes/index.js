@@ -94,11 +94,9 @@ exports = module.exports = function(app) {
 	app.get('/code-of-conduct', routes.views.code_of_conduct);
 	app.get('/has/a/code-of-conduct', routes.views.code_of_conduct);
 
-	app.all('/e', routes.views.email_signup);
-
 	// app.all('/contact', routes.views.contact);
+	app.get('/blog/:post', routes.views.post);
 	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
