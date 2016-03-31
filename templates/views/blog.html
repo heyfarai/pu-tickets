@@ -2,7 +2,7 @@
 
 {% set title = "Blog  ·  Pixel Up!" %}
 {% block header_content %}
-                <h1 class="page-title light">Blog</h1>
+                <h1 class="page-title light">Pixel Up! Blog</h1>
                 <div class="row">
                     <div class="offset-by-one-third two-thirds column">
                         <!-- <p class="lead light"><strong>You want to level up your skills. You want to learn from the best. You want to be surrounded by people who can help you do that. You want to be at Pixel Up! Here's how to get your boss to give you the green light.</strong></p> -->
@@ -11,22 +11,31 @@
 {% endblock %}
 
 {% macro blogPost(post) %}
-						<div class="post" data-ks-editable="editable(user, { list: " Post ", id: post.id })">
-							<h2 class="blog-title">
-								<a href="/blog/post/{{ post.slug }}">{{ post.title }}</a>
-							</h2>
-							<p class="meta-blog detail">
-								By {{ post.author.name.first }} on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
-							</p>
-							<a href="/blog/post/{{ post.slug }}">
-								{{ post.content.brief|safe }}
-								{% if post.content.extended %}
-									<span class="read-more">
-										<a href="/blog/post/{{ post.slug }}">More...</a>
-									</span>
-								{% endif %}
-							</a>
-						</div>
+                        <div class="row">
+    						<div class="one-third column">
+                                <h2 class="blog-title">
+    								<a href="/blog/{{ post.slug }}">{{ post.title }}</a>
+    							</h2>
+                                <p class="meta-blog detail">
+                                    By {{ post.author.name.first }} on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
+                                </p>
+                            </div>
+    						<div class="two-thirds column">
+                                <div class="post" data-ks-editable="editable(user, { list: " Post ", id: post.id })">
+
+
+        							<a href="/blog/{{ post.slug }}">
+        								{{ post.content.brief|safe }}
+        								{% if post.content.extended %}
+        									<span class="read-more">
+        										<a href="/blog/post/{{ post.slug }}">More...</a>
+        									</span>
+        								{% endif %}
+        							</a>
+        						</div>
+                            </div>
+                        </div>
+
 {% endmacro %}
 
 {% block intro %}
@@ -37,75 +46,28 @@
 {% endblock %}
 
 {% block content %}
-					<div class="row">
-						<div class="offset-by-one-third two-thirds column">
-									{% if filters.category and not data.category %}
-										<h3 class="text-muted">Invalid Category.</h3>
-									{% else %}
-										{% if data.posts.results.length %}
-											<div class="blog">
-												{% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %}
-											</div>
-											{% if data.posts.totalPages > 1 %}
-												<ul class="pagination">
-
-													{% if data.posts.previous %}
-														<li>
-															<a href="?page={{ data.posts.previous }}">
-																<span class="glyphicon glyphicon-chevron-left"></span>
-															</a>
-														</li>
-													{% else %}
-														<li class="disabled">
-															<a href="?page=1">
-																<span class="glyphicon glyphicon-chevron-left"></span>
-															</a>
-														</li>
-													{% endif %}
-
-													{% for p in data.posts.pages %} {% set class = ( "active" if data.posts.currentPage == p else "" ) %}
-														<li class="{{ class }}">
-															{% set page = ( (data.posts.totalPages if i else 1) if p == "..." else p ) %}
-															<a href="?page={{ page }}">{{ p }}</a>
-														</li>
-													{% endfor %}
-
-													{% if data.posts.next %}
-														<li>
-															<a href="?page={{ data.posts.next }}">
-																<span class="glyphicon glyphicon-chevron-right"></span>
-															</a>
-														</li>
-													{% else %}
-														<li class="disabled">
-															<a href="?page={{ data.posts.totalPages }}">
-																<span class="glyphicon glyphicon-chevron-right"></span>
-															</a>
-														</li>
-													{% endif %}
-
-												</ul>
-											{% endif %}
-										{% else %}
-											{% if data.category %}
-												<h3 class="text-muted">There are no posts in the category {{ data.category.name }}.</h3>
-											{% else %}
-												<h3 class="text-muted">There are no posts yet.</h3>
-											{% endif %}
-										{% endif %}
-									{% endif %}
-								{% if data.categories.length %}
-									<div class="col-sm-4 col-md-3">
-										<h2>Categories</h2>
-										<div class="list-group" style="margin-top: 70px;">
-											{% set class = ( "active" if not data.category else "" ) %}
-											<a href="/blog" class="{{ class }} list-group-item">All Categories</a>
-											{% for cat in data.categories %} {% set class = ( "active" if data.category and data.category.id == cat.id else "" ) %}
-												<a href="/blog/{{ cat.key }}" class="{{ class }} list-group-item">{{ cat.name }}</a>
-											{% endfor %}
+								{% if filters.category and not data.category %}
+									<h3 class="text-muted">Invalid Category.</h3>
+								{% else %}
+									{% if data.posts.results.length %}
+										<div class="blog">
+											{% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %}
 										</div>
-									</div>
+									{% else %}
+										<h3 class="text-muted">We haven't added an posts to our blog yet.</h3>
+									{% endif %}
 								{% endif %}
-						</div>
-					</div>
+							<!-- {% if data.categories.length %}
+								<div class="col-sm-4 col-md-3">
+									<h2>Categories</h2>
+									<div class="list-group" style="margin-top: 70px;">
+										{% set class = ( "active" if not data.category else "" ) %}
+										<a href="/blog" class="{{ class }} list-group-item">All Categories</a>
+										{% for cat in data.categories %} {% set class = ( "active" if data.category and data.category.id == cat.id else "" ) %}
+											<a href="/blog/{{ cat.key }}" class="{{ class }} list-group-item">{{ cat.name }}</a>
+										{% endfor %}
+									</div>
+								</div>
+							{% endif %} -->
+
 {% endblock %}
