@@ -1,11 +1,14 @@
 {% extends "templates/layouts/default.html" %}
 {% set title_text = data.post.title %}
 
-{% set title = {{ title_text }}  %}
+{% set title = title_text  %}
 {% block header_content %}
-                <h2 class="page-title light blog-title">{{ data.post.title }}</h2>
+                <h2 class="page-title light blog-title">
+                    <small><a href="/blog">Pixel Up! Blog</a></small><br/>
+                    {{ data.post.title }}
+                </h2>
                 <p class="meta-blog detail light">
-                    By {{ data.post.author.name.first }} on {{ data.post._.publishedDate.format("MMMM Do, YYYY") }}
+                    by {{ data.post.author.name.first }} on {{ data.post._.publishedDate.format("MMMM Do, YYYY") }}
                 </p>
 {% endblock %}
 
