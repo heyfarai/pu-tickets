@@ -1,7 +1,7 @@
 {% extends "templates/layouts/default.html" %}
 {% set title_text = data.post.title %}
 
-{% set title = "{{ title_text }}  ·  Pixel Up!" %}
+{% set title = {{ title_text }}  %}
 {% block header_content %}
                 <h2 class="page-title light blog-title">{{ data.post.title }}</h2>
                 <p class="meta-blog detail light">
