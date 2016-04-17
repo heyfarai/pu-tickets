@@ -163,10 +163,9 @@ body {
   	&#schedule .nav-schedule,
   	&#workshops .nav-workshops,
   	&#social .nav-social,
-  	&#locations .nav-locations,
+  	&#venue .nav-venue,
   	&#exhibition .nav-exhibition,
-  	&#sponsors .nav-sponsors,
-  	&#tickets .nav-tickets {
+  	&#sponsors .nav-sponsors{
   		color: @highlight-color;
   	}
 }
@@ -272,16 +271,30 @@ header {
     background-repeat: no-repeat;
     background-color: rgba(10, 9, 32, 1);
     margin-bottom: 3rem;
+    h1, h6 {
+        text-align: center;
+    }
+    h6 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    .home-btn-wrapper {
+        text-align: center;
+        .btn-home-header {
+            margin: 0 .5em;
+        }
+    }
     .header-inner {
         padding-top: 7rem;
-        .header-nav {
-            spadding-left: .5em;
-        }
         .top-bar {
             position: fixed;
             top: 0;
             width: 100%;
+            height: 80px;
             z-index: 900;
+            .header-nav {
+                float: right;
+            }
             .transition-4;
             &.active {
                 background: rgba(10, 9, 32, 0.88);
@@ -328,21 +341,23 @@ header {
         }
     }
     .conf-about {
-        .conf-tagline {
-            color: @grey--soft;
-        }
-        .conf-when-where {
-            color: @grey--soft;
-        }
+        .light;
+        text-align: center;
+        line-height: .8rem;
+        font-size: .8rem;
+        margin-top: 1em;
     }
     .header-inner {
-        padding-bottom: 2rem;
+        padding-bottom: 4rem;
         background: radial-gradient(circle at 0 0, rgba(66, 57, 208, 0.11), rgba(21, 18, 66, .1)), url(/img/turbine.jpg);
         background-size: cover;
         background-position: 25%;
         .button {
             color: @grey--soft;
             background: @bright-blue;
+        }
+        .lead {
+            text-align: center;
         }
     }
     #toggle {
@@ -419,6 +434,12 @@ header {
         color: @grey--soft;
         font-size: .8em;
     }
+    &.nav-tickets {
+        margin-left: .675em;
+        padding-right: .675em;
+        background: @highlight-color !important;
+        letter-spacing:.05rem
+    }
 }
 
 .brand {
@@ -446,10 +467,11 @@ header {
             margin: 0 1em 0 0;
             .transition-4;
             @media @mobile-large {
-                width: 1.5rem;
+                width: 28px;
             }
         }
         span {
+            display: none;
             float: left;
             margin-top: .7em;
             font-size: .875em;
@@ -470,7 +492,7 @@ header {
                 padding-top: 1.2rem;
             }
             img {
-                width: 36px;
+                width: 28px;
                 @media @mobile-large {
                     width: 1.5rem;
                 }
@@ -485,35 +507,6 @@ header {
     }
 }
 
-.conf-about {
-    .u-cf;
-    padding: 2em 0 2rem;
-    @media @mobile-large {
-        padding: 0rem 0 2rem 0rem;
-    }
-    .conf-tagline {
-        @media @mobile-large {
-            font-size: 1.1em;
-        }
-    }
-    .conf-when-where {
-        .u-cf;
-        line-height: @line-height__small;
-        @media @mobile-large {
-            margin-bottom: .625em;
-            font-size: 1em;
-        }
-        small {
-            line-height: @line-height__small*.625;
-        }
-        span {
-            @media @mobile-large {
-                display: block;
-            }
-        }
-    }
-}
-
 .nav {
     overflow: hidden;
     text-transform: uppercase;
@@ -521,9 +514,6 @@ header {
     margin: 0rem 0rem 1rem 0rem;
     padding: 1.8rem 0 0 0;
     .transition-4;
-    @media @tablet-and-up {
-        margin-right: -3em;
-    }
     @media @mobile-large {
         display: none;
         opacity: 0;
@@ -544,8 +534,8 @@ header {
                 padding-right: .5rem;
             }
             @media @tablet-and-up {
-                padding: 0 .675rem 0 0;
-                font-size: .875rem;
+                padding: 0 0 0 .675rem;
+                font-size: .75rem;
             }
         }
     }
@@ -564,11 +554,12 @@ header {
 }
 
 .page-title {
-    font-size: 3.625em;
-    text-align: left;
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
     text-transform: capitalize;
-    margin-top: 4rem;
-    margin-bottom: 2.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1.2rem;
     letter-spacing: 0px;
     @media @mobile-large {
         font-size: 2.125em;
@@ -612,7 +603,6 @@ header {
             }
         	img {
                 width: 128px;
-                border-radius: 50%;
                 border: 2px solid #fff;
         	}
         }
@@ -630,6 +620,14 @@ header {
                 display: block;
             }
         }
+    }
+}
+/*   HOME	*/
+#home {
+    .btn-home-topic {
+        text-align: center;
+        font-size: .9rem;
+        background: @grey--dark;
     }
 }
 
