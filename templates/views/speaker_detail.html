@@ -1,0 +1,90 @@
+{% extends "templates/layouts/default-with-header.html" %}
+
+{% set title = data.speaker.name %}
+
+{% block header_content %}
+                <div class="speaker-detail-header">
+                    <img id="speaker-photo" class="speaker-detail-photo" src="{{ data.speaker.mugshot.url }}"/>
+                    <h1 class="page-title light">{{ data.speaker.name }}</h1>
+                    <div class="row">
+                        <div class="column">
+                            <p class="lead light">{{ data.speaker.tagline }} <br>
+                                <span class="speaker-meta">{{ data.speaker.jobTitle }} at {{ data.speaker.company }}, {{ data.speaker.city }}</span>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+{% endblock %}
+
+{% block page_content %}
+        <section class="row">
+            <div class="column one-half">
+                <h2>Pixel Up! Says</h2>
+                {{ data.speaker.content.ourDesc.html }}
+                    <h2>About {{ data.speaker.name }}</h2>
+                {{ data.speaker.content.bio.html }}
+                <h2>ON THE WEB</h2>
+                <ul class="no-bullet">
+                    <li><a href="{{ data.speaker.website }}">{{ data.speaker.website }}</a></li>
+                    <li><a href="https://twitter.com/{{ data.speaker.twitter }}">{{ data.speaker.twitter }}</a></li>
+                </ul>
+            </div>
+            <div class="column one-half">
+                <h2>{{ data.speaker.name }}'s TALK
+                {% if data.talk.startTime %}
+                <br>
+                    <small>
+                        {{ data.talk.startTime }}
+                    </small>
+                    {% endif %}
+                </h2>
+
+                {% if data.talk %}
+                    {{ data.talk.description.html }}
+                {% else %}
+                <p class="muted">{{ data.speaker.name }}'s talk will be announced soon. Follow us on Twitter <a href="#">@letspixelup</a> to get the latest updates.</p>
+                {% endif %}
+
+                {% if data.workshop %}
+                    <h2>{{ data.speaker.name }}'s WORKSHOP</h2>
+                    {{ data.workshop.description.html }}
+                {% endif %}
+
+            </div>
+        </section>
+        <hr>
+        <section class="row">
+            <div class="column pull-out">
+                <h2>More Speakers</h2>
+                <div class="featured-speaker-list">
+                    {% for s in data.other_speakers %}
+                    <div class="featured-speaker">
+                        <a href="/speakers/{{ s.slug }}/">
+                            <div class="">
+                                <img class="photo" src="{{ s.mugshot.url }}" alt="{{ s.name }}"/>
+                            </div>
+                            <div class="spkr-details">
+                                <span class="spkr-name">{{ s.name }}</span>
+                                <span class="spkr-title">{{ s.jobTitle }}</span>
+                                <span class="spkr-company">{{ s.company }}, {{ s.city }}</span>
+                            </div>
+                        </a>
+                     </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+{% endblock %}
+
+{#
+{% block js %}
+    <script src="/js/vendor/StackBlur.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // stackBlurImage( $('#speaker-photo'), 'header-inner-bg', '64', false );
+    </script>
+{% endblock %}
+#}
+{% block performer_microdata %}
+{%  include 'templates/mixins/json-ld-performer.html' %}
+{% endblock %}

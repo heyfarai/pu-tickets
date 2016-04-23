@@ -31,10 +31,9 @@ Person.add({
 	twitter: { type: String, size: 'small' },
 	github: { type: String, size: 'small' },
 	content: {
-		jobTitle: { type: Types.Markdown, height: 150 },
-		tagline: { type: Types.Markdown, height: 2 },
+		bio: { type: Types.Markdown, height: 40 },
+		ourDesc: { type: Types.Markdown, height: 40 },
 		shortDesc: { type: Types.Markdown, height: 40 },
-		longDesc: { type: Types.Markdown, height: 180 }
 	},
 
 	// used in authentication
@@ -45,15 +44,9 @@ Person.add({
 	sortPriority: { type: Number, size: 'small', default: 10 }
 });
 
-Person.schema.index({ isPublic: 1, isOrganiser: 1, isSpeaker: 1 });
-Person.schema.index({ isPublic: 1, isOrganiser: 1, isSpeaker: 1, sortPriority: 1 });
+Person.relationship({ path: 'scheduleItems', ref: 'ScheduleItem', refPath: 'speakers' });
 
-// Gravatar
-Person.schema.virtual('gravatar').get(function () {
-	var md5sum = createHash('md5').update(this.email || '').digest();
-	var gravatar = 'https://gravatar.com/avatar/' + md5sum.toString('hex');
-	return gravatar;
-});
+Person.schema.index({ isPublic: 1, isOrganiser: 1, isSpeaker: 1, sortPriority: 1 });
 
 Person.schema.virtual('initials').get(function() {
 	names = this.name.split(" ", 2)

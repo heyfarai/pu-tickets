@@ -1,51 +1,65 @@
 var keystone = require('keystone');
+var _ = require('underscore');
 
 exports = module.exports = function(req, res) {
-	
+
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
-	
+
 	// Set locals
-	locals.section = 'speakers';
+	locals.section = 'speaker-detail';
 	locals.filters = {
-		workshop: req.params.workshop
+		speaker: req.params.speaker
 	};
 	locals.data = {
 		workshop: false,
-		events: []
+		talk: false
 	};
-	
+
 	// Load the current post
 	view.on('init', function(next) {
-		var q = keystone.list('Workshop').model.findOne({
-			state: 'published',
-			slug: locals.filters.workshop
-		}).populate('expert');
-		
+		var q = keystone.list('Person').model.findOne({
+			slug: locals.filters.speaker
+		});
+
 		q.exec(function(err, result) {
-			locals.data.workshop = result;
+			locals.data.speaker = result;
 			next(err);
 		});
-		
+
 	});
-	
+
 	// Load other posts
 	view.on('init', function(next) {
-		
-		var q = keystone.list('WorkshopEvent').model.find()
-		.where('workshop', locals.data.workshop)
-		.where('state', 'published')
-		.populate('workshop')
-		.sort('startDate');
-		
-		q.exec(function(err, results) {
-			locals.data.events = results;
+		keystone.list('ScheduleItem').model.find().where('speakers', locals.data.speaker.id).exec(function(err, scheduleItems) {
+		    _.each(scheduleItems, function (s) {
+		    	if(s.type=="talk") {
+					locals.data.talk = s
+				} else {
+					locals.data.workshop = s
+				}
+		    })
 			next(err);
 		});
-		
 	});
-	
+
+	// Load other posts
+	view.on('init', function(next) {
+
+		var q = keystone.list('Person').model.find()
+		.where('isSpeaker', 'true')
+		.where('slug').ne(locals.filters.speaker)
+		.limit('6')
+		.populate('speakers');
+
+		q.exec(function(err, results) {
+			locals.data.other_speakers = results;
+			next(err);
+		});
+
+	});
+
 	// Render the view
-	view.render('speakers');
-	
+	view.render('speaker_detail');
+
 };

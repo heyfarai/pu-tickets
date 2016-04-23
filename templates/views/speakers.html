@@ -13,22 +13,22 @@
 
 {% block page_content %}
         <section class="row">
+        <div class="featured-speaker-list">
             {% for s in data.speakers %}
-            <article id="{{ s.slug }}" class="column speaker-list-item">
-                <img class="photo" src="{{ s.mugshot.url }}"/>
-                <div class="spkr-details">
-                    <h3>{{ s.name }}</h3>
-                    <p class="spkr-title">
-                        <span class="job-title">{{ s.jobTitle }}</span> <br> <span class="company">{{ s.company }}</span> • <span class="city">{{ s.city }}</span>
-                        <br><a href="https://twitter.com/{{ s.twitter }}">{{ s.twitter }}</a>
-                    </p>
-                </div>
-                <div class="spkr-desc">
-                    {{ s.content.shortDesc.html }}
-                </div>
-            </article>
+            <div class="featured-speaker">
+                <a href="/speakers/{{ s.slug }}/">
+                    <div class="">
+                        <img class="photo" src="{{ s.mugshot.url }}" alt="{{ s.name }}"/>
+                    </div>
+                    <div class="spkr-details">
+                        <span class="spkr-name">{{ s.name }}</span>
+                        <span class="spkr-title">{{ s.jobTitle }}</span>
+                        <span class="spkr-company">{{ s.company }}, {{ s.city }}</span>
+                    </div>
+                </a>
+             </div>
             {% endfor %}
-
+        </div>
         </section>
         <section class="row">
             <div class="column pull-out">

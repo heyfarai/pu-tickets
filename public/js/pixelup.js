@@ -6,7 +6,7 @@ $(function() {
     $(window).scroll(function () {
         drawNavShadow();
         var val = 1 - $(window).scrollTop() / 250;
-        $(".page-title").css("opacity", val).css("transform", "translateY(" + val*5 + "px)");
+        $(".header-inner").css("opacity", val).css("transform", "translateY(" + val*5 + "px)");
     });
     var drawNavShadow = function(){
         var distance = $(this).scrollTop();
