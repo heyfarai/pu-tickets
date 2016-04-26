@@ -72,7 +72,13 @@
                                             <img class="photo" src="{{ s.mugshot.url }}" alt="{{ s.name }}"/>
                                         </div>
                                         <div class="spkr-details">
-                                            <span class="spkr-name">{{ s.name }}</span>
+                                            <span class="spkr-name">
+                                                {% if s.name.first %}
+                                                    {{ s.name.full }}
+                                                {% else %}
+                                                    {{ s.name }}
+                                                {% endif %}
+                                            </span>
                                             <span class="spkr-title">{{ s.jobTitle }}</span>
                                             <span class="spkr-company">{{ s.company }}, {{ s.city }}</span>
                                         </div>
