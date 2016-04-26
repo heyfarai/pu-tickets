@@ -13,10 +13,8 @@
 @blue-grey-dark    : #b0bec5;
 
 @highlight-color    :  #fc258c;
-// @highlight-color    :  #ED1946;
 @dark-color         :  #151242;
 @bright-blue        :  rgb(16, 200, 255);
-@green-color        :   #21caac;
 
 
 
@@ -160,6 +158,7 @@ input[type="button"].button-primary:focus {
 body {
   	&#home .nav-about,
   	&#speakers .nav-speakers,
+  	&#speaker-detail .nav-speakers,
   	&#schedule .nav-schedule,
   	&#workshops .nav-workshops,
   	&#social .nav-social,
@@ -203,9 +202,10 @@ dd {
 }
 
 hr {
-  background-color: @color__type;
+  background-color: @grey--soft;
   border: 0;
   height: 1px;
+  margin: 1rem 0 2rem;
 }
 img {
   height: auto; /* Make sure images are scaled correctly. */
@@ -358,6 +358,9 @@ header {
         }
         .lead {
             text-align: center;
+        }
+        #header-inner-bg {
+            display: none;
         }
     }
     #toggle {
@@ -604,6 +607,7 @@ header {
         	img {
                 width: 128px;
                 border: 2px solid #fff;
+                border-radius: 50% ;
         	}
         }
         .spkr-details {
@@ -652,13 +656,50 @@ header {
     }
     .spkr-desc {
         margin-top: 0rem;
-
-          content: "";
-          display: table;
-          clear: both;
+        content: "";
+        display: table;
+        clear: both;
     }
 }
 
+/* SPEAKER DETAILS */
+#speaker-detail {
+    .header-inner{
+        width: 100%;
+        height: 100%;
+        #header-inner-bg {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+    }
+    .speaker-detail-header {
+        text-align: center;
+        p {
+            text-align: center;
+        }
+        .speaker-meta {
+            .light;
+            font-size: .75em;
+            font-weight: normal;
+            color: @grey--soft;
+            text-transform: uppercase;
+            margin-top: none
+        }
+        .speaker-detail-bg {
+            position: absolute;
+        }
+        .speaker-detail-photo {
+            width: 200px;
+            border-radius: 50%;
+        }
+        .page-title {
+            margin-top: 0;
+        }
+    }
+}
 
 /*   SCHEDULE	*/
 #schedule {

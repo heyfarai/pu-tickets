@@ -10,7 +10,7 @@
                         'For inspiration and practical skills too.'
                     ]|random
                 }#}</h1>
-                <h6 class="light">3 Days of inspiration and learning for people who make products with pixels</h6>
+                <h6 class="light">3 days of inspiration and learning for people who make products with pixels</h6>
                 <p class="conf-about">September 12-14, 2016 <br>Johannesburg, South Africa</p>
                 <div class="row">
                     <div class="home-btn-wrapper column">
@@ -50,7 +50,7 @@
                                 </div>
                             </form>
                         </div>
-                        <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+                        <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
                         <!--End mc_embed_signup-->
                     </div>
                 </div>
@@ -66,24 +66,7 @@
                             <h2>First confirmed speakers</h2>
                             <div class="featured-speaker-list">
                                 {% for s in data.speakers %}
-                                <div class="featured-speaker">
-                                    <a href="/speakers/#{{ s.slug }}">
-                                        <div class="">
-                                            <img class="photo" src="{{ s.mugshot.url }}" alt="{{ s.name }}"/>
-                                        </div>
-                                        <div class="spkr-details">
-                                            <span class="spkr-name">
-                                                {% if s.name.first %}
-                                                    {{ s.name.full }}
-                                                {% else %}
-                                                    {{ s.name }}
-                                                {% endif %}
-                                            </span>
-                                            <span class="spkr-title">{{ s.jobTitle }}</span>
-                                            <span class="spkr-company">{{ s.company }}, {{ s.city }}</span>
-                                        </div>
-                                    </a>
-                                 </div>
+                                {% include "templates/mixins/_featured_speaker_item.html" %}
                                 {% endfor %}
                             </div>
                         </section>

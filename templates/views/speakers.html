@@ -13,28 +13,11 @@
 
 {% block page_content %}
         <section class="row">
+        <div class="featured-speaker-list">
             {% for s in data.speakers %}
-            <article id="{{ s.slug }}" class="column speaker-list-item">
-                <img class="photo" src="{{ s.mugshot.url }}"/>
-                <div class="spkr-details">
-                    <h3>
-                        {% if s.name.first %}
-                            {{ s.name.full }}
-                        {% else %}
-                            {{ s.name }}
-                        {% endif %}
-                    </h3>
-                    <p class="spkr-title">
-                        <span class="job-title">{{ s.jobTitle }}</span> <br> <span class="company">{{ s.company }}</span> • <span class="city">{{ s.city }}</span>
-                        <br><a href="https://twitter.com/{{ s.twitter }}">{{ s.twitter }}</a>
-                    </p>
-                </div>
-                <div class="spkr-desc">
-                    {{ s.content.shortDesc.html }}
-                </div>
-            </article>
+                {% include "templates/mixins/_featured_speaker_item.html" %}
             {% endfor %}
-
+        </div>
         </section>
         <section class="row">
             <div class="column pull-out">
