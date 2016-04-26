@@ -13,7 +13,7 @@ var Person = new keystone.List('Person', {
 });
 
 Person.add({
-	name: { type: String, required: true, initial: true, index: true },
+	name: { type: Types.Name, required: true, initial: true, index: true },
 	email: { type: Types.Email, initial: true, index: true },
 	mugshot: { type: Types.CloudinaryImage },
 	company: { type: String },
