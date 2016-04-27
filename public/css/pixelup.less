@@ -294,6 +294,11 @@ header {
             z-index: 900;
             .header-nav {
                 float: right;
+                @media @mobile-large {
+                    float: none;
+                    margin: 0 60px 0;
+                    padding-top: 60px
+                }
             }
             .transition-4;
             &.active {
