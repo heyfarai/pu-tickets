@@ -42,6 +42,7 @@
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
 		<link rel="author" href="/humans.txt">
+		<link href="/css/sassline.min.css" rel="stylesheet">
 		<link href="/css/pixelup.min.css" rel="stylesheet">
 
 		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
@@ -85,13 +86,17 @@
 						</div>
 					</div>
 				</div>
-				<div class="container">
-					{% block header_content %}{% endblock %}
+				<div class="container typeset">
+					<div class="row">
+						<div class="column">
+						{% block header_content %}{% endblock %}
+						</div>
+					</div>
 				</div>
 			</div>
 		</header>
 		<!-- .container is main centered wrapper -->
-		<div class="container">
+		<div class="container typeset">
 			<div class="content-wrapper">{{ FM.flashMessages(messages) }}
 	            {% block content %}{% endblock %}
 			</div>
