@@ -1,28 +1,53 @@
-var gulp = require('gulp'),
-	jshint = require('gulp-jshint'),
-	jshintReporter = require('jshint-stylish'),
-	watch = require('gulp-watch');
+var gulp = require('gulp');
+var jshint = require('gulp-jshint');
+var jshintReporter = require('jshint-stylish');
+var watch = require('gulp-watch');
+var shell = require('gulp-shell')
 
-/*
- * Create variables for our project paths so we can change in one place
- */
+var less = require('gulp-less');
+
+
 var paths = {
 	'src':['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json']
-};
 
+,
+	'style': {
+		all: './public/styles/**/*.less',
+		output: './public/styles/'
+	}
+
+};
 
 // gulp lint
 gulp.task('lint', function(){
 	gulp.src(paths.src)
 		.pipe(jshint())
 		.pipe(jshint.reporter(jshintReporter));
-
 });
 
 // gulp watcher for lint
 gulp.task('watch:lint', function () {
-	gulp.src(paths.src)
-		.pipe(watch())
-		.pipe(jshint())
-		.pipe(jshint.reporter(jshintReporter));
+	gulp.watch(paths.src, ['lint']);
 });
+
+
+gulp.task('watch:less', function () {
+	gulp.watch(paths.style.all, ['less']);
+});
+
+gulp.task('less', function(){
+	gulp.src(paths.style.all)
+		.pipe(less().on('error', less.logError))
+		.pipe(gulp.dest(paths.style.output));
+});
+
+
+gulp.task('runKeystone', shell.task('node keystone.js'));
+gulp.task('watch', [
+
+  'watch:less',
+
+  'watch:lint'
+]);
+
+gulp.task('default', ['watch', 'runKeystone']);
