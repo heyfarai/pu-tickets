@@ -26,7 +26,7 @@ keystone.init({
 	'less': 'public',
 
 	'static': 'public',
-	'favicon': 'public/favicon.ico',
+
 	'views': 'templates/views',
 	'view engine': 'html',
 	'custom engine': cons.nunjucks,
@@ -102,7 +102,7 @@ keystone.set('email locals', {
 });
 
 // Load your project's email test routes
-
+keystone.set('favicon', '/public/favicon.ico');
 keystone.set('email tests', require('./routes/emails'));
 
 // Configure the navigation bar in Keystone's Admin UI
