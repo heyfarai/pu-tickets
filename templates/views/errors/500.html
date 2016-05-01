@@ -1,30 +1,18 @@
-{% extends "templates/layouts/default.html" %}
+{% extends "templates/views/errors/_layout__error.html" %}
 
 {% set title = "Ouch  ·  Pixel Up!" %}
-{% block header_content %}
-                <h1 class="page-title light">Something went wrong</h1>
-                <div class="row">
-                    <div class="offset-by-one-third two-thirds column">
-                        <p class="light">
-                            <strong>Error 500.</strong> <br>Something has gone terribly wrong
-                        </p>
-                    </div>
-                </div>
-{% endblock %}
 
-{% block content %}
+{% set error_code = "500" %}
+{% set error_desc = "Something is broken on our side." %}
+{% set hero__header_content = "Something went wrong" %}
 
 
-                <div class="row">
-                    <div class="offset-by-one-third two-thirds column">
-                        <p>You may not be able to see this page because:</p>
-                        <ol>
+{% block error_content %}
+                        <p>You may not be able to find this page because of:</p>
+                        <ul>
                             <li>Our machines are broken (most likely).</li>
                             <li>Our code is sucktastic.</li>
                             <li>The internet is broken.</li>
                             <li>All of the above.</li>
-                        </ol>
-                    </div>
-                </div>
-
+                        </ul>
 {% endblock %}

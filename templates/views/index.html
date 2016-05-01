@@ -3,92 +3,144 @@
 {% set title = "Pixel Up!  ·  Sept. 12-14, 2016  ·  Johannesburg" %}
 
 {% block header_content %}
-                <h1 class="page-title light">Pixel Up! 2016{#{
-                    [
-                        'For product designers, thinkers and makers.',
-                        'For pixel pushers and software engineers.',
-                        'For inspiration and practical skills too.'
-                    ]|random
-                }#}</h1>
-                <h6 class="light">3 days of inspiration and learning for people who make products with pixels</h6>
-                <p class="conf-about">September 12-14, 2016 <br>Johannesburg, South Africa</p>
-                <div class="row">
-                    <div class="home-btn-wrapper column">
-                        <a href="/tickets/" class="btn-home-header button">Tickets on sale</a>
-                        {# <a href="/tickets/" class="btn-home-header button">Get email updates</a> #}
-                    </div>
-                </div>
+                <h1 class="hero__header">Pixel Up! 2016</h1>
+                <p class="caption">September 12-14, 2016 in Johannesburg, South Africa</p>
+                <h6 class="hero__lead">3 days of inspiration and learning about how to make great products with pixels.</h6>
+                <a href="/tickets/" class="button--light-blue button">Tickets on sale</a>
 {% endblock %}
 
 {% block content %}
-                <div class="row">
-                    <div class="column">
-                        <h2>It's never been done in Africa</h2>
-                        <p>Speakers who've worked at companies like <em>Dropbox</em> and <em>Twitter</em> and <em>Apple</em> will be in Joburg for <a href="schedule">3 days in September</a>. Join us for their talks and workshops and you'll hear what they've learned from working on some of the worlds most successful digital products. </p>
-                    </div>
+                <div class="section-layout section-layout--left">
+                    <section class="section typeset container">
+                        <h2 class="section__heading--blue">More than just a UX conference</h2>
+                        <p class="caption caption--centered">It's about helping you improve how you make digital products.</p>
+                        <p>To create products that customers love, we need <strong>user experience design</strong>. As well as <strong>user interface design</strong>, front and backend <strong>engineering</strong> and of course a great <strong>product strategy</strong>.
+                            Pixel Up! 2016 brings to Johannesburg designers and developers who've worked at <i>Dropbox</i>, <i>Twitter</i>, <i>Apple,</i> and <i>Google</i>
+                            to share what they've learned about <strong>making great products with pixels</strong>.</p>
+
+                    </section>
                 </div>
-                <div class="row">
-                    <div class="column">
-                        <section>
-                            <h2>First confirmed speakers</h2>
-                            <div class="featured-speaker-list">
+                <div class="section-layout section-layout--left section-layout--blue">
+                    <section class="section typeset container">
+                            <h2 class="section__heading--white">Influential speakers</h2>
+                            <p class="caption caption--centered">With deep expertise and Broad experience</p>
+                            <p>Learn from the authors, founders, directors and designers - who've worked at companies like SaleforceUX, Apple, Twitter, Dropbox, Cooper, Google, and DesignMap - who are helping push the industry forward.</p>
+                            <div class="speaker-grid">
                                 {% for s in data.speakers %}
-                                {% include "templates/mixins/_featured_speaker_item.html" %}
+                                {% include "templates/mixins/_speaker-grid__item.html" %}
                                 {% endfor %}
                             </div>
-                        </section>
-                    </div>
+                    </section>
                 </div>
-                <div class="row">
-                    <div class="column">
-                        <section>
-                            <h2>3 days. 12 experts. 3 workshops.</h2>
-                            <p><a href="/schedule/#day-1">Day 1</a> and <a href="/schedule/#day-2">Day 2</a> are full single track conference days,
-                                where you'll get lots of ideas and inspiration for talks by our <a href="/speakers">12 industry experts</a>.
-                                On <a href="/schedule/#day-3">Day 3</a> you'll go beyond inspiration into learning practical skills
-                                with 3 full-day workshops delivered by the experts. It's a great day out for teams who want to work together more closely.</p>
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="column">
-                        <section>
-                            <h2>Come to Pixel Up! if you:</h2>
-                            <ul>
-                                <li>Design apps and/or websites</li>
-                                <li>Build websites using the latest HTML5, JS and CSS tech</li>
-                                <li>Build Native apps for phones, tablets and wearables (TV)</li>
-                                <li>Manage projects that create apps and websites</li>
-                                <li>Hire designers</li>
-                                <li>Hire web and native app developers</li>
-                                <li>Manage (or pay for) medium to large web sites</li>
-                                <li>Manage (or pay for) iOS, Android and Windows apps</li>
-                                <li>Just wanna hang out with some geeks and designers</li>
-                            </ul>
-
-                            <div class="pull-out">
-                                {%  include 'templates/mixins/panel-convince.html' %}
+                <div class="section-layout section-layout--left">
+                    <section class="section typeset container u-cf">
+                        <h2>12 talks, chosen for you</h2>
+                        <p class="caption caption--centered">You'll love hearing what our speakers have to share</p>
+                        <p>Take in the wisdom of our speakers on <a href="/schedule/#day-1">Day 1</a> and <a href="/schedule/#day-2">Day 2</a> and transform what you build and how you’ll build it.
+                            The presentations will push you beyond your old practices, propelling you down the road to mastering your craft.
+                            We worked with each speaker to chose topics that suits the challenges we face here in South Africa.
+                        </p>
+                        <div class="row">
+                            <div class="talk-teaser column one-half">
+                                <img class="talk-teaser__img" src="/img/logo-avatar.png" />
+                                <p class="talk-teaser__title">
+                                    <a href="#">Talk title goes here</a> <br />
+                                    with Amy Jo Kim
+                                </p>
                             </div>
-                            <p><a href="#">Our speakers</a> are really good at what they do, make the most of this opportunity to learn from them.</p>
-                            <p>P.S.If you're a backend, database, sysops kinda person, we love you. We'd love to hang out with you.
-                                But our speakers won't focus on the important stuff you do. Just thought we'd make that clear.</p>
-                        </section>
-                    </div>
+                            <div class="column one-half">
+                                <img class="talk-teaser__img" src="/img/logo-avatar.png" />
+                                <p class="talk-teaser__title">
+                                    <a href="#">Talk title goes here</a> <br />
+                                    with Amy Jo Kim
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="talk-teaser column one-half">
+                                <img class="talk-teaser__img" src="/img/logo-avatar.png" />
+                                <p class="talk-teaser__title">
+                                    <a href="#">Talk title goes here</a> <br />
+                                    with Amy Jo Kim
+                                </p>
+                            </div>
+                            <div class="talk-teaser column one-half">
+                                <img class="talk-teaser__img" src="/img/logo-avatar.png" />
+                                <p class="talk-teaser__title">
+                                    <a href="#">Talk title goes here</a> <br />
+                                    with Amy Jo Kim
+                                </p>
+                            </div>
+                        </div>
+                        <p>See <a href="/speakers">all speakers and talks</a></p>
+                    </section>
+                    <section class="section typeset container u-cf">
+                        <h2>3 lively hands-on workshops.</h2>
+                        <p class="caption caption--centered">Dive deep into your practice (For teams and individuals)</p>
+                        <p>
+                            On <a href="/schedule/#day-3">Day 3</a> you'll pick 1 full-day workshop that best fits your biggest challenges and prepare to gain the confidence you need to deliver great products.
+                            You'll go beyond inspiration into learning practical skills backed up by the latest theories in effective design with our experts.
+                        </p>
+                        <div class="row">
+                            <div class="talk-teaser column one-half">
+                                <img class="talk-teaser__img" src="/img/logo-avatar.png" />
+                                <p class="talk-teaser__title">
+                                    <a href="#">Talk title goes here</a> <br />
+                                    with Amy Jo Kim
+                                </p>
+                            </div>
+                            <div class="talk-teaser column one-half">
+                                <img class="talk-teaser__img" src="/img/logo-avatar.png" />
+                                <p class="talk-teaser__title">
+                                    <a href="#">Talk title goes here</a> <br />
+                                    with Amy Jo Kim
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="talk-teaser column one-half">
+                                <img class="talk-teaser__img" src="/img/logo-avatar.png" />
+                                <p class="talk-teaser__title">
+                                    <a href="#">Talk title goes here</a> <br />
+                                    with Amy Jo Kim
+                                </p>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div class="row">
-                    <div class="column">
-                        <section>
-                            <h2>THE AMAZING TURBINE HALL</h2>
-                            <p>Pixel Up! Conference is happening in this <a href="/venue">fantastic venue</a>
-                                that showcases the uniqueness of Johannesburg while giving us enough space to work and play.
-                                And party. Yes. Party. On the evening of <a href="/schedule/#day-1">Day 1</a>. If you have a <a href="/tickets">Pixel Up! ticket</a>, you're invited.</p>
-                            <img src="/img/turbine-hall-turbines.jpg" alt="Turbine Hall Turbines"/>
-                            <br><br>
-                        </section>
+                <div class="section-layout section-layout--left section-layout--pink">
+                    <section class="section typeset container">
+                        <h2>Should you come to Pixel Up!?</h2>
+                        <p class="caption caption--centered">We say yes, but we're biased</p>
+                        <div class="row">
+                            <div class="column one-half">
+                                <ul>
+                                    <li class="no-bullet"><strong>You should come to Pixel Up! if you:</strong></li>
+                                    <li>Design apps and/or websites</li>
+                                    <li>Build websites using the latest HTML5, JS and CSS tech</li>
+                                    <li>Build Native apps for phones, tablets and wearables (TV)</li>
+                                    <li>Manage projects that create apps and websites</li>
+                                    <li>Hire designers</li>
+                                    <li>Hire web and native app developers</li>
+                                    <li>Manage (or pay for) medium to large web sites</li>
+                                    <li>Manage (or pay for) iOS, Android and Windows apps</li>
+                                    <li>Just wanna hang out with some geeks and designers</li>
+                                </ul>
+                            </div>
+                            <div class="column one-half">
+                                <img src="/img/img-workshop.png"/>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="section-layout section-layout--left">
+                    {% include 'templates/mixins/panel-convince.html' %}
+                </div>
 
-                    </div>
+                <div class="section-layout section-layout--left">
+                    {% include 'templates/mixins/become-a-sponsor.html' %}
                 </div>
-                {% include 'templates/mixins/become-a-sponsor.html' %}
+
 
 {% endblock %}
 

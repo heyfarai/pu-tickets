@@ -3,27 +3,23 @@
 {% set title = "Speakers · Pixel Up!  ·  Sept. 12-14, 2016  ·  Johannesburg" %}
 
 {% block header_content %}
-                <h1 class="page-title light">Handpicked speakers.<br> Well seasoned.</h1>
-                <div class="row">
-                    <div class="column">
-                        <p class="lead light"><strong>Learn from the authors, directors and designers with years of experience working at companies like Dropbox, Twitter and SalesforceUX.</strong></p>
-                    </div>
-                </div>
+                <h1 class="hero__header">Handpicked speakers. Well seasoned.</h1>
+                <p class="caption">Speakers with years of experience working at companies like <i>Apple</i>, <i>Dropbox</i>, <i>Twitter</i> and <i>SalesforceUX</i>.</p>
 {% endblock %}
 
 {% block page_content %}
-        <section class="row">
-        <div class="featured-speaker-list">
-            {% for s in data.speakers %}
-                {% include "templates/mixins/_featured_speaker_item.html" %}
-            {% endfor %}
+        <div class="section-layout section-layout--left">
+            <section class="section typeset container">
+                    <div class="speaker-grid">
+                        {% for s in data.speakers %}
+                        {% include "templates/mixins/_speaker-grid__item.html" %}
+                        {% endfor %}
+                    </div>
+            </section>
         </div>
-        </section>
-        <section class="row">
-            <div class="column pull-out">
+        <div class="section-layout section-layout--left">
                 {%  include 'templates/mixins/panel-convince.html' %}
-            </div>
-        </section>
+        </div>
 {% endblock %}
 
 {% block performer_microdata %}

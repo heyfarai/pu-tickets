@@ -1,0 +1,12 @@
+<div class="speaker-grid__item">
+    <a class="speaker-grid__link" href="/speakers/{{ s.slug }}/">
+        <div class="">
+            <img class="speaker-grid__photo photo" src="{{ s.mugshot.url }}" alt="{{ s.name }}"/>
+        </div>
+        <div class="speaker-grid__details">
+            <span class="speaker-grid__name">{{ s.name.full }}</span>
+            <span class="speaker-grid__title">{{ s.jobTitle }}</span>
+            <span class="speaker-grid__company">{{ s.company }}, {{ s.city }}</span>
+        </div>
+    </a>
+</div>

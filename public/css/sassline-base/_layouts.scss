@@ -20,7 +20,7 @@
 
 // Single column (based on measure for typeset content).
 .single-measure {
-  @include measure(all);
+  @include measure(0);
 
   margin: 0 auto;
 }

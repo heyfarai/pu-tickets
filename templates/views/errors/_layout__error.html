@@ -1,0 +1,35 @@
+{% extends "templates/layouts/default.html" %}
+
+{% set title = "Ouch  ·  Pixel Up!" %}
+{% block header_content %}
+                <h1 class="hero__header">Error {{ error_code }} : {{ hero__header_content }}</h1>
+                <p class="light">
+                    {{ error_desc }}.
+                </p>
+{% endblock %}
+
+{% block content %}
+                <div class="section-layout section-layout--no-padding">
+                    <!-- {% include 'templates/mixins/become-a-sponsor.html' %} -->
+                    <section class="section typeset container">
+                        <div class="row">
+                            <div class="column">
+                    		    {% if is_dev %}
+                                <p>{{ errorMsg }}</p>
+                                {% endif %}
+
+                                {% block error_content %}
+                                <p>You may not be able to see this page because:</p>
+                                <ol>
+                                    <li>Our machines are broken (most likely).</li>
+                                    <li>Our code is sucktastic.</li>
+                                    <li>The internet is broken.</li>
+                                    <li>All of the above.</li>
+                                </ol>
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+{% endblock %}

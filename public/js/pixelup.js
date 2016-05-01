@@ -20,10 +20,9 @@ $(function() {
     }
 
     drawNavShadow()
-})
-$("#toggle").click(function(n) {
-    n.preventDefault();
-    $(".nav").css("opacity", 0);
-    $(".top-bar").toggleClass("open");
-    $(".nav").delay(1).animate({ opacity: 1 }, 200);
+    $("#toggle").click(function(n) {
+        n.preventDefault();
+        nav.toggle();
+    })
+
 })
