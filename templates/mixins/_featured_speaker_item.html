@@ -1,7 +1,7 @@
 <div class="featured-speaker">
     <a href="/speakers/{{ s.slug }}/">
         <div class="">
-            <img class="photo" src="{{ s.mugshot.url }}" alt="{{ s.name }}"/>
+            <img class="photo" src="{{ s.mugshot.secure_url }}" alt="{{ s.name.full }}"/>
         </div>
         <div class="spkr-details">
             <span class="spkr-name">{{ s.name.full }}</span>
