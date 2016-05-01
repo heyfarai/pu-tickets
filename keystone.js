@@ -54,6 +54,13 @@ if (!keystone.get('cookie secret')) {
 	keystone.set('cookie secret', '----change-me-to-something-secret----');
 }
 
+// SSL
+if (keystone.get('env')=="development") {
+	keystone.set("ssl", true);
+	keystone.set("ssl key", "./_private/server.key");
+	keystone.set("ssl cert", "./_private/server.crt");
+	keystone.set("ssl port", 3001);
+}
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
@@ -67,8 +74,6 @@ keystone.set('locals', {
 	is_prelaunch: process.env.is_prelaunch,
 	newsletter_id: process.env.NEWSLETTER_ID
 });
-
-console.log(keystone.get('env'));
 
 keystone.set('auto update', true);
 

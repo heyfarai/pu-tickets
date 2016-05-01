@@ -26,6 +26,7 @@ var sitemap = require('keystone-express-sitemap');
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
+keystone.pre('routes', middleware.forceSSL);
 keystone.pre('render', middleware.flashMessages);
 
 // Handle 404 errors

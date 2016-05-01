@@ -24,7 +24,6 @@ exports.initLocals = function(req, res, next) {
 	var locals = res.locals;
 	locals.is_dev = (keystone.get('env')=="development") ? true : false;
 	locals.user = req.user;
-
 	next();
 
 };
@@ -72,6 +71,23 @@ exports.flashMessages = function(req, res, next) {
 
 };
 
+exports.forceSSL = function(req,res,next) {
+	var sslUrl;
+	// if we're in dev, add the port
+	var sslPort = (keystone.get('env')=="development") ? ':' + keystone.get('ssl port') : "";
+	// combine hostname and port
+	var hostnameWithPort = req.hostname + sslPort
+
+	if (
+		(keystone.get('env')=="production" && req.headers['x-forwarded-proto'] !== 'https') ||
+		(keystone.get('env')=="development" && !req.secure)
+		) {
+		sslUrl = ['https://', hostnameWithPort, req.url].join('');
+		console.log(req.secure);
+		return res.redirect(sslUrl);
+	}
+	next();
+}
 
 /**
 	Prevents people from accessing protected pages when they're not signed in
