@@ -15,7 +15,7 @@ var Person = new keystone.List('Person', {
 Person.add({
 	name: { type: Types.Name, required: true, initial: true, index: true },
 	email: { type: Types.Email, initial: true, index: true },
-	mugshot: { type: Types.CloudinaryImage },
+	mugshot: { type: Types.CloudinaryImage, publicID: 'slug', folder: 'people'  },
 	company: { type: String },
 	city: { type: String },
 	jobTitle: { type: String },

@@ -113,6 +113,16 @@ keystone.set('nav', {
 	'blog': ['posts', 'post-categories'],
 });
 
+// Cloudinary settings
+// optional, will prefix all built-in tags with 'keystone_'
+keystone.set('cloudinary prefix', false);
+
+// optional, will prefix each image public_id with [{prefix}]/{list.path}/{field.path}/
+keystone.set('cloudinary folders', false);
+
+// optional, will force cloudinary to serve images over https
+keystone.set('cloudinary secure', true);
+
 // Start Keystone to connect to your database and initialise the web server
 
 keystone.start();
