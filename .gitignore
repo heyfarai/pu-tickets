@@ -31,7 +31,7 @@ node_modules
 data
 
 #private stuff
-private
+_private
 
 # Ignore .env configuration files
 .env
