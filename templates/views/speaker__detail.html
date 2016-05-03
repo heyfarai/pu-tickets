@@ -7,7 +7,7 @@
                     <img id="speaker-detail-header__photo" class="speaker-detail-header__photo" src="{{ data.speaker.mugshot.url }}"/>
                     <h1 class="hero__header">{{ data.speaker.name.full }}</h1>
                     <h6>{{ data.speaker.tagline }}</h6>
-                    <p class="caption">{{ data.speaker.jobTitle }} at {{ data.speaker.company }}, {{ data.speaker.city }}</p>
+                    <p class="caption">{{ data.speaker.jobTitle }}{% if data.speaker.company %} at {{ data.speaker.company }}{% endif %}, {{ data.speaker.city }}</p>
                 </div>
 {% endblock %}
 
