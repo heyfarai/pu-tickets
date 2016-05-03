@@ -1,7 +1,7 @@
 $(function() {
     var distance  = $(window).scrollTop();
-    var nav = $('.top-bar'); // Change to nav div
-    var nav_class = 'active'; // Change to class name
+    var nav = $('.top-bar'); // Name of the div
+    var nav_class = 'top-bar--active'; // Change to class name
     var threshold = 10; // Change to pixels scrolled
     $(window).scroll(function () {
         drawNavShadow();
@@ -20,10 +20,11 @@ $(function() {
     }
 
     drawNavShadow()
-})
-$("#toggle").click(function(n) {
-    n.preventDefault();
-    $(".nav").css("opacity", 0);
-    $(".top-bar").toggleClass("open");
-    $(".nav").delay(1).animate({ opacity: 1 }, 200);
+    $("#toggle").click(function(n) {
+        n.preventDefault();
+        $(".top-bar__nav").css("opacity", 0);
+        $(".top-bar").toggleClass("top-bar--open");
+        $(".top-bar__nav").delay(1).animate({ opacity: 1 }, 100);
+    })
+
 })

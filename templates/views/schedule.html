@@ -2,37 +2,33 @@
 
 {% set title = "Schedule  ·  Pixel Up!  ·  Sept. 12-14, 2016  ·  Johannesburg" %}
 {% block header_content %}
-                <h1 class="page-title light">12 talks. 3 hands-on workshops. And a party.</h1>
-                <div class="row">
-                    <div class="column">
-                        <p class="lead light"><strong>Monday and Tuesday are conference days, filled with inspirational talks. On Wednesday
-                        you can join one of our hands-on workshops.</strong>
-                    </p>
-                    </div>
-                </div>
+                <h1 class="hero__header">12 talks. 3 workshops. And a party.</h1>
+                <p class="caption">
+                    Talks: Monday and Tuesday. Workshops : Wednesday.
+                </p>
 {% endblock %}
 {% block content %}
-        <div class="row">
-            <div class="column">
+        <div class="section-layout section-layout--no-padding">
+            <section class="section typeset container">
                 <section class="event-day" id="arrival" data-daynumber="0">
-                    <h3><span class="">Arrival Day</span> <span>Sunday, Sept. 11</span></h3>
+                    <h2><span class="">Arrival Day</span> <span>Sunday, Sept. 11</span></h2>
                     <p>Avoid the check-in line Monday morning by checking in Sunday afternoon. Then join us for some early networking over drinks at the pre-party. No worries if you can’t make it, registration opens at 7:30am on Monday.</p>
-                    <ol class="sessions">
-                        <li class="single-session non-speaker row">
+                    <ul class="no-bullet sessions">
+                        <li class="single-session non-speaker">
                             <time>4:00pm-6:00pm</time>
                             <span>Registration &amp; Pre-party</span>
                         </li>
-                    </ol>
-
+                        <li></li>
+                    </ul>
                 </section>
-            </div>
+            </section>
         </div>
-        <div class="row">
-            <div class="column">
+        <div class="section-layout section-layout--two-slopes section-layout--blue">
+            <section class="section typeset container">
                 <section class="event-day" id="day-1" data-daynumber="1">
-                    <h3><span class="">Day One</span> <span>Monday, Sept. 12</span></h3>
+                    <h2><span class="">Day One</span> <span>Monday, Sept. 12</span></h2>
                     <p>Along with the continental breakfast, you’ll get an amazing lunch, beverage breaks and nibbles throughout the day.</p>
-                    <ol class="sessions">
+                    <ul class="no-bullet sessions">
                         <li class="single-session non-speaker">
                             <time>7:30am - 8:55am</time>
                             <span>Breakfast</span>
@@ -93,16 +89,16 @@
                             <time>5:00pm - Later</time>
                             <span>Party over here</span>
                         </li>
-                    </ol>
+                    </ul>
                 </section>
-            </div>
+            </section>
         </div>
-        <div class="row">
-            <div class="column">
+        <div class="section-layout section-layout--no-padding">
+            <section class="section typeset container">
                 <section class="event-day" id="day-2" data-daynumber="2">
-                    <h3><span class="">Day Two</span> <span>Tuesday, Sept. 13</span></h3>
+                    <h2><span class="">Day Two</span> <span>Tuesday, Sept. 13</span></h2>
                     <p>Along with the continental breakfast, you’ll get an amazing lunch, beverage breaks and nibbles throughout the day.</p>
-                    <ol class="sessions">
+                    <ul class="no-bullet sessions">
                         <li class="single-session non-speaker">
                             <time>7:30am - 8:55am</time>
                             <span>Breakfast</span>
@@ -155,14 +151,14 @@
                             <time>3:15pm - 4:00pm</time>
                             <span>Speaker : TBC</span>
                         </li>
-                    </ol>
+                    </ul>
                 </section>
-            </div>
+            </section>
         </div>
-        <div class="row">
-            <div class="column">
+        <div class="section-layout  section-layout--two-slopes section-layout--pink">
+            <section class="section typeset container">
                 <section class="event-day" id="day-3" data-daynumber="3">
-                    <h3><span class="">Day Three</span> <span>Wednesday, Sept. 14</span></h3>
+                    <h2><span class="">Day Three</span> <span>Wednesday, Sept. 14</span></h2>
                     <p>Day 3 is workshop day. All day workshops starting at 9am and ending at 4pm. Go beyond inspiration and immerse yourself in groundbreaking design &amp; development skills you won’t find anywhere else. Get your team on the same page with proven methods, tools and clear-cut direction on specific actions and skills. </p>
                     <p>Once the schedule is complete we'll update this page.</p>
                     <p></p>
@@ -187,19 +183,21 @@
                     </div>
 
                 </section>
-            </div>
+            </section>
         </div>
-        <div class="row">
-            <div class="column">
-                    {#
+        {#
+        <div class="section-layout section-layout--left">
+            <section class="section typeset container">
                         <section>
                         <h3>Because you want to do good<br>
                             <small>We contribute part of your fee to a bursary</small>
                         </h3>
                         {%  include 'templates/views/partials/panel-doGood.html' %}
                     </section>
-                    #}
-            </div>
+            </section>
         </div>
-    {% include 'templates/mixins/become-a-sponsor.html' %}
+        #}
+        <div class="section-layout section-layout--left">
+            {% include 'templates/mixins/become-a-sponsor.html' %}
+        </div>
 {% endblock %}

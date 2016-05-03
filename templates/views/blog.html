@@ -2,40 +2,24 @@
 
 {% set title = "Blog  ·  Pixel Up!" %}
 {% block header_content %}
-                <h1 class="page-title light">Pixel Up! Blog</h1>
-                <div class="row">
-                    <div class="offset-by-one-third two-thirds column">
-                        <!-- <p class="lead light"><strong>You want to level up your skills. You want to learn from the best. You want to be surrounded by people who can help you do that. You want to be at Pixel Up! Here's how to get your boss to give you the green light.</strong></p> -->
-                    </div>
-                </div>
+                <h1 class="hero__header">Pixel Up! Blog</h1>
 {% endblock %}
 
 {% macro blogPost(post) %}
-                        <div class="row">
-    						<div class="one-third column">
-                                <h2 class="blog-title">
-    								<a href="/blog/{{ post.slug }}">{{ post.title }}</a>
-    							</h2>
-                                <p class="meta-blog detail">
+                        <div class="post">
+                            <h2 class="blog-title">{{ post.title }}</a></h2>
+							<a href="/blog/{{ post.slug }}">
+                                <p class="caption caption--centered meta-blog detail">
                                     By {{ post.author.name.first }} on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
                                 </p>
-                            </div>
-    						<div class="two-thirds column">
-                                <div class="post" data-ks-editable="editable(user, { list: " Post ", id: post.id })">
-
-
-        							<a href="/blog/{{ post.slug }}">
-        								{{ post.content.brief|safe }}
-        								{% if post.content.extended %}
-        									<span class="read-more">
-        										<a href="/blog/post/{{ post.slug }}">More...</a>
-        									</span>
-        								{% endif %}
-        							</a>
-        						</div>
-                            </div>
-                        </div>
-
+								{{ post.content.brief|safe }}
+								{% if post.content.extended %}
+									<span class="read-more">
+										<a href="/blog/post/{{ post.slug }}">More...</a>
+									</span>
+								{% endif %}
+							</a>
+						</div>
 {% endmacro %}
 
 {% block intro %}
@@ -46,6 +30,8 @@
 {% endblock %}
 
 {% block content %}
+                <div class="section-layout section-layout--left">
+                    <section class="section typeset container">
 								{% if filters.category and not data.category %}
 									<h3 class="text-muted">Invalid Category.</h3>
 								{% else %}
@@ -69,5 +55,8 @@
 									</div>
 								</div>
 							{% endif %} -->
+                    </section>
+                </div>
+
 
 {% endblock %}

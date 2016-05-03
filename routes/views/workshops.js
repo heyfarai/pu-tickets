@@ -6,7 +6,7 @@ exports = module.exports = function(req, res) {
 	var locals = res.locals;
 
 	// Set locals
-	locals.section = 'tickets';
+	locals.section = 'workshops';
 
 	locals.data = {
 		workshops: []
@@ -27,6 +27,6 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Render the view
-	view.render('tickets');
+	view.render('workshops');
 
 };

@@ -68,7 +68,7 @@ exports = module.exports = function(app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.all('/speakers', routes.views.speakers);
-	app.all('/speakers/:speaker', routes.views.speaker_detail);
+	app.all('/speakers/:speaker', routes.views.speaker__detail);
 	app.all('/schedule', routes.views.schedule);
 	app.get('/venue', routes.views.venue);
 
@@ -81,8 +81,8 @@ exports = module.exports = function(app) {
 
 
 	app.get('/convince-your-boss', routes.views.convince);
-	// app.get('/workshops', routes.views.workshop);
-	// app.get('/workshops/:workshop', routes.views.workshop);
+	app.get('/workshops', routes.views.workshops);
+	app.get('/workshops/:workshop', routes.views.workshop__detail);
 	// app.get('/about', routes.views.long_form);
 
 	// app.get('/exhibition', routes.views.exhibition);
@@ -99,7 +99,7 @@ exports = module.exports = function(app) {
 	app.get('/has/a/code-of-conduct', routes.views.code_of_conduct);
 
 	// app.all('/contact', routes.views.contact);
-	app.get('/blog/:post', routes.views.post);
+	app.get('/blog/:post', routes.views.blog__post);
 	app.get('/blog/:category?', routes.views.blog);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

@@ -1,0 +1,96 @@
+{% extends "templates/layouts/default-with-header.html" %}
+
+{% set title = data.speaker.name.full %}
+
+{% block header_content %}
+                <div class="speaker-detail-header">
+                    <img id="speaker-detail-header__photo" class="speaker-detail-header__photo" src="{{ data.speaker.mugshot.url }}"/>
+                    <h1 class="hero__header">{{ data.speaker.name.full }}</h1>
+                    <h6>{{ data.speaker.tagline }}</h6>
+                    <p class="caption">{{ data.speaker.jobTitle }} at {{ data.speaker.company }}, {{ data.speaker.city }}</p>
+                </div>
+{% endblock %}
+
+{% block page_content %}
+                {#
+                <div class="section-layout section-layout--no-padding">
+                    <section class="section typeset container">
+                        <h2>Pixel Up! Says</h2>
+                        {{ data.speaker.content.ourDesc.html }}
+                    </section>
+                </div>
+                #}
+                <div class="section-layout section-layout--no-padding">
+                    <section class="section typeset container">
+                        <h2>{{ data.speaker.name.first }}'s TALK
+                        {% if data.talk.startTime %}
+                        <br>
+                            <small>
+                                {{ data.talk.startTime }}
+                            </small>
+                            {% endif %}
+                        </h2>
+
+                        {% if data.talk %}
+                            {{ data.talk.description.html }}
+                        {% else %}
+                        <p class="muted">{{ data.speaker.name.first }}'s talk will be announced soon. Follow us on Twitter <a href="#">@letspixelup</a> to get the latest updates.</p>
+                        {% endif %}
+                    </section>
+                </div>
+                {% if data.workshop %}
+                <div class="section-layout section-layout--no-padding">
+                    <section class="section typeset container">
+                        <h2>{{ data.speaker.name.first }}'s WORKSHOP</h2>
+                        {{ data.workshop.description.html }}
+                    </section>
+                </div>
+                {% endif %}
+                <div class="section-layout section-layout--no-padding">
+                    <section class="section typeset container">
+                        <h2>About {{ data.speaker.name.first }}</h2>
+                        <div class="row">
+                            <div class="columns eight">
+                                {{ data.speaker.content.shortDesc.html }}
+                            </div>
+                            <div class="columns four">
+                                {% if data.speaker.website or data.speaker.twitter %}
+                                <ul class="no-bullet">
+                                    {% if data.speaker.website %}<li><a href="{{ data.speaker.website }}">{{ data.speaker.website }}</a></li>{% endif %}
+                                    {% if data.speaker.twitter %}<li><a href="https://twitter.com/{{ data.speaker.twitter }}">{{ data.speaker.twitter }}</a></li>{% endif %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+
+                <div class="section-layout section-layout--two-slopes section-layout--blue">
+                    <!-- {% include 'templates/mixins/become-a-sponsor.html' %} -->
+                    <section class="section typeset container">
+                        <h2>More Speakers</h2>
+                        <div class="featured-speaker-list">
+                            {% for s in data.other_speakers %}
+                            {% include "templates/mixins/_speaker-grid__item.html" %}
+                            {% endfor %}
+                        </div>
+                    </section>
+                </div>
+
+                <div class="section-layout section-layout--left">
+                    {% include 'templates/mixins/panel-convince.html' %}
+                </div>
+{% endblock %}
+
+{#
+{% block js %}
+    <script src="/js/vendor/StackBlur.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // stackBlurImage( $('#speaker-photo'), 'header-inner-bg', '64', false );
+    </script>
+{% endblock %}
+#}
+{% block performer_microdata %}
+{%  include 'templates/mixins/json-ld-performer.html' %}
+{% endblock %}

@@ -42,6 +42,6 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Render the view
-	view.render('post');
+	view.render('blog__post');
 
 };

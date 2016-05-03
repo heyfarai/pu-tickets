@@ -10,7 +10,7 @@ var Types = keystone.Field.Types;
 
 var ScheduleItem = new keystone.List('ScheduleItem', {
 	map: { name: 'title' },
-	autokey: { from: 'title', path: 'key' }
+	autokey: { path: 'slug', from: 'title', unique: true }
 });
 
 ScheduleItem.add({
@@ -19,7 +19,9 @@ ScheduleItem.add({
 	startTime: { type: Types.Datetime, utc: true, index: true },
 	endTime: { type: Types.Datetime, utc: true, index: true },
 	duration: { type: Number, index: true }, // FIXME: could be determined from startTime/endTime
+	isPublished: { type: Boolean, default: false, index: true },
 	speakers: { type: Types.Relationship, ref: 'Person', many: true, filters: { isSpeaker: true, isPublished: true }, index: true },
+	shortDescription: { type: Types.Markdown },
 	description: { type: Types.Markdown }
 });
 

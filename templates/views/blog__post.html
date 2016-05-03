@@ -1,0 +1,52 @@
+{% extends "templates/layouts/default.html" %}
+{% set title_text = data.post.title %}
+
+{% set title = title_text  %}
+{% block header_content %}
+                <h1 class="hero__header">
+                    <small><a href="/blog">Pixel Up! Blog</a></small><br/>
+                    {{ data.post.title }}
+                </h1>
+                <p class="caption">
+                    {{ data.post.author.name.first }} on {{ data.post._.publishedDate.format("MMM Do, YYYY") }}
+                </p>
+{% endblock %}
+
+{% block content %}
+                <div class="section-layout">
+                    <section class="section typeset container">
+                        {#
+						<dl class="meta">
+					        <dt>Next</dt>
+					        <dd><a href="{{ data.post.next }}">{{ data.post.next }}</a></dd>
+
+					        <dt>Previously</dt>
+					        <dd><a href="{{ data.post.next }}">{{ data.post.next }}</a></dd>
+
+					        <dt>Subscribe</dt>
+					        <dd><a href="http://pixelup.co.za/feed">Subscribe via RSS</a></dd>
+				        </dl>
+                        #}
+						<article class="article article--single blog-article">
+                            <p class="caption"><span class="eta"></span> Read</p>
+							{% if not data.post %}
+								<h2>We can't find the post you're looking for.</h2>
+							{% else %}
+							<div class="post">
+								{% if data.post.image.exists %}
+									<div class="image-wrap">
+										<img src="{{ data.post._.image.fit(750,450) }}" class="img-responsive">
+									</div>
+								{% endif %}
+								{{ data.post.content.full|safe }}
+							</div>
+							{% endif %}
+						</article>
+                    </section>
+                </div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+    $('.blog-article').readingTime();
+</script>
+{% endblock %}

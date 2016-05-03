@@ -3,8 +3,11 @@ var jshint = require('gulp-jshint');
 var jshintReporter = require('jshint-stylish');
 var watch = require('gulp-watch');
 var shell = require('gulp-shell')
-
+var sass = require('gulp-sass');
 var less = require('gulp-less');
+var autoprefixer = require('gulp-autoprefixer');
+var cleanCSS = require('gulp-clean-css');
+var rename = require('gulp-rename');
 
 
 var paths = {
@@ -34,6 +37,18 @@ gulp.task('watch:lint', function () {
 gulp.task('watch:less', function () {
 	gulp.watch(paths.style.all, ['less']);
 });
+
+gulp.task('sass', function() {
+  gulp.src('./public/css/**/*.scss')
+    .pipe(sass())
+    .pipe(autoprefixer('last 2 versions'))
+	.pipe(cleanCSS())
+	.pipe(rename({
+		extname: '.min.css'
+	}))
+    .pipe(gulp.dest('./public/css/'));
+});
+
 
 gulp.task('less', function(){
 	gulp.src(paths.style.all)

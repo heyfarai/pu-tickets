@@ -1,32 +1,17 @@
-{% extends "templates/layouts/default.html" %}
+{% extends "templates/views/errors/_layout__error.html" %}
 
 {% set title = "Oops  ·  Pixel Up!" %}
-{% block header_content %}
-                <h1 class="page-title light">We can't find that page</h1>
-                <div class="row">
-                    <div class="offset-by-one-third two-thirds column">
-                        <p class="light">
-                            <strong>Error 404.</strong> <br>
-                            The page you requested is no longer here.
-                        </p>                    </div>
-                </div>
-{% endblock %}
 
-{% block content %}
+{% set error_code = "404" %}
+{% set error_desc = "The page you requested is no longer here." %}
+{% set hero__header_content = "We can't find that page" %}
 
-                <div class="row">
-                    <div class="offset-by-one-third two-thirds column">
-                        <p>
-                            But we think you will find this link useful: <a href="/">Home Page</a>
-                        </p>
 
+{% block error_content %}
                         <p>You may not be able to find this page because of:</p>
                         <ul>
                             <li>An out-of-date bookmark/favourite</li>
                             <li>A search engine that has an out-of-date listing for us</li>
                             <li>A mis-typed address</li>
                         </ul>
-                    </div>
-                </div>
-
 {% endblock %}
