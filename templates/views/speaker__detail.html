@@ -49,20 +49,14 @@
                 <div class="section-layout section-layout--no-padding">
                     <section class="section typeset container">
                         <h2>About {{ data.speaker.name.first }}</h2>
-                        <div class="row">
-                            <div class="columns eight">
-                                {{ data.speaker.content.shortDesc.html }}
-                            </div>
-                            <div class="columns four">
-                                {% if data.speaker.website or data.speaker.twitter %}
-                                <ul class="no-bullet">
-                                    {% if data.speaker.website %}<li><a href="{{ data.speaker.website }}">{{ data.speaker.website }}</a></li>{% endif %}
-                                    {% if data.speaker.twitter %}<li><a href="https://twitter.com/{{ data.speaker.twitter }}">{{ data.speaker.twitter }}</a></li>{% endif %}
-                                </ul>
-                                {% endif %}
-                            </div>
-                        </div>
-
+                        {{ data.speaker.content.shortDesc.html }}
+                        {% if data.speaker.website or data.speaker.twitter %}
+                        <h6>On the web</h6>
+                        <ul class="no-bullet">
+                            {% if data.speaker.website %}<li><a href="{{ data.speaker.website }}">{{ data.speaker.website }}</a></li>{% endif %}
+                            {% if data.speaker.twitter %}<li><a href="https://twitter.com/{{ data.speaker.twitter }}">{{ data.speaker.twitter }}</a></li>{% endif %}
+                        </ul>
+                        {% endif %}
                     </section>
                 </div>
 
