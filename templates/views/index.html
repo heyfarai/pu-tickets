@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-                <div class="section-layout section-layout--left">
+                <div class="section-layout">
                     <section class="section typeset container">
                         <h2 class="section__heading--blue">More than just a UX conference</h2>
                         <p class="caption caption--centered">It's about helping you improve how you make digital products.</p>
@@ -20,7 +20,7 @@
 
                     </section>
                 </div>
-                <div class="section-layout section-layout--left section-layout--blue">
+                <div class="section-layout section-layout--two-slopes section-layout--blue">
                     <section class="section typeset container">
                             <h2 class="section__heading--white">Influential speakers</h2>
                             <p class="caption caption--centered">With deep expertise and Broad experience</p>
@@ -32,7 +32,7 @@
                             </div>
                     </section>
                 </div>
-                <div class="section-layout section-layout--left">
+                <div class="section-layout">
                     <section class="section typeset container u-cf">
                         <h2>12 talks, chosen for you</h2>
                         <p class="caption caption--centered">You'll love hearing what our speakers have to share</p>
@@ -74,6 +74,8 @@
                         </div>
                         <p>See <a href="/speakers">all speakers and talks</a></p>
                     </section>
+                </div>
+                <div class="section-layout section-layout--two-slopes section-layout--pink">
                     <section class="section typeset container u-cf">
                         <h2>3 lively hands-on workshops.</h2>
                         <p class="caption caption--centered">Dive deep into your practice (For teams and individuals)</p>
@@ -108,7 +110,7 @@
                         </div>
                     </section>
                 </div>
-                <div class="section-layout section-layout--left section-layout--pink">
+                <div class="section-layout">
                     <section class="section typeset container">
                         <h2>Should you come to Pixel Up!?</h2>
                         <p class="caption caption--centered">We say yes, but we're biased</p>
@@ -128,16 +130,16 @@
                                 </ul>
                             </div>
                             <div class="column one-half">
-                                <img src="/img/img-workshop.png"/>
+                                <img class="section-layout__image--tpad" src="/img/img-workshop.png"/>
                             </div>
                         </div>
                     </section>
                 </div>
-                <div class="section-layout section-layout--left">
+                <div class="section-layout section-layout--two-slopes section-layout--blue">
                     {% include 'templates/mixins/panel-convince.html' %}
                 </div>
 
-                <div class="section-layout section-layout--left">
+                <div class="section-layout">
                     {% include 'templates/mixins/become-a-sponsor.html' %}
                 </div>
 

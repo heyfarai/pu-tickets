@@ -1,14 +1,14 @@
 {% extends "templates/layouts/default-with-header.html" %}
 
-{% set title = "Speakers · Pixel Up!  ·  Sept. 12-14, 2016  ·  Johannesburg" %}
+{% set title = "Speakers" %}
 
 {% block header_content %}
                 <h1 class="hero__header">Handpicked speakers. Well seasoned.</h1>
-                <p class="caption">Speakers with years of experience working at companies like <i>Apple</i>, <i>Dropbox</i>, <i>Twitter</i> and <i>SalesforceUX</i>.</p>
+                <p class="caption">Speakers who've worked at companies like <i>Apple</i>, <i>Dropbox</i>, <i>Twitter</i> and <i>SalesforceUX</i>.</p>
 {% endblock %}
 
 {% block page_content %}
-        <div class="section-layout section-layout--left">
+        <div class="section-layout">
             <section class="section typeset container">
                     <div class="speaker-grid">
                         {% for s in data.speakers %}
@@ -17,7 +17,7 @@
                     </div>
             </section>
         </div>
-        <div class="section-layout section-layout--left">
+        <div class="section-layout section-layout--two-slopes section-layout--pink">
                 {%  include 'templates/mixins/panel-convince.html' %}
         </div>
 {% endblock %}

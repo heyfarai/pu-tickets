@@ -4,8 +4,9 @@
 
 {% block header_content %}
                 <div class="speaker-detail-header">
-                    <img id="speaker-photo" class="speaker-detail-photo" src="{{ data.speaker.mugshot.url }}"/>
+                    <img id="speaker-detail-header__photo" class="speaker-detail-header__photo" src="{{ data.speaker.mugshot.url }}"/>
                     <h1 class="hero__header">{{ data.speaker.name.full }}</h1>
+                    <h6>{{ data.speaker.tagline }}</h6>
                     <p class="caption">{{ data.speaker.jobTitle }} at {{ data.speaker.company }}, {{ data.speaker.city }}</p>
                 </div>
 {% endblock %}
@@ -65,7 +66,7 @@
                     </section>
                 </div>
 
-                <div class="section-layout section-layout--left">
+                <div class="section-layout section-layout--two-slopes section-layout--blue">
                     <!-- {% include 'templates/mixins/become-a-sponsor.html' %} -->
                     <section class="section typeset container">
                         <h2>More Speakers</h2>

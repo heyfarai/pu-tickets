@@ -1,8 +1,8 @@
 <div class="speaker-grid__item">
     <a class="speaker-grid__link" href="/speakers/{{ s.slug }}/">
-        <div class="">
-            <img class="speaker-grid__photo photo" src="{{ s.mugshot.url }}" alt="{{ s.name }}"/>
-        </div>
+        <figure class="tint">
+            <img class="speaker-grid__photo photo" src="{{ s.mugshot.url }}" alt="{{ s.name.full }}"/>
+        </figure>
         <div class="speaker-grid__details">
             <span class="speaker-grid__name">{{ s.name.full }}</span>
             <span class="speaker-grid__title">{{ s.jobTitle }}</span>

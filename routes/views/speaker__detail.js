@@ -29,7 +29,7 @@ exports = module.exports = function(req, res) {
 
 	});
 
-	// Load other posts
+	// Load talks and workshops
 	view.on('init', function(next) {
 		keystone.list('ScheduleItem').model.find().where('speakers', locals.data.speaker.id).exec(function(err, scheduleItems) {
 		    _.each(scheduleItems, function (s) {
@@ -43,7 +43,7 @@ exports = module.exports = function(req, res) {
 		});
 	});
 
-	// Load other posts
+	// Load other speakers
 	view.on('init', function(next) {
 
 		var q = keystone.list('Person').model.find()
@@ -60,6 +60,6 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Render the view
-	view.render('speaker_detail');
+	view.render('speaker__detail');
 
 };

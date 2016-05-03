@@ -1,0 +1,100 @@
+{% extends "templates/layouts/default-with-header.html" %}
+
+{% set title = data.speaker.name.full %}
+
+{% block header_content %}
+                <h1 class="hero__header">{{ data.workshop.title }}</h1>
+                <p class="caption">A full day workshop. Wednesday 14 Sept.</p>
+                <div class="workshop__speakers workshop__speakers--hero">
+                    {% for speaker in data.workshop.speakers %}
+                    <div class="chip speaker-chip speaker-chip--inline">
+                        <a class="light" href="/speakers/{{ speaker.slug }}">
+                            <img class="speaker-chip__photo" src="{{ speaker.mugshot.secure_url }}" />
+                            <div class="speaker-chip__meta">
+                                <span class="speaker-chip__name">{{ speaker.name.full }}</span>
+                                <span class="speaker-chip__jobTitle">{{ speaker.company }}</span>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                    <div class="workshop__actions workshop__actions--hero">
+                        <a href="/tickets#workshop-tickets" class="button button--primary">Book</a>
+                    </div>
+                </div>
+{% endblock %}
+
+{% block page_content %}
+                <div class="section-layout section-layout--no-padding">
+                    <section class="section typeset container">
+                        <h2>About the workshop</h2>
+                        {{ data.workshop.description.html }}
+                    </section>
+                </div>
+                <div class="section-layout section-layout--no-padding">
+                    <section class="section typeset container">
+                        {% for speaker in data.workshop.speakers %}
+                        <h2>About {{ speaker.name.full }}</h2>
+                        {{ speaker.bio }}
+
+                        {% if speaker.website or speaker.twitter %}
+                        <h6>{{ speaker.name.first }} the web</h6>
+                        <ul class="no-bullet">
+                            {% if speaker.website %}<li><a href="{{ speaker.website }}">{{ speaker.website }}</a></li>{% endif %}
+                            {% if speaker.twitter %}<li><a href="https://twitter.com/{{ speaker.twitter }}">{{ speaker.twitter }}</a></li>{% endif %}
+                        </ul>
+                        {% endif %}
+                        {% endfor %}
+                    </section>
+                </div>
+                {% include "templates/mixins/_workshop-included-items.html" %}
+
+                <div class="section-layout section-layout--left">
+                    <!-- {% include 'templates/mixins/become-a-sponsor.html' %} -->
+                    <section class="section typeset container">
+                        <p class="caption--centered caption">More Workshops</p>
+                        <div class="featured-speaker-list">
+                            {% for workshop in data.other_workshops %}
+                            <div class="workshop-summary">
+                                <h2 class="workshop__title"><a href="/speakers/{{ speaker.slug }}">{{ workshop.title }}</a></h2>
+                                <p class="caption caption--centered caption--thin-bottom">with</p>
+                                <div class="workshop__speakers">
+                                    {% for speaker in workshop.speakers %}
+                                    <div class="chip speaker-chip speaker-chip--inline">
+                                        <a href="/speakers/{{ speaker.slug }}">
+                                            <img class="speaker-chip__photo" src="{{ speaker.mugshot.secure_url }}" />
+                                            <div class="speaker-chip__meta">
+                                                <span class="speaker-chip__name">{{ speaker.name.full }}</span>
+                                                <span class="speaker-chip__jobTitle">{{ speaker.company }}</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <a class="workshop__link" href="/workshops/{{ workshop.slug }}">
+                                    {{ workshop.shortDescription.html }}
+                                </a>
+                                <div class="workshop__actions">
+                                    <a href="/workshops/{{ workshop.slug }}" class="button button--primary">Learn more</a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </section>
+                </div>
+
+                <div class="section-layout section-layout--left">
+                    {% include 'templates/mixins/panel-convince.html' %}
+                </div>
+{% endblock %}
+
+{#
+{% block js %}
+    <script src="/js/vendor/StackBlur.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // stackBlurImage( $('#speaker-photo'), 'header-inner-bg', '64', false );
+    </script>
+{% endblock %}
+#}
+{% block performer_microdata %}
+{%  include 'templates/mixins/json-ld-performer.html' %}
+{% endblock %}
