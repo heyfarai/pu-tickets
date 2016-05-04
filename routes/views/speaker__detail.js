@@ -49,7 +49,7 @@ exports = module.exports = function(req, res) {
 		var q = keystone.list('Person').model.find()
 		.where('isSpeaker', 'true')
 		.where('slug').ne(locals.filters.speaker)
-		.limit('6')
+		.limit('4')
 		.populate('speakers');
 
 		q.exec(function(err, results) {
