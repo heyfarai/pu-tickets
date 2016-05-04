@@ -24,7 +24,7 @@ $(function() {
         n.preventDefault();
         $(".top-bar__nav").css("opacity", 0);
         $(".top-bar").toggleClass("top-bar--open");
-        $(".top-bar__nav").delay(1).animate({ opacity: 1 }, 100);
+        $(".top-bar__nav").delay(.5).animate({ opacity: 1 }, 100);
     })
 
 })
