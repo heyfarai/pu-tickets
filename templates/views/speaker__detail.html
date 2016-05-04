@@ -20,7 +20,6 @@
                     </section>
                 </div>
                 #}
-                {{data.talk}}
                 <div class="section-layout section-layout--no-padding">
                     <section class="section typeset container">
                         <h2>{{ data.speaker.name.first }}'s TALK
@@ -33,7 +32,7 @@
                         </h2>
 
                         {% if data.talk %}
-                            {{ data.talk.description.html }}
+                            {{ data.talk.shortDescription.html }}
                         {% else %}
                         <p class="muted">{{ data.speaker.name.first }}'s talk will be announced soon. Follow us on Twitter <a href="#">@letspixelup</a> to get the latest updates.</p>
                         {% endif %}
