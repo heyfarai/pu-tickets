@@ -1,8 +1,6 @@
-Keystone Starter
+Pixel Up! Website 2016
 ================
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/JedWatson/keystone-starter)
+This is the official website for Pixel Up! 2016.
 
-This is a starter project for [KeystoneJS](http://keystonejs.com) set up with clean templates and sensible defaults that can be immediately deployed to [Heroku](https://www.heroku.com) (or anywhere else).
-
-It is based on the [KeystoneJS Yeoman Generator](https://github.com/keystonejs/generator-keystone) which you should look at if you want more customisation options.
+It's hosted at pixelup.co.za and uses KeystoneJS.
