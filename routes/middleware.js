@@ -24,6 +24,7 @@ exports.initLocals = function(req, res, next) {
 	var locals = res.locals;
 	locals.is_dev = (keystone.get('env')=="development") ? true : false;
 	locals.user = req.user;
+	locals.urlPath = req.path;
 	next();
 
 };

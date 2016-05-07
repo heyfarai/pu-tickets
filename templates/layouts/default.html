@@ -1,5 +1,7 @@
 {% import "templates/mixins/flash-messages.html" as FM %}
-<!doctype html>
+{%
+    set meta__description_default = "Africa's first digital product design conference happens in Johannesburg with speakers from companies such as Dropbox and Twitter and Apple. Expect talks and workshops on interaction design, interface design and product management."
+%}<!doctype html>
 <!--
  ___ _         _   _   _      _
 | _ (_)_ _____| | | | | |_ __| |
@@ -12,40 +14,44 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 		<meta name="keywords" content="Pixel Up, Pixel Up!, PixelUp16, ux conference, ux johannesburg, ux south africa, ux design, interaction design, user experience, ux designer, ui design, user interface design">
-		<meta name="description" content="A 3 day digital product design conference (12-14 September 2016) in Johannesburg with talks and workshops on interaction design, interface design by international speakers from companies like Dropbox and Twitter and Apple.">
-
+		<meta name="description" content="{{ meta_description | default(meta__description_default) }}">
 		<!-- Twitter Card -->
 	    <meta name="twitter:card" content="summary_large_image">
 	    <meta name="twitter:site" content="@letspixelup">
 	    <meta name="twitter:creator" content="@ampli5yd">
-	    <meta name="twitter:title" content="Pixel Up! in Johannesburg, 12th - 14th September 2016">
-	    <meta name="twitter:description" content="A 3 day digital product design conference (12-14 September 2016) in Johannesburg with talks and workshops on interaction design, interface design by international speakers from companies like Dropbox and Twitter and Apple.">
-	    <meta name="twitter:image" content="https://www.pixelup.co.za/img/pixelup-avatar-twitter-card.png?1139">
-		<meta name="twitter:domain" content="https://www.pixelup.co.za">
+	    <meta name="twitter:title" content="{{ title }}{% if section!="home" %} | Pixel Up! {{ "Blog" if section=="blog-post" or section=="blog" else "2016 in Johannesburg" }}{% endif %}">
+	    <meta name="twitter:description" content="{{ meta_description | default(meta__description_default) }}">
+	    <meta name="twitter:image" content="https://pixelup.co.za/img/pixelup-avatar-twitter-card.png?1139">
+		<meta name="twitter:domain" content="https://pixelup.co.za">
 
 		<!-- opengraph -->
-		<meta property="og:description" content="A 3 day digital product design conference (12-14 September 2016) in Johannesburg with talks and workshops on interaction design, interface design by international speakers from companies like Dropbox and Twitter and Apple.">
-		<meta property="og:image" content="https://www.pixelup.co.za/img/avatar-open-graph-fb.png?832">
+		<meta property="og:locale" content="en_ZA">
+		<meta property="og:description" content="{{ meta_description | default(meta__description_default) }}">
+		<meta property="og:image" content="https://pixelup.co.za/img/avatar-open-graph-fb.png?832">
 		<meta property="og:image:width" content="1200">
 		<meta property="og:image:height" content="628">
-		<meta property="og:site_name" content="Pixel Up! in Johannesburg, 12th - 14th September 2016">
-		<meta property="og:title" content="Pixel Up! Johannesburg, 12th - 14th September">
+		<meta property="og:site_name" content="Pixel Up! Conference in Johannesburg, September 12 - 14, 2016">
+		<meta property="og:title" content="{{ title }}{% if section!="home" %} | Pixel Up! {{ "Blog" if section=="blog-post" or section=="blog" else "2016 in Johannesburg" }}{% endif %}">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://www.pixelup.co.za">
+		<meta property="og:url" content="https://pixelup.co.za{{ urlPath }}">
+		<meta property="article:publisher" content="https://www.facebook.com/letspixelup">
 
-		<title>{{ title |default("Pixel Up!") }}</title>
+		<title>{{ title }}{% if section!="home" %} | Pixel Up! {{ "Blog" if section=="blog-post" or section=="blog" else "2016 in Johannesburg" }}{% endif %}</title>
+		<script type="application/ld+json">
+			{"@context":"http:\/\/schema.org","@type":"WebSite","url":"https:\/\/pixelup.co.za\/","name":"Pixel Up! Conference"}
+		</script>
+
 		<script src="/js/vendor/modernizr.js" type="text/javascript"></script>
 		<script src="/js/vendor/responsive-nav.min.js"></script>
 
 		<script src="https://use.typekit.net/oqz7ipt.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
+		<link rel="canonical" href="https://pixelup.co.za{{ urlPath }}">
 		<link rel="author" href="/humans.txt">
 		<link href="/css/sassline.min.css" rel="stylesheet">
 		<link href="/css/pixelup.min.css" rel="stylesheet">
-
 
 		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
