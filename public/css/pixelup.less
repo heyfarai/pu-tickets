@@ -278,7 +278,7 @@ table, th, td {
     @media @mobile-large {
         top: auto;
         bottom: 0;
-        .top-bar--active;
+        background: rgba(10, 9, 32, 0.96) !important;
     }
 }
 
@@ -292,6 +292,9 @@ table, th, td {
 }
 .top-bar--active {
     background: linear-gradient(to bottom, rgba(10, 9, 32, 0.9) 0, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0) 99%);
+    @media @mobile-large {
+        background: rgba(10, 9, 32, 0.96);
+    }
 }
 
 .top-bar--open {
@@ -831,6 +834,16 @@ h6.hero__lead {
     background: #cfd8dc;
     margin-bottom: 1rem;
     border-radius: 3px;
+}
+.sponsor-logo {
+    margin: 3em auto;
+    display: block !important;
+}
+.sponsor-logo--premier {
+    width: 70%;
+    @media @tablet-and-up {
+        width: 50%
+    }
 }
 #more-ways-to-sponsor {
     margin-top: 3rem;

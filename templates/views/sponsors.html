@@ -6,11 +6,14 @@
                 <p class="caption">Get your brand in front of SA's top product thinkers and makers..</p>
 {% endblock %}
 {% block page_content %}
-                <!-- <div class="section-layout">
+                <div class="section-layout section-layout--no-padding">
                     <section class="section typeset container">
-                        <h2>We love our sponsors</h2>
+                        <h2>Premier Sponsor</h2>
+                        {% for s in data.sponsors.Premier %}
+                        <img class="sponsor-logo sponsor-logo--premier" src="{{ s.logo.url }}"/>
+                        {% endfor%}
                     </section>
-                </div> -->
+                </div>
                 <div class="section-layout">
                     <section class="section typeset container">
                         <h2>Who will attend</h2>

@@ -116,6 +116,7 @@ keystone.set('nav', {
 	'people': 'people',
 	'talks & workshops': 'schedule-items',
 	'blog': ['posts', 'post-categories'],
+	'sponsors': ['sponsors', 'sponsor-types'],
 });
 
 // Cloudinary settings
