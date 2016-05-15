@@ -16,10 +16,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="keywords" content="Pixel Up, Pixel Up!, PixelUp16, ux conference, ux johannesburg, ux south africa, ux design, interaction design, user experience, ux designer, ui design, user interface design">
 		<meta name="description" content="{{ meta_description | default(meta__description_default) }}">
+        {% block opengraph_data %}
 		<!-- Twitter Card -->
-	    <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:card" content="summary_large_image">
 	    <meta name="twitter:site" content="@letspixelup">
-	    <meta name="twitter:creator" content="@ampli5yd">
+	    <meta name="twitter:creator" content="@farai_uxguy">
 	    <meta name="twitter:title" content="{{ title }}{% if section!="home" %} | Pixel Up! {{ "Blog" if section=="blog-post" or section=="blog" else "2016 in Johannesburg" }}{% endif %}">
 	    <meta name="twitter:description" content="{{ meta_description | default(meta__description_default) }}">
 	    <meta name="twitter:image" content="https://pixelup.co.za/img/pixelup-avatar-twitter-card.png?1139">
@@ -36,6 +37,7 @@
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://pixelup.co.za{{ urlPath }}">
 		<meta property="article:publisher" content="https://www.facebook.com/letspixelup">
+        {% endblock %}
 
 		<title>{{ title }}{% if section!="home" %} | Pixel Up! {{ "Blog" if section=="blog-post" or section=="blog" else "2016 in Johannesburg" }}{% endif %}</title>
 		<script type="application/ld+json">
