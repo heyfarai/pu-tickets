@@ -48,13 +48,9 @@
                 <div class="section-layout section-layout--no-padding">
                     <section class="section typeset container">
                         <article class="article article--single blog-article">
-                            <h2>{{ data.speaker.name.first }}'s TALK
-                            {% if data.talk.startTime %}
-                            <br>
-                                <small>
-                                    {{ data.talk.startTime }}
-                                </small>
-                                {% endif %}
+                            <h2>
+                                <small >{{ data.speaker.name.first }}'s TALK</small><br />
+                                {{ data.talk.title }}
                             </h2>
 
                             {% if data.talk %}
@@ -69,7 +65,10 @@
                 <div class="section-layout section-layout--no-padding">
                     <section class="section typeset container">
                         <article class="article article--single blog-article">
-                            <h2>{{ data.speaker.name.first }}'s WORKSHOP</h2>
+                            <h2>
+                                <small >{{ data.speaker.name.first }}'s WORKSHOP</small><br />
+                                {{ data.workshop.title }}
+                            </h2>
                             {{ data.workshop.description.html }}
                         </article>
                     </section>
