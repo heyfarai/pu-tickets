@@ -127,6 +127,7 @@
 
 		{% block js %}{% endblock %}
         {% block ld_json %}
+        <script type="application/ld+json">
         {
             "startDate": "2016-09-12T08:00:00+02:00",
             "endDate": "2016-09-14T17:00:00+02:00",
@@ -155,6 +156,13 @@
                 "price": 3500.0,
                 "@type": "Offer"
             }],
+            "performer":[{
+                "@type":"Person",
+                "name":"Jina Bolton",
+                "jobTitle":"Lead Designer, Design Systems",
+                "worksFor":"SalesforceUX",
+                "workLocation":"San Francisco",
+            }],
             "location": {
                 "address": {
                     "addressCountry": "ZA",
@@ -177,6 +185,7 @@
             "@type": "Event",
             "description": "{{ meta__description_default }}"
         }
+        </script>
         {% endblock %}
 		{% if not is_dev %}
 		<script>
