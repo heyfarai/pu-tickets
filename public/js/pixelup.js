@@ -1,30 +1,32 @@
-$(function() {
-    var distance  = $(window).scrollTop();
-    var nav = $('.top-bar'); // Name of the div
-    var nav_class = 'top-bar--active'; // Change to class name
-    var threshold = 10; // Change to pixels scrolled
-    $(window).scroll(function () {
-        drawNavShadow();
-        var val = 1 - $(window).scrollTop() / 250;
-        $(".header-inner").css("opacity", val).css("transform", "translateY(" + val*5 + "px)");
-    });
-    var drawNavShadow = function(){
-        var distance = $(this).scrollTop();
-        if (distance > threshold) { // If scrolled past threshold
-            nav.addClass(nav_class); // Add class to nav
-        } else { // If user scrolls back to top
-            if (nav.hasClass(nav_class)) { // And if class has been added
-                nav.removeClass(nav_class); // Remove it
-            }
-        }
-    }
+$( document ).ready(function() {
+    var q = 0,
+        g = document.body
 
-    drawNavShadow()
+    $(function () {
+        function c(atTop) {
+            if(atTop==0) {
+                $(".top-bar").removeClass("top-bar--active");
+            }
+            $(".top-bar").removeClass("top-bar--asleep");
+        }
+        $(window).on({
+            scroll: function () {
+                $(".body").outerHeight();
+                var a = $(document).height(),
+                    l = $(window).height(),
+                    b = $(window).scrollTop();
+                if(b>-1){
+                    b < g || b + l >= a - 200 ? c(1) : b > q ? ($(".top-bar").addClass("top-bar--asleep top-bar--active")) : c(b);
+                    q = b;
+                }
+            }
+        });
+
+    })
     $("#toggle").click(function(n) {
         n.preventDefault();
         $(".top-bar__nav").css("opacity", 0);
         $(".top-bar").toggleClass("top-bar--open");
         $(".top-bar__nav").delay(.5).animate({ opacity: 1 }, 100);
     })
-
-})
+});
