@@ -24,6 +24,7 @@ var importRoutes = keystone.importer(__dirname);
 var sitemap = require('keystone-express-sitemap');
 
 
+
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('routes', middleware.forceSSL);
@@ -55,6 +56,9 @@ var routes = {
 	views: importRoutes('./views')
 };
 
+// TODO: FIX THIS PROPERLY
+keystone.redirect('/speakers/rebecca-bortman-garza/', '/speakers/rebecca-garza-bortman/');
+
 // Setup Route Bindings
 exports = module.exports = function(app) {
 	app.get('/sitemap.xml', function(req, res) {
@@ -72,13 +76,12 @@ exports = module.exports = function(app) {
 	app.all('/schedule', routes.views.schedule);
 	app.get('/venue', routes.views.venue);
 
-// TODO: add South africa page content
+	// TODO: add South africa page content
 
 	// app.get('/south-africa/johannesburg', routes.views.location);
 	// app.get('/south-africa/johannesburg/maboneng', routes.views.location);
 	app.get('/tickets', routes.views.tickets);
 	app.get('/sponsors', routes.views.sponsors);
-
 
 	app.get('/convince-your-boss', routes.views.convince);
 	app.get('/workshops', routes.views.workshops);

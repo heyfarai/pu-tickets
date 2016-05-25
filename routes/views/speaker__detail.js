@@ -19,7 +19,7 @@ exports = module.exports = function(req, res) {
 	// Load the current post
 	view.on('init', function(next) {
 		var q = keystone.list('Person').model.findOne({
-			slug: locals.filters.speaker
+			slug: (locals.filters.speaker == "rebecca-bortman-garza") ? "rebecca-garza-bortman" : locals.filters.speaker,
 		});
 
 		q.exec(function(err, result) {
