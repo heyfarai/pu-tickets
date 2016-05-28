@@ -119,6 +119,13 @@ keystone.set('nav', {
 	'sponsors': ['sponsors', 'sponsor-types'],
 });
 
+// S3 Configure
+keystone.set('s3 config', {
+	bucket: 'pixelup',
+	key: process.env.S3_KEY,
+	secret:  process.env.S3_SECRET
+});
+
 // Cloudinary settings
 // optional, will prefix all built-in tags with 'keystone_'
 keystone.set('cloudinary prefix', false);
