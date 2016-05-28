@@ -121,7 +121,7 @@ keystone.set('nav', {
 
 // S3 Configure
 keystone.set('s3 config', {
-	bucket: 'pixelup',
+	bucket: process.env.S3_BUCKET,
 	key: process.env.S3_KEY,
 	secret:  process.env.S3_SECRET
 });
