@@ -23,11 +23,7 @@ User.schema.virtual('canAccessKeystone').get(function() {
 });
 
 
-/**
- * Relationships
- */
 
-User.relationship({ ref: 'Post', path: 'author' });
 
 
 /**

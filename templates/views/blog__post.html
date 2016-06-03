@@ -3,13 +3,14 @@
 
 {% set title = title_text  %}
 {% block header_content %}
-                <h1 class="hero__header">
+                <h1 class="hero__header post-hero">
                     <small><a href="/blog">Pixel Up! Blog</a></small><br/>
                     {{ data.post.title }}
                 </h1>
-                <p class="caption">
-                    {{ data.post.author.name.first }} on {{ data.post._.publishedDate.format("MMM Do, YYYY") }}
-                </p>
+                <div class="author-content">
+					<img alt="" src="{{ data.post.author.mugshot.secure_url }}" srcset="{{ data.post.author.mugshot.secure_url }}" class="avatar avatar--round avatar--small avatar--gray photo" height="234" width="234" originals="234" scale="2">
+                    <p class="caption">by <span itemprop="author">{{ data.post.author.name.full }}</span> on <time itemprop="dateCreated" datetime="data.post._.publishedDate">{{ data.post._.publishedDate.format("MMMM Do, YYYY") }}</time></p>
+                </div>
 {% endblock %}
 
 {% block content %}
@@ -28,7 +29,6 @@
 				        </dl>
                         #}
 						<article class="article article--single blog-article">
-                            <p class="caption"><span class="eta"></span> Read</p>
 							{% if not data.post %}
 								<h2>We can't find the post you're looking for.</h2>
 							{% else %}
@@ -41,6 +41,19 @@
 								{{ data.post.content.full|safe }}
 							</div>
 							{% endif %}
+                            <div class="article__footer">
+                                <div class="author-card">
+                                    <h6>Author</h6>
+                                        <div class="author-block" itemscope="" itemptype="http://schema.org/Person">
+                            		        <span itemprop="image"><img class="author-block__image" alt="" src="{{ data.post.author.mugshot.secure_url }}" srcset="{{ data.post.author.mugshot.secure_url }}" class="avatar avatar-234 photo" height="234" width="234" originals="234" scale="2"></span>
+                                    		<div class="author-block__author-details">
+                                    			<span itemprop="name"><strong>{{ data.post.author.name.full }}</strong>, {{ data.post.author.getJobTitleFull }}</span><br>
+                                                    {{ data.post.author.bio }}
+                                    			<p class="author-social-media"><a class="social-link no-redirect" target="_blank" rel="nofollow" href="https://twitter.com/{{ data.post.author.twitter }}">Follow me on Twitter</a></p>
+                                    		</div>
+                            	        </div>
+                            	</div>
+                            </div>
 						</article>
                     </section>
                 </div>

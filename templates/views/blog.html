@@ -7,7 +7,7 @@
 
 {% macro blogPost(post) %}
                         <div class="post">
-                            <h2 class="blog-title">{{ post.title }}</a></h2>
+                            <h2 class="blog-title"><a href="/blog/{{ post.slug }}">{{ post.title }}</a></h2>
 							<a href="/blog/{{ post.slug }}">
                                 <p class="caption caption--centered meta-blog detail">
                                     By {{ post.author.name.first }} on {{ post._.publishedDate.format("MMMM Do, YYYY") }}

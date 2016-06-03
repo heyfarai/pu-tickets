@@ -44,6 +44,11 @@ Person.add({
 	sortPriority: { type: Number, size: 'small', default: 10 }
 });
 
+/**
+ * Relationships
+ */
+
+Person.relationship({ ref: 'Post', path: 'author' });
 Person.relationship({ path: 'scheduleItems', ref: 'ScheduleItem', refPath: 'speakers' });
 
 Person.schema.index({ isPublic: 1, isOrganiser: 1, isSpeaker: 1, sortPriority: 1 });
@@ -55,6 +60,11 @@ Person.schema.virtual('initials').get(function() {
 });
 
 bindLastModified(Person, 'people');
+
+Person.schema.virtual('getJobTitleFull').get(function() {
+
+	return this.jobTitle + ((this.company) ? " at " + this.company : "");
+});
 
 Person.schema.set('toJSON', { transform: function (doc, rtn) {
 	return {
@@ -69,6 +79,8 @@ Person.schema.set('toJSON', { transform: function (doc, rtn) {
 		website: doc.website || undefined
 	}
 }});
+
+
 
 /**
  * Registration
