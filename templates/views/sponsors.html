@@ -1,16 +1,16 @@
-{% extends "templates/layouts/default-with-header.html" %}
+{% extends "templates/layouts/default.html" %}
 
 {% set title = "Sponsors &amp; Partners" %}
 {% block header_content %}
                 <h1 class="hero__header">Support us. Get visibility</h1>
                 <p class="caption">Get your brand in front of SA's top product thinkers and makers..</p>
 {% endblock %}
-{% block page_content %}
+{% block content %}
                 <div class="section-layout section-layout--no-padding">
                     <section class="section typeset container">
                         <h2>Premier Sponsor</h2>
                         {% for s in data.sponsors.Premier %}
-                        <img class="sponsor-logo sponsor-logo--premier" src="{{ s.logo.url }}"/>
+                        <img class="sponsor-logo sponsor-logo--premier" src="{{ s.logo.secure_url }}"/>
                         {% endfor%}
                     </section>
                 </div>
