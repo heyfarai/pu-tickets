@@ -5,7 +5,7 @@
 {% macro workshopTeaser(workshop) %}
                         <div class="workshop-summary">
                             <h2 class="workshop__title"><a href="/workshops/{{ workshop.slug }}">{{ workshop.title }}</a></h2>
-                            <!-- <p class="caption caption--centered">Wednesday 14 September, 9am-4pm</p> -->
+                            <p class="caption caption--centered">Wednesday 14 September, 9am-4pm</p>
                             <div class="workshop__speakers">
                                 {% for speaker in workshop.speakers %}
                                 <div class="chip speaker-chip speaker-chip--inline">
@@ -19,11 +19,14 @@
                                 </div>
                                 {% endfor %}
                             </div>
-							<a class="workshop__link" href="/workshops/{{ workshop.slug }}">
-								{{ workshop.shortDescription.html }}
-							</a>
-                            <div class="workshop__actions">
-                                <a href="/workshops/{{ workshop.slug }}" class="button button--primary">Learn more</a>
+                            <div >
+                                    <a class="workshop__link" href="/workshops/{{ workshop.slug }}">
+                                        {{ workshop.shortDescription.html }}
+                                    </a>
+                                    <div class="workshop__actions">
+                                        <a href="/workshops/{{ workshop.slug }}" class="button button--primary">Learn more</a>
+                                    </div>
+
                             </div>
 						</div>
 {% endmacro %}
@@ -36,7 +39,9 @@
 {% block content %}
                 <div class="section-layout">
                     <section class="section typeset container">
-                        {% for workshop in data.workshops %} {{ workshopTeaser(workshop) }} {% endfor %}
+                        <article class="article--single">
+                            {% for workshop in data.workshops %} {{ workshopTeaser(workshop) }} {% endfor %}
+                        </article>
                     </section>
                 </div>
                 {% include 'templates/mixins/_workshop-included-items.html' %}

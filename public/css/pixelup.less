@@ -199,7 +199,9 @@ img {
 table, th, td {
     font-family: "fira-sans", arial, sans-serif;
 }
-
+.link--no-underline {
+    background-image: none !important;
+}
 .transition-4 {
     -webkit-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1); /* Safari */
     transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
@@ -751,11 +753,13 @@ h6.hero__lead {
 .workshop-summary {
     margin-bottom: 4.29597rem;
 }
+h2.workshop__title--left {
+    text-align: left ;
+}
 .workshop__speakers {
-    .u-cf;
-    text-align: center;
     width: 100%;
-    margin-bottom: 1.43713rem;
+    // margin-bottom: 1.43713rem;
+    text-align: center;;
 }
 .workshop__speakers--hero {
     .u-cf;
@@ -771,7 +775,7 @@ h6.hero__lead {
 }
 /* SPEAKER CHIP */
 .speaker-chip {
-    margin: 0 1em ;
+    margin: 0 1em 1em 0;
     padding: 3px;
 }
 .speaker-chip__photo {

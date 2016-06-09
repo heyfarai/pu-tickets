@@ -6,7 +6,7 @@
 
 {% block header_content %}
                 <h1 class="hero__header">Get your ticket. We have limited seats.</h1>
-                <p class="caption">Book early to make sure you get a seat. We'll even help you <a href="/convince-your-boss">convince your boss</a>.</p>
+                <p class="caption">Book early to make sure you get a seat.</p>
 {% endblock %}
 
 
@@ -72,8 +72,8 @@
                                 </ul>
                             </section>
 
-                            <!-- <section id="workshop-tickets" class="ticket-section">
-                                <h3>Full Day Workshop Pass</h3>
+                            <section id="workshop-tickets" class="ticket-section">
+                                <h3>1 Day Workshop Pass</h3>
                                 <p class="caption caption--thin-bottom">For <a href="/schedule">Wednesday</a> only</p>
                                 <ul class="no-bullet">
                                     {% for workshop in data.workshops %}
@@ -83,7 +83,7 @@
                                             <strong>R3,500</strong>
                                         </span>
                                         <span class="ticket__name">
-                                            <a href="/workshops/{{ workshop.slug }}">{{ workshop.title }}</a>
+                                            <a class="link--no-underline" href="/workshops/{{ workshop.slug }}">{{ workshop.title }}</a>
                                             <small class="ticket__caption caption ticket__caption--workshop">
                                                 <a href="/speakers/{{ workshop.speakers[0].slug }}">{{ workshop.speakers[0].name.full }}</a>
                                                 {% if workshop.speakers[1] %}
@@ -94,7 +94,7 @@
                                     </li>
                                     {% endfor %}
                                 </ul>
-                            </section> -->
+                            </section>
                             <section id="group-tickets" class="ticket-section">
                                 <h3>Group Conference Passes</h3>
                                 <ul class="no-bullet">
