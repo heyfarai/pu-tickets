@@ -1,5 +1,7 @@
 $( document ).ready(function() {
     eraseCookie("onList");
+    $("#news-signup-form__submit").attr('disabled','disabled')
+
     var q = 0,
         g = document.body,
         onList = readCookie('onList')
@@ -58,7 +60,7 @@ $( document ).ready(function() {
 
     // process the form
     $('#news-signup-form').submit(function(event) {
-
+        $(".news-signup-msg").hide()
         // get the form data
         // there are many ways to get this data using jQuery (you can use the class or id also)
         var formData = { 'email' : $('input[name=email]').val()};
