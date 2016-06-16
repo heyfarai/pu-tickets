@@ -120,7 +120,12 @@
             {% block content %}{% endblock %}
 		</div>
 		{% include "templates/mixins/footer.html" %}
+
+        {% block news_signup %}{% endblock %}
+
 		<script src="/js/vendor/jquery.min.js"></script>
+        <script src="/js/vendor/jquery-validate.min.js"></script>
+
 		<script src="/js/pixelup.js" type="text/javascript"></script>
 		<script src="/js/vendor/readingTime.min.js" type="text/javascript"></script>
 

@@ -101,7 +101,7 @@ exports = module.exports = function(app) {
 	app.get('/code-of-conduct', routes.views.code_of_conduct);
 	app.get('/has/a/code-of-conduct', routes.views.code_of_conduct);
 
-	// app.all('/contact', routes.views.contact);
+	app.post('/email', routes.views.email_signup);
 	app.get('/blog/:post', routes.views.blog__post);
 	app.get('/blog/:category?', routes.views.blog);
 

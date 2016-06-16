@@ -19,6 +19,7 @@
 @cerise: #ea2c7c;
 @azure: #00afec;
 @white: #fff;
+@error_red: #f36;
 
 @color__type:         @dark-color;
 @color__type--hover:  lighten(@dark-color, 20%);
@@ -94,6 +95,59 @@ html {
   margin-top: 0;
 }
 
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%; /* Corrects font size not being inherited in all browsers */
+  margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+  vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+}
+
+textarea {
+  overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
+  padding-left: 3px;
+  // @include vendor(appearance, none);
+  vertical-align: top; /* Improves readability and alignment in all browsers */
+  width: 100%;
+}
+label {
+  display:inline-block;
+  width:100%;
+  font-weight: 400;
+}
+
+/* INPUT
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input,
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="email"],
+textarea {
+    background: #fff;
+    line-height: 1em;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: .4em .5em;
+    border: 1px solid #d4d7da;
+    -webkit-appearance: none;
+    outline: 0;
+    resize: none;
+    color: #2D3C7F;
+}
+
+form input[type=email].error,
+form input[type=password].error,
+form input[type=search].error,
+form input[type=text].error,
+form textarea.error
+{
+    border-color: @error_red;
+}
+
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button,
@@ -102,20 +156,18 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
   display: inline-block;
-  height: 38px;
   padding: 0 1rem;
-  color: #555;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
-  line-height: 38px;
+  line-height: 31px;
   letter-spacing: .1rem;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
   background-color: transparent;
   border-radius: 4px;
-  border: 0px solid #bbb;
+  border: none;
   cursor: pointer;
   box-sizing: border-box; }
 .button:hover,
@@ -203,8 +255,8 @@ table, th, td {
     background-image: none !important;
 }
 .transition-4 {
-    -webkit-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1); /* Safari */
-    transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+    -webkit-transition: all 0.2s cubic-bezier(0.7, 0.01, 0.3, 1); /* Safari */
+    transition: all 0.2s cubic-bezier(0.7, 0.01, 0.3, 1);
 }
 #mc_embed_signup {
     font-size: .8em;
@@ -275,8 +327,8 @@ table, th, td {
     width: 100%;
     height: 87px;
     z-index: 900;
-    -webkit-transition: all .4s cubic-bezier(.7, .01, .3, 1);
-    transition: all .4s cubic-bezier(.7, .01, .3, 1);
+    -webkit-transition: all .2s cubic-bezier(.7, .01, .3, 1);
+    transition: all .2s cubic-bezier(.7, .01, .3, 1);
     @media @mobile-large {
         height: 72px;
     }
@@ -320,8 +372,8 @@ table, th, td {
     background: rgba(10, 9, 32, 0.96);
     .top-bar__nav {
         display: block;
-        -webkit-transition: opacity .4s cubic-bezier(.7, .01, .3, 1);
-        transition: opacity .4s cubic-bezier(.7, .01, .3, 1);
+        -webkit-transition: opacity .2s cubic-bezier(.7, .01, .3, 1);
+        transition: opacity .2s cubic-bezier(.7, .01, .3, 1);
         .nav {
             // position: fixed;
             // right: 7.5%;
@@ -415,10 +467,10 @@ table, th, td {
     height: 18px;
     margin: 33px 0px 0;
     cursor: pointer;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
     display: none;
     @media @mobile-large {
         display: block;
@@ -1083,12 +1135,47 @@ h2.workshop__title--left {
     }
 }
 
+.news-signup-footer {
+    background: #fff;
+    position: fixed;
+    padding: 15px 20px;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #e4e4e4;
 
-/* Small only */
-@media screen and (max-width: 39.9375em) {}
+    -moz-transition: .2s cubic-bezier(.7, .01, .3, 1);
+    -o-transition: .2s cubic-bezier(.7, .01, .3, 1);
+    -webkit-transition: .2s cubic-bezier(.7, .01, .3, 1);
+    transition: .2s cubic-bezier(.7, .01, .3, 1);
+    -moz-transform: translate3d(0, 70px, 0);
+    -ms-transform: translate3d(0, 70px, 0);
+    -webkit-transform: translate3d(0, 70px, 0);
+    transform: translate3d(0, 70px, 0);
+    -webkit-backface-visibility: hidden;
+    text-align: center;
+    font-size: .9em;
+    @media @mobile-large {
+        display: none;
+    }
+}
+.news-signup-footer--active {
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 
-/* Large and up */
-
-
-/* Large only */
-@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
+}
+#news_signup_email {
+    margin-bottom: 0;
+}
+.news-signup-msg {
+    font-size: .8em;
+    margin-top: -.5em;
+    display: none;
+}
+.news-signup-msg--error {
+    color: @error_red;
+}
+.news-signup-msg--success {
+    color: @bright-blue;
+}
