@@ -37,7 +37,8 @@ keystone.init({
 	'session': true,
 	'session store': 'mongo',
 	'auth': true,
-	'user model': 'User'
+	'user model': 'User',
+	'port': 1337,
 
 });
 
