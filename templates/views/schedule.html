@@ -7,161 +7,65 @@
                     Talks: Monday and Tuesday. Workshops : Wednesday.
                 </p>
 {% endblock %}
+
+{% macro listingItem(item) %}
+            <div class="Listing">
+                <span class="Listing-meta">{{ item.startTime | date('HH:mm') }} - {{ item.endTime | date('HH:mm') }}</span>
+                <div class="Card Card--listing Listings-{{ item.speakers.length }} {% if item.type == 'break' %}Card--listing-break{% endif %}">
+                    <a href="/speakers/{{ item.speakers[0].slug }}" class="Listing-title"><strong>{{ item.title }}</strong></a>
+                    {% for s in item.speakers %}
+                    <div class="Listing-body {% if not loop.first %}Listing-body--second-listing{% endif %}">
+                        <a href="/speakers/{{ s.slug }}"><img class="Card-image {% if not loop.first %}Card-image--second-listing{% endif %}" src="{{ s.mugshot.secure_url }}" alt="{{ s.name.full }}"></a>
+                        <span class="Card-title p-name">{{ s.name.full }}</span>
+                        <p class="Card-copy caption">{{ s.jobTitle }}{% if s.company %}, {{ s.company }}{% endif %}</p>
+                    </div>
+                    {% endfor %}
+                </div><!--/.Card Card--listing-->
+            </div>
+{% endmacro %}
+
 {% block content %}
         <div class="section-layout section-layout--no-padding">
             <section class="section typeset container">
-                <section class="event-day" id="arrival" data-daynumber="0">
-                    <h2><span class="">Arrival Day</span> <span>Sunday, Sept. 11</span></h2>
-                    <p>Avoid the check-in line Monday morning by checking in Sunday afternoon. Then join us for some early networking over drinks at the pre-party. No worries if you can’t make it, registration opens at 7:30am on Monday.</p>
-                    <ul class="no-bullet sessions">
-                        <li class="single-session non-speaker">
-                            <time>4:00pm-6:00pm</time>
-                            <span>Registration &amp; Pre-party</span>
-                        </li>
-                        <li></li>
-                    </ul>
-                </section>
-            </section>
-        </div>
-        <div class="section-layout section-layout--two-slopes section-layout--blue">
-            <section class="section typeset container">
-                <section class="event-day" id="day-1" data-daynumber="1">
-                    <h2><span class="">Day One</span> <span>Monday, Sept. 12</span></h2>
+                <div class="Tab-nav">
+                    <a class="Tab-nav-item " href="#day-one">Day One</a>
+                    <a class="Tab-nav-item" href="#day-two">Day Two</a>
+                    <a class="Tab-nav-item" href="#day-three">Day Three</a>
+                </div>
+                <section class="event-day" id="day-one" data-daynumber="1">
+                    <h2><span>Monday, Sept. 12</span></h2>
                     <p>Along with the continental breakfast, you’ll get an amazing lunch, beverage breaks and nibbles throughout the day.</p>
-                    <ul class="no-bullet sessions">
-                        <li class="single-session non-speaker">
-                            <time>7:30am - 8:55am</time>
-                            <span>Breakfast</span>
-                        </li>
-                        <li class="single-session non-speaker">
-                            <time>8:55am - 9:00am</time>
-                            <span>Morning Welcome</span>
-                        </li>
-                        <li class="single-session">
-                            <time>9:00am - 9:45am</time>
-                            <span>Speaker : TBC</span>
-                        </li>
-                        <li class="single-session non-speaker">
-                            <time>9:45am - 10:00am</time>
-                            <span>Coffee &amp; Chill</span>
-                        </li>
-                        <li class="single-session">
-                            <time>10:00am - 10:45am</time>
-                            <span>Speaker : TBC</span>
-                        </li>
-                        <li class="single-session non-speaker">
-                            <time>10:45am - 11:00am</time>
-                            <span>Coffee &amp; Chill</span>
-                        </li>
-                        <li class="single-session">
-                            <time>11:00am - 11:45pm</time>
-                            <span>Speaker : TBC</span>
-                        </li>
-                        <li class="single-session non-speaker ">
-                            <time>11:45pm - 1:15pm</time>
-                            <span>Lunch</span>
-                        </li>
-                        <li class="single-session ">
-                            <time>1:15pm - 2:00pm</time>
-                            <span>Speaker : TBC</span>
-                        </li>
-                        <li class="single-session non-speaker ">
-                            <time>2:00pm - 2:15pm</time>
-                            <span>Coffee &amp; Chill</span>
-                        </li>
-                        <li class="single-session ">
-                            <time>2:15pm - 3:00pm</time>
-                            <span>Speaker : TBC</span>
-                        </li>
-                        <li class="single-session non-speaker ">
-                            <time>3:00pm - 3:15pm</time>
-                            <span>Coffee &amp; Chill</span>
-                        </li>
-                        <li class="single-session ">
-                            <time>3:15pm - 4:00pm</time>
-                            <span>Speaker : TBC</span>
-                        </li>
-                        <li class="single-session non-speaker">
-                            <time>4:00pm - 5:00pm</time>
-                            <span>A break</span>
-                        </li>
-                        <li class="single-session ">
-                            <time>5:00pm - Later</time>
-                            <span>Party over here</span>
-                        </li>
-                    </ul>
+                    {% for i in data.scheduleItems %}
+                    {% if (i.startTime | date('dddd'))=="Monday" %}
+                        {{ listingItem(i) }}
+                    {% endif %}
+                    {% endfor %}
                 </section>
-            </section>
-        </div>
-        <div class="section-layout section-layout--no-padding">
-            <section class="section typeset container">
-                <section class="event-day" id="day-2" data-daynumber="2">
-                    <h2><span class="">Day Two</span> <span>Tuesday, Sept. 13</span></h2>
+                <section class="event-day" id="day-two" data-daynumber="2">
+                    <h2><span>Tuesday, Sept. 13</span></h2>
                     <p>Along with the continental breakfast, you’ll get an amazing lunch, beverage breaks and nibbles throughout the day.</p>
-                    <ul class="no-bullet sessions">
-                        <li class="single-session non-speaker">
-                            <time>7:30am - 8:55am</time>
-                            <span>Breakfast</span>
-                        </li>
-                        <li class="single-session non-speaker">
-                            <time>8:55am - 9:00am</time>
-                            <span>Morning Welcome</span>
-                        </li>
-                        <li class="single-session">
-                            <time>9:00am - 9:45am</time>
-                            <span>Speaker : TBC</span>
-                        </li>
-                        <li class="single-session non-speaker">
-                            <time>9:45am - 10:00am</time>
-                            <span>Coffee &amp; Chill</span>
-                        </li>
-                        <li class="single-session">
-                            <time>10:00am - 10:45am</time>
-                            <span>Speaker : TBC</span>
-                        </li>
-                        <li class="single-session non-speaker">
-                            <time>10:45am - 11:00am</time>
-                            <span>Coffee &amp; Chill</span>
-                        </li>
-                        <li class="single-session">
-                            <time>11:00am - 11:45pm</time>
-                            <span>Speaker : TBC</span>
-                        </li>
-                        <li class="single-session non-speaker ">
-                            <time>11:45pm - 1:15pm</time>
-                            <span>Lunch</span>
-                        </li>
-                        <li class="single-session ">
-                            <time>1:15pm - 2:00pm</time>
-                            <span>Speaker : TBC</span>
-                        </li>
-                        <li class="single-session non-speaker ">
-                            <time>2:00pm - 2:15pm</time>
-                            <span>Coffee &amp; Chill</span>
-                        </li>
-                        <li class="single-session ">
-                            <time>2:15pm - 3:00pm</time>
-                            <span>Speaker : TBC</span>
-                        </li>
-                        <li class="single-session non-speaker ">
-                            <time>3:00pm - 3:15pm</time>
-                            <span>Coffee &amp; Chill</span>
-                        </li>
-                        <li class="single-session ">
-                            <time>3:15pm - 4:00pm</time>
-                            <span>Speaker : TBC</span>
-                        </li>
-                    </ul>
+
+                    {% for i in data.scheduleItems %}
+                    {% if (i.startTime | date('dddd'))=="Tuesday" %}
+                        {{ listingItem(i) }}
+                    {% endif %}
+                    {% endfor %}
+
                 </section>
-            </section>
-        </div>
-        <div class="section-layout  section-layout--two-slopes section-layout--pink">
-            <section class="section typeset container">
-                <section class="event-day" id="day-3" data-daynumber="3">
-                    <h2><span class="">Day Three</span> <span>Wednesday, Sept. 14</span></h2>
+                <section class="event-day" id="day-three" data-daynumber="3">
+                    <h2><span>Wednesday, Sept. 14</span></h2>
                     <p>Day 3 is workshop day. All day workshops starting at 9am and ending at 4pm. Go beyond inspiration and immerse yourself in groundbreaking design &amp; development skills you won’t find anywhere else. Get your team on the same page with proven methods, tools and clear-cut direction on specific actions and skills. </p>
-                    <p>Once the schedule is complete we'll update this page.</p>
-                    <p></p>
+
+                    {% for i in data.scheduleItems %}
+                    {% if (i.startTime | date('dddd'))=="Wednesday" %}
+                        {{ listingItem(i) }}
+                    {% endif %}
+                    {% endfor %}
+
+                </section>
+            </div>
+            <div class="section-layout section-layout--left section-layout--pink">
+                <section class="section typeset container">
                     <div class="row">
                         <div class="one-half column">
                             <h4>Workshops include:</h4>
@@ -197,7 +101,7 @@
             </section>
         </div>
         #}
-        <div class="section-layout section-layout--left">
+        <div class="section-layout section-layout--left  section-layout--blue">
             {% include 'templates/mixins/become-a-sponsor.html' %}
         </div>
 {% endblock %}

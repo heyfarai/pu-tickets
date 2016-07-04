@@ -6,6 +6,7 @@ require('dotenv').load();
 var keystone = require('keystone');
 var cons = require('consolidate');
 var nunjucks = require('nunjucks');
+var nunjucksDate = require('nunjucks-date-filter');
 var mcapi = require('mailchimp-api');
 // Require keystone
 var keystone = require('keystone');
@@ -16,7 +17,14 @@ mc = new mcapi.Mailchimp('ca1cacc38baa6dc43c6045085ca1e7d4-us12');
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
-cons.requires.nunjucks = nunjucks.configure({ autoescape: false });
+
+var nunjucksEnv = nunjucks.configure({ autoescape: false });
+
+// SET UP NUNJCUSK DATE
+nunjucksDate.setDefaultFormat('MMMM Do YYYY, h:mm:ss a');
+nunjucksDate.install(nunjucksEnv);
+
+cons.requires.nunjucks = nunjucksEnv;
 
 keystone.init({
 

@@ -89,6 +89,44 @@ $( document ).ready(function() {
         // stop the form from submitting the normal way and refreshing the page
         event.preventDefault();
     });
+
+    $('.Tab-nav').each(function(){
+        // For each set of tabs, we want to keep track of
+        // which tab is active and its associated content
+        var $active, $content, $links = $(this).find('a');
+
+        // If the location.hash matches one of the links, use that as the active tab.
+        // If no match is found, use the first link as the initial active tab.
+        $active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+        $active.addClass('Tab-nav-item--selected');
+
+        $content = $($active[0].hash);
+
+        // Hide the remaining content
+        $links.not($active).each(function () {
+          $(this.hash).hide();
+        });
+
+        // Bind the click event handler
+        $(this).on('click', 'a', function(e){
+          // Make the old tab inactive.
+          $active.removeClass('Tab-nav-item--selected');
+          $content.hide();
+
+          // Update the variables with the new link and content
+          $active = $(this);
+          $content = $(this.hash);
+          window.location.hash = this.hash;
+
+          // Make the tab active.
+          $active.addClass('Tab-nav-item--selected');
+          $content.show();
+
+          // Prevent the anchor's default click action
+          e.preventDefault();
+        });
+      });
+
     function createCookie(name,value,days) {
         if (days) {
             var date = new Date();

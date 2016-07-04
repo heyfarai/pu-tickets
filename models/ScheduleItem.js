@@ -15,7 +15,7 @@ var ScheduleItem = new keystone.List('ScheduleItem', {
 
 ScheduleItem.add({
 	title: { type: String, required: true, index: true },
-	type: { type: Types.Select, options: 'talk, break, workshop', index: true },
+	type: { type: Types.Select, options: 'talk, break, lunch, workshop', index: true },
 	startTime: { type: Types.Datetime, utc: true, index: true },
 	endTime: { type: Types.Datetime, utc: true, index: true },
 	duration: { type: Number, index: true }, // FIXME: could be determined from startTime/endTime
@@ -35,6 +35,6 @@ bindLastModified(ScheduleItem, 'schedule');
  * Registration
  */
 
-ScheduleItem.defaultSort = 'time';
-ScheduleItem.defaultColumns = 'name, type, time, speakers';
+ScheduleItem.defaultSort = 'startTime';
+ScheduleItem.defaultColumns = 'startTime, type, speakers, title, time';
 ScheduleItem.register();
