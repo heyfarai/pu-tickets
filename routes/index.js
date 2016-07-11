@@ -89,7 +89,7 @@ exports = module.exports = function(app) {
 	// app.get('/about', routes.views.long_form);
 
 	// app.get('/exhibition', routes.views.exhibition);
-	// app.get('/volunteer', routes.views.volunteer);
+	app.get('/volunteer', routes.views.volunteer);
 	// app.get('/wanna-volunteer', routes.views.volunteer);
 
 	// app.get('/accessibility', routes.views.long_form);
