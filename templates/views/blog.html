@@ -2,20 +2,34 @@
 
 {% set title = "Blog" %}
 {% block header_content %}
-                <h1 class="hero__header">Pixel Up! Blog</h1>
+            <a href="/blog/{{ data.posts[0].slug }}">
+                <h1 class="hero__header post-hero">
+                	{% set catTitle = ( data.category.name if data.category else "" ) %}
+                    <small>{{ catTitle }} Pixel Up! Blog </small><br/>
+                    {{ data.posts[0].title }}
+                </h1>
+                <div class="author-content">
+					<img alt="" src="{{ data.posts[0].author.mugshot.secure_url }}" srcset="{{ data.posts[0].author.mugshot.secure_url }}" class="avatar avatar--round avatar--small avatar--gray photo" height="234" width="234" originals="234" scale="2">
+                    <p class="caption">by <span itemprop="author">{{ data.posts[0].author.name.full }}</span> </p>
+                </div>
+            </a>
 {% endblock %}
 
-{% macro blogPost(post) %}
-                        <div class="post">
-                            <h2 class="blog-title"><a href="/blog/{{ post.slug }}">{{ post.title }}</a></h2>
+{% macro blogPost(post, isHero) %}
+                        <div class="blog-article-list__item post">
+                            <a href="/blog/articles-about/{{ post.category.slug }}" class="caption category-caption">
+                                {{ post.category.name }}
+                            </a>
 							<a href="/blog/{{ post.slug }}">
-                                <p class="caption caption--centered meta-blog detail">
-                                    By {{ post.author.name.first }} on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
-                                </p>
-								{{ post.content.brief|safe }}
+                                <h3 class="blog-title">{{ post.title }}</h3>
+								{{ post.content.brief|safe | truncate(140) }}
 								{% if post.content.extended %}
+                                <div class="author-content">
+                					<img alt="" src="{{ post.author.mugshot.secure_url }}" srcset="{{ post.author.mugshot.secure_url }}" class="avatar avatar--round avatar--small avatar--gray photo" height="234" width="234" originals="234" scale="2">
+                                    <p class="caption">by <span itemprop="author">{{ post.author.name.full }}</span> </p>
+                                </div>
 									<span class="read-more">
-										<a href="/blog/{{ post.slug }}">More...</a>
+										<!-- <a href="/blog/{{ post.slug }}">More...</a> -->
 									</span>
 								{% endif %}
 							</a>
@@ -23,7 +37,7 @@
 {% endmacro %}
 
 {% block intro %}
-<div class="container">r
+<div class="container">
 	{% set title = ( data.category.name if data.category else "Blog" ) %}
 	<h1>{{ title }}</h1>
 </div>
@@ -32,15 +46,26 @@
 {% block content %}
                 <div class="section-layout section-layout--left">
                     <section class="section typeset container">
+                            <div class="Tab-nav">
+                                <a class="Tab-nav-item {% if not filters.category %} Tab-nav-item--selected {%endif%}" href="/blog">Most Recent</a>
+                                {% for c in data.categories %}
+
+                                    <a class="Tab-nav-item {% if filters.category == c.slug %} Tab-nav-item--selected {%endif%}" href="/blog/articles-about/{{  c.slug }}">{{ c.name }}</a>
+                                {% endfor %}
+                            </div>
 								{% if filters.category and not data.category %}
-									<h3 class="text-muted">Invalid Category.</h3>
+                                    <h3 class="caption caption--centered">No posts in this category yet.</h3>
 								{% else %}
-									{% if data.posts.results.length %}
-										<div class="blog">
-											{% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %}
+									{% if data.posts.length %}
+										<div class="blog blog-article-list">
+											{% for post in data.posts %}
+                                                {% if not loop.first %}
+                                                {{ blogPost(post, isHero) }}
+                                                {% endif %}
+                                            {% endfor %}
 										</div>
 									{% else %}
-										<h3 class="text-muted">We haven't added an posts to our blog yet.</h3>
+										<h3 class="caption caption--centered">No posts in this category yet.</h3>
 									{% endif %}
 								{% endif %}
 							<!-- {% if data.categories.length %}

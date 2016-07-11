@@ -90,7 +90,7 @@ $( document ).ready(function() {
         event.preventDefault();
     });
 
-    $('.Tab-nav').each(function(){
+    $('.Tab-nav.active').each(function(){
         // For each set of tabs, we want to keep track of
         // which tab is active and its associated content
         var $active, $content, $links = $(this).find('a');
