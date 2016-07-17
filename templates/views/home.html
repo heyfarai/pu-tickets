@@ -1,0 +1,76 @@
+{% extends "templates/layouts/content-view__partial.html" %}
+
+{% set title = "PIXEL UP! UX Conference · Sept. 12-14, 2016 · South Africa" %}
+
+{%
+    set meta_description = "Africa's first digital product design (UX &amp; UI) conference happens in Johannesburg with speakers from companies like Dropbox and Twitter and Apple. Expect talks and workshops on interaction design, interface design and product management."
+%}
+
+{% block meta %}
+    <update-title title="{{ title }}"></update-title>
+{% endblock %}
+
+{% block header_content %}
+                <h1 class="hero__header">PIXEL UP! 2016</h1>
+                <p class="caption">September 12-14, 2016 in Johannesburg, South Africa</p>
+                <h6 class="hero__lead">3 days of inspiration and learning about user experience and user interface design.</h6>
+                <a href="/tickets/" class="button--light-blue button">Tickets on sale</a>
+{% endblock %}
+
+{% block content %}
+                <div class="section-layout">
+                    <section class="section typeset container">
+                            <h2 class="section__heading--blue">Influential speakers</h2>
+                            <p class="caption caption--centered">With deep expertise and Broad experience</p>
+                            <p>Learn from the authors, founders, directors and designers - who've worked at companies like SaleforceUX, Apple, Twitter, Dropbox, Cooper, Google, and DesignMap - who are helping push the industry forward.</p>
+                            <div class="speaker-grid">
+                                {% for s in data.speakers %}
+                                {% include "templates/mixins/_speaker-grid__item.html" %}
+                                {% endfor %}
+                            </div>
+                    </section>
+                </div>
+                <div class="section-layout section-layout--two-slopes section-layout--blue">
+                    <section class="section typeset container">
+                        <h2 class="section__heading--white">More than just a UX conference</h2>
+                        <p class="caption caption--centered">It's about helping you improve how you make digital products.</p>
+                        <p>To create products that customers love, we need <strong>user experience design</strong>. As well as <strong>user interface design</strong>, front and backend <strong>engineering</strong> and of course a great <strong>product strategy</strong>.
+                            PIXEL UP! 2016 brings to Johannesburg designers and developers who've worked at <i>Dropbox</i>, <i>Twitter</i>, <i>Apple,</i> and <i>Google</i>
+                            to share what they've learned about <strong>making great products with pixels</strong>.</p>
+
+                    </section>
+                </div>
+                <div class="section-layout">
+                    <section class="section typeset container">
+                        <h2>Should you come to PIXEL UP!?</h2>
+                        <p class="caption caption--centered">We say yes, but we're biased</p>
+                        <div class="row">
+                            <div class="column one-half">
+                                <ul>
+                                    <li class="no-bullet"><strong>You should come to PIXEL UP! if you:</strong></li>
+                                    <li>Design apps and/or websites</li>
+                                    <li>Build websites using the latest HTML5, JS and CSS tech</li>
+                                    <li>Build Native apps for phones, tablets and wearables (TV)</li>
+                                    <li>Manage projects that create apps and websites</li>
+                                    <li>Hire designers</li>
+                                    <li>Hire web and native app developers</li>
+                                    <li>Manage (or pay for) medium to large web sites</li>
+                                    <li>Manage (or pay for) iOS, Android and Windows apps</li>
+                                    <li>Just wanna hang out with some geeks and designers</li>
+                                </ul>
+                            </div>
+                            <div class="column one-half">
+                                <img class="section-layout__image--tpad" src="/img/img-workshop.png"/>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="section-layout section-layout--two-slopes section-layout--blue">
+                    {% include 'templates/mixins/panel-convince.html' %}
+                </div>
+
+{% endblock %}
+
+{% block performer_microdata %}
+{%  include 'templates/mixins/json-ld-performer.html' %}
+{% endblock %}

@@ -1,3 +1,151 @@
+// create the module and name it pixelUpApp
+var pixelUpApp = angular.module('pixelUpApp', ['ngRoute', 'ngResource', 'pixelUpApp.services', 'updateMeta']);
+
+// configure our routes
+pixelUpApp.config(function($routeProvider, $locationProvider) {
+    $routeProvider
+
+        // route for the home page
+        .when('/', {
+            templateUrl : '/p/home',
+            controller  : 'mainController'
+        })
+
+        // route for the about page
+        .when('/speakers', {
+            templateUrl : '/p/speakers',
+            controller  : 'scheduleController'
+        })
+
+
+        // route for the about page
+        .when('/speakers/:speaker', {
+            templateUrl : function(params) {
+                return '/p/speakers/' + params.speaker  ;
+            },
+            controller  : 'speakerController'
+        })
+
+        // route for the about page
+        .when('/schedule', {
+            templateUrl : '/p/schedule',
+            controller  : 'scheduleController'
+        })
+
+        // route for the about page
+        .when('/workshops', {
+            templateUrl : '/p/workshops',
+            controller  : 'mainController'
+        })
+
+        // route for the about page
+        .when('/workshops/:workshop', {
+            templateUrl : function(params) {
+                return '/p/workshops/' + params.workshop  ;
+            },
+            controller  : 'mainController'
+        })
+
+        // route for the about page
+        .when('/venue', {
+            templateUrl : '/p/venue',
+            controller  : 'mainController'
+        })
+
+        // route for the about page
+        .when('/sponsors', {
+            templateUrl : '/p/sponsors',
+            controller  : 'mainController'
+        })
+
+        // route for the about page
+        .when('/blog', {
+            templateUrl : '/p/blog',
+            controller  : 'mainController'
+        })
+
+        // route for the about page
+        .when('/blog/:post', {
+            templateUrl : function(params) {
+                return '/p/blog/' + params.post  ;
+            },
+            controller  : 'mainController'
+        })
+
+        // route for the about page
+        .when('/blog/articles-about/:category', {
+            templateUrl : function(params) {
+                return '/p/blog/articles-about/' + params.category  ;
+            },
+            controller  : 'mainController'
+        })
+
+        // route for the contact page
+        .when('/tickets', {
+            templateUrl : '/p/tickets',
+            controller  : 'mainController'
+        })
+
+        // route for the contact page
+        .when('/code-of-conduct', {
+            templateUrl : '/p/code-of-conduct',
+            controller  : 'mainController'
+        })
+
+        // route for the contact page
+        .when('/volunteer', {
+            templateUrl : '/p/volunteer',
+            controller  : 'mainController'
+        })
+
+        // route for the contact page
+        .when('/terms', {
+            templateUrl : '/p/terms',
+            controller  : 'mainController'
+        })
+
+        // route for the contact page
+        .when('/convince-your-boss', {
+            templateUrl : '/p/convince-your-boss',
+            controller  : 'mainController'
+        })
+
+        // use the HTML5 History API
+        $locationProvider.html5Mode(true);
+});
+
+// create the controller and inject Angular's $scope
+pixelUpApp.controller('mainController', function($scope, $location, Speaker) {
+    // create a message to display in our view
+    $scope.message = 'Everyone come and see how good I look!';
+    $scope.speakers = Speaker.query();
+    $scope.currentSection = "";
+
+    $scope.$on('$locationChangeStart', function(event, next, current) {
+        $scope.section = $location.path().split("/")[1]||"";
+    });
+
+});
+
+pixelUpApp.controller('speakerController', function($scope) {
+    //$scope.speaker = $routeparams.speaker;
+
+});
+
+pixelUpApp.controller('scheduleController', function($scope) {
+    $scope.currentTab = 1;
+    $scope.setCurrentTab = function(nextTab){
+        $scope.currentTab = nextTab;
+    };
+    $scope.isCurrentTab = function(aTab){
+        return $scope.currentTab === aTab;
+    };
+});
+
+pixelUpApp.controller('contactController', function($scope) {
+    $scope.message = 'Contact us! JK. This is just a demo.';
+});
+
 $( document ).ready(function() {
     eraseCookie("onList");
     $("#news-signup-form__submit").attr('disabled','disabled')
@@ -38,6 +186,14 @@ $( document ).ready(function() {
         $(".top-bar").toggleClass("top-bar--open");
         $(".top-bar__nav").delay(.5).animate({ opacity: 1 }, 100);
     })
+
+    $(".nav__link").click(function(n) {
+        if($(".top-bar").hasClass('top-bar--open'))
+        {
+            $(".top-bar").toggleClass("top-bar--open");
+        }
+    })
+
 
     $('#news-signup-form').validate({
 		onKeyup : true,

@@ -1,0 +1,70 @@
+<div class="section-layout--sloping-bottom-left hero typeset">
+    <div class="hero__layout container">
+        <div class="">
+            <div class="speaker-detail-header">
+                <img id="speaker-detail-header__photo" class="speaker-detail-header__photo" src="{{ data.speaker.mugshot.secure_url }}"/>
+                <h1 class="hero__header">{{ data.speaker.name.full }}</h1>
+                <h6>{{ data.speaker.tagline }}</h6>
+                <p class="caption">{{ data.speaker.jobTitle }}{% if data.speaker.company %} at {{ data.speaker.company }}{% endif %}, {{ data.speaker.city }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-wrapper">
+    <div class="section-layout section-layout--no-padding">
+        <section class="section typeset container">
+            <article class="article article--single blog-article">
+                <h2>
+                    <small >{{ data.speaker.name.first }}'s TALK</small><br />
+                    {{ data.talk.title }}
+                </h2>
+
+                {% if data.talk %}
+                    {{ data.talk.description.html }}
+                {% else %}
+                <p class="muted">{{ data.speaker.name.first }}'s talk will be announced soon. Follow us on Twitter <a href="#">@letspixelup</a> to get the latest updates.</p>
+                {% endif %}
+            </article>
+        </section>
+    </div>
+    {% if data.workshop %}
+    <div class="section-layout section-layout--no-padding">
+        <section class="section typeset container">
+            <article class="article article--single blog-article">
+                <h2>
+                    <small >{{ data.speaker.name.first }}'s WORKSHOP</small><br />
+                    {{ data.workshop.title }}
+                </h2>
+                {{ data.workshop.description.html }}
+            </article>
+        </section>
+    </div>
+    {% endif %}
+    <div class="section-layout section-layout--no-padding">
+        <section class="section typeset container">
+            <article class="article article--single blog-article">
+                <h2>About {{ data.speaker.name.first }}</h2>
+                {{ data.speaker.content.shortDesc.html }}
+                {% if data.speaker.website or data.speaker.twitter %}
+                <h6>On the web</h6>
+                <ul class="no-bullet">
+                    {% if data.speaker.website %}<li><a href="{{ data.speaker.website }}">{{ data.speaker.website }}</a></li>{% endif %}
+                    {% if data.speaker.twitter %}<li><a href="https://twitter.com/{{ data.speaker.twitter }}">{{ data.speaker.twitter }}</a></li>{% endif %}
+                </ul>
+                {% endif %}
+            </article>
+        </section>
+    </div>
+
+    <div class="section-layout section-layout--two-slopes section-layout--blue">
+        <!-- {% include 'templates/mixins/become-a-sponsor.html' %} -->
+        <section class="section typeset container">
+            <h2>More Speakers</h2>
+            <div class="featured-speaker-list">
+                {% for s in data.other_speakers %}
+                {% include "templates/mixins/_speaker-grid__item.html" %}
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>

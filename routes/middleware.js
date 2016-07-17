@@ -90,6 +90,7 @@ exports.forceSSL = function(req,res,next) {
 	next();
 }
 
+
 /**
 	Prevents people from accessing protected pages when they're not signed in
  */

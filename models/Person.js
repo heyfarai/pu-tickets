@@ -62,21 +62,20 @@ Person.schema.virtual('initials').get(function() {
 bindLastModified(Person, 'people');
 
 Person.schema.virtual('getJobTitleFull').get(function() {
-
 	return this.jobTitle + ((this.company) ? " at " + this.company : "");
 });
 
 Person.schema.set('toJSON', { transform: function (doc, rtn) {
 	return {
-		id: doc._id,
-		name: doc.name,
-		bio: doc.bio || undefined,
-		github: doc.github || undefined,
-		isOrganiser: doc.isOrganiser || undefined,
-		isSpeaker: doc.isSpeaker || undefined,
-		picture: doc.customPicture || doc.gravatar,
+		slug: doc.slug,
+		name: doc.name.full,
+		jobTitle: doc.jobTitle || undefined,
+		tagline: doc.tagline || undefined,
+		mugshot: doc.mugshot.secure_url || doc.gravatar,
 		twitter: doc.twitter || undefined,
-		website: doc.website || undefined
+		website: doc.website || undefined,
+		company: doc.company || undefined,
+		city: doc.city || undefined
 	}
 }});
 

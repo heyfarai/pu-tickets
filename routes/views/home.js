@@ -26,18 +26,7 @@ exports = module.exports = function(req, res) {
 
 	});
 
-	// Load other posts
-	view.on('init', function(next) {
-		var q = keystone.list('Sponsor').model.find()
-
-		q.exec(function(err, results) {
-			locals.sponsors = results;
-			next(err);
-		});
-
-	});
-
 	// Render the view
-	view.render('index');
+	view.render('home');
 
 };

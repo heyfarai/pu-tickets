@@ -1,6 +1,32 @@
-{% extends "templates/layouts/default.html" %}
+{% extends "templates/layouts/content-view__partial.html" %}
 
-{% set title = "Convince your boss" %}
+{% set title = "Convince your boss to send your to PIXEL UP! 2016 in Johannesburg" %}
+{% block meta %}
+<update-title title="{{ title }}"></update-title>
+<update-meta name="keywords" content="Pixel Up, PIXEL UP!, PixelUp16, ux conference, ux johannesburg, ux south africa, ux design, interaction design, user experience, ux designer, ui design, user interface design">
+<update-meta name="description" content="{{ meta_description }}">
+
+<!-- Twitter Card -->
+<update-meta name="twitter:card" content="summary_large_image">
+<update-meta name="twitter:site" content="@letspixelup">
+<update-meta name="twitter:creator" content="@farai_uxguy">
+<update-meta name="twitter:title" content="{{ title }}">
+<update-meta name="twitter:description" content="{{ meta_description }}">
+<update-meta name="twitter:image" content="https://pixelup.co.za/img/pixelup-avatar-twitter-card.png?1139">
+<update-meta name="twitter:domain" content="https://pixelup.co.za">
+
+<update-meta property="og:locale" content="en_ZA">
+<update-meta property="og:description" content="{{ meta_description }}">
+<update-meta property="og:image" content="https://pixelup.co.za/img/avatar-open-graph-fb.png?832">
+<update-meta property="og:image:width" content="1200">
+<update-meta property="og:image:height" content="628">
+<update-meta property="og:site_name" content="PIXEL UP! UX Conference in Johannesburg, September 12 - 14, 2016">
+<update-meta property="og:title" content="{{ title }}">
+<update-meta property="og:type" content="website">
+<update-meta property="og:url" content="https://pixelup.co.za{{ urlPath }}">
+<update-meta property="article:publisher" content="https://www.facebook.com/letspixelup">
+{% endblock%}
+
 {% block header_content %}
                 <h1 class="hero__header">Convince your boss</h1>
                 <p class="caption">Here's how to get your boss to give you the green light.</p>
@@ -10,23 +36,23 @@
                     <section class="section typeset container">
                         <h2>HERE'S AN EXAMPLE LETTER FOR YOUR BOSS</h2>
                         <p><strong>Dear <em>[insert boss name/title]</em></strong></p>
-                        <p>Pixel Up!, a conference for people like me who work on digital products, is happening 12 to 14 September 2016 in Johannesburg.
+                        <p>PIXEL UP!, a conference for people like me who work on digital products, is happening 12 to 14 September 2016 in Johannesburg.
                             It gathers some of the brightest names from around the globe to give talks and workshops. It will be an opportunity
                             for me to hear stories and get face-to-face advice from design leaders from companies like Dropbox and Twitter,
                             as well as scrappy upstarts who are clawing their way to success one customer at a time.</p>
-                        <p>I truly feel that attending Pixel Up! will help me to grow not only personally but also as
+                        <p>I truly feel that attending PIXEL UP! will help me to grow not only personally but also as
                             an integral part of <em>[insert company name]</em>. </p>
                         <p>As you know, continuing education is an important part of any employee's career and there's
                             nowhere else that I will have access to so many levels of information in one place without going overseas.</p>
                         <p>More specifically, I wanted to point out the benefits that both I and <em>[company name]</em> will
                             receive by attending the event:</p>
                         <ul>
-                            <li><strong>I will increase my productivity</strong> &mdash; While I will certainly be attending Pixel Up! in order to learn, a relaxed atmosphere, away from the office, will energize me and allow me to work better when I return.</li>
-                            <li><strong>I will return inspired</strong> &mdash; Pixel Up! specifically chooses speakers that talk not only about how they succeeded, but also how they failed and what they learned from it.</li>
-                            <li><strong>I will be better at my job</strong> &mdash; One of the many points offered by Pixel Up! is insight from design leaders about the things they found that made them better in business. These points can help me to find areas in which I can improve.</li>
-                            <li><strong>I will learn more about our UX &amp; UI design</strong> &mdash; My employment with <em>[company name]</em> is not just a job to me. I joined <em>[company name]</em> as a career decision and what I learn at Pixel Up! can only serve to bolster my knowledge and thirst for success.</li>
+                            <li><strong>I will increase my productivity</strong> &mdash; While I will certainly be attending PIXEL UP! in order to learn, a relaxed atmosphere, away from the office, will energize me and allow me to work better when I return.</li>
+                            <li><strong>I will return inspired</strong> &mdash; PIXEL UP! specifically chooses speakers that talk not only about how they succeeded, but also how they failed and what they learned from it.</li>
+                            <li><strong>I will be better at my job</strong> &mdash; One of the many points offered by PIXEL UP! is insight from design leaders about the things they found that made them better in business. These points can help me to find areas in which I can improve.</li>
+                            <li><strong>I will learn more about our UX &amp; UI design</strong> &mdash; My employment with <em>[company name]</em> is not just a job to me. I joined <em>[company name]</em> as a career decision and what I learn at PIXEL UP! can only serve to bolster my knowledge and thirst for success.</li>
                         </ul>
-                        <p>As I'm sure you can see, attending Pixel Up! will not only benefit me personally and professionally, but there is a fantastic opportunity for our business to grow as a result of what I experience. I genuinely appreciate you taking the time to read these points, and I thank you for your consideration.</p>
+                        <p>As I'm sure you can see, attending PIXEL UP! will not only benefit me personally and professionally, but there is a fantastic opportunity for our business to grow as a result of what I experience. I genuinely appreciate you taking the time to read these points, and I thank you for your consideration.</p>
 
                         <p>Sincerely, <em>[your name]</em>.</p>
                         <div class="dark-panel">

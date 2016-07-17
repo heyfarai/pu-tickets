@@ -1,4 +1,18 @@
 <!-- TODO: Add throbbing heart loop -->
+
+        <div class="section-layout section-layout--footer section-layout--no-padding">
+            <section class="section typeset container">
+                <h6>Made possible by our sponsors</h6>
+                <br>
+                <div class="sponsor-list">
+                {% for s in sponsors %}
+                    <div class="sponsor">
+                        <a href="{{ s.website }}"><img alt="s.name" src="{{ s.logo.secure_url }}" /></a>
+                    </div>
+                {% endfor %}
+                </div>
+            </section>
+        </div>
         <div class="footer">
             <div class="section-layout section-layout--no-padding">
                 <section class="section typeset container">
@@ -14,16 +28,17 @@
                             </ul>
                         </div>
                         <div class="one-third column">
-                            <h6 class="footer__heading">Attending Pixel Up!</h6>
+                            <h6 class="footer__heading">Attending PIXEL UP!</h6>
                             <ul class="footer__list no-bullet">
-                                <li><a href="/code-of-conduct/">Code of conduct</a></li>
-                                <li><a href="/volunteer/">Volunteer</a></li>
-                                <li><a href="/terms/">Terms of service</a></li>
+                                <li><a href="/code-of-conduct">Code of conduct</a></li>
+                                <li><a href="/volunteer">Volunteer at PIXEL UP!</a></li>
+                                <li><a href="/terms">Sponsor PIXEL UP!</a></li>
+                                <li><a href="/terms">Terms of service</a></li>
                             </ul>
                         </div>
                         <div class="one-third column">
                             <h6 class="footer__heading">Got any questions?</h6>
-                            <p>Questions about our events, venues or other Pixel Up! details? Give us a shout.</p>
+                            <p>Questions about our events, venues or other PIXEL UP! details? Give us a shout.</p>
 
                         </div>
                     </div>
@@ -34,10 +49,10 @@
         <div class="footer-ampli5yd">
             <div class="section typeset container">
                 <p><img src="/img/ampli5yd-logo.png" alt="Ampli5yd Logo" /></p>
-                <p>Pixel Up! is proudly presented by <a href="http://ampli5yd.com">Ampli5yd</a>, a product management consultancy.
+                <p>PIXEL UP! is proudly presented by <a href="http://ampli5yd.com">Ampli5yd</a>, a product management consultancy.
                     We’re based down in sunny Johannesburg, South Africa where we also offer training
                     to help our clients define the right product, with the right features, for the right audience, at the right time.
                 </p>
-                <p class="copyright">&copy; 2016 Pixel Up!</p>
+                <p class="copyright">&copy; 2016 PIXEL UP!</p>
             </div>
         </div>

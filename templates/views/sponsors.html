@@ -1,6 +1,32 @@
-{% extends "templates/layouts/default.html" %}
+{% extends "templates/layouts/content-view__partial.html" %}
 
-{% set title = "Sponsors &amp; Partners" %}
+{% set title = "Sponsors &amp; Partners | PIXEL UP! 2016 in Johannesburg" %}
+{% block meta %}
+<update-title title="{{ title }}"></update-title>
+<update-meta name="keywords" content="Pixel Up, PIXEL UP!, PixelUp16, ux conference, ux johannesburg, ux south africa, ux design, interaction design, user experience, ux designer, ui design, user interface design">
+<update-meta name="description" content="{{ meta_description }}">
+
+<!-- Twitter Card -->
+<update-meta name="twitter:card" content="summary_large_image">
+<update-meta name="twitter:site" content="@letspixelup">
+<update-meta name="twitter:creator" content="@farai_uxguy">
+<update-meta name="twitter:title" content="{{ title }}">
+<update-meta name="twitter:description" content="{{ meta_description }}">
+<update-meta name="twitter:image" content="https://pixelup.co.za/img/pixelup-avatar-twitter-card.png?1139">
+<update-meta name="twitter:domain" content="https://pixelup.co.za">
+
+<update-meta property="og:locale" content="en_ZA">
+<update-meta property="og:description" content="{{ meta_description }}">
+<update-meta property="og:image" content="https://pixelup.co.za/img/avatar-open-graph-fb.png?832">
+<update-meta property="og:image:width" content="1200">
+<update-meta property="og:image:height" content="628">
+<update-meta property="og:site_name" content="PIXEL UP! UX Conference in Johannesburg, September 12 - 14, 2016">
+<update-meta property="og:title" content="{{ title }}">
+<update-meta property="og:type" content="website">
+<update-meta property="og:url" content="https://pixelup.co.za{{ urlPath }}">
+<update-meta property="article:publisher" content="https://www.facebook.com/letspixelup">
+{% endblock%}
+
 {% block header_content %}
                 <h1 class="hero__header">Support us. Get visibility</h1>
                 <p class="caption">Get your brand in front of SA's top product thinkers and makers..</p>
@@ -17,7 +43,7 @@
                 <div class="section-layout">
                     <section class="section typeset container">
                         <h2>Who will attend</h2>
-                        <p>We created Pixel Up! primarily for experienced professionals designing and developing apps and websites in large corporations or agencies. We expect 200 attendees mostly from Southern Africa.</p>
+                        <p>We created PIXEL UP! primarily for experienced professionals designing and developing apps and websites in large corporations or agencies. We expect 200 attendees mostly from Southern Africa.</p>
                         <strong>Job titles include:</strong>
                         <div class="row">
                             <div class="one-half column">
@@ -97,7 +123,7 @@
                     <section class="section typeset container">
                         <div id="more-ways-to-sponsor">
                             <h2>More ways to sponsor</h2>
-                            <p>For each of the items below, Pixel Up! and Ampli5yd are already covering part of the cost. These are economical opportunities to get your brand in front of some serious UX, UI, Product and Front-End development professionals.</p>
+                            <p>For each of the items below, PIXEL UP! and Ampli5yd are already covering part of the cost. These are economical opportunities to get your brand in front of some serious UX, UI, Product and Front-End development professionals.</p>
                             <table>
                                 <tbody>
                                     <tr>
@@ -173,8 +199,8 @@
                         </div>
                         <div>
                             <p>
-                                Pixel Up! is also the ideal place to recruit new staff #JustSaying.
-                                Join us at Pixel Up! and let your brand be a great part of an industry-leading experience.</p>
+                                PIXEL UP! is also the ideal place to recruit new staff #JustSaying.
+                                Join us at PIXEL UP! and let your brand be a great part of an industry-leading experience.</p>
                             <p>Need it in writing? <a href="/has/downloads/for/sponsors/Pixel_Up!_Sponsorship_Pack.pdf">Download our sponsorship pack</a> (PDF 1.7Mb).</p>
                         </div>
                         <div id="more-ways-to-sponsor">

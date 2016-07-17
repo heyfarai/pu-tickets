@@ -1,6 +1,36 @@
-{% extends "templates/layouts/default.html" %}
+{% extends "templates/layouts/content-view__partial.html" %}
 
-{% set title = "Schedule" %}
+{% set title = "Schedule | PIXEL UP! 2016 in Johannesburg" %}
+{% set meta_description = "An impressive lineup of Speakers who've worked at companies like Apple, Dropbox, Twitter and SalesforceUX." %}
+
+{% block meta %}
+<update-title title="{{ title }}"></update-title>
+<update-meta name="keywords" content="Pixel Up, PIXEL UP!, PixelUp16, ux conference, ux johannesburg, ux south africa, ux design, interaction design, user experience, ux designer, ui design, user interface design">
+<update-meta name="description" content="{{ meta_description }}">
+
+<!-- Twitter Card -->
+<update-meta name="twitter:card" content="summary_large_image">
+<update-meta name="twitter:site" content="@letspixelup">
+<update-meta name="twitter:creator" content="@farai_uxguy">
+<update-meta name="twitter:title" content="{{ title }}">
+<update-meta name="twitter:description" content="{{ meta_description }}">
+<update-meta name="twitter:image" content="https://pixelup.co.za/img/pixelup-avatar-twitter-card.png?1139">
+<update-meta name="twitter:domain" content="https://pixelup.co.za">
+
+<update-meta property="og:locale" content="en_ZA">
+<update-meta property="og:description" content="{{ meta_description }}">
+<update-meta property="og:image" content="https://pixelup.co.za/img/avatar-open-graph-fb.png?832">
+<update-meta property="og:image:width" content="1200">
+<update-meta property="og:image:height" content="628">
+<update-meta property="og:site_name" content="PIXEL UP! UX Conference in Johannesburg, September 12 - 14, 2016">
+<update-meta property="og:title" content="{{ title }}">
+<update-meta property="og:type" content="website">
+<update-meta property="og:url" content="https://pixelup.co.za{{ urlPath }}">
+<update-meta property="article:publisher" content="https://www.facebook.com/letspixelup">
+
+
+{% endblock %}
+
 {% block header_content %}
                 <h1 class="hero__header">12 talks. 3 workshops. And a party.</h1>
                 <p class="caption">
@@ -28,11 +58,11 @@
         <div class="section-layout section-layout--no-padding">
             <section class="section typeset container">
                 <div class="Tab-nav active">
-                    <a class="Tab-nav-item " href="#day-one">Day One</a>
-                    <a class="Tab-nav-item" href="#day-two">Day Two</a>
-                    <a class="Tab-nav-item" href="#day-three">Day Three</a>
+                    <a class="Tab-nav-item" ng-class="{ 'Tab-nav-item--selected': isCurrentTab(1) }" href ng-click="setCurrentTab(1)">Day One</a>
+                    <a class="Tab-nav-item" ng-class="{ 'Tab-nav-item--selected': isCurrentTab(2) }" href ng-click="setCurrentTab(2)">Day Two</a>
+                    <a class="Tab-nav-item" ng-class="{ 'Tab-nav-item--selected': isCurrentTab(3) }" href ng-click="setCurrentTab(3)">Day Three</a>
                 </div>
-                <section class="event-day" id="day-one" data-daynumber="1">
+                <section class="event-day" id="day-one" ng-show="isCurrentTab(1)">
                     <h2><span>Monday, Sept. 12</span></h2>
                     <p>Along with the continental breakfast, you’ll get an amazing lunch, beverage breaks and nibbles throughout the day.</p>
                     {% for i in data.scheduleItems %}
@@ -41,7 +71,7 @@
                     {% endif %}
                     {% endfor %}
                 </section>
-                <section class="event-day" id="day-two" data-daynumber="2">
+                <section class="event-day" id="day-two" ng-show="isCurrentTab(2)">
                     <h2><span>Tuesday, Sept. 13</span></h2>
                     <p>Along with the continental breakfast, you’ll get an amazing lunch, beverage breaks and nibbles throughout the day.</p>
 
@@ -52,7 +82,7 @@
                     {% endfor %}
 
                 </section>
-                <section class="event-day" id="day-three" data-daynumber="3">
+                <section class="event-day" id="day-three" ng-show="isCurrentTab(3)">
                     <h2><span>Wednesday, Sept. 14</span></h2>
                     <p>Day 3 is workshop day. All day workshops starting at 9am and ending at 4pm. Go beyond inspiration and immerse yourself in groundbreaking design &amp; development skills you won’t find anywhere else. Get your team on the same page with proven methods, tools and clear-cut direction on specific actions and skills. </p>
 
@@ -101,7 +131,4 @@
             </section>
         </div>
         #}
-        <div class="section-layout section-layout--left  section-layout--blue">
-            {% include 'templates/mixins/become-a-sponsor.html' %}
-        </div>
 {% endblock %}

@@ -1,9 +1,34 @@
-{% extends "templates/layouts/default.html" %}
+{% extends "templates/layouts/content-view__partial.html" %}
 
-{% set title = "Turbine Hall, 65 Ntemi Piliso Road, Johannesburg" %}
+{% set title = "Volunteer at PIXEL UP! 2016 in Johannesburg" %}
+{% block meta %}
+<update-title title="{{ title }}"></update-title>
+<update-meta name="keywords" content="Pixel Up, PIXEL UP!, PixelUp16, ux conference, ux johannesburg, ux south africa, ux design, interaction design, user experience, ux designer, ui design, user interface design">
+<update-meta name="description" content="{{ meta_description }}">
+
+<!-- Twitter Card -->
+<update-meta name="twitter:card" content="summary_large_image">
+<update-meta name="twitter:site" content="@letspixelup">
+<update-meta name="twitter:creator" content="@farai_uxguy">
+<update-meta name="twitter:title" content="{{ title }}">
+<update-meta name="twitter:description" content="{{ meta_description }}">
+<update-meta name="twitter:image" content="https://pixelup.co.za/img/pixelup-avatar-twitter-card.png?1139">
+<update-meta name="twitter:domain" content="https://pixelup.co.za">
+
+<update-meta property="og:locale" content="en_ZA">
+<update-meta property="og:description" content="{{ meta_description }}">
+<update-meta property="og:image" content="https://pixelup.co.za/img/avatar-open-graph-fb.png?832">
+<update-meta property="og:image:width" content="1200">
+<update-meta property="og:image:height" content="628">
+<update-meta property="og:site_name" content="PIXEL UP! UX Conference in Johannesburg, September 12 - 14, 2016">
+<update-meta property="og:title" content="{{ title }}">
+<update-meta property="og:type" content="website">
+<update-meta property="og:url" content="https://pixelup.co.za{{ urlPath }}">
+<update-meta property="article:publisher" content="https://www.facebook.com/letspixelup">
+{% endblock%}
 
 {% block header_content %}
-                <h1 class="hero__header">Volunteer at Pixel Up!</h1>
+                <h1 class="hero__header">Volunteer at PIXEL UP!</h1>
                 <p class="caption">Help make PIXEL UP! an awesome event.</p>
                 <div class="workshop__actions workshop__actions--hero">
                     <a class="button button--primary" href="https://farai1.typeform.com/to/qqPPNI" data-mode="1" target="_blank">Apply to volunteer</a>
@@ -17,7 +42,7 @@
                     <section class="section typeset container">
                         <article class="article--single">
                             <h2>Help make PIXEL UP! awesome.</h2>
-                            <p>If you’re a student and want to attend Pixel Up! 2016 but can’t manage to purchase a ticket, you can join our student volunteer program and help support one of the best digital design events and attend for free.
+                            <p>If you’re a student and want to attend PIXEL UP! 2016 but can’t manage to purchase a ticket, you can join our student volunteer program and help support one of the best digital design events and attend for free.
                             </p>
                             <p>
                                 Registration will be open until August 14th 2016. We will process applications as quickly as possible and get back to you in the week of August 15th, 2016.
@@ -49,7 +74,7 @@
                                 <li>Free attendance to parties</li>
                                 <li>Meals covered on all the days you volunteers</li>
                                 <li>The opportunity to meet rad product thinkers designers and makers</li>
-                                <li>An exclusive, volunteer-only Pixel Up! T-shirt</li>
+                                <li>An exclusive, volunteer-only PIXEL UP! T-shirt</li>
                                 <li>Kudos for your time, attention and efforts</li>
                             </ul>
                             <p>We are unable to cover expenses for volunteers, which means that if you want to get involved, you will need to cover the costs of travelling to, and staying in Johannesburg.</p>
