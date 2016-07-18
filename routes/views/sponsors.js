@@ -14,7 +14,7 @@ exports = module.exports = function(req, res) {
 			'Premier' 	:[],
 			'Executive' : [],
 			'Associate' : [],
-			'Media' 	: [],
+			'Partner' 	: [],
 			'Other' 	: []
 		}
 	};
