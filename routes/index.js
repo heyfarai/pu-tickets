@@ -77,6 +77,7 @@ exports = module.exports = function(app) {
 	app.all('/p/speakers/:speaker', routes.views.speaker__detail);
 	app.all('/p/schedule', routes.views.schedule);
 	app.get('/p/venue', routes.views.venue);
+	app.get('/p/slack', routes.views.slack);
 
 	// TODO: add South africa page content
 
@@ -109,6 +110,7 @@ exports = module.exports = function(app) {
 	app.get('/p/blog', routes.views.blog);
 
 	// API
+	app.get('/slack', routes.views.slack);
 	app.all('/api*', keystone.middleware.api);
 	app.all('/api/speakers', routes.api.speakers);
 
