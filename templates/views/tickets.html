@@ -39,71 +39,37 @@
                 <div class="section-layout">
                     <section class="section typeset container">
                         <article class="article--single">
-                            <section class="ticket-section" id="full-package-tickets">
-                                <h3>3 Day Full Pass</h3>
-                                <p class="caption caption--thin-bottom">For 2 Day Conference and 1 full-day workshop</p>
+                            <section id="workshop-tickets" class="ticket-section">
+                                <h3>1 Day Conference Pass</h3>
+                                <p class="caption caption--thin-bottom">Valid on <a href="/schedule">Monday or Tuesday</a> only</p>
                                 <ul class="no-bullet">
                                     <li class="ticket">
-                                        <a href="http://pixelup.nutickets.co.za/2454" class="button button--primary ticket__buy-button">Buy</a>
+                                        <a href="http://pixelup.nutickets.co.za/2454?t=DayOne" class="button button--primary ticket__buy-button">Buy</a>
                                         <span class="ticket__price">
-                                            <strong>R8,500</strong>
+                                            <strong>R3,500</strong>
                                         </span>
                                         <span class="ticket__name">
-                                            3 Day Pass <small class="ticket__caption caption">(On sale Apr. 1 - Aug. 14)</small>
+                                            Conference Day One <small class="ticket__caption caption u-hide-for-smartphones">(Valid on Monday September 12 only)</small>
                                         </span>
                                     </li>
+                                        <li class="ticket">
+                                            <a href="http://pixelup.nutickets.co.za/2454?t=DayTwo" class="button button--primary ticket__buy-button">Buy</a>
+                                            <span class="ticket__price">
+                                                <strong>R3,500</strong>
+                                            </span>
+                                            <span class="ticket__name">
+                                                Conference Day Two <small class="ticket__caption caption u-hide-for-smartphones">(Valid on Tuesday September 13 only)</small>
+                                            </span>
+                                        </li>
                                 </ul>
                             </section>
-                            <section id="conference-tickets" class="ticket-section">
-                                <h3>2 Day Conference Pass</h3>
-                                <p class="caption caption--thin-bottom">For <a href="/schedule">Monday</a> and <a href="/schedule">Tuesday</a> (Talks &amp; Party only)</p>
-                                <ul class="no-bullet">
-                                    <!-- <li class="ticket">
-                                        <span class="ticket__price">
-                                            <strong>R4,875</strong>
-                                        </span>
-                                        <span class="ticket__name">
-                                            Super Early Bird &mdash; 2 Day Conference Pass
-                                            <br /><small class="ticket__caption caption">25% Discount (On sale Mar. 9 - Mar. 31)</small>
-                                        </span>
-                                    </li>
-                                    <li class="ticket">
-                                        <span class="ticket__price">
-                                            <strong>R5,500</strong>
-                                        </span>
-                                        <span class="ticket__name">
-                                            Early Bird &mdash; 2 Day Conference Pass
-                                            <br /><small class="ticket__caption caption">15% Discount (On sale Apr. 1 - Apr. 30)</small>
-                                        </span>
-                                    </li> -->
-                                    <li class="ticket">
-                                        <a href="http://pixelup.nutickets.co.za/2454" class="button button--primary ticket__buy-button">Buy</a>
-                                        <span class="ticket__price">
-                                            <strong>R6,500</strong>
-                                        </span>
-                                        <span class="ticket__name">
-                                            2 Day Pass &mdash; Standard <small class="ticket__caption caption u-hide-for-smartphones">(On sale May 1 - Aug. 14)</small>
-                                        </span>
-                                    </li>
-                                    <li class="ticket">
-                                        <a href="http://pixelup.nutickets.co.za/2454" class="button button--primary ticket__buy-button">Buy</a>
-                                        <span class="ticket__price">
-                                            <strong>R7,500</strong>
-                                        </span>
-                                        <span class="ticket__name">
-                                            2 Day Pass &mdash; Last minute  <small class="ticket__caption caption">(On sale Aug. 15th - Sep. 14)</small>
-                                        </span>
-                                    </li>
-                                </ul>
-                            </section>
-
                             <section id="workshop-tickets" class="ticket-section">
                                 <h3>1 Day Workshop Pass</h3>
                                 <p class="caption caption--thin-bottom">For <a href="/schedule">Wednesday</a> only</p>
                                 <ul class="no-bullet">
                                     {% for workshop in data.workshops %}
                                     <li class="ticket">
-                                        <a href="http://pixelup.nutickets.co.za/2454" class="button button--primary ticket__buy-button ticket__buy-button--workshop">Buy</a>
+                                        <a href="http://pixelup.nutickets.co.za/2454?t={{ workshop.slug }}" class="button button--primary ticket__buy-button ticket__buy-button--workshop">Buy</a>
                                         <span class="ticket__price ticket__price--workshop">
                                             <strong>R3,500</strong>
                                         </span>
@@ -120,11 +86,41 @@
                                     {% endfor %}
                                 </ul>
                             </section>
+                            <section id="conference-tickets" class="ticket-section">
+                                <h3>2 Day Conference Pass</h3>
+                                <p class="caption caption--thin-bottom">For <a href="/schedule">Monday</a> and <a href="/schedule">Tuesday</a> (Talks &amp; Party only)</p>
+                                <ul class="no-bullet">
+                                    <li class="ticket">
+                                        <a href="http://pixelup.nutickets.co.za/2454?t=2Day" class="button button--primary ticket__buy-button">Buy</a>
+                                        <span class="ticket__price">
+                                            <strong>R6,500</strong>
+                                        </span>
+                                        <span class="ticket__name">
+                                            2 Day Pass &mdash; Standard <small class="ticket__caption caption u-hide-for-smartphones">(On sale May 1 - Aug. 14)</small>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="ticket-section" id="full-package-tickets">
+                                <h3>3 Day Full Pass</h3>
+                                <p class="caption caption--thin-bottom">For 2 Day Conference and 1 full-day workshop</p>
+                                <ul class="no-bullet">
+                                    <li class="ticket">
+                                        <a href="http://pixelup.nutickets.co.za/2454?t=3Day" class="button button--primary ticket__buy-button">Buy</a>
+                                        <span class="ticket__price">
+                                            <strong>R8,500</strong>
+                                        </span>
+                                        <span class="ticket__name">
+                                            3 Day Pass <small class="ticket__caption caption">(On sale Apr. 1 - Aug. 14)</small>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </section>
                             <section id="group-tickets" class="ticket-section">
                                 <h3>Group Conference Passes</h3>
                                 <ul class="no-bullet">
                                     <li class="ticket">
-                                        <a href="http://pixelup.nutickets.co.za/2454" class="button button--primary ticket__buy-button">Buy</a>
+                                        <a href="http://pixelup.nutickets.co.za/2454?t=GroupSmall" class="button button--primary ticket__buy-button">Buy</a>
                                         <span class="ticket__price">
                                             <strong>R6,175</strong>
                                         </span>
@@ -133,7 +129,7 @@
                                         </span>
                                     </li>
                                     <li class="ticket">
-                                        <a href="http://pixelup.nutickets.co.za/2454" class="button button--primary ticket__buy-button">Buy</a>
+                                        <a href="http://pixelup.nutickets.co.za/2454?t=GroupLarge" class="button button--primary ticket__buy-button">Buy</a>
                                         <span class="ticket__price">
                                             <strong>R5,850</strong>
                                         </span>
