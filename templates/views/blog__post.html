@@ -8,25 +8,25 @@
 {% block meta %}
 <!-- Twitter Card -->
 <update-title title="{{ title }} | PIXEL UP! Blog"></update-title>
-<update-meta name="twitter:card" content="summary_large_image">
-<update-meta name="twitter:site" content="@letspixelup">
-<update-meta name="twitter:creator" content="@farai_uxguy">
-<update-meta name="twitter:title" content="{{ title }}{% if section!="home" %} | PIXEL UP! {{ "Blog" if section=="blog-post" or section=="blog" else "2016 in Johannesburg" }}{% endif %}">
-<update-meta name="twitter:description" content="{{ update-meta_description }}">
-<update-meta name="twitter:image" content="{{ data.post.image.secure_url }}">
-<update-meta name="twitter:domain" content="https://pixelup.co.za">
+<update-meta name="twitter:card" content="summary_large_image"></update-meta>
+<update-meta name="twitter:site" content="@letspixelup"></update-meta></update-meta>
+<update-meta name="twitter:creator" content="@farai_uxguy"></update-meta>
+<update-meta name="twitter:title" content="{{ title }}{% if section!="home" %} | PIXEL UP! {{ "Blog" if section=="blog-post" or section=="blog" else "2016 in Johannesburg" }}{% endif %}"></update-meta>
+<update-meta name="twitter:description" content="{{ update-meta_description }}"></update-meta></update-meta>
+<update-meta name="twitter:image" content="{{ data.post.image.secure_url }}"></update-meta>
+<update-meta name="twitter:domain" content="https://pixelup.co.za"></update-meta>
 
 <!-- opengraph -->
-<update-meta property="og:locale" content="en_ZA">
-<update-meta property="og:description" content="{{ update-meta_description }}">
-<update-meta property="og:image" content="{{ data.post.image.secure_url }}">
-<update-meta property="og:image:width" content="{{ data.post.image.width }}">
-<update-meta property="og:image:height" content="{{ data.post.image.height }}">
-<update-meta property="og:site_name" content="PIXEL UP! Conference in Johannesburg, September 12 - 14, 2016">
-<update-meta property="og:title" content="{{ title }}{% if section!="home" %} | PIXEL UP! {{ "Blog" if section=="blog-post" or section=="blog" else "2016 in Johannesburg" }}{% endif %}">
-<update-meta property="og:type" content="website">
-<update-meta property="og:url" content="https://pixelup.co.za{{ urlPath }}">
-<update-meta property="article:publisher" content="https://www.facebook.com/letspixelup">
+<update-meta property="og:locale" content="en_ZA"></update-meta>
+<update-meta property="og:description" content="{{ update-meta_description }}"></update-meta>
+<update-meta property="og:image" content="{{ data.post.image.secure_url }}"></update-meta>
+<update-meta property="og:image:width" content="{{ data.post.image.width }}"></update-meta>
+<update-meta property="og:image:height" content="{{ data.post.image.height }}"></update-meta>
+<update-meta property="og:site_name" content="PIXEL UP! Conference in Johannesburg, September 12 - 14, 2016"></update-meta>
+<update-meta property="og:title" content="{{ title }}{% if section!="home" %} | PIXEL UP! {{ "Blog" if section=="blog-post" or section=="blog" else "2016 in Johannesburg" }}{% endif %}"></update-meta>
+<update-meta property="og:type" content="website"></update-meta>
+<update-meta property="og:url" content="https://pixelup.co.za{{ urlPath }}"></update-meta>
+<update-meta property="article:publisher" content="https://www.facebook.com/letspixelup"></update-meta>
 {% endblock %}
 
 {% block header_content %}

@@ -5,25 +5,25 @@
 {% block meta %}
 <update-title title="{{ title }} is speaking at PIXEL UP! 2016 in Johannesburg"></update-title>
 <!-- Twitter Card -->
-<update-meta name="twitter:card" content="summary_large_image">
-<update-meta name="twitter:site" content="@letspixelup">
-<update-meta name="twitter:creator" content="@farai_uxguy">
-<update-meta name="twitter:title" content="{{ title }} - Speaking at PIXEL UP! 2016 in Johannesburg">
-<update-meta name="twitter:description" content="{{ data.speaker.content.shortDesc.html | striptags }}">
-<update-meta name="twitter:image" content="{{ data.speaker.imagePromo.secure_url }}">
-<update-meta name="twitter:domain" content="https://pixelup.co.za">
+<update-meta name="twitter:card" content="summary_large_image"></update-meta>
+<update-meta name="twitter:site" content="@letspixelup"></update-meta>
+<update-meta name="twitter:creator" content="@farai_uxguy"></update-meta>
+<update-meta name="twitter:title" content="{{ title }} - Speaking at PIXEL UP! 2016 in Johannesburg"></update-meta>
+<update-meta name="twitter:description" content="{{ data.speaker.content.shortDesc.html | striptags }}"></update-meta>
+<update-meta name="twitter:image" content="{{ data.speaker.imagePromo.secure_url }}"></update-meta>
+<update-meta name="twitter:domain" content="https://pixelup.co.za"></update-meta>
 
 <!-- opengraph -->
-<update-meta property="og:locale" content="en_ZA">
-<update-meta property="og:description" content="{{ data.speaker.content.shortDesc.html | striptags }}">
-<update-meta property="og:image" content="{{ data.speaker.imagePromo.secure_url }}">
-<update-meta property="og:image:width" content="{{ data.speaker.imagePromo.width }}">
-<update-meta property="og:image:height" content="{{ data.speaker.imagePromo.height }}">
-<update-meta property="og:site_name" content="PIXEL UP! Conference in Johannesburg, September 12 - 14, 2016">
-<update-meta property="og:title" content="{{ title }} - Speaking at PIXEL UP! in Johannesburg">
-<update-meta property="og:type" content="website">
-<update-meta property="og:url" content="https://pixelup.co.za/{{ data.speaker.slug }}">
-<update-meta property="article:publisher" content="https://www.facebook.com/letspixelup">
+<update-meta property="og:locale" content="en_ZA"></update-meta>
+<update-meta property="og:description" content="{{ data.speaker.content.shortDesc.html | striptags }}"></update-meta>
+<update-meta property="og:image" content="{{ data.speaker.imagePromo.secure_url }}"></update-meta>
+<update-meta property="og:image:width" content="{{ data.speaker.imagePromo.width }}"></update-meta>
+<update-meta property="og:image:height" content="{{ data.speaker.imagePromo.height }}"></update-meta>
+<update-meta property="og:site_name" content="PIXEL UP! Conference in Johannesburg, September 12 - 14, 2016"></update-meta>
+<update-meta property="og:title" content="{{ title }} - Speaking at PIXEL UP! in Johannesburg"></update-meta>
+<update-meta property="og:type" content="website"></update-meta>
+<update-meta property="og:url" content="https://pixelup.co.za/{{ data.speaker.slug }}"></update-meta>
+<update-meta property="article:publisher" content="https://www.facebook.com/letspixelup"></update-meta>
 {% endblock %}
 
 {% block header_content %}
