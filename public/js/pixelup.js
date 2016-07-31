@@ -163,13 +163,13 @@ $( document ).ready(function() {
         function c(atTop) {
             if(atTop==0) {
                 $(".top-bar").removeClass("top-bar--active");
-                $(".news-signup-footer").removeClass("news-signup-footer--active");
+                // $(".news-signup-footer").removeClass("news-signup-footer--active");
             }
             $(".top-bar").removeClass("top-bar--asleep");
         }
         function d(val) {
             $(".top-bar").addClass("top-bar--asleep top-bar--active");
-            (onList==null) ? $(".news-signup-footer").addClass("news-signup-footer--active") : $();
+            // (onList==null) ? $(".news-signup-footer").addClass("news-signup-footer--active") : $();
         }
         $(window).on({
             scroll: function () {
