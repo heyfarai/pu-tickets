@@ -113,6 +113,8 @@ exports = module.exports = function(app) {
 	app.get('/slack', routes.views.slack);
 	app.all('/api*', keystone.middleware.api);
 	app.all('/api/speakers', routes.api.speakers);
+	app.all('/api/sessions', routes.api.sessions);
+	app.all('/api/sponsors', routes.api.sponsors);
 
 	// redirect all others to the index (HTML5 history)
 	app.get('*', routes.views.index);
