@@ -7,7 +7,7 @@ exports = module.exports = function(req, res) {
 	var locals = res.locals;
 
 	// Set locals
-	locals.section = 'speaker-detail';
+	locals.section = 'workshops';
 	locals.filters = {
 		workshop: req.params.workshop
 	};
@@ -18,7 +18,7 @@ exports = module.exports = function(req, res) {
 	// Load the current post
 	view.on('init', function(next) {
 		var q = keystone.list('ScheduleItem').model.findOne({
-			slug: locals.filters.workshop
+			slug: (locals.filters.workshop == "ux-launchpad") ? "ux-launchpad-design-play" : locals.filters.workshop,
 		})
 		.populate('speakers');
 
