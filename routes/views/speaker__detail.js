@@ -31,7 +31,10 @@ exports = module.exports = function(req, res) {
 
 	// Load talks and workshops
 	view.on('init', function(next) {
-		keystone.list('ScheduleItem').model.find().where('speakers', locals.data.speaker.id).exec(function(err, scheduleItems) {
+		keystone.list('ScheduleItem').model.find()
+		.where('speakers', locals.data.speaker.id)
+		.where('isPublished', 'true')
+		.exec(function(err, scheduleItems) {
 		    _.each(scheduleItems, function (s) {
 		    	if(s.type=="talk") {
 					locals.data.talk = s
