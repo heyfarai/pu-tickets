@@ -67,7 +67,7 @@
                             {{ speaker.bio }}
 
                             {% if speaker.website or speaker.twitter %}
-                            <h6>{{ speaker.name.first }} the web</h6>
+                            <h6>{{ speaker.name.first }} on the web</h6>
                             <ul class="no-bullet">
                                 {% if speaker.website %}<li><a href="{{ speaker.website }}">{{ speaker.website }}</a></li>{% endif %}
                                 {% if speaker.twitter %}<li><a href="https://twitter.com/{{ speaker.twitter }}">{{ speaker.twitter }}</a></li>{% endif %}
