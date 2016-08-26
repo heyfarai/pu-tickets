@@ -15,9 +15,14 @@ var Person = new keystone.List('Person', {
 Person.add({
 	name: { type: Types.Name, required: true, initial: true, index: true },
 	email: { type: Types.Email, initial: true, index: true },
+	twitter: { type: String, size: 'small' },
+	ticketType: { type: Types.Relationship, ref: 'Ticket' },
+	ticketCode: { type: String, size: 'small', index: true },
+	company: { type: String },
+	isActivated: { type: Boolean, default: false },
+
 	mugshot: { type: Types.CloudinaryImage, publicID: 'slug', folder: 'people'  },
 	imagePromo: { type: Types.CloudinaryImage, publicID: 'slug', folder: 'promos'  },
-	company: { type: String },
 	city: { type: String },
 	jobTitle: { type: String },
 	tagline: { type: String },
@@ -29,7 +34,6 @@ Person.add({
 
 	// editable via API
 	bio: { type: Types.Textarea },
-	twitter: { type: String, size: 'small' },
 	content: {
 		bio: { type: Types.Markdown, height: 40 },
 		ourDesc: { type: Types.Markdown, height: 40 },
@@ -37,7 +41,6 @@ Person.add({
 	},
 
 	// used in authentication
-	ticketCode: { type: String, size: 'small', index: true },
 	activatedOn: { type: Types.Datetime },
 	authHash: { type: String, default: '', index: true },
 
@@ -85,5 +88,5 @@ Person.schema.set('toJSON', { transform: function (doc, rtn) {
  * Registration
  */
 
-Person.defaultColumns = 'name, twitter, ticketCode, activatedOn, isSpeaker';
+Person.defaultColumns = 'name, twitter, company, ticketType, isActivated';
 Person.register()
