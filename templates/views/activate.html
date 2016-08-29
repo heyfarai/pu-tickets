@@ -1,0 +1,134 @@
+{% extends "templates/layouts/default-no-angular.html" %}
+{% block header_content %}
+                <h1 class="hero__header">PIXEL UP! 2016</h1>
+                <h6 class="hero__lead">
+                    {% if data.person %}
+                        {% if not data.person.isActivated %}Hi there, let's confirm your details.{% endif %}
+                    {% endif %}
+                </h6>
+{% endblock %}
+
+{% block content %}
+                <div class="section-layout">
+                    <section class="section typeset container">
+
+						<article class="article article--single ">
+                            {% if not data.person %}
+                                <h3>Hi,</h3>
+                                <p class="caption">
+                                    This link is no longer in use. If you need help with your PIXEL UP! ticket, please email <a href="mailto:farai@pixelup.co.za">farai@pixelup.co.za</a> or call <a href="tel:+27 786 753 044">+27 786 753 044</a>.
+                                </p>
+                            {% endif %}
+                            {% if data.person %}
+                                {% if data.person.isActivated %}
+                                    <h3>Thanks, we've got your details updated :-)</h3>
+                                    <p>
+                                        We've sent you a confirmation email of your choices.
+                                        If you need to make any changes, please email <a href="mailto:farai@pixelup.co.za">farai@pixelup.co.za</a> or call <a href="tel:+27 786 753 044">+27 786 753 044</a>.
+                                    </p>
+                                    <h6>Here are a few ways to kill time until conference day:</h6>
+                                    <ul>
+                                        <li>Check out UXPin's <a href="https://www.uxpin.com/knowledge.html">free ebook collection</a></li>
+                                        <li>Check out Tey's <a href="https://gist.github.com/teybannerman/9c234424eb1d940a8505">collection of design resources</a></li>
+                                        <li>Or just <a href="http://imgur.com/r/funny/">Imgur &amp; Chill</a></li>
+                                    </ul>
+
+                                {% endif %}
+                                {% if not data.person.isActivated %}
+                                    {{ person }}
+                                    <form method="post" id="form-activate">
+                                        <input type="hidden" name="action" value="activate" />
+                                        <input type="hidden" name="isActivated" value="1" />
+                                        <h3>About you</h3>
+                                        <p class="">
+                                            These are the details we'll put on your lanyard and other printed material.
+                                        </p>
+                                        <ul class="no-bullet">
+                                            <li class="fields">
+                                                <label>Name</label>
+                                                <div class="field-wrapper">
+                                                    <input type="text" name="name.first" value="{{ data.person.name.first }}" /> <input type="text" name="name.last" value="{{ data.person.name.last }}" />
+                                                </div>
+                                            </li>
+                                            <li class="fields">
+                                                <label> Twitter</label>
+                                                <div class="field-wrapper">
+                                                    <input type="text" name="twitter" value="{{ data.person.twitter }}" />
+                                                </div>
+                                            </li>
+                                            <li class="fields">
+                                                <label> Company</label>
+                                                <div class="field-wrapper">
+                                                    <input type="text" name="company" value="{{ data.person.company }}" />
+                                                </div>
+                                            </li>
+                                        </ul>
+                                            <hr />
+                                        <h3>You have a {{ data.person.ticketType.name }}</h3>
+                                        <ul class="no-bullet">
+                                            {% if data.person.ticketType.hasWorkshop %}
+                                            <li class="">
+                                                <h6>Choose your workshop</h6>
+                                                <div class="field-wrapper radio">
+                                                    <ul class="radio-list">
+
+                                                        <li>
+                                                            <label class="radio-wrapper" for="w1">
+                                                                <input type="radio" id="w1" name="ticketWorkshop" value="573a364c1931a10300b97e16" {{ "checked" if data.person.ticketWorkshop == "573a364c1931a10300b97e16" else "" }}> <span>UX Launchpad</span>
+
+                                                                <p class="radio-description">
+                                                                    UX Launchpad is co-founded by Jon Bell and William Van Hecke, two experienced designers who love to teach. Jon is a Senior Product Designer at Twitter and William is the Designer at Facebook.
+                                                                </p>
+                                                                    </label>
+                                                        </li>
+
+                                                        <li>
+                                                            <label class="radio-wrapper" for="w2">
+                                                                <input type="radio" id="w2" name="ticketWorkshop" value="57293e2fe766f40300fb9f75" {{ "checked" if data.person.ticketWorkshop == "57293e2fe766f40300fb9f75" else "" }}> <span>Everything You Wanted to Know About Responsive Design...And Less!</span>
+
+                                                                <p class="radio-description">
+                                                                    Everything You Wanted to Know About Responsive Design...And Less! is a full-day masterclass that takes a deep dive into the world of responsive web design, covering everything including broad concepts, strategy, how responsive design affects process, responsive design patterns and principles, and more.
+                                                                </p>
+                                                            </label>
+                                                        </li>
+
+                                                        <li>
+                                                            <label class="radio-wrapper" for="w3">
+                                                                <input type="radio" id="w3" name="ticketWorkshop" disabled="disabled" }}> <span class="caption">Visual design in a day</span>
+                                                                <p class="radio-description caption">
+                                                                    Due to circumstances beyond our control the "Visual design in a day" workshop is no longer available.
+                                                                </p>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            {% endif %}
+                                            {% if data.person.ticketType.hasMasterClass %}
+                                            <li class="field-wrapper radio">
+                                                <h6>Join the Accenture Service Design MasterClass (Monday during the lunch break)</h6>
+                                                <div class="field-wrapper radio">
+                                                    <p>
+                                                        For 60 Minutes during the lunch break on Monday 12 September, Accenture Interactive / Fjord will be giving a Service Design Masterclass at PIXEL UP!
+                                                        Sign up if you want to know more about Service Design, to understand tactics for ensuring service delivery as well as service design tools and methods.
+                                                    </p>
+                                                    <label class="radio-wrapper">
+                                                        <input type="checkbox" name="ticketMasterclass" value="0" {{ "checked" if data.person.ticketMasterclass else "" }}> <span>I'm attending the Accenture Service Design Masterclass</span>
+                                                    </label>
+                                                    <br />
+                                                    <br />
+                                                </div>
+                                            </li>
+                                            {% endif %}
+                                            <li>
+                                                <hr />
+                                                <button type="submit" class="button button-primary">Save my preferences</button>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                {% endif %}
+                            {% endif %}
+                        </article>
+                    </section>
+                </div>
+{% endblock %}

@@ -110,11 +110,14 @@ exports = module.exports = function(app) {
 	app.get('/p/blog', routes.views.blog);
 
 	// API
+	app.all('/get-ready/:p', routes.views.activate);
+	app.get('/get-ready', routes.views.activate);
 	app.get('/slack', routes.views.slack);
 	app.all('/api*', keystone.middleware.api);
 	app.all('/api/speakers', routes.api.speakers);
 	app.all('/api/sessions', routes.api.sessions);
 	app.all('/api/sponsors', routes.api.sponsors);
+	// app.all('/api/attendees', routes.api.attendees);
 
 	// redirect all others to the index (HTML5 history)
 	app.get('*', routes.views.index);

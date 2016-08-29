@@ -120,7 +120,7 @@ label {
 
 /* INPUT
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-input,
+
 input[type="text"],
 input[type="tel"],
 input[type="number"],
@@ -148,6 +148,45 @@ form textarea.error
     border-color: @error_red;
 }
 
+#form-activate {
+    margin: auto;
+
+    li {
+        margin-left: 0 !important;
+        list-style-type: none;
+        &.fields {
+            @media @tablet-and-up {
+                display: flex;
+                flex-flow: row;
+            }
+            margin-left: 0;
+            label:not(.radio-wrapper) {
+                width: 30%;
+                display: block;
+            }
+            .field-wrapper:not(.radio) {
+                display: flex;
+                flex-flow: row;
+                input {
+                    margin-right: 2%
+                }
+            }
+        }
+        ul {
+            margin-left: 0 !important;
+        }
+
+        .radio-wrapper {
+            span {
+                margin-left: 1em;
+                font-weight: bold;
+            }
+            .radio-description {
+                margin-left: 2.2em
+            }
+        }
+    }
+}
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button,
@@ -677,6 +716,14 @@ table, th, td {
     background-size: cover;
     @media @mobile-large {
         padding-top : 8rem;
+    }
+}
+.body_activate {
+    .hero {
+        padding: 2rem 0 2rem;
+    }
+    @media @mobile-large {
+        padding-top : 0rem;
     }
 }
 .touch .hero {
