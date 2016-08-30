@@ -17,8 +17,10 @@ exports = module.exports = function(req, res) {
 	// Load the current post
 	view.on('init', function(next) {
 		var q = keystone.list('ScheduleItem').model.find()
+		.where('isPublished', true)
 		.populate('speakers')
 		.sort('startTime')
+
 
 		q.exec(function(err, result) {
 
