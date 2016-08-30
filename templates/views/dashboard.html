@@ -1,0 +1,69 @@
+{% extends "templates/layouts/default-no-angular.html" %}
+{% block header_content %}
+                <h1 class="hero__header">PIXEL UP! 2016</h1>
+{% endblock %}
+
+{% block content %}
+                <div class="section-layout">
+                    <section class="dashboard section typeset container">
+                        <ul class="dashboard__stats no-bullet">
+                            <li class="stat-item">
+                                <span class="stat-item__label">Monday</span>
+                                <span class="stat-item__number">{{ data.stats.threeday + data.stats.twoday + data.stats.monday }}</span>  / 180
+                            </li>
+                            <li class="stat-item">
+                                <span class="stat-item__label">Tuesday</span>
+                                <span class="stat-item__number">{{ data.stats.threeday + data.stats.twoday + data.stats.tuesday }}</span>  / 180
+                            </li>
+                            <li class="stat-item">
+                                <span class="stat-item__label">WS - BRAD</span>
+                                <span class="stat-item__number">{{ data.stats.rwd }}</span>  / 30
+                            </li>
+                            <li class="stat-item">
+                                <span class="stat-item__label">WS - UXL</span>
+                                <span class="stat-item__number">{{ data.stats.uxl }}</span>  / 30
+                            </li>
+                            <li class="stat-item">
+                                <span class="stat-item__label">Masterclass</span>
+                                <span class="stat-item__number">{{ data.stats.masterclass }}</span>  / 40
+                            </li>
+                        </ul>
+                        <table id="table-attendees" class="display">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Ticket</th>
+                                    <th>Company</th>
+                                    <th>Workshop</th>
+                                    <th>Masterclass</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for a in data.attendees %}
+                                <tr>
+                                    <td>{{ a.name.full }}</td>
+                                    <td>{{ a.ticketType.name |replace(" Conference Pass", "") }}</td>
+                                    <td>{{ a.company }}</td>
+                                    <td>{{ a.ticketWorkshop.code }}</td>
+                                    <td>{{ "YES" if a.ticketMasterclass else "<span class='caption'>NO</span>" }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function() {
+        $('#table-attendees').DataTable({
+            "scrollX": true,
+            "paging":   false,
+            "ordering": false,
+            "info":     false
+            }
+        );
+    } );
+</script>
+{% endblock %}

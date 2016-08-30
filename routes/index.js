@@ -109,10 +109,12 @@ exports = module.exports = function(app) {
 	app.get('/p/blog/articles-about/:category', routes.views.blog);
 	app.get('/p/blog', routes.views.blog);
 
-	// API
 	app.all('/get-ready/:p', routes.views.activate);
 	app.get('/get-ready', routes.views.activate);
 	app.get('/slack', routes.views.slack);
+	app.get('/doable/', routes.views.dashboard);
+
+	// API
 	app.all('/api*', keystone.middleware.api);
 	app.all('/api/speakers', routes.api.speakers);
 	app.all('/api/sessions', routes.api.sessions);

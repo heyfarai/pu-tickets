@@ -15,10 +15,12 @@ var Ticket = new keystone.List('Ticket', {
 
 Ticket.add({
 	name: { type: String, required: true, index: true },
+	code: { type: String, index: true },
 	hasWorkshop: { type: Boolean},
 	hasMasterClass: { type: Boolean}
 });
 
+Ticket.relationship({ ref: 'Person', path: 'ticketType' });
 
 bindLastModified(Ticket, 'schedule');
 
@@ -26,5 +28,5 @@ bindLastModified(Ticket, 'schedule');
  * Registration
  */
 
-Ticket.defaultColumns = 'name, hasWorkshop, hasMasterClass';
+Ticket.defaultColumns = 'name, code, hasWorkshop, hasMasterClass';
 Ticket.register();

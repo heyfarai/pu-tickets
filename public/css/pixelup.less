@@ -1388,3 +1388,30 @@ h2.workshop__title--left {
 .news-signup-msg--success {
     color: @bright-blue;
 }
+
+.dashboard__stats {
+    display: flex;
+    justify-content: space-between;;
+    align-items: center;
+    margin-left: 0 !important;
+    li {
+        margin-left: 0 !important;
+    }
+    .stat-item {
+        width: 19%;
+        text-align: center;
+        border-radius: 4px;
+        padding-top: .5em;
+        padding-bottom: .5em;
+        background: @dark-blue;
+        color: @white
+    }
+}
+.stat-item__label {
+    display: block;
+    font-size: .9em
+}
+.stat-item__number {
+    font-weight: bold;
+    font-size: 2em
+}

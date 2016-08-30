@@ -15,6 +15,7 @@ var ScheduleItem = new keystone.List('ScheduleItem', {
 
 ScheduleItem.add({
 	title: { type: String, required: true, index: true },
+	code: { type: String, index: true },
 	promoImg: { type: Types.CloudinaryImage, publicID: 'slug', folder: 'talk-workshop'  },
 	type: { type: Types.Select, options: 'talk, break, lunch, workshop', index: true },
 	startTime: { type: Types.Datetime, utc: true, index: true },
