@@ -45,7 +45,11 @@
                                         <td class="attendee__name">{{ a.name.full }}</td>
                                         <td class="attendee__ticket">{{ a.ticketType.name |replace(" Conference Pass", "") }}</td>
                                         <td>{{ a.company }}</td>
+                                        {% if a.hasWorkshop %}
                                         <td>{{ "<span class='caption'>TBC</span>" if not a.ticketWorkshop else a.ticketWorkshop.code }} </td>
+                                        {% else %}
+                                        <td><span class='caption'></span></td>
+                                        {% endif %}
                                         <td>{{ "YES" if a.ticketMasterclass else "<span class='caption'>NO</span>" }}</td>
                                     </tr>
                                     {% endfor %}
