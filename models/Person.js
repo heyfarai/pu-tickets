@@ -94,6 +94,13 @@ Person.schema.set('toJSON', { transform: function (doc, rtn) {
 	}
 }});
 
+// Fix the Twitter handle
+Person.schema.pre('save', function(next) {
+	var str = this.twitter;
+	this.twitter = (str.indexOf("@") == 0) ? this.twitter : "@" + str;
+	next()
+});
+
 Person.schema.pre('save', function(next) {
     if (this.isNew) {
 		console.log('New peeps');
@@ -210,21 +217,6 @@ Person.schema.methods.sendConfirmationEmail = function(callback) {
 			}
 		});
 	}
-
-
-// 	request({
-//     url: url, //URL to hit
-//     method: 'POST',
-//     headers: {'Content-Type': 'application/json'},
-//     body: body //Set the body as a string
-// }, function (error, response, body) {
-// 		if(error) {
-// 			console.log(error);
-// 		} else {
-// 			 console.log(response.statusCode, body);
-// 		}
-// 	});
-
 };
 
 
