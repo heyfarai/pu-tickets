@@ -76,9 +76,9 @@ Person.schema.virtual('getJobTitleFull').get(function() {
 	return this.jobTitle + ((this.company) ? " at " + this.company : "");
 });
 
-// Person.schema.virtual('hasWorkshop').get(function() {
-// 	return (this.ticketType.code=='3D' || this.ticketType.code=='1W');
-// });
+Person.schema.virtual('hasWorkshop').get(function() {
+	return (this.ticketType.code=='3D' || this.ticketType.code=='1W');
+});
 
 Person.schema.set('toJSON', { transform: function (doc, rtn) {
 	return {
