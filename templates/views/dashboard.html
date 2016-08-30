@@ -42,11 +42,11 @@
                                 <tbody>
                                     {% for a in data.attendees %}
                                     <tr>
-                                        <td class="attendee__name">{{ a.name.full }}</td>
+                                        <td class="attendee__name {{ "attendee__active" if a.isActivated else "" }}">{{ a.name.full }}</td>
                                         <td class="attendee__ticket">{{ a.ticketType.name |replace(" Conference Pass", "") }}</td>
                                         <td>{{ a.company }}</td>
                                         <td>{{ "<span class='caption'></span>" if not a.ticketWorkshop else a.ticketWorkshop.code }} </td>
-                                        <td>{{ "YES" if a.ticketMasterclass else "<span class='caption'>NO</span>" }}</td>
+                                        <td>{{ "YES" if a.ticketMasterclass else "" }}<span class='caption'>{{ "TBC" if not a.ticketMasterclass and not a.isActivated else "NO" }}</span></td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
