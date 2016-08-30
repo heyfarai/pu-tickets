@@ -28,28 +28,31 @@
                                 <span class="stat-item__number">{{ data.stats.masterclass }}</span>  / 40
                             </li>
                         </ul>
-                        <table id="table-attendees" class="display">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Ticket</th>
-                                    <th>Company</th>
-                                    <th>Workshop</th>
-                                    <th>Masterclass</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for a in data.attendees %}
-                                <tr>
-                                    <td>{{ a.name.full }}</td>
-                                    <td>{{ a.ticketType.name |replace(" Conference Pass", "") }}</td>
-                                    <td>{{ a.company }}</td>
-                                    <td>{{ a.ticketWorkshop.code }}</td>
-                                    <td>{{ "YES" if a.ticketMasterclass else "<span class='caption'>NO</span>" }}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                        <div class="dashboard__list">
+                            <table id="table-attendees" class="display">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Ticket</th>
+                                        <th>Company</th>
+                                        <th>Workshop</th>
+                                        <th>Masterclass</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for a in data.attendees %}
+                                    <tr>
+                                        <td class="attendee__name">{{ a.name.full }}</td>
+                                        <td>{{ a.ticketType.name |replace(" Conference Pass", "") }}</td>
+                                        <td>{{ a.company }}</td>
+                                        <td>{{ a.ticketWorkshop.code }}</td>
+                                        <td>{{ "YES" if a.ticketMasterclass else "<span class='caption'>NO</span>" }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
                     </section>
                 </div>
 {% endblock %}
@@ -58,7 +61,6 @@
 <script>
     $(document).ready(function() {
         $('#table-attendees').DataTable({
-            "scrollX": true,
             "paging":   false,
             "ordering": false,
             "info":     false
