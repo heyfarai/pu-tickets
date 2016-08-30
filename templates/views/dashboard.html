@@ -44,7 +44,13 @@
                                     <tr>
                                         <td class="attendee__name {{ "attendee__active" if a.isActivated else "" }}">{{ a.name.full }}</td>
                                         <td class="attendee__ticket">{{ a.ticketType.name |replace(" Conference Pass", "") }}</td>
-                                        <td>{{ a.company }}</td>
+                                        <td>
+                                            {% if not a.isActivated %}
+                                            <span class='caption'>TBC</span>
+                                        {% else %}
+                                            {{ a.company }}
+                                        {% endif %}
+                                        </td>
                                         <td>{{ "<span class='caption'></span>" if not a.ticketWorkshop else a.ticketWorkshop.code }} </td>
 
                                         <td>
