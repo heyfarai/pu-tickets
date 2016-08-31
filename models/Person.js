@@ -110,8 +110,8 @@ Person.schema.pre('save', function(next) {
 });
 
 Person.schema.pre('save', function(next) {
-    if (this.isNew && this.isPublished ||
-		this.isPublic && this.isModified('isPublic')){
+    if (this.isNew && this.isPublished){
+		//|| this.isPublic && this.isModified('isPublic')
 		console.log('New peeps');
 		this.sendGetReadyEmail();
     }
