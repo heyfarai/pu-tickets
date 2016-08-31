@@ -41,16 +41,18 @@
                                 </thead>
                                 <tbody>
                                     {% for a in data.attendees %}
-                                    <tr>
+                                    <tr class="{{ "unallocated" if a.isUnAllocated else "" }}">
                                         <!-- <td>{{ loop.index }}.</td> -->
-                                        <td class="attendee__name {{ "attendee__active" if a.isActivated else "" }}">{{ a.name.full }}</td>
+                                        <td class="attendee__name {{ "attendee__active" if a.isActivated else "" }}">
+                                            {{ a.name.full }}
+                                        </td>
                                         <td class="attendee__ticket">{{ a.ticketType.name |replace(" Conference Pass", "") }}</td>
                                         <td>
-                                            {% if not a.isActivated %}
-                                            <span class='caption'>TBC</span>
-                                        {% else %}
-                                            {{ a.company }}
-                                        {% endif %}
+                                            {% if not a.company %}
+                                                <span class='caption'></span>
+                                            {% else %}
+                                                {{ a.company }}
+                                            {% endif %}
                                         </td>
                                         <td>
                                             {% if a.hasWorkshop %}

@@ -21,8 +21,7 @@ Person.add({
 	ticketWorkshop: { type: Types.Relationship, ref: 'ScheduleItem', filters: { type: 'workshop', isPublished: true } },
 	ticketMasterclass: { type: Boolean, default: false } ,
 	ticketCode: { type: String, size: 'small', index: true },
-	company: { type: String },
-	isActivated: { type: Boolean, default: false },
+	company: { type: String, initial: true },
 
 	mugshot: { type: Types.CloudinaryImage, publicID: 'slug', folder: 'people'  },
 	imagePromo: { type: Types.CloudinaryImage, publicID: 'slug', folder: 'promos'  },
@@ -30,7 +29,8 @@ Person.add({
 	jobTitle: { type: String },
 	tagline: { type: String },
 	website: { type: Types.Url, note: 'Full website URL, including http://' },
-	isPublished: { type: Boolean, default: false, index: true },
+	isActivated: { type: Boolean, default: false },
+	isPublished: { type: Boolean, default: false, index: true, initial: true },
 	isOrganiser: { type: Boolean, default: false, index: true },
 	isSpeaker: { type: Boolean, default: false, index: true },
 	isPublic: { type: Boolean, default: false, index: true },
@@ -76,6 +76,10 @@ Person.schema.virtual('getJobTitleFull').get(function() {
 	return this.jobTitle + ((this.company) ? " at " + this.company : "");
 });
 
+Person.schema.virtual('isUnAllocated').get(function() {
+	return (this.isActivated == false && this.isPublic == false);
+});
+
 Person.schema.virtual('hasWorkshop').get(function() {
 	return (this.ticketType.code=='3D' || this.ticketType.code=='1W');
 });
@@ -106,7 +110,8 @@ Person.schema.pre('save', function(next) {
 });
 
 Person.schema.pre('save', function(next) {
-    if (this.isNew) {
+    if (this.isNew && this.isPublished ||
+		this.isPublic && this.isModified('isPublic')){
 		console.log('New peeps');
 		this.sendGetReadyEmail();
     }
@@ -117,6 +122,7 @@ Person.schema.pre('save', function(next) {
 	if(this.isActivated &&
 		this.isModified('isActivated')){
 		this.isActivating = true;
+		this.isPublic = true;
 		console.log("activating")
 	}
 	next();
@@ -250,5 +256,5 @@ Person.schema.methods.sendGetReadyEmail = function(callback) {
  * Registration
  */
 
-Person.defaultColumns = 'name, twitter, company, ticketType, isActivated';
+Person.defaultColumns = 'name, twitter, company, ticketType, isPublic, isActivated';
 Person.register()
