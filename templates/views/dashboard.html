@@ -42,6 +42,7 @@
                                 <tbody>
                                     {% for a in data.attendees %}
                                     <tr>
+                                        <!-- <td>{{ loop.index }}.</td> -->
                                         <td class="attendee__name {{ "attendee__active" if a.isActivated else "" }}">{{ a.name.full }}</td>
                                         <td class="attendee__ticket">{{ a.ticketType.name |replace(" Conference Pass", "") }}</td>
                                         <td>
@@ -51,13 +52,22 @@
                                             {{ a.company }}
                                         {% endif %}
                                         </td>
-                                        <td>{{ "<span class='caption'></span>" if not a.ticketWorkshop else a.ticketWorkshop.code }} </td>
+                                        <td>
+                                            {% if a.hasWorkshop %}
+                                                {% if a.isActivated %}
+                                                    {{ "" if not a.ticketWorkshop else a.ticketWorkshop.code }} </td>
+                                                {% else %}
+                                                <span class='caption caption--red'>TBC</span>
+                                                {% endif %}
+                                            {% else %}
+                                                <span class='caption'>&ndash;</span>
+                                            {% endif %}
 
                                         <td>
                                             {% if not a.isActivated %}
-                                                <span class='caption'>TBC</span>
+                                                <span class='caption caption--red'>TBC</span>
                                             {% else %}
-                                                {{ "YES" if a.ticketMasterclass else "NO" }}
+                                                {{ "YES" if a.ticketMasterclass else "<span class='caption'>NO</span>" }}
                                             {% endif %}
                                         </td>
                                     </tr>
