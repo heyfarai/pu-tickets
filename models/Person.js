@@ -123,6 +123,7 @@ Person.schema.pre('save', function(next) {
 		this.isModified('isActivated')){
 		this.isActivating = true;
 		this.isPublic = true;
+		this.isPublished = true;
 		console.log("activating")
 	}
 	next();
