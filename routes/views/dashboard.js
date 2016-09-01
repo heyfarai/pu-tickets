@@ -10,7 +10,13 @@ exports = module.exports = function(req, res) {
 
 	locals.data = {
 		attendees: [],
-		stats: {}
+		stats: {},
+		tickets_workshop: 0,
+		tickets_1day: 0,
+		tickets_2day: 0,
+		tickets_3day: 0,
+		TBC_workshop: 0,
+		TBC_masterclass: 0
 	};
 
 	// Load the current post
@@ -24,10 +30,48 @@ exports = module.exports = function(req, res) {
 
 		q.exec(function(err, result) {
 			locals.data.attendees = result;
+
+			for(i in locals.data.attendees){
+				a = locals.data.attendees[i];
+
+				// Count TBC Workshops
+				if(a.hasWorkshop && !a.isActivated){
+					locals.data.TBC_workshop++
+				}
+
+				// Count TBC Workshops
+				if(a.hasWorkshop && a.ticketType.code=="1W"){
+					locals.data.tickets_workshop++
+				}
+
+				// Count TBC Workshops
+				if(a.ticketType.code=="1M" || a.ticketType.code=="1T"){
+					locals.data.tickets_1day++
+				}
+
+				// Count TBC Workshops
+				if(a.ticketType.code=="2D"){
+					locals.data.tickets_2day++
+				}
+
+				// Count TBC Workshops
+				if(a.ticketType.code=="3D"){
+					locals.data.tickets_3day++
+				}
+
+				// Count TBC Masterclasses
+				if(!a.ticketMasterclass && !a.isActivated){
+					locals.data.TBC_masterclass++
+				}
+			}
+
 			next(err);
 		});
 
 	});
+
+	// WORD
+
 
 	// Monday ticket
 	view.on('init', function(next) {

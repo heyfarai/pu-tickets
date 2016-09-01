@@ -1393,21 +1393,33 @@ h2.workshop__title--left {
 }
 
 .dashboard__stats {
-    display: flex;
-    justify-content: space-between;;
-    align-items: center;
     margin-left: 0 !important;
+    margin-top: -3em;
+    display: flex;
+    justify-content: space-between;;;
+    flex-wrap: wrap;
+    @media @tablet-and-up {
+        flex-wrap: nowrap;
+        justify-content: space-between;;;
+        align-items: center;
+    }
     li {
         margin-left: 0 !important;
     }
     .stat-item {
-        width: 19%;
-        text-align: center;
-        border-radius: 4px;
-        padding-top: .5em;
-        padding-bottom: .5em;
         background: @dark-blue;
-        color: @white
+        color: @white;
+        border-radius: 4px;
+        padding: .5em 1rem;
+        width: 49%;
+        margin-bottom: .3em;
+        text-align: center;
+        @media @tablet-and-up {
+            width: 19%;
+            text-align: center;
+            padding-top: .5em;
+            padding-bottom: .5em;
+        }
     }
 }
 .stat-item__label {
@@ -1417,6 +1429,25 @@ h2.workshop__title--left {
 .stat-item__number {
     font-weight: bold;
     font-size: 2em
+}
+.dashboard__sales {
+    li {
+        margin-left: 0 !important;
+    }
+        display: flex;
+        align-items: center;
+        align-items: flex-start;
+        ul {
+            width: 50%;
+        }
+    @media @tablet-and-up {
+        display: flex;
+        align-items: center;
+        align-items: flex-start;
+        ul {
+            width: 20%;
+        }
+    }
 }
 .dashboard__list {
     overflow-x: scroll;
