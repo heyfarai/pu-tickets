@@ -1,0 +1,68 @@
+{% extends "templates/layouts/content-view__partial.html" %}
+
+{% set title = "Code of Conduct | PIXEL UP! 2016 in Johannesburg" %}
+{% block meta %}
+<update-title title="{{ title }}"></update-title>
+<update-meta name="keywords" content="Pixel Up, PIXEL UP!, PixelUp16, ux conference, ux johannesburg, ux south africa, ux design, interaction design, user experience, ux designer, ui design, user interface design"></update-meta>
+<update-meta name="description" content="{{ meta_description }}"></update-meta>
+
+<!-- Twitter Card -->
+<update-meta name="twitter:card" content="summary_large_image"></update-meta>
+<update-meta name="twitter:site" content="@letspixelup"></update-meta>
+<update-meta name="twitter:creator" content="@farai_uxguy"></update-meta>
+<update-meta name="twitter:title" content="{{ title }}"></update-meta>
+<update-meta name="twitter:description" content="{{ meta_description }}"></update-meta>
+<update-meta name="twitter:image" content="https://pixelup.co.za/img/pixelup-avatar-twitter-card.png?1139"></update-meta>
+<update-meta name="twitter:domain" content="https://pixelup.co.za"></update-meta>
+
+<update-meta property="og:locale" content="en_ZA"></update-meta>
+<update-meta property="og:description" content="{{ meta_description }}"></update-meta>
+<update-meta property="og:image" content="https://pixelup.co.za/img/avatar-open-graph-fb.png?832"></update-meta>
+<update-meta property="og:image:width" content="1200"></update-meta>
+<update-meta property="og:image:height" content="628"></update-meta>
+<update-meta property="og:site_name" content="PIXEL UP! UX Conference in Johannesburg, September 12 - 14, 2016"></update-meta>
+<update-meta property="og:title" content="{{ title }}"></update-meta>
+<update-meta property="og:type" content="website"></update-meta>
+<update-meta property="og:url" content="https://pixelup.co.za{{ urlPath }}"></update-meta>
+<update-meta property="article:publisher" content="https://www.facebook.com/letspixelup"></update-meta>
+{% endblock%}
+
+{% block header_content %}
+                <h1 class="hero__header">Privacy Policy</h1>
+                <p class="caption">Privacy goes hand in glove with security and confidentiality.</p>
+{% endblock %}
+
+
+{% block content %}
+                <div class="section-layout">
+                    <section class="section typeset container">
+                        <article class="article--single">
+                        <h2>Information we collect and receive</h2>
+                        <p>
+                            We collect different kinds of information. Some of it is personally identifiable and some is non-identifying or aggregated. Here are the types of information we collect or receive:
+                        </p>
+                        <ul>
+                            <li>
+                                Account and profile information. The only information we require to create your PIXEL UP! account is an email address and password. Optional information you can enter into your profile includes information such as your first and last name, what you do, your Skype username, and your phone number. Any information you add to your profile is visible to other sign up users.
+                            </li>
+                            <li>
+                                Log data. When you use PIXEL UP!, our servers automatically record information, including information that your browser sends whenever you visit a website or your mobile app sends when you’re using it. This log data may include your Internet Protocol address, the address of the web page you visited before coming to PIXEL UP!, your browser type and settings, the date and time of your request, information about your browser configuration and plug-ins, language preferences, and cookie data. Log data does not contain message content and is not routinely deleted.
+                            </li>
+                            <li>
+                                Device information. In addition to log data, we may also collect information about the device you’re using PIXEL UP! on, including what type of device it is, what operating system you’re using, device settings, unique device identifiers, and crash data. Whether we collect some or all of this information often depends on what type of device you’re using and its settings.
+                            </li>
+                            <li>
+                                Geo-location information. Precise GPS from mobile devices is collected only with your permission. WiFi and IP addresses received from your browser or device may be used to determine approximate location.
+                            </li>
+                            <li>
+                                PIXEL UP! usage information. This is information about which sessions, people, features, content, and links you interact with within PIXEL UP!
+                            </li>
+                            <li>
+                                Information from partners or other 3rd parties. PIXEL UP! may receive information from partners or others that we could use to make our own information better or more useful. This might be aggregate level information about which IP addresses go with which zip codes or it might be more specific information about how well an online marketing or email campaign performed.
+                            </li>
+                        </ul>
+
+                        </article>
+                    </section>
+                </div>
+{% endblock %}

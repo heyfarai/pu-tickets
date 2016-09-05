@@ -95,8 +95,7 @@ exports = module.exports = function(app) {
 	app.get('/p/volunteer', routes.views.volunteer);
 	// app.get('/wanna-volunteer', routes.views.volunteer);
 
-	// app.get('/accessibility', routes.views.long_form);
-
+	app.get('/p/privacy', routes.views.privacy);
 	app.get('/p/terms', routes.views.terms);
 
 	// app.get('/credits', routes.views.long_form);

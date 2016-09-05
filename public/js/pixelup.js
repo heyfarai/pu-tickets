@@ -93,6 +93,12 @@ pixelUpApp.config(function($routeProvider, $locationProvider) {
         })
 
         // route for the contact page
+        .when('/privacy', {
+            templateUrl : '/p/privacy',
+            controller  : 'mainController'
+        })
+
+        // route for the contact page
         .when('/volunteer', {
             templateUrl : '/p/volunteer',
             controller  : 'mainController'
