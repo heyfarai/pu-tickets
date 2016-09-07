@@ -35,7 +35,7 @@ exports = module.exports = function(req, res) {
 				a = locals.data.attendees[i];
 
 				// Count TBC Workshops
-				if(a.hasWorkshop && !a.isActivated){
+				if(a.hasWorkshop && !a.ticketWorkshop){
 					locals.data.TBC_workshop++
 				}
 

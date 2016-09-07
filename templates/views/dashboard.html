@@ -35,12 +35,12 @@
                                 <li><strong>{{ data.tickets_workshop }}</strong> x 1 Day W/shop</li>
                                 <li><strong>{{ data.tickets_2day }}</strong> x 2 Day Pass</li>
                                 <li><strong>{{ data.tickets_3day }}</strong> x 3 Day Pass</li>
-                                <li><strong>{{ data.attendees.length }}</strong> PEOPLE</li>
+                                <!-- <li><strong>{{ data.attendees.length }}</strong> PEOPLE</li> -->
                             </ul>
                             <ul class="no-bullet">
                                 <li><h6>SOLD. TO CLAIM</h6></li>
-                                <li><strong>{{ data.TBC_workshop }}</strong> x Workshops </li>
-                                <li><strong>{{ data.TBC_masterclass }}</strong> x Masterclass </li>
+                                <li><strong>{{ data.TBC_workshop }}</strong> x Workshops Unallocated </li>
+                                <li><strong>{{ data.tickets_workshop + data.tickets_3day }}</strong> x Total WorkShoppers </li>
                             </ul>
                         </div>
                         <div class="dashboard__list">
