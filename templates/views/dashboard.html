@@ -71,11 +71,7 @@
                                         </td>
                                         <td>
                                             {% if a.hasWorkshop %}
-                                                {% if a.isActivated %}
-                                                    {{ "" if not a.ticketWorkshop else a.ticketWorkshop.code }} </td>
-                                                {% else %}
-                                                <span class='caption caption--red'>TBC</span>
-                                                {% endif %}
+                                                {{ "<span class='caption caption--red'>TBC</span>" if not a.ticketWorkshop else a.ticketWorkshop.code }} </td>
                                             {% else %}
                                                 <span class='caption'>&ndash;</span>
                                             {% endif %}
