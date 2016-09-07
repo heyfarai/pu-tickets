@@ -258,5 +258,5 @@ Person.schema.methods.sendGetReadyEmail = function(callback) {
  * Registration
  */
 
-Person.defaultColumns = 'name, company, ticketType,isPublished, isPublic, isActivated';
+Person.defaultColumns = 'name, company, ticketType, ticketWorkshop, isPublished, isPublic, isActivated';
 Person.register()
