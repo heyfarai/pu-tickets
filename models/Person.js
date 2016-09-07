@@ -114,7 +114,7 @@ Person.schema.pre('save', function(next) {
 		|| this.isPublic && this.isModified('isPublic'))
 	{
 		console.log('New peeps');
-		//this.sendGetReadyEmail();
+		this.sendGetReadyEmail();
     }
 	next()
 });
