@@ -22,8 +22,6 @@ exports = module.exports = function(req, res) {
 	// Load the current post
 	view.on('init', function(next) {
 		var q = keystone.list('Person').model.find()
-		.where('isSpeaker', 'false')
-		.where('isOrganiser', 'false')
 		.sort('name')
 		.populate('ticketType')
 		.populate('ticketWorkshop')
@@ -39,22 +37,22 @@ exports = module.exports = function(req, res) {
 					locals.data.TBC_workshop++
 				}
 
-				// Count TBC Workshops
+				// Count 1 Day Workshops
 				if(a.hasWorkshop && a.ticketType && a.ticketType.code=="1W"){
 					locals.data.tickets_workshop++
 				}
 
-				// Count TBC Workshops
+				// Count Monday & Tuesday
 				if(a.ticketType && (a.ticketType.code=="1M" || a.ticketType.code=="1T")){
 					locals.data.tickets_1day++
 				}
 
-				// Count TBC Workshops
+				// Count 2 Day
 				if(a.ticketType && (a.ticketType.code=="2D")){
 					locals.data.tickets_2day++
 				}
 
-				// Count TBC Workshops
+				// Count 3 Day
 				if(a.ticketType && (a.ticketType.code=="3D")){
 					locals.data.tickets_3day++
 				}
@@ -168,7 +166,7 @@ exports = module.exports = function(req, res) {
         keystone.list('Person').model.count()
 		.where('ticketWorkshop').in([locals.data.uxl])
 		.exec(function(err, count){
-        	locals.data.stats.uxl = count;
+        	locals.data.stats.uxl = count+3;
         	next(err);
     	});
 	})
@@ -187,7 +185,7 @@ exports = module.exports = function(req, res) {
         keystone.list('Person').model.count()
 		.where('ticketWorkshop').in([locals.data.rwd])
 		.exec(function(err, count){
-        	locals.data.stats.rwd = count;
+        	locals.data.stats.rwd = count+2;
         	next(err);
     	});
 	})

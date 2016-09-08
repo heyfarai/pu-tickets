@@ -118,7 +118,8 @@ exports = module.exports = function(app) {
 	app.all('/api/speakers', routes.api.speakers);
 	app.all('/api/sessions', routes.api.sessions);
 	app.all('/api/sponsors', routes.api.sponsors);
-	// app.all('/api/attendees', routes.api.attendees);
+	app.all('/api/staff', routes.api.staff);
+	app.all('/api/attendees/:type?', routes.api.attendees);
 
 	// redirect all others to the index (HTML5 history)
 	app.get('*', routes.views.index);
