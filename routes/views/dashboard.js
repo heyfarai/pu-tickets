@@ -40,7 +40,7 @@ exports = module.exports = function(req, res) {
 				}
 
 				// Count TBC Workshops
-				if(a.hasWorkshop && a.ticketType.code=="1W"){
+				if(a.hasWorkshop && a.ticketType && a.ticketType.code=="1W"){
 					locals.data.tickets_workshop++
 				}
 
@@ -50,12 +50,12 @@ exports = module.exports = function(req, res) {
 				}
 
 				// Count TBC Workshops
-				if(a.ticketType.code=="2D"){
+				if(a.ticketType && (a.ticketType.code=="2D")){
 					locals.data.tickets_2day++
 				}
 
 				// Count TBC Workshops
-				if(a.ticketType.code=="3D"){
+				if(a.ticketType && (a.ticketType.code=="3D")){
 					locals.data.tickets_3day++
 				}
 
