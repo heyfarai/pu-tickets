@@ -81,7 +81,7 @@ Person.schema.virtual('isUnAllocated').get(function() {
 });
 
 Person.schema.virtual('hasWorkshop').get(function() {
-	return (this.ticketType.code=='3D' || this.ticketType.code=='1W');
+	return (this.ticketType && (this.ticketType.code=='3D' || this.ticketType.code=='1W'));
 });
 
 Person.schema.set('toJSON', { transform: function (doc, rtn) {
