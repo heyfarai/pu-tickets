@@ -45,7 +45,7 @@ exports = module.exports = function(req, res) {
 				}
 
 				// Count TBC Workshops
-				if(a.ticketType.code=="1M" || a.ticketType.code=="1T"){
+				if(a.ticketType && (a.ticketType.code=="1M" || a.ticketType.code=="1T")){
 					locals.data.tickets_1day++
 				}
 
