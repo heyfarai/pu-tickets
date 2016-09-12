@@ -246,7 +246,7 @@ input[type="button"].button-primary:focus {
     background-image: none !important;
 }
 
-  button.disabled, button[disabled], .button.disabled, .button[disabled] {
+  button.disabled, button[disabled], .button.disabled, .button[disabled], .disabled {
       background-color: @grey--soft;
       border-color: #007095;
       color: @dark-color !important;
@@ -1180,6 +1180,7 @@ h2.workshop__title--left {
 }
 .ticket__buy-button {
     .u-pull-right;
+    .disabled;
     &:not(.ticket__buy-button--workshop) {
         @media @smartphones {
             margin-top: -.4rem;
