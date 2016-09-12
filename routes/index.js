@@ -112,6 +112,8 @@ exports = module.exports = function(app) {
 	app.get('/get-ready', routes.views.activate);
 	app.get('/slack', routes.views.slack);
 	app.get('/doable/', routes.views.dashboard);
+	app.get('/scribble', routes.views.scribble);
+	app.get('/feedback', routes.views.feedback);
 
 	// API
 	app.all('/api*', keystone.middleware.api);
