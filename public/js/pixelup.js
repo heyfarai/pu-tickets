@@ -122,10 +122,11 @@ pixelUpApp.config(function($routeProvider, $locationProvider) {
 
 // create the controller and inject Angular's $scope
 pixelUpApp.controller('mainController', function($scope, $location, Speaker) {
-    window.Intercom("boot", {
-      app_id: "qxctwqvi"
-    });
-
+    if(window.Intercom){
+        window.Intercom("boot", {
+            app_id: "qxctwqvi"
+        });
+    }
     // create a message to display in our view
     $scope.message = 'Everyone come and see how good I look!';
     $scope.speakers = Speaker.query();
@@ -133,7 +134,9 @@ pixelUpApp.controller('mainController', function($scope, $location, Speaker) {
 
     $scope.$on('$locationChangeStart', function(event, next, current) {
         $scope.section = $location.path().split("/")[1]||"";
-        window.Intercom("update");
+        if(window.Intercom){
+            window.Intercom("update");
+        }
     });
 
 });
