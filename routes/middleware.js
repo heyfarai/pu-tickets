@@ -80,8 +80,7 @@ exports.forceSSL = function(req,res,next) {
 	var hostnameWithPort = req.hostname + sslPort
 
 	if (
-		(keystone.get('env')=="production" && req.headers['x-forwarded-proto'] !== 'https') ||
-		(keystone.get('env')=="development" && !req.secure)
+		(keystone.get('env')=="production" && req.headers['x-forwarded-proto'] !== 'https')
 		) {
 		sslUrl = ['https://', hostnameWithPort, req.url].join('');
 		console.log(req.secure);
