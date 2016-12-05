@@ -72,6 +72,20 @@ exports.flashMessages = function(req, res, next) {
 
 };
 
+exports.forceTickets = function(req,res,next) {
+	var sslUrl;
+
+	// combine hostname and port
+	if(req.hostname=="tickets.pixelup.co.za" && req.path.indexOf('register-ticket')==-1 && req.path.indexOf('api')==-1){
+		// (keystone.get('env')=="production" && req.headers['x-forwarded-proto'] !== 'https')
+		// ) {
+		// sslUrl = ['https://', hostnameWithPort, req.url].join('');
+		console.log("Go to tickets because", req.hostname + req.path);
+		return res.redirect("https://register.pixelup.co.za");
+	}
+	next();
+}
+
 exports.forceSSL = function(req,res,next) {
 	var sslUrl;
 	// if we're in dev, add the port
