@@ -8,36 +8,37 @@
                     <form data-parsley-validate role="form" class="" action="/register-tickets/{{ data.order.id}}/update-tickets" method="post" name="paygate_process_form">
                         {% for t in data.tickets %}
                         {% if not t.isAssigned %}
+                        <div class="block-wrapper block-wrapper--form">
                         <br />
-                        <h6>Ticket {{ loop.index }} <br /> <span class="caption">{{ t.type }} Ticket</span></h6>
+                        <h5>Ticket {{ loop.index }} <br /> <small class="caption">{{ t.type }} Ticket</small></h5>
                         <ul class="no-bullet">
                             <li>
                                 <fieldset>
                                     <div class="one-third column">
                                         <label>First Name</label>
-                                        <input id="{{t.id}}[firstName]" name="{{t.id}}[attendeeName][first]" value="" type="text">
+                                        <input class="form-control" id="{{t.id}}[firstName]" name="{{t.id}}[attendeeName][first]" value="" type="text">
                                     </div>
                                     <div class="one-third column">
                                         <label>Last Name</label>
-                                        <input id="{{t.id}}[lastName]" name="{{t.id}}[attendeeName][last]" value="" type="text">
+                                        <input class="form-control" id="{{t.id}}[lastName]" name="{{t.id}}[attendeeName][last]" value="" type="text">
                                     </div>
                                     <div class="one-third column">
                                         <label>Company</label>
-                                        <input id="{{t.id}}[companyName]" name="{{t.id}}[companyName]" value="" type="text">
+                                        <input class="form-control" id="{{t.id}}[companyName]" name="{{t.id}}[companyName]" value="" type="text">
                                     </div>
                                 </fieldset>
                                 <fieldset>
                                     <div class="one-third column">
                                         <label>Mobile number</label>
-                                        <input id="{{t.id}}[mobileNumber]" name="{{t.id}}[mobileNumber]" value="+" type="text">
+                                        <input class="form-control" id="{{t.id}}[mobileNumber]" name="{{t.id}}[mobileNumber]" value="+" type="text">
                                     </div>
                                     <div class="one-third column">
                                         <label>Email address</label>
-                                        <input id="{{t.id}}[email]" name="{{t.id}}[email]" value="" type="text">
+                                        <input class="form-control" id="{{t.id}}[email]" name="{{t.id}}[email]" value="" type="text">
                                     </div>
                                     <div class="one-third column">
                                         <label>Twitter Handle</label>
-                                        <input id="{{t.id}}[twitterName]" name="{{t.id}}[twitterName]" value="" type="text">
+                                        <input class="form-control" id="{{t.id}}[twitterName]" name="{{t.id}}[twitterName]" value="" type="text">
                                     </div>
                                 </fieldset>
                                 {% if loop.length == 1 %}
@@ -86,6 +87,7 @@
                                 {% endif %}
                             </li>
                         </ul>
+                    </div>
                         {% endif %}
                         {% endfor %}
                         <button class="button button-primary" type="submit">Assign tickets</button>

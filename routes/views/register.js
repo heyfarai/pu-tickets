@@ -1,5 +1,6 @@
 var async = require('async'),
 	keystone = require('keystone'),
+	sendgrid = require('sendgrid')(process.env.SENDGRID_KEY),
     _ = require('underscore');
 
 var Order = keystone.list('Order');
@@ -21,6 +22,7 @@ var Pass = keystone.list('Pass');
  	view.on('init', function(next) {
  		var q = keystone.list('Pass').model.findOne()
  		.where('_id', req.params.ticketId)
+		.populate('order')
          q.exec(function(err, ticket) {
             console.log(req.params.ticketId)
              locals.data.ticket = ticket;
@@ -90,6 +92,36 @@ var Pass = keystone.list('Pass');
     view.render('register/ticket_assigned');
 }
 
+function sendReceipt(order){
+	var helper = require('sendgrid').mail;
+	var from_email = new helper.Email('farai@pixelup.co.za', 'Farai Madzima (PIXEL UP!)');
+	var to_email = new helper.Email('farai@pixelup.co.za', order.buyerName);
+	var subject = 'PIXEL UP! Receipt';
+	var content = new helper.Content('text/html', '<p></p>');
+	var mail = new helper.Mail(from_email, subject, to_email, content);
+
+	personalization = new helper.Personalization()
+	personalization.addTo(to_email)
+
+	substitution = new helper.Substitution("%amount%", order.orderAmount)
+  	personalization.addSubstitution(substitution)
+	mail.addPersonalization(personalization)
+	mail.setTemplateId(process.env.RECEIPT_TEMPLATE)
+
+	var sg = require('sendgrid')(process.env.SENDGRID_KEY);
+	var request = sg.emptyRequest({
+	  method: 'POST',
+	  path: '/v3/mail/send',
+	  body: mail.toJSON(),
+	});
+
+	sg.API(request, function(error, response) {
+	  console.log(response.statusCode);
+	  console.log(response.body);
+	  console.log(response.headers);
+	});
+}
+
 exports.ticketDetails = function(req, res) {
     var view = new keystone.View(req, res);
     var locals = res.locals;
@@ -97,17 +129,22 @@ exports.ticketDetails = function(req, res) {
 		order: []
 	};
 
-    // Load other posts
+    // FIND THE ORDER
 	view.on('init', function(next) {
 		var q = keystone.list('Order').model.findOne()
 		.where('orderId', req.params.orderId)
         q.exec(function(err, order) {
             locals.data.order = order;
+			if(order.receiptSent==false){
+				sendReceipt(order);
+				order.receiptSent = true;
+				order.save();
+			}
             next(err);
         });
     });
 
-    // Load other posts
+    // CREATE THE TICKETS
     view.on('init', function(next) {
 
         if(locals.data.order.ticketsAdded == false){

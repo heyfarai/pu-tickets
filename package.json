@@ -18,6 +18,7 @@
     "nunjucks": "^2.3.0",
     "nunjucks-date-filter": "^0.1.1",
     "randomstring": "^1.1.5",
+    "sendgrid": "^4.7.1",
     "serve-favicon": "^2.3.0",
     "typeforce": "^1.6.1",
     "underscore": "~1.8.3"

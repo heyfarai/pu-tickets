@@ -29,6 +29,7 @@ Order.add({
     transaction_status: { type: String },
     checksum: { type: String },
 
+	receiptSent: { type: Boolean, default: false },
 	ticketsAdded: { type: Boolean, default: false },
 	isComplete: { type: Boolean, default: false },
 	isPublished: { type: Boolean, default: false, index: true, initial: true },
