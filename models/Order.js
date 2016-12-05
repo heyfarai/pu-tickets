@@ -24,10 +24,22 @@ Order.add({
     full_2day: { type: Number, size: 'small' },
     full_3day: { type: Number, size: 'small' },
 
-	isActivated: { type: Boolean, default: false },
+    paygate_id: { type: String },
+    pay_request_id: { type: String },
+    transaction_status: { type: String },
+    checksum: { type: String },
+
+	ticketsAdded: { type: Boolean, default: false },
+	isComplete: { type: Boolean, default: false },
 	isPublished: { type: Boolean, default: false, index: true, initial: true },
 
 	createdAt: { type: Date, default: Date.now }
+});
+
+Order.relationship({ path: 'passes', ref: 'Pass', refPath: 'order' });
+
+Order.schema.post('save', function() {
+
 });
 
 Order.defaultColumns = 'buyerName, buyerEmail, orderAmount, createdAt';

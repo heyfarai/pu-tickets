@@ -123,6 +123,8 @@ keystone.set('email tests', require('./routes/emails'));
 keystone.set('nav', {
 	'people': ['people', 'tickets'],
 	'talks & workshops': 'schedule-items',
+	'orders': 'orders',
+	'passes': 'passes',
 	'blog': ['posts', 'post-categories'],
 	'sponsors': ['sponsors', 'sponsor-types'],
 });

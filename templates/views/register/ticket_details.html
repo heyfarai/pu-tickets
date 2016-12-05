@@ -1,0 +1,94 @@
+{% extends "templates/layouts/header-squeeze.html" %}
+{% block header_content %}
+                <h1 class="heading--center">Let's assign your tickets</h1>
+{% endblock %}
+
+{% block content %}
+                <div>
+                    <form data-parsley-validate role="form" class="" action="/register-tickets/{{ data.order.id}}/update-tickets" method="post" name="paygate_process_form">
+                        {% for t in data.tickets %}
+                        {% if not t.isAssigned %}
+                        <br />
+                        <h6>Ticket {{ loop.index }} <br /> <span class="caption">{{ t.type }} Ticket</span></h6>
+                        <ul class="no-bullet">
+                            <li>
+                                <fieldset>
+                                    <div class="one-third column">
+                                        <label>First Name</label>
+                                        <input id="{{t.id}}[firstName]" name="{{t.id}}[attendeeName][first]" value="" type="text">
+                                    </div>
+                                    <div class="one-third column">
+                                        <label>Last Name</label>
+                                        <input id="{{t.id}}[lastName]" name="{{t.id}}[attendeeName][last]" value="" type="text">
+                                    </div>
+                                    <div class="one-third column">
+                                        <label>Company</label>
+                                        <input id="{{t.id}}[companyName]" name="{{t.id}}[companyName]" value="" type="text">
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="one-third column">
+                                        <label>Mobile number</label>
+                                        <input id="{{t.id}}[mobileNumber]" name="{{t.id}}[mobileNumber]" value="+" type="text">
+                                    </div>
+                                    <div class="one-third column">
+                                        <label>Email address</label>
+                                        <input id="{{t.id}}[email]" name="{{t.id}}[email]" value="" type="text">
+                                    </div>
+                                    <div class="one-third column">
+                                        <label>Twitter Handle</label>
+                                        <input id="{{t.id}}[twitterName]" name="{{t.id}}[twitterName]" value="" type="text">
+                                    </div>
+                                </fieldset>
+                                {% if loop.length == 1 %}
+                                <style>
+                                    .label--inline {
+                                        position: relative;
+                                        display: inline-block;
+                                        padding-right: 1.25rem;
+                                        margin-bottom: 0;
+                                        vertical-align: middle;
+                                        cursor: pointer;
+                                        width: auto !important;
+                                    }
+                                    .check-input {
+                                        margin-top: 0rem;
+                                        margin-left: 0rem
+                                    }
+                                </style>
+                                <fieldset>
+                                    <legend>
+                                        <strong><br />How should we prepare your food?</strong> <br />
+                                    </legend>
+                                    <div class="checkbox">
+                                        <label class="label--inline">
+                                            <input id="{{t.id}}[glutenFree]"  name="{{t.id}}[glutenFree]" class="check-input" type="checkbox" value="1"> Gluten free
+                                        </label>
+                                        <label class="label--inline">
+                                            <input id="{{t.id}}[dairyFree]"  name="{{t.id}}[dairyFree]" class="check-input" type="checkbox" value="1"> Diary free
+                                        </label>
+                                        <label class="label--inline">
+                                            <input id="{{t.id}}[halaal]" name="{{t.id}}[halaal]" class="check-input" type="checkbox" value="1"> Halaal
+                                        </label>
+                                        <label class="label--inline">
+                                            <input id="{{t.id}}[vegetarian]"  name="{{t.id}}[vegetarian]" class="check-input" type="checkbox" value="1"> Vegetarian
+                                        </label>
+                                        <label class="label--inline">
+                                            <input id="{{t.id}}[vegan]" name="{{t.id}}[vegan]" class="check-input" type="checkbox" value="1"> Vegan
+                                        </label>
+                                    </div>
+                                </fieldset>
+                                <!-- <fieldset>
+                                    <label for="{{t.id}}[completeLater]">
+                                        <br /><input id="{{t.id}}[completeLater]"  name="{{t.id}}[completeLater]" class="check-input" type="checkbox" value="1"> I don't know yet / Complete later
+                                    </label>
+                                </fieldset> -->
+                                {% endif %}
+                            </li>
+                        </ul>
+                        {% endif %}
+                        {% endfor %}
+                        <button class="button button-primary" type="submit">Assign tickets</button>
+                    </form>
+                </div>
+{% endblock %}

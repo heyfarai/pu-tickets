@@ -1,0 +1,92 @@
+{% extends "templates/layouts/header-squeeze.html" %}
+
+
+{% block content %}
+                            <div class="main-card ticket-card ">
+                                <div class="row tc-header-row">
+                                  <header class="tc-header ticket-title">
+                                    <h2 class="tc-header-title col-xs-12 col-sm-9">
+                                      <i class="fa fa-ticket"></i>
+                                      <span>PIXEL UP Ticket</span>
+                                    </h2>
+                                    <p class="tc-reference col-xs-12 col-sm-3">WTKS-1</p>
+                                  </header>
+                                </div>
+
+                                <div class="row tc-header-row">
+                                  <header class="tc-header col-sm-12">
+                                    <h3 class="tc-header-title tc-event-title">PIXEL UP!</h3>
+                                  </header>
+                                </div>
+
+
+
+
+                                <div class="row">
+                                  <div class="col-xs-8">
+                                    <dl class="tc-info-list">
+                                      <dt class="tc-name-label">First name</dt>
+                                      <dd class="tc-name">{{ data.ticket.attendeeName.first | default("Not set") }}</dd>
+                                      <dt class="tc-name-label">Last name</dt>
+                                      <dd class="tc-name">{{ data.ticket.attendeeName.last | default("Not set")  }}</dd>
+                                      <dt>Attendee email</dt>
+                                      <dd class="tc-email">{{ data.ticket.email | default("Not set")  }}</dd>
+                                    <dt>Company Name</dt>
+                                    <dd class="tc-company_name">{{ data.ticket.companyName | default("Not set")  }}</dd>
+                                  <dt>Twitter Name</dt>
+                                  <dd class="tc-company_name">{{ data.ticket.twitterName | default("Not set")  }}</dd>
+
+                                        <dt>Phone number</dt>
+                                        <dd class="tc-phone_number"><a href="tel://vdfv">vdfv</a></dd>
+                                    </dl>
+                                  </div>
+                                </div>
+
+
+
+                                  <div class="row tc-header-row">
+                                    <header class="tc-header col-sm-12">
+                                      <h3 class="tc-subheader-title">Meal options</h3>
+                                      <!-- <button class="btn btn-primary pull-right">Complete Survey</button> -->
+                                    </header>
+                                  </div>
+
+                                  <div class="row">
+                                     {% if not data.ticket.dairyFree and not data.ticket.glutenFree and not data.ticket.vegan and not data.ticket.vegetarian and not data.ticket.halaal %}
+                                     <p>Apparently you'll anything. Challenge accepted!</p>
+                                     {% endif %}
+                                    <dl class="tc-info-list col-sm-12">
+                                        {% if data.ticket.dairyFree %}
+                                        <dt class="tc-question-title">Diary free</dt>
+                                        <dd class="tc-answer">
+                                          Yes
+                                        </dd>
+                                        {% endif %}
+                                        {% if ticket.glutenFree %}
+                                        <dt class="tc-question-title">Gluten free</dt>
+                                        <dd class="tc-answer">
+                                          Yes
+                                        </dd>
+                                        {% endif %}
+                                        {% if data.ticket.vegan %}
+                                        <dt class="tc-question-title">Vegan</dt>
+                                        <dd class="tc-answer">
+                                          Yes
+                                        </dd>
+                                        {% endif %}
+                                        {% if data.ticket.vegetarian %}
+                                        <dt class="tc-question-title">Vegetarian</dt>
+                                        <dd class="tc-answer">
+                                          Yes
+                                        </dd>
+                                        {% endif %}
+                                        {% if data.ticket.halaal %}
+                                        <dt class="tc-question-title">Halaal</dt>
+                                        <dd class="tc-answer">
+                                          Yes
+                                        </dd>
+                                        {% endif %}
+                                    </dl>
+                                  </div>
+                              </div>
+{% endblock %}

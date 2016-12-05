@@ -1,0 +1,29 @@
+{% extends "templates/layouts/header-squeeze.html" %}
+{% block header_content %}
+                <h1 class="heading--center">All done. Tickets assigned</h1>
+{% endblock %}
+
+{% block content %}
+                            <h5>Your tickets</h5>
+                            <div>
+                                <ul class="no-bullet">
+                                    {% for t in data.tickets %}
+                                    <li>{{ t.type }} Ticket for someone</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <hr />
+                            <h5>Your order</h5>
+                            <ul class="no-bullet">
+                                <li>Order reference: {{ data.order.id | truncate(5, true, "") }}</li>
+                                <li>Order receipt: Emailed to {{ data.order.buyerEmail }}</li>
+                            </ul>
+                            <hr />
+                            <h5>Got questions?</h5>
+                            <p>
+                                If you have any questions or need anything else contact us <a href="mailto:tickets@pixelup.co.za">tickets@pixelup.co.za</a>
+                            </p>
+                            <hr />
+                            <h5>We look forward to seeing you soon. Peace.</h5>
+
+{% endblock %}
