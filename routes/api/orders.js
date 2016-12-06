@@ -40,6 +40,28 @@ exports.get = function(req, res) {
 	});
 }
 
+exports.notifyUpdate = function(req, res) {
+	data = (req.method == 'POST') ? req.body : req.query;
+	console.log("PAYGATE SAYS:", data)
+	Order.model.findOne(
+		{
+			"orderId" : req.params.id
+		}
+	)
+	.exec(function(err, item) {
+
+		if (err) return res.apiError('database error', err);
+		if (!item) return res.apiError('not found');
+
+		res.apiResponse({
+			code: item
+		});
+
+	});
+
+
+}
+
 function createPass($passData){
     var res = [];
     async.series([
@@ -67,6 +89,8 @@ function createPass($passData){
     });
     return "res";
 }
+
+
 
 /**
  * Create a Order

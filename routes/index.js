@@ -128,7 +128,7 @@ exports = module.exports = function(app) {
 	app.all('/api/order/create', routes.api.orders.create);
 	app.get('/api/order/:id', routes.api.orders.get);
 	app.all('/api/order/:id/update', routes.api.orders.update);
-	// app.get('/api/order/:id/remove', keystone.initAPI, routes.api.orders.remove);
+	app.all('/api/order/:id/notifyUpdate', routes.api.orders.notifyUpdate);
 
 	app.all('/api/speakers', routes.api.speakers);
 	app.all('/api/sessions', routes.api.sessions);

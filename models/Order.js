@@ -19,15 +19,21 @@ Order.add({
 	orderAmount: { type: String },
 	reference: { type: String },
 	orderId: { type: String },
-    earlyBird_2day: { type: Number, size: 'small' },
-    earlyBird_3day: { type: Number, size: 'small' },
-    full_2day: { type: Number, size: 'small' },
-    full_3day: { type: Number, size: 'small' },
+    earlyBird_2day: { type: Number, size: 'small', default: 0 },
+    earlyBird_3day: { type: Number, size: 'small', default: 0 },
+    full_2day: { type: Number, size: 'small', default: 0 },
+    full_3day: { type: Number, size: 'small', default: 0 },
 
-    paygate_id: { type: String },
-    pay_request_id: { type: String },
-    transaction_status: { type: String },
-    checksum: { type: String },
+    paygate_id: { type: String, size: 'small' },
+    pay_request_id: { type: String, size: 'small' },
+    transaction_status: { type: String, size: 'small' },
+    checksum: { type: String, size: 'small' },
+    reference: { type: String, size: 'small' },
+    resultCode: { type: String, size: 'small' },
+    resultDescription: { type: String, size: 'small' },
+    transactionId: { type: String, size: 'small' },
+    authCode: { type: String, size: 'small' },
+    risk: { type: String, size: 'small' },
 
 	receiptSent: { type: Boolean, default: false },
 	ticketsAdded: { type: Boolean, default: false },
@@ -39,8 +45,11 @@ Order.add({
 
 Order.relationship({ path: 'passes', ref: 'Pass', refPath: 'order' });
 
-Order.schema.post('save', function() {
-
+Order.schema.virtual('count2D').get(function() {
+	return (this.earlyBird_2day + this.full_2day);
+});
+Order.schema.virtual('count3D').get(function() {
+	return (this.earlyBird_3day + this.full_3day);
 });
 
 Order.defaultColumns = 'buyerName, buyerEmail, orderAmount, createdAt';

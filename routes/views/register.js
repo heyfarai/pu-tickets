@@ -29,6 +29,20 @@ var Pass = keystone.list('Pass');
          });
      });
 
+	 // FIND THE ORDER
+ 	view.on('init', function(next) {
+ 		var q = keystone.list('Order').model.findOne()
+ 		.where('_id', locals.data.ticket.order.id)
+ 		.populate('passes')
+         q.exec(function(err, order) {
+            locals.data.order = order;
+ 			sendReceipt(order, function(error, response) {
+				console.log("response");
+			});
+             next(err);
+         });
+     });
+
      // Render the view
      view.render('register/ticket_detail');
  }
@@ -91,8 +105,16 @@ var Pass = keystone.list('Pass');
     view.render('register/ticket_assigned');
 }
 
+function getTicketList(ticketObj){
+	console.log(ticketObj)
+	var tix = "";
+	tix = (ticketObj.count3D>0) ? tix + ticketObj.count3D + " x 3 Day Tickets<br/>" : '' ;
+	tix = (ticketObj.count2D>0) ? tix + ticketObj.count2D + " x 2 Day Tickets" : tix ;
+	return tix;
+}
+
 function sendReceipt(order){
-	console.log("sending receipt to order:", order);
+	//console.log(order);
 	var helper = require('sendgrid').mail;
 	var from_email = new helper.Email('farai@pixelup.co.za', 'Farai Madzima (PIXEL UP!)');
 	var to_email = new helper.Email('farai@pixelup.co.za', order.buyerName);
@@ -100,17 +122,17 @@ function sendReceipt(order){
 	var content = new helper.Content('text/html', '<p></p>');
 	var mail = new helper.Mail(from_email, subject, to_email, content);
 
-
-
 	personalization = new helper.Personalization()
 	personalization.addTo(to_email)
-	substitution = new helper.Substitution("%date%", order.createdAt.toDateString())
+	substitution = new helper.Substitution("-date-", order.createdAt.toDateString())
 	personalization.addSubstitution(substitution)
-	substitution = new helper.Substitution("%name%", order.buyerName)
+	substitution = new helper.Substitution("-name-", order.buyerName)
 	personalization.addSubstitution(substitution)
-	substitution = new helper.Substitution("%company%", (order.buyerCompany!='') ? order.buyerCompany : '')
+	substitution = new helper.Substitution("-company-", (order.buyerCompany!='') ? '(' + order.buyerCompany + ')' : '')
   	personalization.addSubstitution(substitution)
-	substitution = new helper.Substitution("%amount%", order.orderAmount)
+	substitution = new helper.Substitution("-amount-", Number(order.orderAmount).toFixed(2).toLocaleString())
+  	personalization.addSubstitution(substitution)
+	substitution = new helper.Substitution("-tickets-", getTicketList(order))
   	personalization.addSubstitution(substitution)
 	mail.addPersonalization(personalization)
 	mail.setTemplateId(process.env.RECEIPT_TEMPLATE)
@@ -121,12 +143,14 @@ function sendReceipt(order){
 	  path: '/v3/mail/send',
 	  body: mail.toJSON(),
 	});
+	console.log(request.body.personalizations);
 
-	sg.API(request, function(error, response) {
-	  console.log(response.statusCode);
-	  console.log(response.body);
-	  console.log(response.headers);
+	var res = sg.API(request, function(error, response) {
+//   console.log(response.body);
+//   console.log(response.headers);
+	  return response;
 	});
+	return res;
 }
 
 exports.ticketDetails = function(req, res) {
@@ -140,6 +164,7 @@ exports.ticketDetails = function(req, res) {
 	view.on('init', function(next) {
 		var q = keystone.list('Order').model.findOne()
 		.where('orderId', req.params.orderId)
+		.populate('passes')
         q.exec(function(err, order) {
             locals.data.order = order;
 			if(order.receiptSent==false){
@@ -190,12 +215,12 @@ exports.ticketDetails = function(req, res) {
                 };
                 newPasses.push(newPass);
             }
-            console.log("New passes", newPasses);
+            console.log("New passes", newPasses.length);
             var q = keystone.list('Pass').model.create(newPasses, function(err, results) {
                 if(err){
                     console.log("Error creatign passes", err)
                 } else {
-                    console.log("New tickets created", results.length);
+                    console.log("New tickets created");
                 }
                 next(err);
             });
