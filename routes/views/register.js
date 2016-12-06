@@ -93,6 +93,7 @@ var Pass = keystone.list('Pass');
 }
 
 function sendReceipt(order){
+	console.log(order);
 	var helper = require('sendgrid').mail;
 	var from_email = new helper.Email('farai@pixelup.co.za', 'Farai Madzima (PIXEL UP!)');
 	var to_email = new helper.Email('farai@pixelup.co.za', order.buyerName);
