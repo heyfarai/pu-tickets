@@ -3,6 +3,7 @@ var async = require('async'),
 
 var Order = keystone.list('Order');
 var Pass = keystone.list('Pass');
+var _ = require('lodash')
 
 /**
  * List Orders
@@ -42,7 +43,11 @@ exports.get = function(req, res) {
 
 exports.notifyUpdate = function(req, res) {
 	data = (req.method == 'POST') ? req.body : req.query;
-	console.log("PAYGATE SAYS:", data)
+	cleanData = {}
+	_.forEach(data, function(value, key) {
+	  	cleanData[_.camelCase(key)] = value;
+	});
+	console.log("PAYGATE SAYS:", cleanData)
 	Order.model.findOne(
 		{
 			"orderId" : req.params.id
@@ -53,8 +58,14 @@ exports.notifyUpdate = function(req, res) {
 		if (err) return res.apiError('database error', err);
 		if (!item) return res.apiError('not found');
 
-		res.apiResponse({
-			code: item
+		item.getUpdateHandler(req).process(cleanData, function(err) {
+
+			if (err) return res.apiError('create error', err);
+
+			res.apiResponse({
+				order: item
+			});
+
 		});
 
 	});

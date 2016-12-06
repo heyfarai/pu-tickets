@@ -24,9 +24,9 @@ Order.add({
     full_2day: { type: Number, size: 'small', default: 0 },
     full_3day: { type: Number, size: 'small', default: 0 },
 
-    paygate_id: { type: String, size: 'small' },
-    pay_request_id: { type: String, size: 'small' },
-    transaction_status: { type: String, size: 'small' },
+    paygateId: { type: String, size: 'small' },
+    payRequestId: { type: String, size: 'small' },
+    transactionStatus: { type: String, size: 'small' },
     checksum: { type: String, size: 'small' },
     reference: { type: String, size: 'small' },
     resultCode: { type: String, size: 'small' },

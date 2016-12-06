@@ -235,9 +235,9 @@ exports.ticketDetails = function(req, res) {
 		var q = keystone.list('Order').model.findOne()
 		.where('orderId', req.params.orderId)
         q.exec(function(err, order) {
-            order.paygate_id = req.params.paygateId,
-            order.pay_request_id = req.params.payRequestId,
-            order.transaction_status = 1,
+            order.paygateId = req.params.paygateId,
+            order.payRequestId = req.params.payRequestId,
+            order.transactionStatus = 1,
             order.checksum = req.params.checksum,
             order.ticketsAdded = true,
             order.save(function(err){
