@@ -24,9 +24,8 @@ var Pass = keystone.list('Pass');
  		.where('_id', req.params.ticketId)
 		.populate('order')
          q.exec(function(err, ticket) {
-            console.log(req.params.ticketId)
-             locals.data.ticket = ticket;
-             next(err);
+            locals.data.ticket = ticket;
+			next(err);
          });
      });
 
@@ -101,8 +100,12 @@ function sendReceipt(order){
 	var content = new helper.Content('text/html', '<p></p>');
 	var mail = new helper.Mail(from_email, subject, to_email, content);
 
+
+
 	personalization = new helper.Personalization()
 	personalization.addTo(to_email)
+	substitution = new helper.Substitution("%date%", order.createdAt.toDateString())
+	personalization.addSubstitution(substitution)
 	substitution = new helper.Substitution("%name%", order.buyerName)
 	personalization.addSubstitution(substitution)
 	substitution = new helper.Substitution("%company%", (order.buyerCompany!='') ? order.buyerCompany : '')
