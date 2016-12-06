@@ -11,6 +11,9 @@
                         <div class="block-wrapper block-wrapper--form">
                         <br />
                         <h5>Ticket {{ loop.index }} <br /> <small class="caption">{{ t.type }} Ticket</small></h5>
+                        <p>
+                            {% if t.type == "3 Day"%}You'll get to choose your workshops as soon as they're finalised. {% endif %}
+                        </p>
                         <ul class="no-bullet">
                             <li>
                                 <fieldset>
