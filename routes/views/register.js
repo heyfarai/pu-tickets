@@ -117,13 +117,17 @@ function sendReceipt(order){
 	//console.log(order);
 	var helper = require('sendgrid').mail;
 	var from_email = new helper.Email('farai@pixelup.co.za', 'Farai Madzima (PIXEL UP!)');
-	var to_email = new helper.Email('farai@pixelup.co.za', order.buyerName);
+	var to_email = new helper.Email(order.buyerEmail, order.buyerName);
 	var subject = 'PIXEL UP! Receipt';
 	var content = new helper.Content('text/html', '<p></p>');
 	var mail = new helper.Mail(from_email, subject, to_email, content);
 
+
+
 	personalization = new helper.Personalization()
 	personalization.addTo(to_email)
+	email = new helper.Email("tickets@pixelup.co.za", "Ticket Buyer")
+	personalization.addBcc(email)
 	substitution = new helper.Substitution("-date-", order.createdAt.toDateString())
 	personalization.addSubstitution(substitution)
 	substitution = new helper.Substitution("-name-", order.buyerName)
