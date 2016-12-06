@@ -30,10 +30,11 @@ Order.add({
     checksum: { type: String, size: 'small' },
     reference: { type: String, size: 'small' },
     resultCode: { type: String, size: 'small' },
-    resultDescription: { type: String, size: 'small' },
+    resultDesc: { type: String, size: 'small' },
     transactionId: { type: String, size: 'small' },
     authCode: { type: String, size: 'small' },
-    risk: { type: String, size: 'small' },
+    riskIndicator: { type: String, size: 'small' },
+    payMethodDetail: { type: String, size: 'small' },
 
 	receiptSent: { type: Boolean, default: false },
 	ticketsAdded: { type: Boolean, default: false },
