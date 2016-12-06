@@ -42,7 +42,6 @@ Pass.add({
 
 // Fix the Twitter handle
 Pass.schema.pre('save', function(next) {
-	console.log("Snooze", this.completeLater)
 	if(this.completeLater==false){
 		this.completeLater = (this.email=="" && this.attendeeName.first =="" && this.attendeeName.last =="") ? true : false;
 	}

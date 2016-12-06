@@ -93,7 +93,7 @@ var Pass = keystone.list('Pass');
 }
 
 function sendReceipt(order){
-	console.log(order);
+	console.log("sending receipt to order:", order);
 	var helper = require('sendgrid').mail;
 	var from_email = new helper.Email('farai@pixelup.co.za', 'Farai Madzima (PIXEL UP!)');
 	var to_email = new helper.Email('farai@pixelup.co.za', order.buyerName);
@@ -103,7 +103,10 @@ function sendReceipt(order){
 
 	personalization = new helper.Personalization()
 	personalization.addTo(to_email)
-
+	substitution = new helper.Substitution("%name%", order.buyerName)
+	personalization.addSubstitution(substitution)
+	substitution = new helper.Substitution("%company%", (order.buyerCompany!='') ? order.buyerCompany : '')
+  	personalization.addSubstitution(substitution)
 	substitution = new helper.Substitution("%amount%", order.orderAmount)
   	personalization.addSubstitution(substitution)
 	mail.addPersonalization(personalization)
@@ -189,7 +192,7 @@ exports.ticketDetails = function(req, res) {
                 if(err){
                     console.log("Error creatign passes", err)
                 } else {
-                    console.log("New tickets created", results);
+                    console.log("New tickets created", results.length);
                 }
                 next(err);
             });
