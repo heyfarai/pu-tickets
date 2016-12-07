@@ -76,7 +76,7 @@ exports.forceTickets = function(req,res,next) {
 	var sslUrl;
 
 	// combine hostname and port
-	if(req.hostname=="tickets.pixelup.co.za" && req.path.indexOf('register-ticket')==-1 && req.path.indexOf('api')==-1){
+	if(req.hostname=="tickets.pixelup.co.za" && req.path.indexOf('register-ticket')==-1 && req.path.indexOf('api')==-1) && req.path.indexOf('keystone')==-1){
 		// (keystone.get('env')=="production" && req.headers['x-forwarded-proto'] !== 'https')
 		// ) {
 		// sslUrl = ['https://', hostnameWithPort, req.url].join('');
