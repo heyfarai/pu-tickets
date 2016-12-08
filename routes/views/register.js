@@ -126,7 +126,7 @@ function sendReceipt(order){
 
 	personalization = new helper.Personalization()
 	personalization.addTo(to_email)
-	email = new helper.Email("tickets@pixelup.co.za", "Ticket Buyer")
+	email = new helper.Email("team@pixelup.co.za", "Someone bought a ticket")
 	personalization.addBcc(email)
 	substitution = new helper.Substitution("-date-", order.createdAt.toDateString())
 	personalization.addSubstitution(substitution)
