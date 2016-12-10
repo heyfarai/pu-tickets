@@ -116,18 +116,33 @@ function getTicketList(ticketObj){
 function sendReceipt(order){
 	//console.log(order);
 	var helper = require('sendgrid').mail;
-	var from_email = new helper.Email('farai@pixelup.co.za', 'Farai Madzima (PIXEL UP!)');
-	var to_email = new helper.Email(order.buyerEmail, order.buyerName);
-	var subject = 'PIXEL UP! Receipt';
-	var content = new helper.Content('text/html', '<p></p>');
-	var mail = new helper.Mail(from_email, subject, to_email, content);
 
+	mail = new helper.Mail()
+	email = new helper.Email("farai@pixelup.co.za", "Farai Madzima (PIXEL UP!)")
+	mail.setFrom(email)
 
+	// SET THE SUBJECT
+	if(keystone.get('env')=="development"){
+		mail.setSubject("TEST EMAIL")
+	} else {
+		mail.setSubject("Your PIXEL UP! receipt")
+	}
 
+	// ADD PERSONALISATION
 	personalization = new helper.Personalization()
+
+	// SEND TO THE CUSTOMER
+	var to_email = new helper.Email(order.buyerEmail, order.buyerName);
 	personalization.addTo(to_email)
+
+	// SEND (BCC) TO THE TEAM
 	email = new helper.Email("team@pixelup.co.za", "Someone bought a ticket")
 	personalization.addBcc(email)
+
+	// ADD HTML CONTENT
+	var content = new helper.Content('text/html', '<p></p>');
+    mail.addContent(content)
+
 	substitution = new helper.Substitution("-date-", order.createdAt.toDateString())
 	personalization.addSubstitution(substitution)
 	substitution = new helper.Substitution("-name-", order.buyerName)
@@ -138,6 +153,7 @@ function sendReceipt(order){
   	personalization.addSubstitution(substitution)
 	substitution = new helper.Substitution("-tickets-", getTicketList(order))
   	personalization.addSubstitution(substitution)
+
 	mail.addPersonalization(personalization)
 	mail.setTemplateId(process.env.RECEIPT_TEMPLATE)
 
@@ -150,8 +166,8 @@ function sendReceipt(order){
 	console.log(request.body.personalizations);
 
 	var res = sg.API(request, function(error, response) {
-//   console.log(response.body);
-//   console.log(response.headers);
+		  console.log(response.body);
+		  console.log(response.headers);
 	  return response;
 	});
 	return res;
