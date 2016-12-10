@@ -58,6 +58,7 @@ exports.notifyUpdate = function(req, res) {
 		if (err) return res.apiError('database error', err);
 		if (!item) return res.apiError('not found');
 
+		// TODO:  check if this is a dupe
 		item.getUpdateHandler(req).process(cleanData, function(err) {
 
 			if (err) return res.apiError('create error', err);
