@@ -11,6 +11,6 @@ request({
     if(error) {
         console.log(error);
     } else {
-         console.log(response.statusCode, body);
+         console.log(response.statusCode, "from checkout");
     }
 });
