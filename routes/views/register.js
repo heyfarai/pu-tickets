@@ -136,7 +136,7 @@ function sendReceipt(order){
 	personalization.addTo(to_email)
 
 	// SEND (BCC) TO THE TEAM
-	email = new helper.Email("team@pixelup.co.za", "Someone bought a ticket")
+	email = new helper.Email(process.env.TEAM_EMAIL, "Someone bought a ticket")
 	personalization.addBcc(email)
 
 	// ADD HTML CONTENT
@@ -187,6 +187,9 @@ exports.ticketDetails = function(req, res) {
 		.populate('passes')
         q.exec(function(err, order) {
             locals.data.order = order;
+			if(!order){
+				console.log("order not found")
+			}
 			if(order.receiptSent==false){
 				sendReceipt(order);
 				order.receiptSent = true;

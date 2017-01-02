@@ -46,6 +46,7 @@ keystone.init({
 	'session store': 'mongo',
 	'auth': true,
 	'user model': 'User',
+	'mongo'			: process.env.MONGODB_URI || "mongodb://localhost:27017/pixel-up"
 
 });
 
