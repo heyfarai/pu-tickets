@@ -24,6 +24,7 @@ Pass.add({
 	halaal: { type: Boolean, default: false },
 	vegetarian: { type: Boolean, default: false },
 	vegan: { type: Boolean, default: false },
+	kosher: { type: Boolean, default: false },
 
 	orderId: { type: String },
 	type: { type: Types.Select, options: '2 Day, 3 Day, 1 Day, 1 Day Workshop', default: '2 Day' },

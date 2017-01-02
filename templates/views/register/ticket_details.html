@@ -8,6 +8,12 @@
                     <form data-parsley-validate role="form" class="" action="/register-tickets/{{ data.order.id}}/update-tickets" method="post" name="paygate_process_form">
                         {% for t in data.tickets %}
                         {% if not t.isAssigned %}
+                            {% if loop.index == 1%}
+                                {% set firstName = data.order.buyerFirstName %}
+                                {% set lastName = data.order.buyerLastName %}
+                                {% set company = data.order.buyerCompany %}
+                                {% set email = data.order.buyerEmail %}
+                            {% endif %}
                         <div class="block-wrapper block-wrapper--form">
                         <br />
                         <h5>Ticket {{ loop.index }} <br /> <small class="caption">{{ t.type }} Ticket</small></h5>
@@ -19,29 +25,29 @@
                                 <fieldset>
                                     <div class="one-third column">
                                         <label>First Name</label>
-                                        <input class="form-control" id="{{t.id}}[firstName]" name="{{t.id}}[attendeeName][first]" value="" type="text">
+                                        <input class="form-control" id="{{t.id}}[firstName]" name="{{t.id}}[attendeeName][first]" value="{{ firstName }}" type="text">
                                     </div>
                                     <div class="one-third column">
                                         <label>Last Name</label>
-                                        <input class="form-control" id="{{t.id}}[lastName]" name="{{t.id}}[attendeeName][last]" value="" type="text">
+                                        <input class="form-control" id="{{t.id}}[lastName]" name="{{t.id}}[attendeeName][last]" value="{{ lastName }}" type="text">
                                     </div>
                                     <div class="one-third column">
-                                        <label>Company</label>
-                                        <input class="form-control" id="{{t.id}}[companyName]" name="{{t.id}}[companyName]" value="" type="text">
+                                        <label>Email address</label>
+                                        <input class="form-control" id="{{t.id}}[email]" name="{{t.id}}[email]" value="{{ email }}" type="text">
                                     </div>
                                 </fieldset>
                                 <fieldset>
                                     <div class="one-third column">
                                         <label>Mobile number</label>
-                                        <input class="form-control" id="{{t.id}}[mobileNumber]" name="{{t.id}}[mobileNumber]" value="+" type="text">
-                                    </div>
-                                    <div class="one-third column">
-                                        <label>Email address</label>
-                                        <input class="form-control" id="{{t.id}}[email]" name="{{t.id}}[email]" value="" type="text">
+                                        <input class="form-control" id="{{t.id}}[mobileNumber]" name="{{t.id}}[mobileNumber]" value="" type="text" placeholder="e.g. +27 786 754 055">
                                     </div>
                                     <div class="one-third column">
                                         <label>Twitter Handle</label>
-                                        <input class="form-control" id="{{t.id}}[twitterName]" name="{{t.id}}[twitterName]" value="" type="text">
+                                        <input class="form-control" id="{{t.id}}[twitterName]" name="{{t.id}}[twitterName]" value="" type="text" placeholder="e.g. @letspixelup">
+                                    </div>
+                                    <div class="one-third column">
+                                        <label>Company</label>
+                                        <input class="form-control" id="{{t.id}}[companyName]" name="{{t.id}}[companyName]" value="{{ company }}" type="text">
                                     </div>
                                 </fieldset>
                                 {% if loop.length == 1 %}
@@ -72,13 +78,16 @@
                                             <input id="{{t.id}}[dairyFree]"  name="{{t.id}}[dairyFree]" class="check-input" type="checkbox" value="1"> Diary free
                                         </label>
                                         <label class="label--inline">
-                                            <input id="{{t.id}}[halaal]" name="{{t.id}}[halaal]" class="check-input" type="checkbox" value="1"> Halaal
-                                        </label>
-                                        <label class="label--inline">
                                             <input id="{{t.id}}[vegetarian]"  name="{{t.id}}[vegetarian]" class="check-input" type="checkbox" value="1"> Vegetarian
                                         </label>
                                         <label class="label--inline">
                                             <input id="{{t.id}}[vegan]" name="{{t.id}}[vegan]" class="check-input" type="checkbox" value="1"> Vegan
+                                        </label>
+                                        <label class="label--inline">
+                                            <input id="{{t.id}}[halaal]" name="{{t.id}}[halaal]" class="check-input" type="checkbox" value="1"> Halaal
+                                        </label>
+                                        <label class="label--inline">
+                                            <input id="{{t.id}}[kosher]" name="{{t.id}}[kosher]" class="check-input" type="checkbox" value="1"> Kosher
                                         </label>
                                     </div>
                                 </fieldset>

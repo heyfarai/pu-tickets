@@ -46,6 +46,14 @@ Order.add({
 
 Order.relationship({ path: 'passes', ref: 'Pass', refPath: 'order' });
 
+Order.schema.virtual('buyerFirstName').get(function() {
+	return (this.buyerName.substr(0, this.buyerName.indexOf(' ')));
+});
+
+Order.schema.virtual('buyerLastName').get(function() {
+	return (this.buyerName.substr(this.buyerName.indexOf(' ')));
+});
+
 Order.schema.virtual('count2D').get(function() {
 	return (this.earlyBird_2day + this.full_2day);
 });
