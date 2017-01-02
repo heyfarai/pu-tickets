@@ -106,7 +106,7 @@ var Pass = keystone.list('Pass');
 }
 
 function getTicketList(ticketObj){
-	console.log(ticketObj)
+	console.log("getTicketList: compiling tickets")
 	var tix = "";
 	tix = (ticketObj.count3D>0) ? tix + ticketObj.count3D + " x 3 Day Tickets<br/>" : '' ;
 	tix = (ticketObj.count2D>0) ? tix + ticketObj.count2D + " x 2 Day Tickets" : tix ;
@@ -273,7 +273,7 @@ exports.ticketDetails = function(req, res) {
     // Load other posts
 	view.on('init', function(next) {
 		var q = keystone.list('Pass').model.find()
-		.where('orderId', locals.data.order.orderId)
+		.where('order', locals.data.order)
         q.exec(function(err, results) {
             locals.data.tickets = results;
             next(err);
