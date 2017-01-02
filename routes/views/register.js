@@ -159,8 +159,8 @@ function sendReceipt(order){
 	  path: '/v3/mail/send',
 	  body: mail.toJSON(),
 	});
-	console.log(request.body.personalizations);
 
+	console.log("Sending receipt.");
 	var res = sg.API(request, function(error, response) {
 		  console.log(response.body);
 		  console.log(response.headers);
@@ -184,9 +184,11 @@ exports.ticketDetails = function(req, res) {
         q.exec(function(err, order) {
             locals.data.order = order;
 			if(!order){
-				console.log("order not found")
+				console.log("order not found");
+				// Throw an error properly
+	            next(err);
 			}
-			if(order.receiptSent==false){
+			if(order.receiptSent==false || req.params.forceEmail==1){
 				sendReceipt(order);
 				order.receiptSent = true;
 				order.save();

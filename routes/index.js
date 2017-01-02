@@ -117,7 +117,7 @@ exports = module.exports = function(app) {
 	app.get('/downloads', routes.views.downloads);
 	app.get('/feedback', routes.views.feedback);
 
-	app.get('/register-tickets/:orderId/:payRequestId/:paygateId/:checksum', routes.views.register.ticketDetails);
+	app.get('/register-tickets/:orderId/:payRequestId/:paygateId/:checksum/:forceEmail?', routes.views.register.ticketDetails);
 	app.post('/register-tickets/:orderId/update-tickets', routes.views.register.updateTicketsByOrder)
 	app.get('/register-tickets/:ticketId', routes.views.register.showTicket)
 

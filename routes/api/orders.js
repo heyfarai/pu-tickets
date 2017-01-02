@@ -108,7 +108,6 @@ function createPass($passData){
  * Create a Order
  */
 exports.create = function(req, res) {
-
 	var item = new Order.model(),
 		data = (req.method == 'POST') ? req.body : req.query;
 		console.log("Creating order request:", data.REFERENCE);
