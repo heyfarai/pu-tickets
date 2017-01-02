@@ -30,15 +30,15 @@
                                 <fieldset>
                                     <div class="one-third column">
                                         <label>First Name</label>
-                                        <input class="form-control" id="{{t.id}}[firstName]" name="{{t.id}}[attendeeName][first]" value="{{ firstName }}" type="text">
+                                        <input class="form-control" id="{{t.id}}[firstName]" name="{{t.id}}[attendeeName][first]" value="{{ firstName }}" type="text" placeholder="First name">
                                     </div>
                                     <div class="one-third column">
                                         <label>Last Name</label>
-                                        <input class="form-control" id="{{t.id}}[lastName]" name="{{t.id}}[attendeeName][last]" value="{{ lastName }}" type="text">
+                                        <input class="form-control" id="{{t.id}}[lastName]" name="{{t.id}}[attendeeName][last]" value="{{ lastName }}" type="text" placeholder="Last name">
                                     </div>
                                     <div class="one-third column">
                                         <label>Email address</label>
-                                        <input class="form-control" id="{{t.id}}[email]" name="{{t.id}}[email]" value="{{ email }}" type="text">
+                                        <input class="form-control" id="{{t.id}}[email]" name="{{t.id}}[email]" value="{{ email }}" type="text" placeholder="you@something.com">
                                     </div>
                                 </fieldset>
                                 <fieldset>
@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="one-third column">
                                         <label>Company</label>
-                                        <input class="form-control" id="{{t.id}}[companyName]" name="{{t.id}}[companyName]" value="{{ company }}" type="text">
+                                        <input class="form-control" id="{{t.id}}[companyName]" name="{{t.id}}[companyName]" value="{{ company }}" type="text" placeholder="e.g. 9to5 Widgets">
                                     </div>
                                 </fieldset>
                                 {% if loop.length == 1 %}

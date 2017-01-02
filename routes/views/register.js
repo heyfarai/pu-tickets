@@ -162,8 +162,11 @@ function sendReceipt(order){
 
 	console.log("Sending receipt.");
 	var res = sg.API(request, function(error, response) {
-		  console.log(response.body);
-		  console.log(response.headers);
+		  	if(error){
+				console.log("failed to email receipt")  // this must do more
+			} else {
+				console.log("SENT RECEIPT FOR TICKETS")
+			}
 	  return response;
 	});
 	return res;
