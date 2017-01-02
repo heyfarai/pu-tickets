@@ -47,7 +47,7 @@ exports.notifyUpdate = function(req, res) {
 	_.forEach(data, function(value, key) {
 	  	cleanData[_.camelCase(key)] = value;
 	});
-	console.log("PAYGATE SAYS:", cleanData)
+	console.log("PAYGATE SAYS: ", cleanData.reference + " // " + cleanData.resultDesc)
 	Order.model.findOne(
 		{
 			"orderId" : req.params.id

@@ -13,6 +13,11 @@
                                 {% set lastName = data.order.buyerLastName %}
                                 {% set company = data.order.buyerCompany %}
                                 {% set email = data.order.buyerEmail %}
+                            {% else %}
+                                {% set firstName = '' %}
+                                {% set lastName = '' %}
+                                {% set company = '' %}
+                                {% set email = '' %}
                             {% endif %}
                         <div class="block-wrapper block-wrapper--form">
                         <br />
