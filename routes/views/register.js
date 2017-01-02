@@ -118,15 +118,11 @@ function sendReceipt(order){
 	var helper = require('sendgrid').mail;
 
 	mail = new helper.Mail()
-	email = new helper.Email("farai@pixelup.co.za", "Farai Madzima (PIXEL UP!)")
+	email = new helper.Email(process.env.FROM_EMAIL, process.env.FROM_NAME)
 	mail.setFrom(email)
 
 	// SET THE SUBJECT
-	if(keystone.get('env')=="development"){
-		mail.setSubject("TEST EMAIL")
-	} else {
-		mail.setSubject("Your PIXEL UP! receipt")
-	}
+	mail.setSubject(process.env.TEAM_EMAIL)
 
 	// ADD PERSONALISATION
 	personalization = new helper.Personalization()
