@@ -111,22 +111,14 @@ exports.create = function(req, res) {
 
 	var item = new Order.model(),
 		data = (req.method == 'POST') ? req.body : req.query;
-
+		"Creating order request:", data.reference);
 	    item.getUpdateHandler(req).process(data, function(err) {
 
             // IF the Order wasn't created
-    		if (err) return res.apiError('error', err);
-
-            Order.model.findById(item._id).exec()
-            .then(function(err, obj){
-                console.log(obj);
-                    res.apiResponse({
-                        order: item
-                    });
-            }, function (err) { //first promise rejected
-                if (err) return res.apiError('Error creating tickets', err);
-            })
-
+    		if (err) return res.apiError('Error creating the order', err);
+			res.apiResponse({
+				order: item
+			});
     	});
 }
 
