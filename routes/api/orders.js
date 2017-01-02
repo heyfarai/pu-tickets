@@ -111,7 +111,7 @@ exports.create = function(req, res) {
 
 	var item = new Order.model(),
 		data = (req.method == 'POST') ? req.body : req.query;
-		"Creating order request:", data.reference);
+		console.log("Creating order request:", data.reference);
 	    item.getUpdateHandler(req).process(data, function(err) {
 
             // IF the Order wasn't created
