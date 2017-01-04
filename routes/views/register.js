@@ -122,7 +122,7 @@ function sendReceipt(order){
 	mail.setFrom(email)
 
 	// SET THE SUBJECT
-	mail.setSubject(process.env.TEAM_EMAIL)
+	mail.setSubject(process.env.TEAM_EMAIL_SUBJECT)
 
 	// ADD PERSONALISATION
 	personalization = new helper.Personalization()
