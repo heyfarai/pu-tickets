@@ -46,10 +46,10 @@ keystone.init({
 	'session store': 'mongo',
 	'auth': true,
 	'user model': 'User',
-	'mongo'			: process.env.MONGODB_URI || "mongodb://localhost:27017/pixel-up",
-	'port'    : process.env.PORT || 9999
-
+	'mongo'			: process.env.MONGODB_URI || "mongodb://localhost:27017/pixel-up"
 });
+
+keystone.set('port', (process.env.PORT || 9999));
 
 // Load your project's Models
 
