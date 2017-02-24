@@ -27,7 +27,7 @@ Pass.add({
 	kosher: { type: Boolean, default: false },
 
 	orderId: { type: String },
-	type: { type: Types.Select, options: '2 Day, 3 Day, 1 Day, 1 Day Workshop', default: '2 Day' },
+	type: { type: Types.Select, options: '2 Day, 2 Day - Student, 3 Day, 1 Day, 1 Day Workshop', default: '2 Day' },
 	order: { type: Types.Relationship, ref: 'Order', index: true },
 
 	completeLater: { type: Boolean, default: false },

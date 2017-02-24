@@ -231,11 +231,27 @@ exports.ticketDetails = function(req, res) {
                 };
                 newPasses.push(newPass);
             }
+            for(i = 0; i < locals.data.order.student_2day; i++){
+                var newPass = {
+                    orderId: locals.data.order.orderId,
+                    order: locals.data.order,
+                    type: '2 Day - Student'
+                };
+                newPasses.push(newPass);
+            }
             for(i = 0; i < locals.data.order.full_3day; i++){
                 var newPass = {
                     orderId: locals.data.order.orderId,
                     order: locals.data.order,
                     type: '3 Day'
+                };
+                newPasses.push(newPass);
+            }
+            for(i = 0; i < locals.data.order.workshop_1day; i++){
+                var newPass = {
+                    orderId: locals.data.order.orderId,
+                    order: locals.data.order,
+                    type: '1 Day - Workshop'
                 };
                 newPasses.push(newPass);
             }

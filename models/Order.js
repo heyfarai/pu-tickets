@@ -23,6 +23,8 @@ Order.add({
     earlyBird_3day: { type: Number, size: 'small', default: 0 },
     full_2day: { type: Number, size: 'small', default: 0 },
     full_3day: { type: Number, size: 'small', default: 0 },
+    student_2day: { type: Number, size: 'small', default: 0 },
+    workshop_1day: { type: Number, size: 'small', default: 0 },
 
     paygateId: { type: String, size: 'small' },
     payRequestId: { type: String, size: 'small' },
@@ -55,10 +57,13 @@ Order.schema.virtual('buyerLastName').get(function() {
 });
 
 Order.schema.virtual('count2D').get(function() {
-	return (this.earlyBird_2day + this.full_2day);
+	return (this.earlyBird_2day + this.full_2day + this.student_2day);
 });
 Order.schema.virtual('count3D').get(function() {
 	return (this.earlyBird_3day + this.full_3day);
+});
+Order.schema.virtual('count1D').get(function() {
+	return (this.workshop_1day);
 });
 
 Order.defaultColumns = 'buyerName, buyerEmail, orderAmount, createdAt';

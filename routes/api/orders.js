@@ -110,7 +110,7 @@ function createPass($passData){
 exports.create = function(req, res) {
 	var item = new Order.model(),
 		data = (req.method == 'POST') ? req.body : req.query;
-		console.log("Creating order request:", data.REFERENCE);
+		console.log("Creating order request:", data);
 	    item.getUpdateHandler(req).process(data, function(err) {
 
             // IF the Order wasn't created

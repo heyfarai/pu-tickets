@@ -46,7 +46,8 @@ keystone.init({
 	'session store': 'mongo',
 	'auth': true,
 	'user model': 'User',
-	'mongo'			: process.env.MONGOLAB_URI || "mongodb://localhost:27017/pixel-up"
+	'mongo'			: process.env.MONGOLAB_URI || "mongodb://localhost:27017/pixel-up",
+	'port'    : process.env.PORT || 9999
 
 });
 
@@ -68,7 +69,7 @@ if (keystone.get('env')=="development") {
 	keystone.set("ssl", true);
 	keystone.set("ssl key", "./_private/server.key");
 	keystone.set("ssl cert", "./_private/server.crt");
-	keystone.set("ssl port", 3001);
+	keystone.set("ssl port", 9998);
 }
 
 // Setup common locals for your templates. The following are required for the
