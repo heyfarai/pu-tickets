@@ -107,7 +107,7 @@ exports = module.exports = function(app) {
 	app.post('/email', routes.views.email_signup);
 	app.get('/p/blog/:post', routes.views.blog__post);
 	app.get('/p/blog/articles-about/:category', routes.views.blog);
-	app.get('/p/blog', routes.views.blog);
+	app.get('/p/blog', routes.views.blog); 
 
 	app.all('/get-ready/:p', routes.views.activate);
 	app.get('/get-ready', routes.views.activate);
